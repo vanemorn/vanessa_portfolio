@@ -3,13 +3,11 @@ import { Button, Box } from '@mui/material'; // Import Material UI Button and Bo
 import EmailIcon from '@mui/icons-material/Email'; // Import Email icon from MUI icons
 import DownloadIcon from '@mui/icons-material/Download'; // Import Download icon from MUI icons
 import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ensure the correct path to your image
-import Header from 'C:/Users/linda/vanessa_portfolio/src/header.tsx';
 
 
 const Home: React.FC = () => {
   return (
     <section id="home" className="section">
-      <Header />
       <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
         Hello,
       </p>
