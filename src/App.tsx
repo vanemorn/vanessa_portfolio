@@ -1,12 +1,10 @@
-// src/App.tsx
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa componentes de Material UI
 import EmailIcon from '@mui/icons-material/Email'; // Icono de Email
 import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
 import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
-import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
+import About from './Pages/About'; // Asegúrate de que esta ruta es correcta
 
 const Home: React.FC = () => {
   return (
@@ -108,29 +106,27 @@ const Home: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      {/* Header */}
+    <Router basename="/mi-portfolio"> {/* Cambia esto según tu repositorio */}
       <AppBar position="static" style={{ backgroundColor: '#4E937A' }}>
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             Vanessa M
           </Typography>
-          <Button color="inherit" component={Link} to="/App.tsx">
+          <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/About.tsx">
+          <Button color="inherit" component={Link} to="/about">
             About
           </Button>
         </Toolbar>
       </AppBar>
 
-      {/* Rutas */}
       <Routes>
-        <Route path="/app.tsx" element={<Home />} />
-        <Route path="/about.tsx" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
 };
 
-export default Home;
+export default App;
