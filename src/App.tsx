@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa los componentes necesarios de Material UI
+import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa los componentes de Material UI
 import EmailIcon from '@mui/icons-material/Email'; // Icono de Email
 import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
-import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Asegúrate de que la ruta es correcta
+import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
 import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About'; // Asegúrate de que esta es la ruta correcta para tu componente About
 
 const Home: React.FC = () => {
