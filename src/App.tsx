@@ -7,6 +7,8 @@
  import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
  import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
  import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
+ import Projects from 'C:/Users/linda/vanessa_portfolio/src/Pages/Projects.tsx'; // Ruta del componente About
+
  
  const Home: React.FC = () => {
    return (
@@ -117,6 +119,9 @@
            <Button color="inherit" component={Link} to="/About.tsx">
              About
            </Button>
+           <Button color="inherit" component={Link} to="/Projects.tsx">
+             Projects
+           </Button>
          </Toolbar>
        </AppBar>
  
@@ -124,6 +129,8 @@
        <Routes>
          <Route path="/app.tsx" element={<Home />} />
          <Route path="/about.tsx" element={<About />} />
+         <Route path="/app.tsx" element={<Home />} />
+         <Route path="/Projects.tsx" element={<Projects />} />
        </Routes>
      </Router>
    );
