@@ -1,16 +1,21 @@
+// Header.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Button } from '@mui/material';
 
 const Header: React.FC = () => {
   return (
-    <AppBar position="static" style={{ backgroundColor: '#4E937A' }}>
-      <Toolbar>
-        <Button color="inherit" component={Link} to="/about">
-          About
-        </Button>
-      </Toolbar>
-    </AppBar>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <Link to="App.tsx">Home</Link> {/* Link a la página de inicio */}
+          </li>
+          <li>
+            <Link to="About.tsx">About</Link> {/* Link a la página About */}
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

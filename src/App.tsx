@@ -1,13 +1,13 @@
 // App.tsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About';
-import Header from 'C:/Users/linda/vanessa_portfolio/src/Pages/Header';
+import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
+import About from './Pages/About'; // Importa tu componente About
+import Header from './Pages/Header'; // Importa tu Header
 
 import { Button, Box } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
-import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; 
+import biopic from './assets/biopic.png'; // Asegúrate de que la ruta sea correcta
 
 const App: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <Routes>
         {/* Ruta principal que actúa como Home */}
         <Route 
-          path="/" 
+          path="/App.tsx" 
           element={
             <section id="home" className="section">
               <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
@@ -31,8 +31,8 @@ const App: React.FC = () => {
                   <p style={{ fontFamily: 'Aptos, sans-serif', fontWeight: '700', color: '#00002D', fontSize: '50px', lineHeight: '30px', marginBottom: '40px' }}>
                     UI Designer
                   </p>
-                  <p>I'm a passionate Graphic Designer with 3 years of experience <br/> working in several fields of 
-                    visual communication, <br/> currently specializing in User Experience and Interaction Design. 
+                  <p>I'm a passionate Graphic Designer with 3 years of experience <br /> working in several fields of 
+                    visual communication, <br /> currently specializing in User Experience and Interaction Design. 
                   </p>
                   <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
                   <Box display="flex" justifyContent="center" gap={2} marginTop="20px">
@@ -41,7 +41,7 @@ const App: React.FC = () => {
                       color="primary" 
                       size="large" 
                       startIcon={<EmailIcon />} 
-                      href="mailto:vanemorn19@gmail.com"
+                      href="mailto:vanemorn19@gmail.com" 
                       sx={{
                         backgroundColor: '#4E937A',
                         '&:hover': { backgroundColor: '#254C3D' },
