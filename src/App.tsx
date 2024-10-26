@@ -8,10 +8,8 @@ import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
 import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
 import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
 
-
 const Home: React.FC = () => {
   return (
-    
     <section id="home" className="section">
       <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
         Hello,
@@ -25,7 +23,6 @@ const Home: React.FC = () => {
           <p style={{ fontFamily: 'Aptos, sans-serif', fontWeight: '700', color: '#00002D', fontSize: '50px', lineHeight: '30px', marginBottom: '40px' }}>
             UI Designer
           </p>
-
 
           <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
@@ -113,10 +110,10 @@ const App: React.FC = () => {
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             Vanessa M
           </Typography>
-          <Button color="inherit" component={Link} to="/App.tsx">
+          <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button color="inherit" component={Link} to="/About.tsx">
+          <Button color="inherit" component={Link} to="/about">
             About
           </Button>
         </Toolbar>
@@ -124,8 +121,8 @@ const App: React.FC = () => {
 
       {/* Rutas */}
       <Routes>
-        <Route path="/app.tsx" element={<Home />} />
-        <Route path="/about.tsx" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
