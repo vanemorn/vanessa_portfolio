@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa los componentes de Material UI
+import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa componentes de Material UI
 import EmailIcon from '@mui/icons-material/Email'; // Icono de Email
 import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
 import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
-import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About'; // Asegúrate de que esta es la ruta correcta para tu componente About
+import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
 
 const Home: React.FC = () => {
   return (
@@ -31,9 +31,8 @@ const Home: React.FC = () => {
 
           <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
-          {/* Buttons Container */}
+          {/* Botones */}
           <Box display="flex" justifyContent="center" gap={2} marginTop="20px">
-            {/* Contact Button with Email Icon */}
             <Button 
               variant="contained" 
               color="primary" 
@@ -56,7 +55,6 @@ const Home: React.FC = () => {
               Contact me!
             </Button>
 
-            {/* Download Button with Download Icon */}
             <Button 
               variant="contained" 
               size="large"
@@ -84,7 +82,6 @@ const Home: React.FC = () => {
 
       <section id="what-i-do" style={{ marginTop: '50px', padding: '20px', backgroundColor: '#4E937A' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
-          {/* Column 1 */}
           <div style={{ flex: '1', marginRight: '20px' }}>
             <h2 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left', fontSize:'35px', marginBottom:'20px' }}>
               What I can do
@@ -94,7 +91,6 @@ const Home: React.FC = () => {
               all aimed at enhancing user experiences and improving visual communication.
             </p>
           </div>
-          {/* Column 2 */}
           <div style={{ flex: '1', marginLeft: '20px' }}>
             <h3 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left' }}>Graphic Design</h3>
             <h3 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left' }}>User Interaction Design</h3>
@@ -110,7 +106,6 @@ const Home: React.FC = () => {
   );
 };
 
-// Componente principal
 const App: React.FC = () => {
   return (
     <Router>
