@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const About: React.FC = () => {
+const Projects: React.FC = () => {
   return (
     <div style={{ padding: '20px' }}>
       <h1>My projects</h1>
@@ -12,4 +12,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Projects;
