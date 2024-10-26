@@ -14,7 +14,7 @@
    return (
      <section id="home" className="section">
        <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
-         Hello,
+         Hello?
        </p>
        <div className="projects-container">
          <div className="project-card">
