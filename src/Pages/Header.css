@@ -1,0 +1,58 @@
+/* Header takes full width */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 1rem 2rem; /* Espaciado interno */
+    background-color: #ffffff; /* Color de fondo del header */
+    color: #212121; /* Color del texto */
+    width: 100%; /* Ancho completo */
+    position: relative; /* Asegura que se comporte correctamente */
+    margin: 0; /* Elimina márgenes que pueden estar presentes */
+  }
+  
+  /* Logo styling */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 50px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Navigation menu styling */
+  .menu {
+    display: flex;
+  }
+  
+  .menu a {
+    margin: 0 15px;
+    color: #212121;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+    }
+  
+    .menu a {
+      margin: 10px 0;
+    }
+  }
+  
