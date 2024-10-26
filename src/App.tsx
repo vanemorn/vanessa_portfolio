@@ -8,13 +8,15 @@
  import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
  import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
  import Projects from 'C:/Users/linda/vanessa_portfolio/src/Pages/Projects.tsx'; // Ruta del componente About
+ import Contact from 'C:/Users/linda/vanessa_portfolio/src/Pages/Contact.tsx'; // Ruta del componente About
+
 
  
  const Home: React.FC = () => {
    return (
      <section id="home" className="section">
        <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
-         Hello?
+         Hello,
        </p>
        <div className="projects-container">
          <div className="project-card">
@@ -122,6 +124,10 @@
            <Button color="inherit" component={Link} to="/Projects.tsx">
              Projects
            </Button>
+           <Button color="inherit" component={Link} to="/Contact.tsx">
+             Contact
+           </Button>
+           
          </Toolbar>
        </AppBar>
  
@@ -129,8 +135,8 @@
        <Routes>
          <Route path="/app.tsx" element={<Home />} />
          <Route path="/about.tsx" element={<About />} />
-         <Route path="/app.tsx" element={<Home />} />
          <Route path="/Projects.tsx" element={<Projects />} />
+         <Route path="/Contact.tsx" element={<Contact />} />
        </Routes>
      </Router>
    );
