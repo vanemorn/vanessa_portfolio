@@ -7,14 +7,12 @@ import EmailIcon from '@mui/icons-material/Email'; // Icono de Email
 import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
 import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ruta de la imagen
 import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx'; // Ruta del componente About
-import Header from 'C:/Users/linda/vanessa_portfolio/src/Pages/Header.tsx'; // Importa el nuevo componente Header
 
 
 const Home: React.FC = () => {
   return (
     
     <section id="home" className="section">
-      <Header />
       <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
         Hello,
       </p>
