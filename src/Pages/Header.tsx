@@ -6,9 +6,6 @@ const Header: React.FC = () => {
   return (
     <AppBar position="static" style={{ backgroundColor: '#4E937A' }}>
       <Toolbar>
-        <Button color="inherit" component={Link} to="/">
-          Home
-        </Button>
         <Button color="inherit" component={Link} to="/about">
           About
         </Button>
