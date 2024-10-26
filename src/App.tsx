@@ -1,14 +1,15 @@
+// src/App.tsx
+
 import React from 'react';
-import { Button, Box } from '@mui/material'; // Import Material UI Button and Box
-import EmailIcon from '@mui/icons-material/Email'; // Import Email icon from MUI icons
-import DownloadIcon from '@mui/icons-material/Download'; // Import Download icon from MUI icons
-import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Ensure the correct path to your image
-
-
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Button, Box, AppBar, Toolbar, Typography } from '@mui/material'; // Importa los componentes necesarios de Material UI
+import EmailIcon from '@mui/icons-material/Email'; // Icono de Email
+import DownloadIcon from '@mui/icons-material/Download'; // Icono de Descargar
+import biopic from 'C:/Users/linda/vanessa_portfolio/src/assets/biopic.png'; // Asegúrate de que la ruta es correcta
+import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About'; // Asegúrate de que esta es la ruta correcta para tu componente About
 
 const Home: React.FC = () => {
   return (
-    
     <section id="home" className="section">
       <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
         Hello,
@@ -23,11 +24,11 @@ const Home: React.FC = () => {
             UI Designer
           </p>
 
-          <p>I'm a passionate Graphic Designer with 3 years of experience <br/> working in several fields of 
-          visual communication, <br/> currently specializing in User Experience and Interaction Design. </p>
-          
+          <p>
+            I'm a passionate Graphic Designer with 3 years of experience <br /> working in several fields of 
+            visual communication, <br /> currently specializing in User Experience and Interaction Design. 
+          </p>
 
-          
           <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
           {/* Buttons Container */}
@@ -36,20 +37,20 @@ const Home: React.FC = () => {
             <Button 
               variant="contained" 
               color="primary" 
-              size="large" // Adjust size here
+              size="large" 
               startIcon={<EmailIcon />} 
-              href="mailto:vanemorn19@gmail.com" // Correct mailto link
+              href="mailto:vanemorn19@gmail.com"
               sx={{
-                backgroundColor: '#4E937A', // Custom background color
+                backgroundColor: '#4E937A',
                 '&:hover': {
-                  backgroundColor: '#254C3D', // Change color on hover
+                  backgroundColor: '#254C3D',
                 },
-                borderRadius: '20px', // Rounded corners
-                padding: '10px 20px', // Custom padding
-                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Add shadow
-                fontSize: '16px', // Font size
-                transition: 'background-color 0.3s ease', // Smooth transition for hover
-                textTransform: 'none', // Prevent text from being capitalized
+                borderRadius: '20px',
+                padding: '10px 20px',
+                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+                fontSize: '16px',
+                transition: 'background-color 0.3s ease',
+                textTransform: 'none',
               }}
             >
               Contact me!
@@ -58,21 +59,21 @@ const Home: React.FC = () => {
             {/* Download Button with Download Icon */}
             <Button 
               variant="contained" 
-              size="large" // Adjust size here
+              size="large"
               startIcon={<DownloadIcon />} 
-              href="/path-to-your-cv.pdf" // Update with the actual path to your CV
+              href="/path-to-your-cv.pdf" // Actualiza con la ruta correcta a tu CV
               sx={{
-                backgroundColor: '#424242', // Black background
+                backgroundColor: '#424242',
                 '&:hover': {
-                  backgroundColor: 'Black', // Darker black on hover
+                  backgroundColor: 'Black',
                 },
-                borderRadius: '20px', // Rounded corners
-                padding: '10px 20px', // Custom padding
-                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Add shadow
-                fontSize: '16px', // Font size
-                transition: 'background-color 0.3s ease', // Smooth transition for hover
-                textTransform: 'none', // Prevent text from being capitalized
-                color: 'white', // Text color
+                borderRadius: '20px',
+                padding: '10px 20px',
+                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+                fontSize: '16px',
+                transition: 'background-color 0.3s ease',
+                textTransform: 'none',
+                color: 'white',
               }}
             >
               Download CV
@@ -85,10 +86,12 @@ const Home: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '30px' }}>
           {/* Column 1 */}
           <div style={{ flex: '1', marginRight: '20px' }}>
-            <h2 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left', fontSize:'35px', marginBottom:'20px' }}>What I can do</h2>
+            <h2 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left', fontSize:'35px', marginBottom:'20px' }}>
+              What I can do
+            </h2>
             <p style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left' }}>
-            I focus on creating engaging websites, mobile applications, branding, and social media graphics,
-            all aimed at enhancing user experiences and improving visual communication.
+              I focus on creating engaging websites, mobile applications, branding, and social media graphics,
+              all aimed at enhancing user experiences and improving visual communication.
             </p>
           </div>
           {/* Column 2 */}
@@ -107,4 +110,32 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+// Componente principal
+const App: React.FC = () => {
+  return (
+    <Router>
+      {/* Header */}
+      <AppBar position="static" style={{ backgroundColor: '#4E937A' }}>
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            Mi Portafolio
+          </Typography>
+          <Button color="inherit" component={Link} to="/">
+            Inicio
+          </Button>
+          <Button color="inherit" component={Link} to="/about">
+            About
+          </Button>
+        </Toolbar>
+      </AppBar>
+
+      {/* Rutas */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
