@@ -113,12 +113,12 @@ const App: React.FC = () => {
       <AppBar position="static" style={{ backgroundColor: '#4E937A' }}>
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Mi Portafolio
+            Vanessa M
           </Typography>
-          <Button color="inherit" component={Link} to="/">
-            Inicio
+          <Button color="inherit" component={Link} to="/App.tsx">
+            Home
           </Button>
-          <Button color="inherit" component={Link} to="/about">
+          <Button color="inherit" component={Link} to="/About.tsx">
             About
           </Button>
         </Toolbar>
@@ -126,11 +126,11 @@ const App: React.FC = () => {
 
       {/* Rutas */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/app.tsx" element={<Home />} />
+        <Route path="/about.tsx" element={<About />} />
       </Routes>
     </Router>
   );
 };
 
-export default App;
+export default Home;
