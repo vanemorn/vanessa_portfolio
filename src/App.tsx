@@ -24,10 +24,11 @@ const Home: React.FC = () => {
             UI Designer
           </p>
 
-          <p>
-            I'm a passionate Graphic Designer with 3 years of experience <br /> working in several fields of 
-            visual communication, <br /> currently specializing in User Experience and Interaction Design. 
+          <p style={{ fontFamily: 'Aptos, sans-serif', fontWeight: '700', color: '#00002D', fontSize: '20px' }}>
+          I'm a passionate Graphic Designer with 3 years of experience <br /> working in several fields of 
+          visual communication, <br /> currently specializing in User Experience and Interaction Design.
           </p>
+
 
           <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
