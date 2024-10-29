@@ -22,7 +22,7 @@
 
 .about-description {
     font-family: Arial, Helvetica, sans-serif; 
-    font-weight: 550;
+    font-weight:normal;
     font-size: 16px; 
     line-height: 1.5; 
     color: #555555; /* Color del texto del párrafo */
@@ -36,6 +36,7 @@
     font-size: 16px;
     color: #9C0000;
     text-align: left;
+    line-height: 16px;
 }
 
 .about-image-container {
