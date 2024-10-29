@@ -1,0 +1,54 @@
+.footer {
+    background-color: #2D2F33; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .footer-content {
+    display: flex; /* Usar flexbox */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar horizontalmente */
+  }
+  
+  .footer-left {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Alinear verticalmente */
+  }
+  
+  .footer-logo {
+    max-height: 50px; /* Altura máxima del logo */
+    margin-right: 10px; /* Espaciado a la derecha del logo */
+  }
+  
+  .footer-name {
+    font-family: 'Inter', sans-serif; /* Fuente del nombre */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: white; /* Color del texto */
+  }
+  
+  .footer-right {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Dirección de los elementos en columna */
+    align-items: flex-end; /* Alinear a la derecha */
+  }
+  
+  .footer-item {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Alinear verticalmente */
+    margin: 5px 0; /* Espaciado vertical entre elementos */
+  }
+  
+  .footer-icon {
+    width: 20px; /* Ancho del icono */
+    height: 20px; /* Alto del icono */
+    margin-right: 10px; /* Espaciado a la derecha del icono */
+  }
+  
+  .footer-text {
+    font-family: 'Inter', sans-serif; /* Fuente del texto */
+    font-size: 16px; /* Tamaño de fuente */
+    color: white; /* Color del texto */
+  }
+  
