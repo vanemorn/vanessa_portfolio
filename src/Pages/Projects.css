@@ -30,7 +30,6 @@
     color: #555555; /* Color del texto del párrafo */
     text-align: left;
     padding-left: 200px;
-    margin-bottom: 40px;
 
 }
 
@@ -96,6 +95,8 @@
     margin: 0;
     display: inline-block;
     text-align: left;
+    align-content: left;
+    justify-content: left;
 }
 
 .project-title {
@@ -109,7 +110,7 @@
 
 .project-skills {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight:500;
+    font-weight:600;
     font-size: 12px; 
     color: #7B7B7B; 
     margin-top: 1px; 
@@ -117,7 +118,7 @@
 }
 
 .view-more-btn {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter';
     font-size: 14px;
     color: #9C0000;
     text-decoration: none;
@@ -125,6 +126,9 @@
     border: none;
     background: none;
     cursor: pointer;
+    text-align: left;
+    align-content: left;
+    justify-content: left;
     transition: transform 0.2s;
 }
 
@@ -146,7 +150,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-left: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     
   }
   
