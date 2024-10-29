@@ -1,5 +1,5 @@
 import React from 'react';
-import 'C:/Users/linda/vanessa_portfolio/src/Pages/Header.css';
+import 'C:/Users/linda/vanessa_portfolio/src/components/Header.css';
 import logo from 'C:/Users/linda/vanessa_portfolio/src/assets/logo-header.svg';
 import { Link } from 'react-router-dom';
 

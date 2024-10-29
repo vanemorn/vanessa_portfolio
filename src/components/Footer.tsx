@@ -1,5 +1,5 @@
 import React from 'react';
-import 'C:/Users/linda/vanessa_portfolio/src/Pages/Footer.css'; // Asegúrate de que la ruta al CSS sea correcta
+import 'C:/Users/linda/vanessa_portfolio/src/components/Footer.css'; // Asegúrate de que la ruta al CSS sea correcta
 import logo from '../assets/logo-blanco.svg'; // Ruta al logo
 import emailIcon from '../assets/email-icon.svg'; // Ruta al ícono de email
 import phoneIcon from '../assets/phone-icon.svg'; // Ruta al ícono de teléfono
