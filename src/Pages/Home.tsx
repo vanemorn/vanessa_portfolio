@@ -4,7 +4,6 @@ import { Button, Box } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
 import biopic from '../assets/biopic.png';
-import Footer from './Footer.tsx'; 
 
 
 const Home: React.FC = () => {
@@ -94,7 +93,9 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <Footer />
+        <footer>
+          <p>&copy; 2024 Vanessa M. All rights reserved.</p>
+        </footer>
       </section>
     </>
   );
