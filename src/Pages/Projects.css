@@ -97,8 +97,6 @@
     margin: 0;
     display: inline-block;
     text-align: left;
-    align-content: left;
-    justify-content: left;
 }
 
 .project-title {
@@ -112,11 +110,13 @@
 
 .project-skills {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight:600;
+    font-weight:500;
     font-size: 12px; 
     color: #7B7B7B; 
     margin-top: 1px; 
     text-align: left;
+    
+    
 }
 
 .view-more-btn {
@@ -151,7 +151,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-left: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 40px;
     
   }
