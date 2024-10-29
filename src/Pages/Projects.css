@@ -5,14 +5,15 @@
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     align-items: center;
+    align-items: center;
     justify-content: center; 
-    align-content: center;
     margin-bottom: 150px;
+    
 }
 
 /* Estilos para el título y texto de la columna 1 */
 .column-title {
-    margin-top: 130px;
+    margin-top: 100px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     font-weight: bold;
