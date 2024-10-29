@@ -6,6 +6,7 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     align-items: center;
     justify-content: center; 
+    align-content: center;
     margin-bottom: 150px;
 }
 
@@ -94,6 +95,7 @@
     padding: 5px 10px;
     margin: 0;
     display: inline-block;
+    text-align: left;
 }
 
 .project-title {
@@ -102,14 +104,16 @@
     font-weight: 800; 
     margin-bottom: 5px;
     margin-top: 10px;
+    text-align: left;
 }
 
 .project-skills {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight:600;
+    font-weight:500;
     font-size: 12px; 
     color: #7B7B7B; 
     margin-top: 1px; 
+    text-align: left;
 }
 
 .view-more-btn {
@@ -142,6 +146,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-left: 200px;
+    margin-bottom: 10px;
     
   }
   
