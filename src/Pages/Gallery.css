@@ -27,7 +27,7 @@
 /* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
 @media screen and (max-width: 600px) {
     .column-gallery {
-        width: 100%; /* Cambié .column por .column-gallery para que funcione correctamente */
+        width: 100%;
     }
 }
 
@@ -41,10 +41,10 @@
     border: none;
     background: none;
     cursor: pointer;
-    transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
+    transition: transform 0.2s, color 0.2s;
     text-align: left;
     margin-top: 100px;
-    padding-left: 150px; /* Asegúrate de que este padding esté presente */
+    padding-left: 150px;
 }
 
 .go-back-btn:hover {
@@ -67,4 +67,22 @@
     border-radius: 8px; /* Bordes redondeados opcionales */
 }
 
-/* Puedes añadir más estilos según lo desees */
+/* Overlay para la imagen expandida */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.expanded-image {
+    max-width: 90%; /* Máximo ancho de la imagen expandida */
+    max-height: 90%; /* Máximo alto de la imagen expandida */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
