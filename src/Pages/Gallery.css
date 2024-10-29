@@ -49,6 +49,7 @@
     transition: transform 0.2s;
     text-align: left;
     margin-top: 10px;
+    padding-left: 150px;
 }
 
 .go-back-btn:hover {
