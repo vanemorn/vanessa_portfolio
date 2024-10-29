@@ -1,0 +1,60 @@
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 40px;
+}
+
+.about-text {
+    flex: 1; 
+    margin-left: 150px;
+}
+
+
+.about-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.about-description {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight: 550;
+    font-size: 16px; 
+    line-height: 1.5; 
+    color: #555555; /* Color del texto del párrafo */
+}
+
+.contact-info {
+    margin-top: 40px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #9C0000;
+    line-height: 10px;
+}
+
+.about-image-container {
+    flex: 1; 
+    background-color: #F1F0EC; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    margin-right: 150px;
+    margin-top: 50px;
+}
+
+.about-image-placeholder {
+    width: 100%; /* Ajusta según lo necesario */
+    height: 100%; /* Ajusta según lo necesario */
+    background-color: #9C0000; 
+    border-radius: 30px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+}
+
+.about-image {
+    width: 90%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantener la relación de aspecto */
+}
