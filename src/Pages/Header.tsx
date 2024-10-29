@@ -1,6 +1,6 @@
 import React from 'react';
 import 'C:/Users/linda/vanessa_portfolio/src/Pages/Header.css';
-import logo from '../assets/LOGO-09.png';
+import logo from 'C:/Users/linda/vanessa_portfolio/src/assets/logo-header.svg';
 import { Link } from 'react-router-dom';
 
 
