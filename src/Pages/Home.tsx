@@ -23,13 +23,13 @@ const Home: React.FC = () => {
       <div className="flex-container">
         {/* Columna de texto */}
         <div className="descripcion">
-          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Inter', fontWeight: 700, lineHeight: '70px' }}>
+          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
             HI, I AM
           </span>
-          <span style={{ color: '#9C0000', fontSize: '60px', fontFamily: 'Inter', fontWeight: 700, lineHeight: '70px' }}>
+          <span style={{ color: '#9C0000', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
             VANESSA, <br />
           </span>
-          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Inter', fontWeight: 700, lineHeight: '70px' }}>
+          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
             AN UI DESIGNER <br /> BASED IN LIMERICK
           </span>
         </div>
