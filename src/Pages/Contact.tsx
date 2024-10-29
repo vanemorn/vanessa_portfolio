@@ -1,18 +1,21 @@
-// src/About.tsx
-
 import React from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Contact.css'; // Asegúrate de que tienes este archivo CSS
 
+// Importar imágenes
+import emailIcon from '../assets/email-icon.svg'; // Ajusta la ruta según tu estructura de carpetas
+import phoneIcon from '../assets/phone-icon.svg'; // Ajusta la ruta según tu estructura de carpetas
+import sendIcon from '../assets/sendicon.png'; // Asegúrate de que la ruta sea correcta
+
 const Contact: React.FC = () => {
   return (
     <>
       <Header />
-      
+
       <div className="row">
         <div className="column">
-          <h2 className="column-title">Contact</h2> {/* Clase para el título */}
+          <h2 className="column-title">Contact</h2>
           <p className="column-text">
             vanessamorenoperez55@gmail.com <br />
             +353 89 945 1920
@@ -29,14 +32,24 @@ const Contact: React.FC = () => {
               <textarea placeholder="Message" className="form-textarea"></textarea>
               <button type="submit" className="submit-btn">
                 <span>Get in touch</span>
-                <img src="sendicon.png" alt="Send" className="send-icon" />
+                <img src={sendIcon} alt="Send" className="send-icon" />
               </button>
             </form>
           </div>
         </div>
       </div>
 
-      <footer>
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-left">
+            <img src={emailIcon} alt="Email Icon" className="footer-icon" />
+            <span className="footer-text">vanessamorenoperez55@gmail.com</span>
+          </div>
+          <div className="footer-right">
+            <img src={phoneIcon} alt="Phone Icon" className="footer-icon" />
+            <span className="footer-text">+353 89 945 1920</span>
+          </div>
+        </div>
         <Footer />
       </footer>
     </>
