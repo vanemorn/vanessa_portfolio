@@ -4,12 +4,18 @@ import Header from '../components/Header'; // Asegúrate de que la ruta sea corr
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Gallery.css'; // Asegúrate de que tienes este archivo CSS
 
+// Importar imágenes desde la carpeta assets
+import image1 from '../assets/image1.jpg';
+import image2 from '../assets/image2.jpg';
+import image3 from '../assets/image3.jpg';
+import image4 from '../assets/image4.jpg';
+
 // Array de imágenes para la galería
 const images = [
-  'C:/Users/linda/vanessa_portfolio/src/assets/image1.jpg',
-  'C:/Users/linda/vanessa_portfolio/src/assets/image2.jpg',
-  '/C:/Users/linda/vanessa_portfolio/src/assets/image3.jpg',
-  'C:/Users/linda/vanessa_portfolio/src/assets/image4.jpg',
+  image1,
+  image2,
+  image3,
+  image4,
   // Añade más imágenes según sea necesario
 ];
 
