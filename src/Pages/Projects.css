@@ -45,7 +45,7 @@
 }
 
 /* Estilo para la cuadrícula */
-.work-box {
+.work-boxes {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Crear una cuadrícula de 2x2 */
     gap: 20px; /* Espacio entre los ítems de la cuadrícula */
@@ -56,6 +56,7 @@
     border: none; /* Asegura que no haya borde */
     box-shadow: none; /* Elimina cualquier sombra */
     overflow: hidden;
+    max-height: 500px;
 }
 
 /* Estilo para cada caja de proyecto */

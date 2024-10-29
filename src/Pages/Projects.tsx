@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="column">
-          <div className="work-box">
+          <div className="work-boxes">
             {/* Componentes de proyectos individuales */}
             <ProjectItem
               imgSrc={project1}
