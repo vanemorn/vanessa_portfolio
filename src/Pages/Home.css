@@ -137,6 +137,7 @@
     cursor: pointer;
     transition: transform 0.2s;
     text-align: left;
+    margin-top: 8px;
   }
   
   .view-more-btn:hover {
@@ -152,6 +153,7 @@
     background-color: #E7E6E2;
     margin: 50px;
     padding-bottom: 50px;
+    padding-top: 50px;
   }
   
   .featured-works-title {
@@ -162,6 +164,7 @@
     line-height: 38.80px;
     text-align: center;
     word-wrap: break-word;
+    margin-top: 20px;
   }
 
 /* Contact Form */
