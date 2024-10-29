@@ -4,13 +4,10 @@ import { Button, Box } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
 import biopic from '../assets/biopic.png';
-import Header from './Header'; // Importa el Header
 
 const Home: React.FC = () => {
   return (
     <>
-      <Header /> {/* Coloca el Header fuera de la sección "home" */}
-
       <section id="home" className="section">
         <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
           Hello,
