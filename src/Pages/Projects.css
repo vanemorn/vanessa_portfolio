@@ -6,10 +6,12 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     align-items: center;
     justify-content: center; 
+    margin-bottom: 300px;
 }
 
 /* Estilos para el título y texto de la columna 1 */
 .column-title {
+    margin-top: 40px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     font-weight: bold;
@@ -168,7 +170,6 @@
     border: 2px solid;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px;
     margin-left: 200px;
   }
   
