@@ -4,11 +4,13 @@ import { Button, Box } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
 import biopic from '../assets/biopic.png';
-
+import Footer from './Footer'; // Importar Footer
+import Header from './Header'; // Asegúrate de que también importas el Header
 
 const Home: React.FC = () => {
   return (
     <>
+      <Header /> {/* Asegúrate de incluir el Header aquí */}
       <section id="home" className="section">
         <p style={{ fontSize: '20px', fontStyle: 'italic', fontFamily: 'Aptos, sans-serif', color: '#00002D', lineHeight: '50px' }}>
           Hello,
@@ -23,8 +25,9 @@ const Home: React.FC = () => {
               UI Designer
             </p>
 
-            <p>I'm a passionate Graphic Designer with 3 years of experience <br/> working in several fields of 
-            visual communication, <br/> currently specializing in User Experience and Interaction Design. </p>
+            <p>I'm a passionate Graphic Designer with 3 years of experience <br /> working in several fields of 
+              visual communication, <br /> currently specializing in User Experience and Interaction Design. 
+            </p>
 
             <img src={biopic} alt="biopic" className="bio-pic" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
@@ -81,8 +84,8 @@ const Home: React.FC = () => {
             <div style={{ flex: '1', marginRight: '20px' }}>
               <h2 style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left', fontSize:'35px', marginBottom:'20px' }}>What I can do</h2>
               <p style={{ fontFamily: 'Aptos, sans-serif', color: 'white', textAlign: 'left' }}>
-              I focus on creating engaging websites, mobile applications, branding, and social media graphics,
-              all aimed at enhancing user experiences and improving visual communication.
+                I focus on creating engaging websites, mobile applications, branding, and social media graphics,
+                all aimed at enhancing user experiences and improving visual communication.
               </p>
             </div>
             <div style={{ flex: '1', marginLeft: '20px' }}>
@@ -93,9 +96,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <footer>
-          <p>&copy; 2024 Vanessa M. All rights reserved.</p>
-        </footer>
+        <Footer /> {/* Aquí se incluye el Footer */}
       </section>
     </>
   );
