@@ -1,3 +1,5 @@
+// src/About.tsx
+
 import React from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
@@ -17,9 +19,17 @@ const Contact: React.FC = () => {
         <div className="column">
           <h2 className="column-title">Contact</h2>
           <p className="column-text">
-            <img src={emailIcon} alt="Email Icon" style={{ width: '20px', marginRight: '8px' }} />
+            <img 
+              src={emailIcon} 
+              alt="Email Icon" 
+              style={{ width: '20px', marginRight: '8px', fill: '#9C0000' }} // Cambia el color aquí
+            />
             vanessamorenoperez55@gmail.com <br />
-            <img src={phoneIcon} alt="Phone Icon" style={{ width: '20px', marginRight: '8px' }} />
+            <img 
+              src={phoneIcon} 
+              alt="Phone Icon" 
+              style={{ width: '20px', marginRight: '8px', fill: '#9C0000' }} // Cambia el color aquí
+            />
             +353 89 945 1920
           </p>
         </div>
@@ -41,8 +51,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-
-      <footer>
+      <footer className="footer">
         <Footer />
       </footer>
     </>
