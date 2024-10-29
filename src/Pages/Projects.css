@@ -4,6 +4,8 @@
     width: 50%;
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
+    align-items: center;
+    justify-content: center; 
 }
 
 /* Estilos para el título y texto de la columna 1 */
@@ -25,6 +27,7 @@
     color: #555555; /* Color del texto del párrafo */
     text-align: left;
     padding-left: 200px;
+    margin-bottom: 40px;
 
 }
 
