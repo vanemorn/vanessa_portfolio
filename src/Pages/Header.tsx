@@ -11,7 +11,6 @@ const Header: React.FC = () => {
         <Link to="/"> {/* Link to the home page */}
           <img src={logo} alt="logo" className="logo-img" /> {/* Logo image */}
         </Link>
-        <span className="logo-text">Vanessa M</span>
       </div>
       
       <nav className="menu">
