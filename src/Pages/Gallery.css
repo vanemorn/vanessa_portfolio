@@ -1,0 +1,56 @@
+/* Create two equal columns that float next to each other */
+.column-gallery {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: auto; /* Ajustar altura a auto para la cuadrícula */
+    align-items: center;
+    align-items: center;
+    justify-content: center; 
+    margin-bottom: 150px;
+    
+}
+
+/* Estilos para el título y texto de la columna 1 */
+.column-title-gallery {
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-left: 150px;
+    text-align: left;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.go-back-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #9C0000;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.go-back-btn:hover {
+    transform: translateX(-8px); /* Move the button text 5px to the right on hover */
+}
