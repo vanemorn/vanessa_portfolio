@@ -1,14 +1,17 @@
 // src/About.tsx
 
 import React from 'react';
+import Header from './Header'; // Asegúrate de que la ruta sea correcta
+import Footer from './Footer'; // Asegúrate de que la ruta sea correcta
 
 const Projects: React.FC = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>My projects</h1>
-      <p>these are my projects</p>
-      {/* Aquí puedes añadir más información si lo deseas */}
-    </div>
+    <>
+      <Header />
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 

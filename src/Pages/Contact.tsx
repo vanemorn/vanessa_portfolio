@@ -1,14 +1,17 @@
 // src/About.tsx
 
 import React from 'react';
+import Header from './Header'; // Asegúrate de que la ruta sea correcta
+import Footer from './Footer'; // Asegúrate de que la ruta sea correcta
 
 const Contact: React.FC = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>my email</h1>
-      <p>text me!</p>
-      {/* Aquí puedes añadir más información si lo deseas */}
-    </div>
+    <>
+      <Header />
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 

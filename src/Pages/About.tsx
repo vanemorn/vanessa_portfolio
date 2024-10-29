@@ -1,14 +1,18 @@
 // src/About.tsx
 
 import React from 'react';
+import Header from './Header'; // Asegúrate de que la ruta sea correcta
+import Footer from './Footer'; // Asegúrate de que la ruta sea correcta
+
 
 const About: React.FC = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>About me</h1>
-      <p>I'm a babyyy</p>
-      {/* Aquí puedes añadir más información si lo deseas */}
-    </div>
+    <>
+      <Header />
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 

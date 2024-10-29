@@ -1,12 +1,16 @@
 // src/components/Videogallery.tsx
 import React from 'react';
+import Header from './Header'; // Asegúrate de que la ruta sea correcta
+import Footer from './Footer'; // Asegúrate de que la ruta sea correcta
 
 const About: React.FC = () => {
   return (
-    <div className="section">
-      <h1>Video Gallery :D</h1>
-      <p>Hello testing</p>
-    </div>
+    <>
+      <Header />
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 

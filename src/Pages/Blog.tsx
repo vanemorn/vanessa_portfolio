@@ -1,12 +1,16 @@
 // src/components/Blog.tsx
 import React from 'react';
+import Header from './Header'; // Asegúrate de que la ruta sea correcta
+import Footer from './Footer'; // Asegúrate de que la ruta sea correcta
 
 const About: React.FC = () => {
   return (
-    <div className="section">
-      <h1>My blog</h1>
-      <p>Heyyyy</p>
-    </div>
+    <>
+      <Header />
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 
