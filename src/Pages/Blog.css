@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F1F0EC;
+  }
+
+
+.blog-title {
+    margin: 0; /* Sin margen */
+    font-size: 40px; /* Tamaño de fuente del título */
+    padding-bottom: 30px;
+    font-family: 'Inter';
+}
+
+.blog-description {
+    font-size: 18px; /* Tamaño de fuente de la descripción */
+    margin-top: 5px; /* Espacio arriba de la descripción */
+    font-family: 'Inter';
+}
+
+.container {
+    max-width: 800px; /* Ancho máximo para el contenido */
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.post {
+    margin-bottom: 20px; /* Espacio entre las entradas del blog */
+}
+
+.post-title {
+    font-family: 'Inter';
+    font-size: 24px;
+    color: #333; /* Color del título de la entrada */
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #7b7b7b; /* Color del texto de la fecha y tiempo de lectura */
+    margin-bottom: 10px; /* Espacio entre meta y contenido */
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.post-content {
+    font-size: 16px;
+    color: #555; /* Color del contenido */
+}
+
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #9C0000; /* Color de la línea horizontal */
+    margin: 20px 0; /* Espacio alrededor de la línea */
+}
