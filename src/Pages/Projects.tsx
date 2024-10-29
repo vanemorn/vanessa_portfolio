@@ -21,9 +21,9 @@ const Projects: React.FC = () => {
       
       {/* Contenedor principal del contenido */}
       <div className="row">
-        <div className="column">
-          <h2 className="column-title">Work</h2>
-          <p className="column-text">
+        <div className="column-project">
+          <h2 className="column-title-project">Work</h2>
+          <p className="column-text-project">
             With a background in Graphic Design, I’ve developed a refined <br />
             visual sensitivity that, combined with my UX/UI specialization, <br />
             allows me to create impactful projects across various fields of <br />
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
             multiple aspects of digital and visual storytelling.
           </p>
 
-          <p className="column-text">
+          <p className="column-text-project">
             Feel free to explore individual projects or browse <br />
             through the galleries for a closer look at my work.
           </p>
