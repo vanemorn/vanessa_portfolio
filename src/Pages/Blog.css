@@ -11,13 +11,15 @@ body {
     margin: 0; /* Sin margen */
     font-size: 40px; /* Tamaño de fuente del título */
     padding-bottom: 30px;
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 }
 
 .blog-description {
     font-size: 18px; /* Tamaño de fuente de la descripción */
     margin-top: 5px; /* Espacio arriba de la descripción */
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 }
 
 .container {
@@ -32,22 +34,25 @@ body {
 }
 
 .post-title {
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     color: #333; /* Color del título de la entrada */
+    text-align: left;
 }
 
 .post-meta {
     font-size: 14px;
     color: #7b7b7b; /* Color del texto de la fecha y tiempo de lectura */
     margin-bottom: 10px; /* Espacio entre meta y contenido */
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
+    text-align: left;
 }
 
 .post-content {
     font-size: 16px;
     color: #555; /* Color del contenido */
+    text-align: left;
 }
 
 .separator {
