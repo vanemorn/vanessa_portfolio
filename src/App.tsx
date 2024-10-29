@@ -10,12 +10,10 @@ import Videogallery from 'C:/Users/linda/vanessa_portfolio/src/Pages/Videogaller
 
 
 import './App.css';
-import Header from 'C:/Users/linda/vanessa_portfolio/src/Pages/Header.tsx';
 
 const App: React.FC = () => {
   return (
     <Router basename="/vanessa_portfolio"> {/* Asegúrate de que este basename coincida con el subdirectorio */}
-      <Header />
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
