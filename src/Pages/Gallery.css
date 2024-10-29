@@ -5,10 +5,8 @@
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     align-items: center;
-    align-items: center;
     justify-content: center; 
     margin-bottom: 150px;
-    
 }
 
 /* Estilos para el título y texto de la columna 1 */
@@ -20,7 +18,6 @@
     margin-bottom: 40px;
     padding-left: 150px;
     text-align: left;
-
 }
 
 /* Clear floats after the columns */
@@ -37,6 +34,7 @@
     }
 }
 
+/* Estilo para el botón "Go back" */
 .go-back-btn {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -46,12 +44,13 @@
     border: none;
     background: none;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
     margin-top: 10px;
     padding-left: 150px;
 }
 
 .go-back-btn:hover {
-    transform: translateX(-8px); /* Move the button text 5px to the right on hover */
+    transform: translateX(-8px); /* Mueve el texto del botón hacia la izquierda al pasar el ratón */
+    color: #7a0000; /* Cambia el color al pasar el ratón */
 }
