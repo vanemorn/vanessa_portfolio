@@ -49,10 +49,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Crear una cuadrícula de 2x2 */
     gap: 20px; /* Espacio entre los ítems de la cuadrícula */
-    width: 80%; /* Asegurar que el contenedor ocupe todo el ancho de la columna */
+    width: 80%; 
     padding: 20px; 
     border-radius: 30px; 
     height: auto;
+    border: none; /* Asegura que no haya borde */
+    box-shadow: none; /* Elimina cualquier sombra */
 }
 
 /* Estilo para cada caja de proyecto */
