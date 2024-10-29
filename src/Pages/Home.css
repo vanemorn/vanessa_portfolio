@@ -12,7 +12,7 @@
   .banda-item, .banda-separator {
     color: white; 
     font-size: 20px; 
-    font-family: 'Inter', sans-serif; 
+    font-family:Arial, Helvetica, sans-serif;
     font-weight: 600; 
     line-height: 25.86px; 
     margin: 0 5px; 
@@ -38,11 +38,12 @@
   .What-can-do {
     color: black;
     font-size: 30px;
-    font-family: Inter;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     line-height: 38.80px;
     text-align: center;
     word-wrap: break-word;
+  
   }
   
   .expertise {
@@ -100,7 +101,7 @@
   }
   
   .project-label {
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     font-weight: 600;
     border: 1px solid #646161;
@@ -113,7 +114,7 @@
   }
   
   .project-title {
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px; 
     font-weight: 800; 
     margin-bottom: 5px;
@@ -121,15 +122,16 @@
   }
   
   .project-skills {
-    font-family: 'Inter';
-    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:600;
     font-size: 12px; 
     color: #7B7B7B; 
     margin-top: 1px; 
+    
   }
   
   .view-more-btn {
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #9C0000;
     text-decoration: none;
@@ -141,8 +143,9 @@
   }
   
   .view-more-btn:hover {
-    transform: translateX(8px); /* Mueve el texto del botón 5px a la derecha al pasar el ratón */
+    transform: translateX(8px); /* Move the button text 5px to the right on hover */
   }
+  
   
   .featured-works-section {
     margin: 20px;
@@ -157,14 +160,14 @@
   .featured-works-title {
     color: black;
     font-size: 30px;
-    font-family: Inter;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     line-height: 38.80px;
     text-align: center;
     word-wrap: break-word;
   }
   
-  /* Contact Form */
+  /* Contact Form*/
   
   .contact-form-section {
     display: flex;
@@ -175,7 +178,7 @@
   }
   
   .contact-form-title {
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 22px;
@@ -198,7 +201,7 @@
     border: 2px solid black;
     border-radius: 25px; 
     padding: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #333; 
   }
@@ -217,7 +220,7 @@
     height: 100px; 
     border-radius: 25px; 
     padding: 10px;
-    font-family: 'Inter';
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     border: 2px solid black;
     color: #999;
@@ -232,7 +235,7 @@
     padding: 10px 20px; 
     border-radius: 25px; 
     font-weight: bold;
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -248,4 +251,3 @@
     width: 20px; 
     height: 20px; 
   }
-  
