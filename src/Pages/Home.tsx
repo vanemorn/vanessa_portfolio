@@ -23,13 +23,13 @@ const Home: React.FC = () => {
       <div className="flex-container">
         {/* Columna de texto */}
         <div className="descripcion">
-          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
+          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign: "left" }}>
             HI, I AM 
           </span>
-          <span style={{ color: '#9C0000', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
+          <span style={{ color: '#9C0000', fontSize: '60px', fontFamily: 'Arial, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign: "left" }}>
             VANESSA, <br />
           </span>
-          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
+          <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign: "left" }}>
             AN UI DESIGNER <br /> BASED IN LIMERICK
           </span>
         </div>
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* What I can do */}
-      <div className="What-can-do">What I can do</div>
+      <div className="What-can-do" style={{ fontFamily: 'Arial, sans-serif' }}>What I can do</div>
 
       <div className="expertise">
         <div className="grid-item"><img src={expertise1} alt="Expertise 1" /></div>
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
 
       {/* Featured Works */}
       <div className="featured-works-section">
-        <h2 className="featured-works-title">Featured Works</h2>
+        <h2 className="featured-works-title" style={{ fontFamily: 'Arial, sans-serif' }}>Featured Works</h2>
         <div className="featured-works">
           <div className="work-box">
             <img src={project1} alt="Project 1" className="project-image" />
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
 
       {/* Contact */}
       <div className="contact-form-section">
-        <h2 className="contact-form-title">Let's chat!</h2>
+        <h2 className="contact-form-title" style={{ fontFamily: 'Arial, sans-serif' }}>Let's chat!</h2>
         <form className="contact-form">
           <div className="form-row">
             <input type="text" placeholder="Name" className="form-input" />
