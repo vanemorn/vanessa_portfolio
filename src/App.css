@@ -8,9 +8,7 @@
 
 /* Body takes up full width and height of the screen */
 body {
-  font-family:'Inter';
-  background-color: #ffffff;
-  color: #333;
+  background-color: #F1F0EC;
   width: 100%;
   min-height: 100vh;
   text-align: center;
@@ -18,41 +16,10 @@ body {
   padding: 0;
 }
 
-.bio-pic {
-  margin-top: 50px;
-  width: 600px;
-  align-content: center;
-}
-
 /* App container uses full width, but is centered with a max width */
 .app-container {
   width: 100%;
   margin: 0 auto;
-}
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem; /* O ajusta esto si es necesario */
-  background-color: #282c34;
-  color: white;
-  width: 100%; /* Ancho completo */
-  margin: 0; /* Asegúrate de que no haya margen */
-}
-
-/* Styling for sections */
-.section {
-  padding: 3rem 0;
-  margin: 1rem 0;
-}
-
-/* Footer styling */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #282c34;
-  color: white;
 }
 
 /* Responsive design for smaller screens */
