@@ -1,4 +1,9 @@
-.banda {
+body {
+    background-color: #F1F0EC;
+    margin: o;
+  }
+  
+  .banda {
     position: relative;
     width: 100%; 
     height: 62px;
@@ -12,7 +17,7 @@
   .banda-item, .banda-separator {
     color: white; 
     font-size: 20px; 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif'; 
     font-weight: 600; 
     line-height: 25.86px; 
     margin: 0 5px; 
@@ -38,7 +43,7 @@
   .What-can-do {
     color: black;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-weight: 700;
     line-height: 38.80px;
     text-align: center;
@@ -101,7 +106,7 @@
   }
   
   .project-label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 11px;
     font-weight: 600;
     border: 1px solid #646161;
@@ -114,7 +119,7 @@
   }
   
   .project-title {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 18px; 
     font-weight: 800; 
     margin-bottom: 5px;
@@ -122,7 +127,7 @@
   }
   
   .project-skills {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-weight:600;
     font-size: 12px; 
     color: #7B7B7B; 
@@ -131,7 +136,7 @@
   }
   
   .view-more-btn {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 14px;
     color: #9C0000;
     text-decoration: none;
@@ -160,7 +165,7 @@
   .featured-works-title {
     color: black;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-weight: 700;
     line-height: 38.80px;
     text-align: center;
@@ -178,7 +183,7 @@
   }
   
   .contact-form-title {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 22px;
@@ -201,7 +206,7 @@
     border: 2px solid black;
     border-radius: 25px; 
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 16px;
     color: #333; 
   }
@@ -220,7 +225,7 @@
     height: 100px; 
     border-radius: 25px; 
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     font-size: 16px;
     border: 2px solid black;
     color: #999;
@@ -235,7 +240,7 @@
     padding: 10px 20px; 
     border-radius: 25px; 
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -251,3 +256,72 @@
     width: 20px; 
     height: 20px; 
   }
+  
+  /* Responsividad */
+  @media only screen and (max-width: 900px) {  /* tablet y moviles */
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+    .banda {
+      height: auto; /* Permitir que la altura se ajuste */
+      padding: 10px; /* Espaciado interno */
+      margin-top: 80px;
+      
+  }
+  
+    .banda-item, .banda-separator {
+      margin: 5px 5px; /* Espaciado vertical en lugar de horizontal */
+  }
+  
+  .foto-yo {
+    margin-top: -100px;
+  }
+  
+  }
+  
+    /* Ajuste de ancho y alineación */
+    .descripcion,
+    .foto-yo {
+        max-width: 100%;
+        text-align: left;
+  
+    }
+  
+    /* Tamaño de fuente más pequeño para evitar saltos de línea */
+    .descripcion span {
+        font-size: 32px; /* Ajuste de tamaño de fuente */
+        line-height: 1.2em; /* Ajuste de espaciado entre líneas */
+    }
+  
+  
+  @media only screen and (min-width: 900px) {
+    .flex-container {
+        flex-direction: row;
+        margin: 27vh 10vw;
+        
+    }
+  }
+  
+  @media only screen and (min-width: 1300px) {
+    .flex-container {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        margin-top: 120px;
+        
+    }
+  
+    .banda {
+      margin-top: -100px;
+    }
+  
+    .What-can-do {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
+  
+  

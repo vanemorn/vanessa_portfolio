@@ -24,7 +24,7 @@ const Home: React.FC = () => {
         {/* Columna de texto */}
         <div className="descripcion">
           <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
-            HI, I AM
+            HI, I AM 
           </span>
           <span style={{ color: '#9C0000', fontSize: '60px', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign:"left" }}>
             VANESSA, <br />
