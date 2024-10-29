@@ -1,13 +1,11 @@
-// src/About.tsx
-
 import React from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Contact.css'; // Asegúrate de que tienes este archivo CSS
 
 // Importar imágenes
-import emailIcon from '../assets/email-icon.svg'; // Ajusta la ruta según tu estructura de carpetas
-import phoneIcon from '../assets/phone-icon.svg'; // Ajusta la ruta según tu estructura de carpetas
+import emailIcon from '../assets/email-icon-red.svg'; // Ajusta la ruta según tu estructura de carpetas
+import phoneIcon from '../assets/phone-icon-red.svg'; // Ajusta la ruta según tu estructura de carpetas
 import sendIcon from '../assets/sendicon.png'; // Asegúrate de que la ruta sea correcta
 
 const Contact: React.FC = () => {
@@ -19,17 +17,9 @@ const Contact: React.FC = () => {
         <div className="column">
           <h2 className="column-title">Contact</h2>
           <p className="column-text">
-            <img 
-              src={emailIcon} 
-              alt="Email Icon" 
-              style={{ width: '20px', marginRight: '8px', fill: '#9C0000' }} // Cambia el color aquí
-            />
+            <img src={emailIcon} alt="Email Icon" style={{ width: '20px', marginRight: '8px' }} />
             vanessamorenoperez55@gmail.com <br />
-            <img 
-              src={phoneIcon} 
-              alt="Phone Icon" 
-              style={{ width: '20px', marginRight: '8px', fill: '#9C0000' }} // Cambia el color aquí
-            />
+            <img src={phoneIcon} alt="Phone Icon" style={{ width: '20px', marginRight: '8px' }} />
             +353 89 945 1920
           </p>
         </div>
@@ -51,7 +41,8 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-      <footer className="footer">
+
+      <footer>
         <Footer />
       </footer>
     </>
