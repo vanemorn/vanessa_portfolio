@@ -36,14 +36,17 @@ body {
 .post-title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
-    color: #333; /* Color del título de la entrada */
+    font-weight: bold;
+    color: #000000; /* Color del título de la entrada */
     text-align: left;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .post-meta {
     font-size: 14px;
     color: #7b7b7b; /* Color del texto de la fecha y tiempo de lectura */
-    margin-bottom: 10px; /* Espacio entre meta y contenido */
+    margin-bottom: 20px; /* Espacio entre meta y contenido */
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     text-align: left;
