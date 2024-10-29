@@ -43,7 +43,7 @@
     cursor: pointer;
     transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
-    margin-top: 10px;
+    margin-top: 100px;
     padding-left: 150px;
 }
 
