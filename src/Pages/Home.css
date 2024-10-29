@@ -70,7 +70,7 @@
   
   .work-box {
     display: flex;
-    width: 190px;
+    width: 200px;
     height: auto;
     flex-direction: column; 
     border: 1px solid transparent; 
@@ -86,8 +86,8 @@
   }
   
   .project-image {
-    width: 150px; 
-    height: 150px; 
+    width: 200px; 
+    height: 200px; 
     border-radius: 10px; 
     object-fit: cover; 
     margin-bottom: 10px; 
@@ -173,6 +173,7 @@
     flex-direction: column;
     align-items: center;
     margin: 20px 0; /* Margen vertical para la sección de contacto */
+    margin-bottom: 50px;
 }
 
 .contact-form-title {
