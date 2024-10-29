@@ -17,7 +17,9 @@ const Contact: React.FC = () => {
         <div className="column">
           <h2 className="column-title">Contact</h2>
           <p className="column-text">
+            <img src={emailIcon} alt="Email Icon" style={{ width: '20px', marginRight: '8px' }} />
             vanessamorenoperez55@gmail.com <br />
+            <img src={phoneIcon} alt="Phone Icon" style={{ width: '20px', marginRight: '8px' }} />
             +353 89 945 1920
           </p>
         </div>
@@ -39,17 +41,8 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-left">
-            <img src={emailIcon} alt="Email Icon" className="footer-icon" />
-            <span className="footer-text">vanessamorenoperez55@gmail.com</span>
-          </div>
-          <div className="footer-right">
-            <img src={phoneIcon} alt="Phone Icon" className="footer-icon" />
-            <span className="footer-text">+353 89 945 1920</span>
-          </div>
-        </div>
+
+      <footer>
         <Footer />
       </footer>
     </>
