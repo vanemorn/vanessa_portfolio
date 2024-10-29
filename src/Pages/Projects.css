@@ -62,7 +62,14 @@
     background-color: #fff; /* Color de fondo de cada caja */
     border-radius: 24px; /* Bordes redondeados */
     padding: 15px; /* Relleno interno */
+    transition: transform 0.2s ease; /* Transición suave para el efecto de hover */
+    
 }
+
+.work-item:hover {
+    transform: scale(1.05); /* Aumentar el tamaño en un 5% cuando se pasa el ratón */
+}
+
 
 .project-image {
     width: 100%; /* Hacer la imagen responsiva */
