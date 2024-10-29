@@ -53,10 +53,8 @@
 /* Estilo para cada caja de proyecto */
 .work-item {
     background-color: #fff; /* Color de fondo de cada caja */
-    border: 1px solid #ccc; /* Borde de las cajas */
     border-radius: 24px; /* Bordes redondeados */
     padding: 15px; /* Relleno interno */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
     transition: transform 0.3s; /* Efecto de transición */
 
 }
