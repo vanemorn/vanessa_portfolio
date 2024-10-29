@@ -4,6 +4,8 @@ import React from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import aboutImage from '../assets/foto-yo-about.png'; // Asegúrate de que la ruta es correcta
+import './About.css'; // Asegúrate de que tienes este archivo CSS
+
 
 const About: React.FC = () => {
   return (
