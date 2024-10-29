@@ -73,28 +73,28 @@ const Home: React.FC = () => {
         <h2 className="featured-works-title" style={{ fontFamily: 'Arial, sans-serif' }}>Featured Works</h2>
         <div className="featured-works">
           <div className="work-box">
-            <img src={project1} alt="Project 1" className="project-image" />
+            <img src={project1} alt="Project 1" className="project-image-home" />
             <div className="project-label">Project</div>
             <h3 className="project-title">Ños! Gofio</h3>
             <p className="project-skills">Logo Design · Packaging · Web Design · Merchandising</p>
             <a href="#" className="view-more-btn">View More ➔</a>
           </div>
           <div className="work-box">
-            <img src={project2} alt="Project 2" className="project-image" />
+            <img src={project2} alt="Project 2" className="project-image-home" />
             <div className="project-label">Project</div>
             <h3 className="project-title">Cinedfest</h3>
             <p className="project-skills">Logo Design · Social Media · Poster · Merchandising</p>
             <a href="#" className="view-more-btn">View More ➔</a>
           </div>
           <div className="work-box">
-            <img src={project3} alt="Project 3" className="project-image" />
+            <img src={project3} alt="Project 3" className="project-image-home" />
             <div className="project-label">Project</div>
             <h3 className="project-title">Cipselas</h3>
             <p className="project-skills">Layout Design · Visual System · Microtypography</p>
             <a href="#" className="view-more-btn">View More ➔</a>
           </div>
           <div className="work-box">
-            <img src={project4} alt="Project 4" className="project-image" />
+            <img src={project4} alt="Project 4" className="project-image-home" />
             <div className="project-label">Project</div>
             <h3 className="project-title">Greenport Dashboard</h3>
             <p className="project-skills">Logo Design · UI Design · Visual System · Diagrams</p>

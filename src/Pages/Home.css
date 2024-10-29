@@ -86,7 +86,7 @@
     transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
   }
   
-  .project-image {
+  .project-image-home {
     width: 150px; 
     height: 150px; 
     border-radius: 10px; 
