@@ -1,58 +1,48 @@
-/* Header takes full width */
 .header-container {
-    display: flex;
-    justify-content: space-between; /* Alinea los elementos a los extremos */
-    align-items: center; /* Centra los elementos verticalmente */
-    padding: 1rem 2rem; /* Espaciado interno */
-    background-color: #ffffff; /* Color de fondo del header */
-    color: #212121; /* Color del texto */
-    width: 100%; /* Ancho completo */
-    position: relative; /* Asegura que se comporte correctamente */
-    margin: 0; /* Elimina márgenes que pueden estar presentes */
-  }
-  
-  /* Logo styling */
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    margin-left: 50px;
-  }
-  
-  .logo-text {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  /* Navigation menu styling */
-  .menu {
-    display: flex;
-  }
-  
-  .menu a {
-    margin: 0 15px;
-    color: #212121;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .menu a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .menu {
-      flex-direction: column;
-    }
-  
-    .menu a {
-      margin: 10px 0;
-    }
-  }
-  
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 20px; 
+  background-color: #F1F0EC; 
+}
+
+.logo-img {
+  max-height: 60px;
+}
+
+.menu {
+  flex-grow: 1; 
+  text-align: center;
+}
+
+.menu a {
+  color: #7B7B7B;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 20px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #9C0000;
+  font-weight: 800; 
+  text-decoration: underline;
+}
+
+.download-button {
+  background-color: #9C0000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.download-button:hover {
+  background-color: #4d0000;
+}

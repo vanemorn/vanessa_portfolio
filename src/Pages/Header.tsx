@@ -3,6 +3,7 @@ import './header.css';
 import logo from '../assets/LOGO-09.png';
 import { Link } from 'react-router-dom';
 
+
 const Header: React.FC = () => {
   return (
     <header className="header-container">
@@ -12,14 +13,19 @@ const Header: React.FC = () => {
         </Link>
         <span className="logo-text">Vanessa M</span>
       </div>
+      
       <nav className="menu">
-        <Link to="/Projects">Projects</Link> {/* Link to Projects page */}
-        <Link to="/About">About</Link> {/* Link to About page */}
-        <Link to="/Contact">Contact</Link> {/* Link to Contact page */}
-        <Link to="/Gallery">Gallery</Link> {/* Link to Gallery page */}
-        <Link to="/Blog">Blog</Link> {/* Link to Blog page */}
-        <Link to="/Videogallery">VideoGallery</Link> {/* Link to VideoGallery page */}
+        <Link to="/Projects">Projects</Link>
+        <Link to="/About">About</Link>
+        <Link to="/Contact">Contact</Link>
+        <Link to="/Gallery">Gallery</Link>
+        <Link to="/Blog">Blog</Link>
+        <Link to="/Videogallery">VideoGallery</Link>
       </nav>
+
+      <div className="download-button">
+        <a href="#download" className="btn">Download CV</a>
+      </div>
     </header>
   );
 };
