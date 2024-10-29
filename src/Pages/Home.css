@@ -21,8 +21,8 @@
 .flex-container {
     display: flex;
     gap: 150px; /* Controla el espacio entre columnas */
-    align-items: left;
-    justify-content: left;
+    align-items: center;
+    justify-content: center;
 }
 
 .foto-yo {
