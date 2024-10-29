@@ -26,8 +26,8 @@
 
 /* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
 @media screen and (max-width: 600px) {
-    .column {
-        width: 100%;
+    .column-gallery {
+        width: 100%; /* Cambié .column por .column-gallery para que funcione correctamente */
     }
 }
 
@@ -44,10 +44,27 @@
     transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
     margin-top: 100px;
-    padding-left: 150px;
+    padding-left: 150px; /* Asegúrate de que este padding esté presente */
 }
 
 .go-back-btn:hover {
     transform: translateX(-8px); /* Mueve el texto del botón hacia la izquierda al pasar el ratón */
     color: #7a0000; /* Cambia el color al pasar el ratón */
 }
+
+/* Galería de imágenes */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre las imágenes */
+    padding: 10px; /* Espacio interior */
+}
+
+.gallery-image {
+    width: 100%; /* Ajusta el ancho según tus necesidades */
+    max-width: 200px; /* Limita el tamaño máximo de las imágenes */
+    cursor: pointer; /* Cambia el cursor para indicar que son clicables */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
+
+/* Puedes añadir más estilos según lo desees */
