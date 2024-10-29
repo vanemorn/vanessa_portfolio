@@ -1,55 +1,171 @@
-.projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .column {
-    flex: 1 1 45%;
-    max-width: 45%;
-    padding: 15px;
-    box-sizing: border-box;
-  }
-  
-  .column-title {
-    font-size: 24px;
+/* Create two equal columns that float next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: auto; /* Ajustar altura a auto para la cuadrícula */
+}
+
+/* Estilos para el título y texto de la columna 1 */
+.column-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
     font-weight: bold;
-    margin-bottom: 15px;
-  }
-  
-  .column-text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  .gallery-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 15px;
-    margin: 10px 0;
-    border: 1px solid #000;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
+    margin-bottom: 40px;
+
+}
+
+.column-text {
+    font-family: Arial, Helvetica, sans-serif; 
+    font-weight:500;
+    font-size: 16px; 
+    line-height: 1.5; 
+    color: #555555; /* Color del texto del párrafo */
+    text-align: left;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* Estilo para la cuadrícula */
+.work-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crear una cuadrícula de 2x2 */
+    gap: 20px; /* Espacio entre los ítems de la cuadrícula */
+    width: 80%; /* Asegurar que el contenedor ocupe todo el ancho de la columna */
+    padding: 20px; 
+    border-radius: 30px; 
+    height: auto;
+}
+
+/* Estilo para cada caja de proyecto */
+.work-item {
+    background-color: #fff; /* Color de fondo de cada caja */
+    border-radius: 24px; /* Bordes redondeados */
+    padding: 15px; /* Relleno interno */
+    transition: transform 0.3s; /* Efecto de transición */
+
+}
+
+.work-item:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
+.project-image {
+    width: 100%; /* Hacer la imagen responsiva */
+    height: auto; /* Mantener la relación de aspecto */
+    border-radius: 10px; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+}
+
+.project-label {
+    font-family: 'Inter';
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid #646161;
+    color: #646161;
+    border-radius: 15px;
+    width: 60px;
+    padding: 5px 10px;
+    margin: 0;
+    display: inline-block;
+}
+
+.project-title {
+    font-family: 'Inter';
+    font-size: 18px; 
+    font-weight: 800; 
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.project-skills {
+    font-family: 'Inter';
+    font-weight:600;
+    font-size: 12px; 
+    color: #7B7B7B; 
+    margin-top: 1px; 
+}
+
+.view-more-btn {
+    font-family: 'Inter';
+    font-size: 14px;
+    color: #9C0000;
     text-decoration: none;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.view-more-btn:hover {
+    transform: translateX(8px); /* Move the button text 5px to the right on hover */
+}
+
+.gallery-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border: 2px solid;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 20px;
   }
   
   .gallery-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #c7c7c7; 
+    color: black;
   }
   
   .gallery-icon {
-    margin-left: 8px;
-    width: 16px;
-    height: 16px;
+    margin-left: 10px; 
+    width: 20px; 
+    height: 20px; 
+  }
+
+  .videogallery-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border: 2px solid;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
   }
   
+  .videogallery-btn:hover {
+    background-color: #c7c7c7; 
+    color: black;
+  }
+  
+  .videogallery-icon {
+    margin-left: 10px; 
+    width: 20px; 
+    height: 20px; 
+  }
