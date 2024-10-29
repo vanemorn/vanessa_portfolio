@@ -8,94 +8,91 @@
     background: #9C0000; 
     flex-wrap: wrap; 
     font-family: Arial, sans-serif; /* Cambiado a Arial */
-  }
-  
-  .banda-item, .banda-separator {
+}
+
+.banda-item, .banda-separator {
     color: white; 
     font-size: 20px; 
     font-weight: 600; 
     line-height: 25.86px; 
     margin: 0 5px; 
-  }
-  
-  .flex-container {
+}
+
+.flex-container {
     display: flex;
-    gap: 150px;
+    gap: 150px; /* Controla el espacio entre columnas */
     align-items: center;
     justify-content: center;
-  }
-  
-  .foto-yo {
+}
+
+.foto-yo {
     flex: 1; 
     max-width: 60%; 
-  }
-  
-  .What-can-do {
+}
+
+.What-can-do {
     color: black;
     font-size: 30px;
     font-weight: 700;
     line-height: 38.80px;
-    text-align: center;
+    text-align: center; /* Cambiado a center para un mejor aspecto */
     word-wrap: break-word;
     font-family: Arial, sans-serif; /* Cambiado a Arial */
-  }
-  
-  .expertise {
+}
+
+.expertise {
     display: grid;
     grid-template-columns: repeat(3, 255px); 
     grid-template-rows: repeat(2, 170px); 
     gap: 20px; 
     justify-content: center; 
-    margin: 20px;
-  }
-  
-  .grid-item {
+    margin: 20px auto; /* Centrando la cuadrícula */
+}
+
+.grid-item {
     display: flex; 
     justify-content: center; 
     align-items: center; 
     overflow: hidden; 
-  }
-  
-  .grid-item img {
+}
+
+.grid-item img {
     width: 100%; 
     height: auto; 
-  }
-  
-  /* Featured Works */
-  
-  .featured-works {
+}
+
+/* Featured Works */
+.featured-works {
     display: flex; 
     gap: 30px;
     margin: 20px; 
     flex-wrap: wrap; 
-  }
-  
-  .work-box {
+}
+
+.work-box {
     display: flex;
-    width: 190px;
-    height: auto;
     flex-direction: column; 
     border: 1px solid transparent; 
     padding: 20px; 
     border-radius: 10px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s; /* Efecto de transición */
-  }
-  
-  .work-box:hover {
+}
+
+.work-box:hover {
     transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
-  }
-  
-  .project-image {
+}
+
+.project-image {
     width: 190px; 
     height: 190px; 
     border-radius: 10px; 
     object-fit: cover; 
     margin-bottom: 10px; 
-  }
-  
-  .project-label {
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+}
+
+.project-label {
+    font-family: Arial, sans-serif; 
     font-size: 11px;
     font-weight: 600;
     border: 1px solid #646161;
@@ -105,26 +102,26 @@
     padding: 5px 10px;
     margin: 0;
     display: inline-block;
-  }
-  
-  .project-title {
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+}
+
+.project-title {
+    font-family: Arial, sans-serif; 
     font-size: 18px; 
     font-weight: 800; 
     margin-bottom: 5px;
     margin-top: 10px;
-  }
-  
-  .project-skills {
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+}
+
+.project-skills {
+    font-family: Arial, sans-serif; 
     font-weight: 600;
     font-size: 12px; 
     color: #7B7B7B; 
     margin-top: 1px; 
-  }
-  
-  .view-more-btn {
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+}
+
+.view-more-btn {
+    font-family: Arial, sans-serif; 
     font-size: 14px;
     color: #9C0000;
     text-decoration: none;
@@ -133,92 +130,89 @@
     background: none;
     cursor: pointer;
     transition: transform 0.2s;
-  }
-  
-  .view-more-btn:hover {
-    transform: translateX(8px); /* Move the button text 5px to the right on hover */
-  }
-  
-  .featured-works-section {
-    margin: 20px;
+}
+
+.view-more-btn:hover {
+    transform: translateX(8px); 
+}
+
+.featured-works-section {
+    margin: 50px auto; /* Centrando la sección de trabajos destacados */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #E7E6E2;
-    margin: 50px;
-    padding-bottom: 50px;
-  }
-  
-  .featured-works-title {
+    padding: 50px 0; /* Relleno superior e inferior */
+}
+
+.featured-works-title {
     color: black;
     font-size: 30px;
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+    font-family: Arial, sans-serif; 
     font-weight: 700;
     line-height: 38.80px;
     text-align: center;
     word-wrap: break-word;
-  }
-  
-  /* Contact Form */
-  
-  .contact-form-section {
+}
+
+/* Contact Form */
+.contact-form-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 100px;
-  }
-  
-  .contact-form-title {
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+    margin: 20px 0; /* Margen vertical para la sección de contacto */
+}
+
+.contact-form-title {
+    font-family: Arial, sans-serif; 
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 22px;
-  }
-  
-  .contact-form {
+}
+
+.contact-form {
     width: 100%;
     max-width: 600px; 
-  }
-  
-  .form-row {
+}
+
+.form-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-  }
-  
-  .form-input {
+}
+
+.form-input {
     width: calc(50% - 5px); /* Reduce el ancho en 5px para el margen */
-    margin-right: 10px; /* Margen de 10px entre nombre y email */
+    margin-right: 10px; 
     border: 2px solid black;
     border-radius: 25px; 
     padding: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
     font-size: 16px;
     color: #333; 
-  }
-  
-  .form-input:last-child {
+}
+
+.form-input:last-child {
     margin-right: 0; /* Quitar margen del último campo */
-  }
-  
-  .form-input::placeholder,
-  .form-textarea::placeholder {
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
     color: #000000;
-  }
-  
-  .form-textarea {
+}
+
+.form-textarea {
     width: 100%;
     height: 100px; 
     border-radius: 25px; 
     padding: 10px;
-    font-family: Arial, sans-serif; /* Cambiado a Arial */
+    font-family: Arial, sans-serif; 
     font-size: 16px;
     border: 2px solid black;
     color: #999;
-  }
-  
-  .submit-btn {
+}
+
+.submit-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,20 +221,19 @@
     padding: 10px 20px; 
     border-radius: 25px; 
     font-weight: bold;
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
-  }
-  
-  .submit-btn:hover {
+}
+
+.submit-btn:hover {
     background-color: #4d0000; 
-  }
-  
-  .send-icon {
+}
+
+.send-icon {
     margin-left: 10px; 
     width: 20px; 
     height: 20px; 
-  }
-  
+}
