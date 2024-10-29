@@ -58,7 +58,6 @@
     border: none; /* Asegura que no haya borde */
     box-shadow: none; /* Elimina cualquier sombra */
     overflow: hidden;
-    max-height: 500px;
 }
 
 /* Estilo para cada caja de proyecto */
