@@ -4,9 +4,8 @@
     width: 50%;
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
-    align-items: center;
-    justify-content: center; 
     margin-bottom: 150px;
+    text-align: left;
 }
 
 /* Estilos para el título y texto de la columna 1 */
@@ -37,7 +36,7 @@
 /* Estilo para el botón "Go back" */
 .go-back-btn {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #9C0000;
     text-decoration: none;
     font-weight: bold;
