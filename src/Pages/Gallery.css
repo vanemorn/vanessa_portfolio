@@ -33,7 +33,7 @@
 }
 
 /* Estilo para el botón "Go back" */
-.go-back-btn {
+.go-back-btn-gallery {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #9C0000;
@@ -48,7 +48,7 @@
     padding-left: 150px;
 }
 
-.go-back-btn:hover {
+.go-back-btn-gallery:hover {
     transform: translateX(-8px); /* Mueve el texto del botón hacia la izquierda al pasar el ratón */
     color: #7a0000; /* Cambia el color al pasar el ratón */
 }
