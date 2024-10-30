@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Videogallery.css'; // Asegúrate de que tienes este archivo CSS
+import { Link } from 'react-router-dom';
+
 
 function VideoGallery() {
   // useState hook para gestionar el índice actual del video mostrado
@@ -32,9 +34,10 @@ function VideoGallery() {
       {/* Contenedor principal del contenido */}
       <div className="row">
         {/* Sección centrada verticalmente */}
+
         <div className="column-videogallery">
-          <a href="#" className="go-back-btn">← Go back</a>
-          <h2 className="column-title-videogallery">VideoGallery</h2>
+        <Link to="/projects" className="go-back-btn-videogallery">← Go back</Link>
+         <h2 className="column-title-videogallery">Gallery</h2>
         </div>
 
         <div className="video-gallery-container">
