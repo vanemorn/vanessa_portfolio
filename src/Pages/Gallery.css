@@ -55,19 +55,16 @@
 
 /* Estilo para las imágenes de la galería */
 .image-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 150px;
-    margin-bottom: 200px;
+    display: grid; /* Usar grid para el contenedor */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 10px; /* Espacio entre las imágenes */
 }
 
 .gallery-image {
     width: 100%; /* Asegura que las imágenes ocupen el ancho del contenedor */
     height: auto; /* Mantiene la altura automática para conservar la relación de aspecto */
-    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
     object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
-    margin-bottom: 10px; /* Espacio entre las imágenes */
+    margin-bottom: 10px;
 }
 /* Estilo para el overlay */
 .overlay {
