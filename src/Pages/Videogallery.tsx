@@ -34,7 +34,7 @@ function VideoGallery() {
         {/* Sección centrada verticalmente */}
         <div className="column-videogallery">
           <a href="#" className="go-back-btn">← Go back</a>
-          <h2 className="column-title-videogallery">Gallery</h2>
+          <h2 className="column-title-videogallery">VideoGallery</h2>
         </div>
 
         <div className="video-gallery-container">
