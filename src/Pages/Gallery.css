@@ -26,7 +26,7 @@
 
 /* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
 @media screen and (max-width: 600px) {
-    .column-gallery {
+    .column {
         width: 100%;
     }
 }
@@ -41,7 +41,7 @@
     border: none;
     background: none;
     cursor: pointer;
-    transition: transform 0.2s, color 0.2s;
+    transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
     margin-top: 100px;
     padding-left: 150px;
@@ -52,37 +52,58 @@
     color: #7a0000; /* Cambia el color al pasar el ratón */
 }
 
-/* Galería de imágenes */
+/* Estilo para las imágenes de la galería */
 .image-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* Espacio entre las imágenes */
-    padding: 10px; /* Espacio interior */
+    justify-content: center;
 }
 
 .gallery-image {
-    width: 100%; /* Ajusta el ancho según tus necesidades */
-    max-width: 200px; /* Limita el tamaño máximo de las imágenes */
-    cursor: pointer; /* Cambia el cursor para indicar que son clicables */
-    border-radius: 8px; /* Bordes redondeados opcionales */
+    margin: 5px;
+    cursor: pointer;
+    max-width: 200px; /* Ajusta el tamaño de las imágenes */
+    border-radius: 8px; /* Bordes redondeados */
 }
 
-/* Overlay para la imagen expandida */
+/* Estilo para el overlay */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    justify-content: center;
 }
 
+/* Estilo para la imagen expandida */
 .expanded-image {
-    max-width: 90%; /* Máximo ancho de la imagen expandida */
-    max-height: 90%; /* Máximo alto de la imagen expandida */
-    border-radius: 8px; /* Bordes redondeados opcionales */
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Estilo para las flechas */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white; /* Cambia el color según sea necesario */
+    font-size: 30px; /* Ajusta el tamaño de la flecha */
+    cursor: pointer;
+    z-index: 10; /* Asegúrate de que las flechas estén encima de la imagen */
+    padding: 10px; /* Espacio alrededor del texto de la flecha */
+}
+
+.left-arrow {
+    left: 20px; /* Espacio desde la izquierda */
+}
+
+.right-arrow {
+    right: 20px; /* Espacio desde la derecha */
 }

@@ -21,11 +21,23 @@ const images = [
 
 const Gallery: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openImage = (image: string) => {
-    setCurrentImage(image);
+  const openImage = (index: number) => {
+    setCurrentImageIndex(index);
     setIsOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -50,7 +62,7 @@ const Gallery: React.FC = () => {
                 src={image} 
                 alt={`Gallery Image ${index + 1}`} 
                 className="gallery-image"
-                onClick={() => openImage(image)} // Al hacer clic se abre la imagen en overlay
+                onClick={() => openImage(index)} // Al hacer clic se abre la imagen en overlay
               />
             ))}
           </div>
@@ -60,7 +72,13 @@ const Gallery: React.FC = () => {
       {/* Overlay para mostrar la imagen seleccionada */}
       {isOpen && (
         <div className="overlay" onClick={() => setIsOpen(false)}>
-          <img src={currentImage} alt="Expanded view" className="expanded-image" />
+          <button className="arrow left-arrow" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+            ←
+          </button>
+          <img src={images[currentImageIndex]} alt="Expanded view" className="expanded-image" />
+          <button className="arrow right-arrow" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+            →
+          </button>
         </div>
       )}
 
