@@ -6,7 +6,8 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
     text-align: left;
-    margin-bottom: 150px
+    margin-top: 200px;
+    margin-bottom: 150px;
 }
 
 /* Estilos para el título y texto de la columna 1 */
@@ -62,9 +63,11 @@
 
 .gallery-image {
     width: 100%; /* Ocupar todo el ancho de la celda */
-    height: 1500px; /* Altura fija para lograr formato cuadrado */
+    height: 150px; /* Altura fija para lograr formato cuadrado */
     object-fit: cover; /* Ajusta sin deformar */
     border-radius: 8px; /* Opcional: añadir bordes redondeados */
+    cursor: pointer;
+
 }
 /* Estilo para el overlay */
 .overlay {
