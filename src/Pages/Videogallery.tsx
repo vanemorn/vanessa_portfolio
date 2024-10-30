@@ -10,8 +10,6 @@ function VideoGallery() {
 
   const videos = [
     './video1.mp4',
-    './video2.mp4',
-    './video3.mp4',
     // Agrega más URLs de videos según sea necesario
   ];
 
@@ -38,10 +36,6 @@ function VideoGallery() {
         </div>
 
         <div className="video-gallery-container">
-          <header className="video-gallery-header">
-            <h1>Video Gallery</h1>
-            <p>Explore our collection of videos showcasing various topics and projects.</p>
-          </header>
           {/* Display the current video */}
           <video
             src={videos[index]}
