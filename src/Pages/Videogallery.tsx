@@ -10,6 +10,8 @@ function VideoGallery() {
 
   const videos = [
     './video1.mp4',
+    './video2.mp4',
+    './video3.mp4',
     // Agrega más URLs de videos según sea necesario
   ];
 
