@@ -14,35 +14,14 @@ const Blog: React.FC = () => {
         <h1 className="blog-title">Blog</h1>
 
         <div className="post">
-          <h2 className="post-title">Título de la Entrada 1</h2>
+          <h2 className="post-title">Photography Series Analysis </h2>
           <div className="post-meta">
-            <span className="post-date">Fecha de Publicación: 28 de octubre de 2024</span> |
-            <span className="post-read-time">Tiempo de lectura: 5 min</span>
+            <span className="post-date">Published: 30/10/2024</span> |
+            <span className="post-read-time">Reading time: 8 min</span>
           </div>
           <p className="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non risus quis odio tristique ultricies. Nullam non orci nec dolor dapibus tincidunt non ac odio.</p>
         </div>
-
-        <hr className="separator" />
-
-        <div className="post">
-          <h2 className="post-title">Título de la Entrada 2</h2>
-          <div className="post-meta">
-            <span className="post-date">Fecha de Publicación: 27 de octubre de 2024</span> |
-            <span className="post-read-time">Tiempo de lectura: 3 min</span>
-          </div>
-          <p className="post-content">Curabitur ac felis arcu. Sed at nisi sed ipsum vestibulum sollicitudin. Nulla facilisi. Sed feugiat magna sit amet metus dapibus, vitae tincidunt odio varius.</p>
-        </div>
-
-        <hr className="separator" />
-
-        <div className="post">
-          <h2 className="post-title">Título de la Entrada 3</h2>
-          <div className="post-meta">
-            <span className="post-date">Fecha de Publicación: 26 de octubre de 2024</span> |
-            <span className="post-read-time">Tiempo de lectura: 4 min</span>
-          </div>
-          <p className="post-content">Duis quis felis ac sapien feugiat euismod. Morbi volutpat dolor non mi dignissim, at ullamcorper est dictum. Sed congue eros a arcu aliquam, a malesuada nunc vulputate.</p>
-        </div>
+ 
       </div>
 
       <footer>
