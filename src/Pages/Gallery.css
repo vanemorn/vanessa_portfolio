@@ -63,12 +63,12 @@
 }
 
 .gallery-image {
-    margin: 5px;
-    cursor: pointer;
-    max-width: 200px; /* Ajusta el tamaño de las imágenes */
-    border-radius: 8px; /* Bordes redondeados */
+    width: 100%; /* Asegura que las imágenes ocupen el ancho del contenedor */
+    height: auto; /* Mantiene la altura automática para conservar la relación de aspecto */
+    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
+    margin-bottom: 10px; /* Espacio entre las imágenes */
 }
-
 /* Estilo para el overlay */
 .overlay {
     position: fixed;
