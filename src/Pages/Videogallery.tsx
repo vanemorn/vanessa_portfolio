@@ -10,22 +10,23 @@ const About: React.FC = () => {
       <Header />
 
       <div className="video-gallery-container">
-        <h2 className="video-gallery-title">Video Gallery</h2>
-        <div className="video-gallery">
-          <video className="video-item" controls>
-            <source src="C:Users/linda/vanessa_portfolio/src/assets/video1.mp4" type="video/mp4" />
-            Tu navegador no soporta el video.
-          </video>
-          <video className="video-item" controls>
-            <source src="C:Users/linda/vanessa_portfolio/src/assets/video2.mp4" type="video/mp4" />
-            Tu navegador no soporta el video.
-          </video>
-          <video className="video-item" controls>
-            <source src="C:Users/linda/vanessa_portfolio/src/assets/video3.mp4" type="video/mp4" />
-            Tu navegador no soporta el video.
-          </video>
-        </div>
-      </div>
+  <h2 className="video-gallery-title">Video Gallery</h2>
+  <div className="video-gallery">
+    <video className="video-item" controls>
+      <source src="/assets/video1.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+    <video className="video-item" controls>
+      <source src="/assets/video2.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+    <video className="video-item" controls>
+      <source src="/assets/video3.mp4" type="video/mp4" />
+      Tu navegador no soporta el video.
+    </video>
+  </div>
+</div>
+
 
       <footer>
         <Footer />
