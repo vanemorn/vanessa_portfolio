@@ -37,7 +37,7 @@ function VideoGallery() {
 
         <div className="column-videogallery">
         <Link to="/projects" className="go-back-btn">← Go back</Link>
-         <h2 className="column-title-videogallery">Gallery</h2>
+         <h2 className="column-title-videogallery">VideoGallery</h2>
         </div>
 
         <div className="video-gallery-container">
