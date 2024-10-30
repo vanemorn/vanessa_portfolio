@@ -10,7 +10,7 @@ import image2 from '../assets/gallery-B.png';
 import image3 from '../assets/gallery-C.jpg';
 import image4 from '../assets/gallery-D.png';
 import image5 from '../assets/gallery-E.png';
-import image6 from '../assets/gallery-F.png';
+import image6 from '../assets/gallery-F.jpg';
 import image7 from '../assets/gallery-H.png';
 import image8 from '../assets/gallery-I.png';
 import image9 from '../assets/gallery-J.png';
