@@ -53,7 +53,7 @@ const Gallery: React.FC = () => {
         </div>
 
           {/* Galería de imágenes */}
-          <div className="image-gallery">
+          <div className="image-gallery center-column">
             {images.map((image, index) => (
               <img 
                 key={index} 
