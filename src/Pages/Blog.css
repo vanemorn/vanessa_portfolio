@@ -7,21 +7,63 @@ body {
   }
 
 
-  .photography-section {
-    display: flex;
-    flex-direction: column;
+.blog-title {
+    margin: 0; /* Sin margen */
+    font-size: 40px; /* Tamaño de fuente del título */
+    padding-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: left;
+    color:#000000;
+}
+
+.blog-description {
+    font-size: 18px; /* Tamaño de fuente de la descripción */
+    margin-top: 5px; /* Espacio arriba de la descripción */
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.container {
+    max-width: 800px; /* Ancho máximo para el contenido */
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.post {
+    margin-bottom: 20px; /* Espacio entre las entradas del blog */
+}
+
+.post-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1c1c1c; /* Color del título de la entrada */
+    text-align: left;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 
-.photo-column {
-    margin-bottom: 20px;
+.post-meta {
+    font-size: 14px;
+    color: #7b7b7b; /* Color del texto de la fecha y tiempo de lectura */
+    margin-bottom: 20px; /* Espacio entre meta y contenido */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: left;
 }
 
-.photo-column h2 {
-    margin-top: 20px;
+.post-content {
+    font-size: 16px;
+    color: #555; /* Color del contenido */
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.photo-column img {
-    max-width: 100%; /* Ensures responsiveness */
-    border-radius: 5px; /* Optional: Adds rounded corners to images */
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #9C0000; /* Color de la línea horizontal */
+    margin: 20px 0; /* Espacio alrededor de la línea */
 }
