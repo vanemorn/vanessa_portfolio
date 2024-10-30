@@ -5,10 +5,13 @@ import Footer from '../components/Footer'; // Asegúrate de que la ruta sea corr
 import './Gallery.css'; // Asegúrate de que tienes este archivo CSS
 
 // Importar imágenes desde la carpeta assets
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image2.jpg';
-import image3 from '../assets/image3.jpg';
-import image4 from '../assets/image4.jpg';
+import image1 from '../assets/gallery-A.png';
+import image2 from '../assets/gallery-B.png';
+import image3 from '../assets/gallery-C.jpg';
+import image4 from '../assets/gallery-D.png';
+import image5 from '../assets/gallery-E.png';
+import image6 from '../assets/gallery-F.png';
+import image7 from '../assets/gallery-E.png';
 
 // Array de imágenes para la galería
 const images = [
@@ -16,6 +19,9 @@ const images = [
   image2,
   image3,
   image4,
+  image5,
+  image6,
+  image7,
   // Añade más imágenes según sea necesario
 ];
 
