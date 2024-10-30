@@ -52,8 +52,6 @@ const Gallery: React.FC = () => {
         </div>
 
         <div className="column-gallery">
-          <p>testing 2nd column</p>
-
           {/* Galería de imágenes */}
           <div className="image-gallery">
             {images.map((image, index) => (
