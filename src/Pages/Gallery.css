@@ -35,7 +35,7 @@
 /* Estilo para el botón "Go back" */
 .go-back-btn-gallery {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 36px;
+    font-size: 16px;
     color: #9C0000;
     text-decoration: none;
     font-weight: 600;
@@ -44,7 +44,7 @@
     cursor: pointer;
     transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
-    margin-top: 190px; /* Espaciado superior para el botón */
+    padding-top: 190px; /* Espaciado superior para el botón */
     padding-left: 150px;
 }
 
