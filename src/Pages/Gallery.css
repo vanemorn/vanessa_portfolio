@@ -6,7 +6,8 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
     text-align: left;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-bottom: 150px
 }
 
 /* Estilos para el título y texto de la columna 1 */
@@ -57,8 +58,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-top: 150px;
-    margin-bottom: 150px
+
 }
 
 .gallery-image {
