@@ -46,12 +46,12 @@ const Gallery: React.FC = () => {
 
       {/* Contenedor principal del contenido */}
       <div className="row">
-        <div className="column-gallery">
+        {/* Sección centrada verticalmente */}
+        <div className="column-gallery center-column">
           <a href="#" className="go-back-btn">← Go back</a>
           <h2 className="column-title-gallery">Gallery</h2>
         </div>
 
-        <div className="column-gallery">
           {/* Galería de imágenes */}
           <div className="image-gallery">
             {images.map((image, index) => (
@@ -63,7 +63,7 @@ const Gallery: React.FC = () => {
                 onClick={() => openImage(index)} // Al hacer clic se abre la imagen en overlay
               />
             ))}
-          </div>
+          
         </div>
       </div>
 
