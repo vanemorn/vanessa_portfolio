@@ -47,7 +47,7 @@ const Gallery: React.FC = () => {
       {/* Contenedor principal del contenido */}
       <div className="row">
         {/* Sección centrada verticalmente */}
-        <div className="column-gallery center-column">
+        <div className="column-gallery">
           <a href="#" className="go-back-btn">← Go back</a>
           <h2 className="column-title-gallery">Gallery</h2>
         </div>

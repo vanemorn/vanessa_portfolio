@@ -6,14 +6,7 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
     text-align: left;
-}
-
-/* Estilos para centrar verticalmente el contenido */
-.center-column {
-    display: flex;
-    flex-direction: column; /* Alinear verticalmente */
-    justify-content: center; /* Centrar verticalmente */
-    height: calc(100vh - 100px); /* Ajustar altura según sea necesario */
+    margin-top: 150px;
 }
 
 /* Estilos para el título y texto de la columna 1 */
