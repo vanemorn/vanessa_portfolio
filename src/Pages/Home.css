@@ -173,6 +173,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     margin: 20px 0; /* Margen vertical para la sección de contacto */
     margin-bottom: 50px;
 }
