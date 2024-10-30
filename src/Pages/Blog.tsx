@@ -29,7 +29,7 @@ const Blog: React.FC = () => {
           </p>
           
           <h3>Business-Type Headshot</h3>
-          <img src={businessHeadshot} alt="Business Headshot" />
+          <img src={businessHeadshot} alt="Business Headshot"/>
           <p>
             For the business headshot, I wanted to create an image that balances professionalism with approachability. I chose soft frontal lighting to keep the exposure even across my face and avoid harsh shadows, giving a clean and polished look. I went with a plain white background, which I planned to replace later with a softly blurred office background, adding context without distracting from the subject.
 
