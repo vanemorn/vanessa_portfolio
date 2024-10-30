@@ -1,315 +1,324 @@
 .banda {
-  position: relative;
-  width: 100%; 
-  height: auto; /* Permitir que la altura se ajuste automáticamente */
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  background: #9C0000; 
-  flex-wrap: wrap; 
-  font-family: Arial, sans-serif; /* Cambiado a Arial */
-  padding: 10px; /* Espaciado interno */
+    position: relative;
+    width: 100%; 
+    height: 62px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: #9C0000; 
+    flex-wrap: wrap; 
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
 }
 
 .banda-item, .banda-separator {
-  color: white; 
-  font-size: 20px; 
-  font-weight: 600; 
-  line-height: 25.86px; 
-  margin: 5px; /* Espaciado uniforme */
+    color: white; 
+    font-size: 20px; 
+    font-weight: 600; 
+    line-height: 25.86px; 
+    margin: 0 5px; 
 }
 
 .flex-container {
-  display: flex;
-  gap: 30px; /* Reduce el espacio entre columnas para pantallas pequeñas */
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+    display: flex;
+    gap: 150px; /* Controla el espacio entre columnas */
+    align-items: center;
+    justify-content: center;
 }
 
 .foto-yo {
-  flex: 1; 
-  max-width: 60%; 
-  margin: 10px; /* Espaciado externo */
+    flex: 1; 
+    max-width: 60%; 
 }
 
 .What-can-do {
-  color: black;
-  font-size: 24px; /* Ajustado para ser más responsivo */
-  font-weight: 700;
-  line-height: 1.3; /* Ajustar espaciado */
-  text-align: center; 
-  word-wrap: break-word;
-  font-family: Arial, sans-serif; 
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38.80px;
+    text-align: center; /* Cambiado a center para un mejor aspecto */
+    word-wrap: break-word;
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
 }
 
 .expertise {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Usar minmax para adaptabilidad */
-  grid-template-rows: auto; 
-  gap: 20px; 
-  justify-content: center; 
-  margin: 20px auto; 
+    display: grid;
+    grid-template-columns: repeat(3, 255px); 
+    grid-template-rows: repeat(2, 170px); 
+    gap: 20px; 
+    justify-content: center; 
+    margin: 20px auto; /* Centrando la cuadrícula */
 }
 
 .grid-item {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
 }
 
 .grid-item img {
-  width: 100%; 
-  height: auto; 
+    width: 100%; 
+    height: auto; 
 }
 
 .featured-works {
-  display: flex; 
-  gap: 30px;
-  margin: 20px; 
-  flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
-}
+    display: flex; 
+    gap: 30px;
+    margin: 20px; 
+    flex-wrap: wrap; 
+  }
 
-.work-box {
-  display: flex;
-  width: 100%; /* Hacer que la caja ocupe el ancho disponible */
-  max-width: 200px; /* Mantener un ancho máximo */
-  height: auto;
-  flex-direction: column; 
-  border: 1px solid transparent; 
-  padding: 20px; 
-  border-radius: 10px; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s; 
-  text-align: left;
-}
-
-.work-box:hover {
-  transform: scale(1.05); 
-}
-
-.project-image-home {
-  width: 100%; 
-  max-width: 150px; 
-  height: auto; 
-  border-radius: 10px; 
-  object-fit: cover; 
-  margin-bottom: 10px; 
-}
-
-.project-label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  border: 1px solid #646161;
-  color: #646161;
-  border-radius: 15px;
-  padding: 5px 10px;
-  display: inline-block;
-  text-align: center; /* Alinear el texto en el centro */
-}
-
-.project-title {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px; 
-  font-weight: 800; 
-  margin: 10px 0 5px;
-  text-align: left;
-}
-
-.project-skills {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight:500;
-  font-size: 12px; 
-  color: #7B7B7B; 
-  margin-top: 1px; 
-  text-align: left;
-}
-
-.view-more-btn {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #9C0000;
-  text-decoration: none;
-  font-weight: bold;
-  border: none;
-  background: none;
-  cursor: pointer;
-  transition: transform 0.2s;
-  text-align: left;
-  margin-top: 8px;
-}
-
-.view-more-btn:hover {
-  transform: translateX(8px); 
-}
-
-.featured-works-section {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E7E6E2;
-  margin: 50px;
-  padding: 50px 0; /* Espaciado uniforme superior e inferior */
-}
-
-.featured-works-title {
-  color: black;
-  font-size: 30px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 1.3; 
-  text-align: center;
-  margin-top: 20px;
-}
+  
+  .work-box {
+    display: flex;
+    width: 200px;
+    height: auto;
+    flex-direction: column; 
+    border: 1px solid transparent; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s; /* Efecto de transición */
+    text-align: left;
+  }
+  
+  .work-box:hover {
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+  }
+  
+  .project-image-home {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 10px; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+  }
+  
+  .project-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid #646161;
+    color: #646161;
+    border-radius: 15px;
+    width: 60px;
+    padding: 5px 10px;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .project-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px; 
+    font-weight: 800; 
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .project-skills {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:500;
+    font-size: 12px; 
+    color: #7B7B7B; 
+    margin-top: 1px; 
+    text-align: left;
+    
+  }
+  
+  .view-more-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #9C0000;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: left;
+    margin-top: 8px;
+  }
+  
+  .view-more-btn:hover {
+    transform: translateX(8px); /* Move the button text 5px to the right on hover */
+  }
+  
+  
+  .featured-works-section {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E7E6E2;
+    margin: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  
+  .featured-works-title {
+    color: black;
+    font-size: 30px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 38.80px;
+    text-align: center;
+    word-wrap: break-word;
+    margin-top: 20px;
+  }
 
 /* Contact Form */
 .contact-form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: 20px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 20px 0; /* Margen vertical para la sección de contacto */
+    margin-bottom: 50px;
 }
 
 .contact-form-title {
-  font-family: Arial, sans-serif; 
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 22px;
+    font-family: Arial, sans-serif; 
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 22px;
 }
 
 .contact-form {
-  width: 100%;
-  max-width: 600px; 
+    width: 100%;
+    max-width: 600px; 
 }
 
 .form-row {
-  display: flex;
-  flex-wrap: wrap; /* Permitir que los campos se envuelvan */
-  justify-content: space-between;
-  margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .form-input {
-  flex: 1; /* Hacer que los campos ocupen el ancho disponible */
-  margin: 5px; 
-  border: 2px solid black;
-  border-radius: 25px; 
-  padding: 10px;
-  font-family: Arial, sans-serif; 
-  font-size: 16px;
-  color: #333; 
+    width: calc(50% - 5px); /* Reduce el ancho en 5px para el margen */
+    margin-right: 10px; 
+    border: 2px solid black;
+    border-radius: 25px; 
+    padding: 10px;
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
+    font-size: 16px;
+    color: #333; 
+}
+
+.form-input:last-child {
+    margin-right: 0; /* Quitar margen del último campo */
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #000000;
+    color: #000000;
 }
 
 .form-textarea {
-  width: 100%;
-  height: 100px; 
-  border-radius: 25px; 
-  padding: 10px;
-  font-family: Arial, sans-serif; 
-  font-size: 16px;
-  border: 2px solid black;
-  color: #999;
+    width: 100%;
+    height: 100px; 
+    border-radius: 25px; 
+    padding: 10px;
+    font-family: Arial, sans-serif; 
+    font-size: 16px;
+    border: 2px solid black;
+    color: #999;
 }
 
 .submit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #9C0000;
-  color: white;
-  padding: 10px 20px; 
-  border-radius: 25px; 
-  font-weight: bold;
-  font-family: Arial, sans-serif; 
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9C0000;
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    font-weight: bold;
+    font-family: Arial, sans-serif; /* Cambiado a Arial */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .submit-btn:hover {
-  background-color: #4d0000; 
+    background-color: #4d0000; 
 }
 
 .send-icon {
-  margin-left: 10px; 
-  width: 20px; 
-  height: 20px; 
+    margin-left: 10px; 
+    width: 20px; 
+    height: 20px; 
 }
 
 /* Responsividad */
 @media only screen and (max-width: 900px) {  /* tablet y moviles */
-  .flex-container {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 10vh;
-  }
-  
-  .banda {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+    .banda {
+      height: auto; /* Permitir que la altura se ajuste */
       padding: 10px; /* Espaciado interno */
       margin-top: 80px;
+      
   }
-
-  .banda-item, .banda-separator {
-      margin: 5px 0; /* Espaciado vertical en lugar de horizontal */
-      font-size: 18px; /* Reducir tamaño de fuente en móviles */
+  
+    .banda-item, .banda-separator {
+      margin: 5px 5px; /* Espaciado vertical en lugar de horizontal */
   }
-
+  
   .foto-yo {
-      margin-top: -100px; /* Ajustar la posición */
-      max-width: 100%; /* Asegurar que la imagen no exceda el contenedor */
+    margin-top: -100px;
   }
-
-  .What-can-do {
-      font-size: 20px; /* Ajustar tamaño de fuente para móviles */
+  
   }
-
-  .expertise {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Colocar elementos en una fila */
+  
+    /* Ajuste de ancho y alineación */
+    .descripcion,
+    .foto-yo {
+        max-width: 100%;
+        text-align: left;
+  
+    }
+  
+    /* Tamaño de fuente más pequeño para evitar saltos de línea */
+    .descripcion span {
+        font-size: 32px; /* Ajuste de tamaño de fuente */
+        line-height: 1.2em; /* Ajuste de espaciado entre líneas */
+    }
+  
+  
+  @media only screen and (min-width: 900px) {
+    .flex-container {
+        flex-direction: row;
+        margin: 27vh 10vw;
+        
+    }
   }
-
-  .work-box {
-      max-width: 90%; /* Ancho máximo del trabajo */
-  }
-
-  .form-row {
-      flex-direction: column; /* Cambiar a columna para pantallas pequeñas */
-      width: 100%; /* Asegurar que ocupe el ancho completo */
-  }
-
-  .form-input {
-      width: 100%; /* Asegurar que ocupe el ancho completo */
-      margin-right: 0; /* Quitar margen derecho en móviles */
-  }
-
-  .form-textarea {
-      width: 100%; /* Asegurar que ocupe el ancho completo */
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .flex-container {
-      flex-direction: row;
-  }
-}
-
-@media only screen and (min-width: 1300px) {
-  .flex-container {
-      margin-top: 120px; 
-  }
-
-  .What-can-do {
+  
+  @media only screen and (min-width: 1300px) {
+    .flex-container {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        margin-top: 120px;
+        
+    }
+  
+    .banda {
+      margin-top: -100px;
+    }
+  
+    .What-can-do {
       margin-top: 60px;
       margin-bottom: 60px;
+    }
   }
-}
+  
+  
