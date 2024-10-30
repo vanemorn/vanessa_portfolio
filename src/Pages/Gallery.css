@@ -5,7 +5,6 @@
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
-    margin-top: 150px;
     text-align: left;
 }
 
@@ -23,6 +22,7 @@
     content: "";
     display: table;
     clear: both;
+    margin-top: 150px;
 }
 
 /* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
