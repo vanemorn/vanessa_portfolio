@@ -11,6 +11,12 @@ import image3 from '../assets/gallery-C.jpg';
 import image4 from '../assets/gallery-D.png';
 import image5 from '../assets/gallery-E.png';
 import image6 from '../assets/gallery-F.png';
+import image7 from '../assets/gallery-H.png';
+import image8 from '../assets/gallery-I.png';
+import image9 from '../assets/gallery-J.png';
+
+
+
 
 // Array de imágenes para la galería
 const images = [
@@ -20,6 +26,9 @@ const images = [
   image4,
   image5,
   image6,
+  image7,
+  image8,
+  image9
   // Añade más imágenes según sea necesario
 ];
 
