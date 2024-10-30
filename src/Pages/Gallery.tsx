@@ -5,15 +5,15 @@ import Footer from '../components/Footer'; // Asegúrate de que la ruta sea corr
 import './Gallery.css'; // Asegúrate de que tienes este archivo CSS
 
 // Importar imágenes desde la carpeta assets
-import image1 from '../assets/gallery-A.png';
-import image2 from '../assets/gallery-B.png';
-import image3 from '../assets/gallery-C.jpg';
-import image4 from '../assets/gallery-D.png';
-import image5 from '../assets/gallery-E.png';
-import image6 from '../assets/gallery-F.jpg';
-import image7 from '../assets/gallery-H.png';
-import image8 from '../assets/gallery-I.png';
-import image9 from '../assets/gallery-J.png';
+import image1 from '../assets/gallery-image_A.jpg';
+import image2 from '../assets/gallery-image_B.jpg';
+import image3 from '../assets/gallery-image_C.jpg';
+import image4 from '../assets/gallery-image_D.jpg';
+import image5 from '../assets/gallery-image_E.jpg';
+import image6 from '../assets/gallery-image_F.jpg';
+import image7 from '../assets/gallery-image_G.jpg';
+import image8 from '../assets/gallery-image_H.jpg';
+import image9 from '../assets/gallery-image_I.jpg';
 
 
 
