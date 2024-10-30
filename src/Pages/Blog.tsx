@@ -29,7 +29,7 @@ const Blog: React.FC = () => {
           </p>
           
           <h3 className= "post-subtitle">Business-Type Headshot</h3>
-          <img src={businessHeadshot} alt="Business Headshot"/>
+          <img className= "post-image" src={businessHeadshot} alt="Business Headshot"/>
           <p className="post-content">
             For the business headshot, I wanted to create an image that balances professionalism with approachability. I chose soft frontal lighting to keep the exposure even across my face and avoid harsh shadows, giving a clean and polished look. I went with a plain white background, which I planned to replace later with a softly blurred office background, adding context without distracting from the subject.
 
@@ -39,7 +39,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Aesthetic Shot</h3>
-          <img src={aestheticShot} alt="Aesthetic Shot" />
+          <img className= "post-image" src={aestheticShot} alt="Aesthetic Shot" />
           <p className="post-content">
             For the aesthetic shot, I drew inspiration from cinematic photography that features deep shadows and rich colours, aiming to create a moody and thoughtful atmosphere. I set up the composition with a centered point of interest: a window right in the middle, with me sitting on the window ledge in a relaxed and introspective pose looking at the outside. This setup was meant to symbolize a contrast between inner darkness and the colourful world outside, serving as a reminder of hope in tough times.
 
@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Passion Shot</h3>
-          <img src={passionShot} alt="Passion Shot" />
+          <img className= "post-image" src={passionShot} alt="Passion Shot" />
           <p className="post-content">
             For the passion shot, I wanted to capture my favourite activity since moving to Ireland: traveling and exploring new places. To visually share this topic, I carefully arranged a composition with key items related to trip planning. These included a map with some locations circled, a pen, a Pinterest board full of ideas, a tourist brochure with potential destinations and some decorative elements like a small plant and a cup of coffee. This setup was meant to evoke the feeling of getting ready for an adventure.
 

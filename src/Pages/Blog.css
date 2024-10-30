@@ -72,6 +72,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.post-image {
+    width: 400px;
+    height: auto;
+}
+
 .separator {
     border: none;
     height: 1px;
