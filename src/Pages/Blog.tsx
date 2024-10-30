@@ -1,7 +1,7 @@
 import React from 'react';
-import businessImage from './assets/business headshot.jpg'; // Update path as necessary
-import aestheticImage from './assets/images/aesthetic-shot.jpg'; // Update path as necessary
-import passionImage from './assets/images/passion-shot.jpg'; // Update path as necessary
+import businessImage from './assets/business-headshot.jpg'; // Update path as necessary
+import aestheticImage from './assets/aesthetic-shot.jpg'; // Update path as necessary
+import passionImage from './assets/passion-shot.jpg'; // Update path as necessary
 
 const Blog: React.FC = () => {
   return (
