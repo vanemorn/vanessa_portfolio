@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Gallery.css'; // Asegúrate de que tienes este archivo CSS
+import { Link } from 'react-router-dom';
+
 
 // Importar imágenes desde la carpeta assets
 import image1 from '../assets/gallery-image_A.jpg';
@@ -60,9 +62,10 @@ const Gallery: React.FC = () => {
       {/* Contenedor principal del contenido */}
       <div className="row">
         {/* Sección centrada verticalmente */}
+
         <div className="column-gallery">
-          <a href="#" className="go-back-btn-gallery">← Go back</a>
-          <h2 className="column-title-gallery">Gallery</h2>
+        <Link to="/projects" className="go-back-btn-gallery">← Go back</Link>
+         <h2 className="column-title-gallery">Gallery</h2>
         </div>
 
           {/* Galería de imágenes */}
