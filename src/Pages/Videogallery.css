@@ -1,22 +1,26 @@
 /* VideoGallery.css */
 /* Crear dos columnas iguales que flotan una al lado de la otra */
-.column-gallery {
+.column-videogallery {
     float: left;
     width: 50%;
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
+    margin-top: 150px;
     text-align: left;
+    
 
 }
 
 /* Estilos para el título y texto de la columna 1 */
-.column-title-gallery {
+.column-title-videogallery {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     font-weight: bold;
     padding-left: 150px;
     text-align: left;
+    
+
 }
 
 /* Clear floats after the columns */
@@ -63,8 +67,7 @@
   
   
   .video-player {
-    width: 50%;
-    max-height: 500px;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
