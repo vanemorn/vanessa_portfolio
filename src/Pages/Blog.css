@@ -74,9 +74,9 @@ body {
     width: 300px; /* Ancho de la imagen */
     height: auto; /* Mantener la proporción de la imagen */
     object-fit: cover; /* Asegurarse de que la imagen no se deforme */
-    margin-bottom: 40px; /* Espacio debajo de la imagen */
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
     margin-right: 20px; /* Espacio a la derecha de la imagen */
-    float: left; /* Alinear la imagen a la izquierda */
+    float: right; /* Alinear la imagen a la izquierda */
 }
 
 .separator {
