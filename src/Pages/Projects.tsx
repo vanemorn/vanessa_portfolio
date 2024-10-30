@@ -46,9 +46,11 @@ const Projects: React.FC = () => {
           </button>
 
           <button type="button" className="videogallery-btn">
-            <span>Video Gallery</span>
-            <img src={videogalleryIcon} alt="video gallery" className="gallery-icon" />
-          </button>
+            <Link to="/videogallery" className="gallery-link">
+              <span>Video Gallery</span>
+              <img src={videogalleryIcon} alt="video gallery" className="gallery-icon" />
+            </Link>
+</button>
         </div>
 
         <div className="column">
