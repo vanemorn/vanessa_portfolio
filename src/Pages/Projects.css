@@ -1,3 +1,8 @@
+.gallery-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
 /* Create two equal columns that float next to each other */
 .column-project {
     float: left;
