@@ -6,7 +6,7 @@
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
-    margin-top: 150px;
+    margin-top: 190px;
     text-align: left;
     
 
@@ -63,6 +63,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    max-height: 600px;
   }
   
   
@@ -81,16 +82,22 @@
   }
   
   .video-gallery-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px; 
+    border-radius: 25px; 
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border: 2px solid;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+    margin-left: 150px;
+    margin-bottom: 20px;
+    margin-top: 40px;
   }
   
   .video-gallery-button:hover {
-    background-color: #555;
+    background-color: #c7c7c7; 
+    color: black;
   }
   

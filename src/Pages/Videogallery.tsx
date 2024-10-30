@@ -48,10 +48,10 @@ function VideoGallery() {
           {/* Navigation buttons */}
           <div className="video-gallery-buttons">
             <button onClick={goToPreviousVideo} className="video-gallery-button">
-              Previous
+             Previous
             </button>
             <button onClick={goToNextVideo} className="video-gallery-button">
-              Next
+              Next 
             </button>
           </div>
         </div>
