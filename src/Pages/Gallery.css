@@ -53,18 +53,17 @@
     color: #7a0000; /* Cambia el color al pasar el ratón */
 }
 
-/* Estilo para las imágenes de la galería */
 .image-gallery {
-    display: grid; /* Usar grid para el contenedor */
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-    gap: 10px; /* Espacio entre las imágenes */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .gallery-image {
-    width: 100%; /* Asegura que las imágenes ocupen el ancho del contenedor */
-    height: auto; /* Mantiene la altura automática para conservar la relación de aspecto */
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
-    margin-bottom: 10px;
+    width: 100%; /* Ocupar todo el ancho de la celda */
+    height: 200px; /* Altura fija para lograr formato cuadrado */
+    object-fit: cover; /* Ajusta sin deformar */
+    border-radius: 8px; /* Opcional: añadir bordes redondeados */
 }
 /* Estilo para el overlay */
 .overlay {

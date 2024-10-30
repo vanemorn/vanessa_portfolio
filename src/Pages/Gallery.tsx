@@ -28,7 +28,7 @@ const images = [
   image6,
   image7,
   image8,
-  image9
+  image9,
   // Añade más imágenes según sea necesario
 ];
 
