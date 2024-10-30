@@ -2,6 +2,8 @@ import React from 'react';
 import businessImage from 'C:/Users/linda/vanessa_portfolio/src/assets/business-headshot.jpg'; // Update path as necessary
 import aestheticImage from 'C:/Users/linda/vanessa_portfolio/src/assets/dramatic shot.jpg'; // Update path as necessary
 import passionImage from 'C:/Users/linda/vanessa_portfolio/src/assets/passion shot.jpg'; // Update path as necessary
+import './Blog.css'; // Asegúrate de que tienes este archivo CSS
+
 
 const Blog: React.FC = () => {
   return (
