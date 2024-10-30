@@ -73,8 +73,12 @@ body {
 }
 
 .post-image {
-    width: 400px;
-    height: auto;
+    width: 900px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 40px;
+    align-items: left;
+    text-align: left;
 }
 
 .separator {
