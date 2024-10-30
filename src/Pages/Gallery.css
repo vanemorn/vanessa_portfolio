@@ -15,7 +15,7 @@
     font-weight: bold;
     padding-left: 150px;
     text-align: left;
-    margin-top: 100px;
+    
 }
 
 /* Clear floats after the columns */
@@ -44,7 +44,7 @@
     cursor: pointer;
     transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
-    margin-top: 100px;
+    padding-top: 100px;
     padding-left: 150px;
 }
 
