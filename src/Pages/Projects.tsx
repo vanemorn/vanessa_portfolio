@@ -1,6 +1,7 @@
 // src/Projects.tsx
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
 import './Projects.css'; // Asegúrate de que tienes este archivo CSS
@@ -22,7 +23,7 @@ const Projects: React.FC = () => {
       {/* Contenedor principal del contenido */}
       <div className="row">
         <div className="column-project">
-          <h2 className="column-title-project">Work</h2>
+          <h2 className="column-title-project">Projects</h2>
           <p className="column-text-project">
             With a background in Graphic Design, I’ve developed a refined <br />
             visual sensitivity that, combined with my UX/UI specialization, <br />
@@ -38,8 +39,10 @@ const Projects: React.FC = () => {
           </p>
 
           <button type="button" className="gallery-btn">
-            <span>Gallery</span>
-            <img src={galleryIcon} alt="gallery" className="gallery-icon" />
+            <Link to="/gallery" className="gallery-link">
+              <span>Gallery</span>
+              <img src={galleryIcon} alt="gallery" className="gallery-icon" />
+            </Link>
           </button>
 
           <button type="button" className="videogallery-btn">
