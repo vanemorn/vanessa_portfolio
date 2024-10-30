@@ -32,6 +32,11 @@
   text-decoration: underline;
 }
 
+.menu a.active {
+  text-decoration: underline; /* Subrayar el enlace */
+  color: red; /* Cambia el color del subrayado a rojo */
+}
+
 .btn {
   background-color: #9C0000; 
   color: white; 
