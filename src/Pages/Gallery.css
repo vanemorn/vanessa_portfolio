@@ -6,7 +6,6 @@
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
     text-align: left;
-    margin-top: 200px;
     margin-bottom: 150px
 }
 
@@ -66,7 +65,6 @@
     height: 1500px; /* Altura fija para lograr formato cuadrado */
     object-fit: cover; /* Ajusta sin deformar */
     border-radius: 8px; /* Opcional: añadir bordes redondeados */
-    cursor: pointer;
 }
 /* Estilo para el overlay */
 .overlay {
