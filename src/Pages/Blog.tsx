@@ -1,5 +1,5 @@
 import React from 'react';
-import businessImage from './assets/images/business-headshot.jpg'; // Update path as necessary
+import businessImage from './assets/images/business headshot.jpg'; // Update path as necessary
 import aestheticImage from './assets/images/aesthetic-shot.jpg'; // Update path as necessary
 import passionImage from './assets/images/passion-shot.jpg'; // Update path as necessary
 
