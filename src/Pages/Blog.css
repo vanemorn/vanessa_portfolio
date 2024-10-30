@@ -4,8 +4,7 @@
 
 body {
     background-color: #F1F0EC;
-  }
-
+}
 
 .blog-title {
     margin: 0; /* Sin margen */
@@ -14,7 +13,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     text-align: left;
-    color:#000000;
 }
 
 .blog-description {
@@ -55,7 +53,6 @@ body {
     margin-bottom: 20px;
 }
 
-
 .post-meta {
     font-size: 14px;
     color: #7b7b7b; /* Color del texto de la fecha y tiempo de lectura */
@@ -74,14 +71,12 @@ body {
 }
 
 .post-image {
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 40px;
-    align-items: left;
-    align-content: left;
-    justify-content: left;
-    text-align: left;
+    width: 300px; /* Ancho de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Asegurarse de que la imagen no se deforme */
+    margin-bottom: 40px; /* Espacio debajo de la imagen */
+    margin-right: 20px; /* Espacio a la derecha de la imagen */
+    float: left; /* Alinear la imagen a la izquierda */
 }
 
 .separator {
