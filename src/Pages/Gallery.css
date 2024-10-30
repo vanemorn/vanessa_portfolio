@@ -5,6 +5,7 @@
     padding: 10px;
     height: auto; /* Ajustar altura a auto para la cuadrícula */
     margin-bottom: 150px;
+    margin-top: 150px;
     text-align: left;
 }
 
@@ -15,7 +16,6 @@
     font-weight: bold;
     padding-left: 150px;
     text-align: left;
-    
 }
 
 /* Clear floats after the columns */
@@ -44,7 +44,7 @@
     cursor: pointer;
     transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
     text-align: left;
-    padding-top: 100px;
+    margin-top: 100px;
     padding-left: 150px;
 }
 
