@@ -1,27 +1,108 @@
+/* VideoGallery.css */
+/* Crear dos columnas iguales que flotan una al lado de la otra */
+.column-gallery {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: auto; /* Ajustar altura a auto para la cuadrícula */
+    margin-bottom: 150px;
+    text-align: left;
+
+}
+
+/* Estilos para el título y texto de la columna 1 */
+.column-title-gallery {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 150px;
+    text-align: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* Estilo para el botón "Go back" */
+.go-back-btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #9C0000;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
+    text-align: left;
+    margin-top: 100px; /* Espaciado superior para el botón */
+    padding-left: 150px;
+}
+
+.go-back-btn:hover {
+    transform: translateX(-8px); /* Mueve el texto del botón hacia la izquierda al pasar el ratón */
+    color: #7a0000; /* Cambia el color al pasar el ratón */
+}
 .video-gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
     text-align: center;
-}
-
-.video-gallery-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px;
-    font-weight: bold;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-gallery-header {
     margin-bottom: 20px;
+  }
+  
+  .video-gallery-header h1 {
     color: #333;
-}
-
-.video-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas para tres videos */
-    gap: 15px;
-    max-width: 800px;
-    margin: 0 auto; /* Centra la galería */
-}
-
-.video-item {
+    margin-bottom: 10px;
+  }
+  
+  .video-gallery-header p {
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  .video-player {
     width: 100%;
-    aspect-ratio: 16 / 9; /* Mantener relación de aspecto */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    max-height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .video-gallery-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .video-gallery-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .video-gallery-button:hover {
+    background-color: #555;
+  }
+  

@@ -1,38 +1,69 @@
-// src/components/Videogallery.tsx
-import React from 'react';
+// src/components/Gallery.tsx
+import { useState } from 'react';
 import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
 import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Videogallery.css'; // Asegúrate de tener este archivo CSS
+import './Videogallery.css'; // Asegúrate de que tienes este archivo CSS
 
-const About: React.FC = () => {
+function VideoGallery() {
+  // useState hook para gestionar el índice actual del video mostrado
+  const [index, setIndex] = useState(0);
+
+  const videos = [
+    './video1.mp4',
+    './video2.mp4',
+    './video3.mp4',
+    // Agrega más URLs de videos según sea necesario
+  ];
+
+  // Función para ir al siguiente video en la galería
+  function goToNextVideo() {
+    setIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  }
+
+  // Función para ir al video anterior en la galería
+  function goToPreviousVideo() {
+    setIndex((prevIndex) => (prevIndex - 1 + videos.length) % videos.length);
+  }
+
   return (
     <>
       <Header />
 
-      <div className="video-gallery-container">
-  <h2 className="video-gallery-title">Video Gallery</h2>
-  <div className="video-gallery">
-    <video className="video-item" controls>
-      <source src="/assets/video1.mp4" type="video/mp4" />
-      Tu navegador no soporta el video.
-    </video>
-    <video className="video-item" controls>
-      <source src="/assets/video2.mp4" type="video/mp4" />
-      Tu navegador no soporta el video.
-    </video>
-    <video className="video-item" controls>
-      <source src="/assets/video3.mp4" type="video/mp4" />
-      Tu navegador no soporta el video.
-    </video>
-  </div>
-</div>
+      {/* Contenedor principal del contenido */}
+      <div className="row">
+        {/* Sección centrada verticalmente */}
+        <div className="column-gallery">
+          <a href="#" className="go-back-btn">← Go back</a>
+          <h2 className="column-title-gallery">Gallery</h2>
+        </div>
 
+        <div className="video-gallery-container">
+          <header className="video-gallery-header">
+            <h1>Video Gallery</h1>
+            <p>Explore our collection of videos showcasing various topics and projects.</p>
+          </header>
+          {/* Display the current video */}
+          <video
+            src={videos[index]}
+            controls
+            className="video-player"
+            key={videos[index]} // Ensures video reloads when changing
+          />
+          {/* Navigation buttons */}
+          <div className="video-gallery-buttons">
+            <button onClick={goToPreviousVideo} className="video-gallery-button">
+              Previous
+            </button>
+            <button onClick={goToNextVideo} className="video-gallery-button">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
 
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </>
   );
-};
+}
 
-export default About;
+export default VideoGallery;
