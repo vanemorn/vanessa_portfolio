@@ -1,12 +1,9 @@
-// src/components/Gallery.tsx
 import React, { useState } from 'react';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Gallery.css'; // Asegúrate de que tienes este archivo CSS
+import Header from '../components/Header'; 
+import Footer from '../components/Footer'; 
+import './Gallery.css'; 
 import { Link } from 'react-router-dom';
 
-
-// Importar imágenes desde la carpeta assets
 import image1 from '../assets/gallery-image_A.jpg';
 import image2 from '../assets/gallery-image_B.jpg';
 import image3 from '../assets/gallery-image_C.jpg';
@@ -17,10 +14,6 @@ import image7 from '../assets/gallery-image_G.jpg';
 import image8 from '../assets/gallery-image_H.jpg';
 import image9 from '../assets/gallery-image_I.jpg';
 
-
-
-
-// Array de imágenes para la galería
 const images = [
   image1,
   image2,
@@ -31,7 +24,6 @@ const images = [
   image7,
   image8,
   image9,
-  // Añade más imágenes según sea necesario
 ];
 
 const Gallery: React.FC = () => {
@@ -59,16 +51,16 @@ const Gallery: React.FC = () => {
     <>
       <Header />
 
-      {/* Contenedor principal del contenido */}
+      {}
       <div className="row">
-        {/* Sección centrada verticalmente */}
+        {}
 
         <div className="column-gallery">
         <Link to="/projects" className="go-back-btn-gallery">← Go back</Link>
          <h2 className="column-title-gallery">Gallery</h2>
         </div>
 
-          {/* Galería de imágenes */}
+          {}
           <div className="image-gallery">
             {images.map((image, index) => (
               <img 
@@ -76,14 +68,14 @@ const Gallery: React.FC = () => {
                 src={image} 
                 alt={`Gallery Image ${index + 1}`} 
                 className="gallery-image"
-                onClick={() => openImage(index)} // Al hacer clic se abre la imagen en overlay
+                onClick={() => openImage(index)} 
               />
             ))}
           
         </div>
       </div>
 
-      {/* Overlay para mostrar la imagen seleccionada */}
+      {}
       {isOpen && (
         <div className="overlay" onClick={() => setIsOpen(false)}>
           <button className="arrow left-arrow" onClick={(e) => { e.stopPropagation(); prevImage(); }}>

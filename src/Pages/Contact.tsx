@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Contact.css'; // Asegúrate de que tienes este archivo CSS
+import Header from '../components/Header'; 
+import Footer from '../components/Footer'; 
+import './Contact.css'; 
 
-// Importar imágenes
-import emailIcon from '../assets/email-icon-red.svg'; // Ajusta la ruta según tu estructura de carpetas
-import phoneIcon from '../assets/phone-icon-red.svg'; // Ajusta la ruta según tu estructura de carpetas
-import sendIcon from '../assets/sendicon.png'; // Asegúrate de que la ruta sea correcta
+import emailIcon from '../assets/email-icon-red.svg'; 
+import phoneIcon from '../assets/phone-icon-red.svg'; 
+import sendIcon from '../assets/sendicon.png';
 
 const Contact: React.FC = () => {
   return (

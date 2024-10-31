@@ -1,19 +1,19 @@
 import React from 'react';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Home.css'; // Asegúrate de que tienes este archivo CSS
-import biopic from '../assets/foto-yo.png'; // Asegúrate de que la ruta es correcta
-import expertise1 from '../assets/expertise1.svg'; // Asegúrate de que la ruta es correcta
-import expertise2 from '../assets/expertise2.svg'; // Asegúrate de que la ruta es correcta
-import expertise3 from '../assets/expertise3.svg'; // Asegúrate de que la ruta es correcta
-import expertise4 from '../assets/expertise4.svg'; // Asegúrate de que la ruta es correcta
-import expertise5 from '../assets/expertise5.svg'; // Asegúrate de que la ruta es correcta
-import expertise6 from '../assets/expertise6.svg'; // Asegúrate de que la ruta es correcta
-import project1 from '../assets/project1.png'; // Asegúrate de que la ruta es correcta
-import project2 from '../assets/project2.png'; // Asegúrate de que la ruta es correcta
-import project3 from '../assets/project3.png'; // Asegúrate de que la ruta es correcta
-import project4 from '../assets/project4.png'; // Asegúrate de que la ruta es correcta
-import sendIcon from '../assets/sendicon.png'; // Asegúrate de que la ruta es correcta
+import Header from '../components/Header'; 
+import Footer from '../components/Footer'; 
+import './Home.css'; 
+import biopic from '../assets/foto-yo.png'; 
+import expertise1 from '../assets/expertise1.svg'; 
+import expertise2 from '../assets/expertise2.svg'; 
+import expertise3 from '../assets/expertise3.svg'; 
+import expertise4 from '../assets/expertise4.svg'; 
+import expertise5 from '../assets/expertise5.svg'; 
+import expertise6 from '../assets/expertise6.svg'; 
+import project1 from '../assets/project1.png'; 
+import project2 from '../assets/project2.png'; 
+import project3 from '../assets/project3.png'; 
+import project4 from '../assets/project4.png'; 
+import sendIcon from '../assets/sendicon.png'; 
 
 const Home: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       <Header />
 
       <div className="flex-container">
-        {/* Columna de texto */}
+        {}
         <div className="descripcion">
           <span style={{ color: 'black', fontSize: '60px', fontFamily: 'Arial, sans-serif', fontWeight: 700, lineHeight: '70px', textAlign: "left" }}>
             HI, I AM&nbsp;
@@ -34,13 +34,13 @@ const Home: React.FC = () => {
           </span>
         </div>
 
-        {/* Columna de imagen */}
+        {}
         <div className="foto-yo">
           <img src={biopic} width="350" alt="Foto de Vanessa" />
         </div>
       </div>
 
-      {/* Banda separadora */}
+      {}
       <div className="banda">
         <div className="banda-background"></div>
         <div className="banda-item">interface</div>
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
         <div className="banda-item">motion graphics</div>
       </div>
 
-      {/* What I can do */}
+      {}
       <div className="What-can-do" style={{ fontFamily: 'Arial, sans-serif' }}>What I can do</div>
 
       <div className="expertise">
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         <div className="grid-item"><img src={expertise6} alt="Expertise 6" /></div>
       </div>
 
-      {/* Featured Works */}
+      {}
       <div className="featured-works-section">
         <h2 className="featured-works-title" style={{ fontFamily: 'Arial, sans-serif' }}>Featured Works</h2>
         <div className="featured-works">
@@ -103,7 +103,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Contact */}
+      {}
       <div className="contact-form-section">
         <h2 className="contact-form-title" style={{ fontFamily: 'Arial, sans-serif' }}>Let's chat!</h2>
         <form className="contact-form">
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
         </form>
       </div>
 
-      {/* Footer */}
+      {}
       <footer>
         <Footer />
       </footer>

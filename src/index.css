@@ -1,12 +1,9 @@
-/* Reset CSS for a consistent baseline */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* Body takes up full width and height of the screen */
 body {
   font-family:'Inter';
   background-color: #ffffff;
@@ -24,7 +21,6 @@ body {
   align-content: center;
 }
 
-/* App container uses full width, but is centered with a max width */
 .app-container {
   width: 100%;
   margin: 0 auto;
@@ -34,20 +30,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem; /* O ajusta esto si es necesario */
+  padding: 1rem 2rem; 
   background-color: #282c34;
   color: white;
-  width: 100%; /* Ancho completo */
-  margin: 0; /* Asegúrate de que no haya margen */
+  width: 100%; 
+  margin: 0; 
 }
 
-/* Styling for sections */
 .section {
   padding: 3rem 0;
   margin: 1rem 0;
 }
 
-/* Footer styling */
 footer {
   text-align: center;
   padding: 1rem;
@@ -55,7 +49,6 @@ footer {
   color: white;
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .app-container {
     padding: 0 1rem;

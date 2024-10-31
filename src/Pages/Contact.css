@@ -2,11 +2,10 @@
     box-sizing: border-box;
 }
 
-/* Create two equal columns that float next to each other */
 .column {
     float: left;
     width: 50%;
-    height: auto; /* Ajustar altura a auto para la cuadrícula */
+    height: auto; 
     margin-top: 40px;
     margin-bottom: 80px;
     text-align: left;
@@ -15,7 +14,6 @@
     
 }
 
-/* Estilos para el título y texto de la columna 1 */
 .column-title {
     color: black;
     font-size: 50px;
@@ -35,7 +33,7 @@
     font-weight: 500;
     font-size: 16px; 
     line-height: 1.5; 
-    color: #000000; /* Color del texto del párrafo */
+    color: #000000;
     padding-left: 200px;
     text-align: left;
     padding-left: 150px;
@@ -43,14 +41,13 @@
 
 }
 
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
+/* Responsive layout  */
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
@@ -87,8 +84,8 @@
   }
   
   .form-input {
-    width: calc(50% - 5px); /* Reduce el ancho en 5px para el margen */
-    margin-right: 10px; /* Margen de 10px entre nombre y email */
+    width: calc(50% - 5px); 
+    margin-right: 10px; 
     border: 2px solid black;
     border-radius: 25px; 
     padding: 10px;
@@ -98,7 +95,7 @@
   }
   
   .form-input:last-child {
-    margin-right: 0; /* Quitar margen del último campo */
+    margin-right: 0; 
   }
   
   .form-input::placeholder,

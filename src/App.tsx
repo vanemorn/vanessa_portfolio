@@ -13,7 +13,7 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-    <Router basename="/vanessa_portfolio"> {/* Asegúrate de que este basename coincida con el subdirectorio */}
+    <Router basename="/vanessa_portfolio"> {}
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />

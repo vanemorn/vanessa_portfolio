@@ -1,8 +1,8 @@
 import React from 'react';
-import 'C:/Users/linda/vanessa_portfolio/src/components/Footer.css'; // Asegúrate de que la ruta al CSS sea correcta
-import logo from '../assets/logo-blanco.svg'; // Ruta al logo
-import emailIcon from '../assets/email-icon.svg'; // Ruta al ícono de email
-import phoneIcon from '../assets/phone-icon.svg'; // Ruta al ícono de teléfono
+import 'C:/Users/linda/vanessa_portfolio/src/components/Footer.css'; 
+import logo from '../assets/logo-blanco.svg'; 
+import emailIcon from '../assets/email-icon.svg'; 
+import phoneIcon from '../assets/phone-icon.svg'; 
 
 const Footer: React.FC = () => {
   return (

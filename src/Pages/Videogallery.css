@@ -1,43 +1,33 @@
-/* VideoGallery.css */
-/* Crear dos columnas iguales que flotan una al lado de la otra */
 .column-videogallery {
     float: left;
     width: 50%;
     padding: 10px;
-    height: auto; /* Ajustar altura a auto para la cuadrícula */
+    height: auto; 
     margin-bottom: 150px;
     margin-top: 190px;
     text-align: left;
-    
-
 }
 
-/* Estilos para el título y texto de la columna 1 */
 .column-title-videogallery {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
     font-weight: bold;
     padding-left: 150px;
     text-align: left;
-    
-
 }
 
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
 }
 
-/* Estilo para el botón "Go back" */
 .go-back-btn {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -47,16 +37,17 @@
     border: none;
     background: none;
     cursor: pointer;
-    transition: transform 0.2s, color 0.2s; /* Añadido color a la transición */
+    transition: transform 0.2s, color 0.2s; 
     text-align: left;
-    margin-top: 100px; /* Espaciado superior para el botón */
+    margin-top: 100px; 
     padding-left: 150px;
 }
 
 .go-back-btn:hover {
-    transform: translateX(-8px); /* Mueve el texto del botón hacia la izquierda al pasar el ratón */
-    color: #7a0000; /* Cambia el color al pasar el ratón */
+    transform: translateX(-8px); 
+    color: #7a0000;
 }
+
 .video-gallery-container {
     float: right;
     width: 50%;
@@ -65,7 +56,6 @@
     text-align: center;
     margin-bottom: 120px;
   }
-  
   
   .video-player {
     width: 100%;

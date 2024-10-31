@@ -1,13 +1,9 @@
-// src/Projects.tsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Projects.css'; // Asegúrate de que tienes este archivo CSS
+import Header from '../components/Header'; 
+import Footer from '../components/Footer'; 
+import './Projects.css';
 
-
-// Importación de assets de imágenes
 import galleryIcon from '../assets/gallery-icon.svg';
 import videogalleryIcon from '../assets/videogallery-icon.svg';
 import project1 from '../assets/project1.png';
@@ -20,7 +16,7 @@ const Projects: React.FC = () => {
     <>
       <Header />
       
-      {/* Contenedor principal del contenido */}
+      {}
       <div className="row">
         <div className="column-project">
           <h2 className="column-title-project">Projects</h2>
@@ -55,7 +51,7 @@ const Projects: React.FC = () => {
 
         <div className="column">
           <div className="work-boxes">
-            {/* Componentes de proyectos individuales */}
+            {}
             <ProjectItem
               imgSrc={project1}
               title="Ños! Gofio"
@@ -87,7 +83,6 @@ const Projects: React.FC = () => {
   );
 };
 
-// Componente para cada proyecto individual
 interface ProjectItemProps {
   imgSrc: string;
   title: string;

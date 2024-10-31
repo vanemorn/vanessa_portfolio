@@ -1,10 +1,8 @@
-// src/About.tsx
-
 import React from 'react';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import aboutImage from '../assets/foto-yo-about.png'; // Asegúrate de que la ruta es correcta
-import './About.css'; // Asegúrate de que tienes este archivo CSS
+import Header from '../components/Header';
+import Footer from '../components/Footer'; 
+import aboutImage from '../assets/foto-yo-about.png'; 
+import './About.css'; 
 
 
 const About: React.FC = () => {
@@ -12,9 +10,9 @@ const About: React.FC = () => {
     <>
       <Header />
       
-      {/* Contenido de la sección About */}
+      {}
       <div className="about-container">
-        {/* Texto de la sección About */}
+        {}
         <div className="about-text">
           <h2 className="about-title">About Me</h2>
           <p className="about-description">
@@ -37,14 +35,14 @@ const About: React.FC = () => {
             functional and impactful designs.
           </p>
 
-          {/* Información de contacto */}
+          {}
           <div className="contact-info">
             <p>vanessamorenoperez55@gmail.com</p>
             <p>+353 89 945 1920</p>
           </div>
         </div>
 
-        {/* Imagen de la sección About */}
+        {}
         <div className="about-image-container">
           <div className="about-image-placeholder">
             <img src={aboutImage} alt="Descripción de la imagen" className="about-image" />

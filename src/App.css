@@ -1,12 +1,9 @@
-/* Reset CSS for a consistent baseline */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* Body takes up full width and height of the screen */
 body {
   background-color: #F1F0EC;
   width: 100%;
@@ -16,13 +13,11 @@ body {
   padding: 0;
 }
 
-/* App container uses full width, but is centered with a max width */
 .app-container {
   width: 100%;
   margin: 0 auto;
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .app-container {
     padding: 0 1rem;

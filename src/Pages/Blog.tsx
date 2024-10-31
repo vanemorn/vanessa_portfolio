@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from '../components/Header'; // Asegúrate de que la ruta sea correcta
-import Footer from '../components/Footer'; // Asegúrate de que la ruta sea correcta
-import './Blog.css'; // Asegúrate de que tienes este archivo CSS
+import Header from '../components/Header';
+import Footer from '../components/Footer'; 
+import './Blog.css';
 
-// Importa las imágenes
 import businessHeadshot from '../assets/business-headshot.jpg';
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import passionShot from '../assets/passion-shot.jpg';

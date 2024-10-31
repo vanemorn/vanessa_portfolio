@@ -5,12 +5,11 @@
     align-items: center;
   }
 
-/* Create two equal columns that float next to each other */
 .column-project {
     float: left;
     width: 50%;
     padding: 10px;
-    height: auto; /* Ajustar altura a auto para la cuadrícula */
+    height: auto; 
     align-items: center;
     align-items: center;
     justify-content: center; 
@@ -18,7 +17,6 @@
     
 }
 
-/* Estilos para el título y texto de la columna 1 */
 .column-title-project {
     margin-top: 100px;
     font-family: Arial, Helvetica, sans-serif;
@@ -35,52 +33,49 @@
     font-weight:500;
     font-size: 16px; 
     line-height: 1.5; 
-    color: #555555; /* Color del texto del párrafo */
+    color: #555555; 
     text-align: left;
     padding-left: 150px;
 
 }
 
-/* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Responsive layout - hace que las dos columnas se apilen una encima de la otra en pantallas pequeñas */
+
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
 }
 
-/* Estilo para la cuadrícula */
 .work-boxes {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crear una cuadrícula de 2x2 */
-    gap: 20px; /* Espacio entre los ítems de la cuadrícula */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
     width: 80%; 
     padding: 20px; 
     border-radius: 30px; 
     height: auto;
-    border: none; /* Asegura que no haya borde */
-    box-shadow: none; /* Elimina cualquier sombra */
+    border: none; 
+    box-shadow: none; 
     overflow: hidden;
     text-align: left;
 }
 
-/* Estilo para cada caja de proyecto */
 .work-item {
-    background-color: #fff; /* Color de fondo de cada caja */
-    border-radius: 24px; /* Bordes redondeados */
-    padding: 15px; /* Relleno interno */
-    transition: transform 0.2s ease; /* Transición suave para el efecto de hover */
+    background-color: #fff; 
+    border-radius: 24px; 
+    padding: 15px; 
+    transition: transform 0.2s ease; 
     
 }
 
 .work-item:hover {
-    transform: scale(1.05); /* Aumentar el tamaño en un 5% cuando se pasa el ratón */
+    transform: scale(1.05); 
 }
 
 
@@ -143,7 +138,7 @@
 }
 
 .view-more-btn:hover {
-    transform: translateX(8px); /* Move the button text 5px to the right on hover */
+    transform: translateX(8px); 
 }
 
 .gallery-btn {
