@@ -1,20 +1,21 @@
 import React from 'react';
-import Header from '../components/Header'; 
-import Footer from '../components/Footer'; 
-import './Contact.css'; 
+import Header from '../components/Header'; // Importing Header
+import Footer from '../components/Footer'; // Importing Footer
+import './Contact.css'; // CSS File
 
-import emailIcon from '../assets/email-icon-red.svg'; 
-import phoneIcon from '../assets/phone-icon-red.svg'; 
-import sendIcon from '../assets/sendicon.png';
+import emailIcon from '../assets/email-icon-red.svg'; // Email icon
+import phoneIcon from '../assets/phone-icon-red.svg'; // Phone icon
+import sendIcon from '../assets/sendicon.png'; // Send icon for the button
 
 const Contact: React.FC = () => {
   return (
     <>
       <Header />
 
+      {/*Column1*/}
       <div className="row">
         <div className="column">
-          <h2 className="column-title">Contact</h2>
+          <h2 className="column-title">Contact</h2> 
           <p className="column-text">
             <img src={emailIcon} alt="Email Icon" style={{ width: '20px', marginRight: '8px' }} />
             vanessamorenoperez55@gmail.com <br />
@@ -22,6 +23,8 @@ const Contact: React.FC = () => {
             +353 89 945 1920
           </p>
         </div>
+
+        {/*Column2*/}
         <div className="column">
           <div className="contact-form-section">
             <h2 className="contact-form-title">Let's chat!</h2>

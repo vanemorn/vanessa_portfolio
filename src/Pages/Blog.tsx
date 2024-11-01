@@ -1,9 +1,10 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer'; 
-import './Blog.css';
+import Header from '../components/Header'; // Importing Header
+import Footer from '../components/Footer'; // Importing Footer
+import './Blog.css'; // CSS File
 
-import businessHeadshot from '../assets/business-headshot.jpg';
+// Images of the blog entry
+import businessHeadshot from '../assets/business-headshot.jpg'; 
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import passionShot from '../assets/passion-shot.jpg';
 
@@ -12,8 +13,10 @@ const Blog: React.FC = () => {
     <>
       <Header />
       
-      <div className="container">
-        <h1 className="blog-title">Blog</h1>
+      <div className="container"> {/*Blog container */}
+        <h1 className="blog-title">Blog</h1> {/*Title of the page*/}
+        
+        {/*Entry content*/}
 
         <div className="post">
           <h2 className="post-title">Photography Series Analysis</h2>
@@ -26,7 +29,6 @@ const Blog: React.FC = () => {
             and a photo that shows my personal passion. Each image is designed to share a specific message or mood, 
             highlighting different aspects of portrait photography and thematic expression.
           </p>
-
           <p className="post-content">
             To develop each idea, I started with a brainstorming session to get my thoughts in line with the project brief. 
             I listed possible themes and visual elements that would help to communicate the message I wanted. After picking 
@@ -34,7 +36,6 @@ const Blog: React.FC = () => {
             angles, clothes and props. I also looked for visual references and created mood boards to clarify the overall
              direction for each shot. All the photos were edited in Adobe Photoshop.
           </p>
-          
           <h3 className= "post-subtitle">Business-Type Headshot</h3>
           <img className= "post-image" src={businessHeadshot} alt="Business Headshot"/>
           <p className="post-content">
@@ -43,7 +44,6 @@ const Blog: React.FC = () => {
             clean and polished look. I went with a plain white background, which I planned to replace later with a 
             softly blurred office background, adding context without distracting from the subject.
           </p>
-
           <p className="post-content">
             In terms of framing, I opted for a close-up shot, focusing on the upper part of my torso and my face to 
             draw attention to my expression. Unlike other portraits where I might not wear my glasses, I decided to 
@@ -53,13 +53,11 @@ const Blog: React.FC = () => {
             ensuring my face was clear and focused, along with a turtleneck blouse that added a touch of professionalism 
             while maintaining a modern feel.
           </p>
-
           <p className="post-content">
             For facial expressions, I tried out a few options: a big smile, a soft smile without showing my teeth and 
             a neutral look. After checking them out, I chose the full smile for its friendly quality. Including a warm 
             smile gives the image a sense of reliability, which is boosted by the lighting and wardrobe choices.
           </p>
-
           <h3 className= "post-subtitle">Aesthetic Shot</h3>
           <img className= "post-image" src={aestheticShot} alt="Aesthetic Shot" />
           <p className="post-content">
@@ -69,21 +67,18 @@ const Blog: React.FC = () => {
             introspective pose looking at the outside. This setup was meant to symbolize a contrast between inner 
             darkness and the colourful world outside, serving as a reminder of hope in tough times.
           </p>
-
           <p className="post-content">
             To achieve the right atmosphere, I relied entirely on natural light, avoiding artificial sources to 
             enhance the room's darkness. By positioning the camera to focus on the window, I let the outside light 
             shape the composition, creating a strong contrast between the bright window and the shadowy interior. 
             This lighting choice highlighted my silhouette against the brighter outdoor scene.
           </p>
-
           <p className="post-content">
             For my outfit, I went with an all-black look to keep the focus on the light and mood without adding any 
             distractions. In post-production, I made a few adjustments to enhance the atmosphere of the image. I boosted 
             the greens visible through the window and subtly increased the contrast to sharpen the silhouette and enrich 
             the tonal range, allowing the main elements of the composition to stand out.
           </p>
-
           <h3 className= "post-subtitle">Passion Shot</h3>
           <img className= "post-image" src={passionShot} alt="Passion Shot" />
           <p className="post-content">
@@ -93,7 +88,6 @@ const Blog: React.FC = () => {
             full of ideas, a tourist brochure with potential destinations and some decorative elements like a small 
             plant and a cup of coffee. This setup was meant to evoke the feeling of getting ready for an adventure.
           </p>
-
           <p className="post-content">
             To create a balanced and visually interesting composition, I arranged these items within the frame, 
             making sure each element contributed to the overall story without overcrowding the space. I had to 
@@ -102,7 +96,6 @@ const Blog: React.FC = () => {
             keep things organized while creating a casual, inviting atmosphere that reflects the excitement of 
             planning a trip.
           </p>
-
           <p className="post-content">
             The background for this shot was my desk, which is originally brown and did not fit the colour 
             palette and look I was looking for. To fix this, I used Photoshop to edit the image by selecting 

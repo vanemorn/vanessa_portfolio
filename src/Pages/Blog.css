@@ -1,12 +1,23 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /*Layout configuration*/
 }
 
 body {
-    background-color: #F1F0EC;
+    background-color: #F1F0EC; /*Background color*/
 }
 
-.blog-title {
+.container { /*Layout of the sectionr*/
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 20px;
+    border-radius: 8px; 
+}
+
+.post { /*Space after each entry*/
+    margin-bottom: 20px; 
+}
+
+.blog-title { /*Name of the page*/
     margin: 0; 
     font-size: 40px; 
     padding-bottom: 15px;
@@ -15,25 +26,8 @@ body {
     text-align: left;
 }
 
-.blog-description {
-    font-size: 18px; 
-    margin-top: 5px; 
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
-}
 
-.container {
-    max-width: 800px; 
-    margin: 20px auto; 
-    padding: 20px;
-    border-radius: 8px; 
-}
-
-.post {
-    margin-bottom: 20px; 
-}
-
-.post-title {
+.post-title { /*Entry title*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: bold;
@@ -43,7 +37,7 @@ body {
     margin-bottom: 20px;
 }
 
-.post-subtitle {
+.post-subtitle { /*Entry subtitle*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
@@ -53,7 +47,7 @@ body {
     margin-bottom: 20px;
 }
 
-.post-meta {
+.post-meta { /*Meta content: date of publication and reding time*/
     font-size: 14px;
     color: #7b7b7b; 
     margin-bottom: 20px; 
@@ -62,7 +56,7 @@ body {
     text-align: left;
 }
 
-.post-content {
+.post-content { /*The text of the entry*/
     font-size: 16px;
     color: #555; 
     text-align: left;
@@ -70,18 +64,11 @@ body {
     margin-bottom: 20px;
 }
 
-.post-image {
+.post-image { /*Style of the image if there's any*/
     width: 300px; 
     height: auto; 
     object-fit: cover; 
     margin-bottom: 20px; 
     margin-left: 20px; 
     float: right; 
-}
-
-.separator {
-    border: none;
-    height: 1px;
-    background-color: #9C0000; 
-    margin: 20px 0;
 }

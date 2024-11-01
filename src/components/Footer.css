@@ -1,9 +1,11 @@
-.footer {
+/*Footer styling*/
+
+.footer { /*Padding and background color*/
     background-color: #2D2F33; 
     padding: 20px; 
   }
   
-  .footer-content {
+.footer-content { /*Relation between left section and right section*/
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -11,42 +13,42 @@
     margin: 0 auto; 
   }
   
-  .footer-left {
+.footer-left { /*Layout of left section*/
     display: flex; 
     align-items: center; 
   }
   
-  .footer-logo {
+.footer-logo { /*Size of the logo*/
     max-height: 50px; 
     margin-right: 10px; 
   }
   
-  .footer-name {
+.footer-name { /*Text next to the logo*/
     font-family: 'Inter', sans-serif; 
     font-size: 18px; 
     font-weight: bold; 
     color: white;
   }
   
-  .footer-right {
+.footer-right { /*Layout of right section*/
     display: flex; 
     flex-direction: column; 
     align-items: flex-end; 
   }
   
-  .footer-item {
+.footer-item { /*Items layout of the right section: phone and email */
     display: flex; 
     align-items: center; 
     margin: 5px 0; 
   }
   
-  .footer-icon {
+.footer-icon { /*The email and phone icons*/
     width: 20px; 
     height: 20px; 
     margin-right: 10px; 
   }
   
-  .footer-text {
+.footer-text { /*Text next to the icons*/
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px; 
     color: white; 

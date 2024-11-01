@@ -1,4 +1,4 @@
-.banda {
+.banda { /*Separator with skills*/
   position: relative;
   width: 100%; 
   height: 62px;
@@ -10,7 +10,7 @@
   font-family: Arial, sans-serif; 
 }
 
-.banda-item, .banda-separator {
+.banda-item, .banda-separator { /*Items of the separator*/
   color: white; 
   font-size: 20px; 
   font-weight: 600; 
@@ -18,19 +18,19 @@
   margin: 0 5px; 
 }
 
-.flex-container {
+.flex-container { /* Main container aligning description and photo */
   display: flex;
   gap: 150px;
   align-items: center;
   justify-content: center;
 }
 
-.foto-yo {
+.foto-yo { /*My picture*/
   flex: 1; 
   max-width: 60%; 
 }
 
-.What-can-do {
+.What-can-do { /*Header text for the expertise section */
   color: black;
   font-size: 30px;
   font-weight: 700;
@@ -40,7 +40,7 @@
   font-family: Arial, sans-serif; 
 }
 
-.expertise {
+.expertise { /*Grid layout for expertise images*/
   display: grid;
   grid-template-columns: repeat(3, 255px); 
   grid-template-rows: repeat(2, 170px); 
@@ -49,27 +49,48 @@
   margin: 20px auto; 
 }
 
-.grid-item {
+.grid-item { /*Individual items for the expertise grid*/
   display: flex; 
   justify-content: center; 
   align-items: center; 
   overflow: hidden; 
 }
 
-.grid-item img {
+.grid-item img { /*Image size of the items of expertise grid*/
   width: 100%; 
   height: auto; 
 }
 
-.featured-works {
+.featured-works-section { /* Featured works section styling */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E7E6E2;
+  margin: 50px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.featured-works-title { /* Title styling for featured works */
+  color: black;
+  font-size: 30px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 38.80px;
+  text-align: center;
+  word-wrap: break-word;
+  margin-top: 20px;
+}
+
+.featured-works { /*Layout of featured work section*/
   display: flex; 
   gap: 30px;
   margin: 20px; 
   flex-wrap: wrap; 
 }
 
-
-.work-box {
+.work-box { /*Layout and styling featured work section items*/
   display: flex;
   width: 200px;
   height: auto;
@@ -82,11 +103,11 @@
   text-align: left;
 }
 
-.work-box:hover {
+.work-box:hover { /*Scale-up effect for work items on hover*/
   transform: scale(1.05);
 }
 
-.project-image-home {
+.project-image-home { /*Image styling for work previews */
   width: 150px; 
   height: 150px; 
   border-radius: 10px; 
@@ -94,7 +115,7 @@
   margin-bottom: 10px; 
 }
 
-.project-label {
+.project-label { /*Label styling for project tags */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -108,7 +129,7 @@
   text-align: left;
 }
 
-.project-title {
+.project-title { /*Styling for project title text */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px; 
   font-weight: 800; 
@@ -117,7 +138,7 @@
   text-align: left;
 }
 
-.project-skills {
+.project-skills { /*Styling for project skills/description */
   font-family: Arial, Helvetica, sans-serif;
   font-weight:500;
   font-size: 12px; 
@@ -127,7 +148,7 @@
   
 }
 
-.view-more-btn {
+.view-more-btn { /*Button for viewing more about each project */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #9C0000;
@@ -141,35 +162,13 @@
   margin-top: 8px;
 }
 
+/*Animation for view more button on hover */
 .view-more-btn:hover {
   transform: translateX(8px); 
 }
 
-
-.featured-works-section {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E7E6E2;
-  margin: 50px;
-  padding-bottom: 50px;
-  padding-top: 50px;
-}
-
-.featured-works-title {
-  color: black;
-  font-size: 30px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 38.80px;
-  text-align: center;
-  word-wrap: break-word;
-  margin-top: 20px;
-}
-
 /* Contact Form */
-.contact-form-section {
+.contact-form-section { /*Contact form section styling */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,25 +178,25 @@
   margin-bottom: 50px;
 }
 
-.contact-form-title {
+.contact-form-title { /*Title styling for contact form: Let's chat! */
   font-family: Arial, sans-serif; 
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 22px;
 }
 
-.contact-form {
+.contact-form { /*Contact form layout */
   width: 100%;
   max-width: 600px; 
 }
 
-.form-row {
+.form-row { /*Row layout for name and email input fields */
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
 
-.form-input {
+.form-input { /*Input field styling for name and email */
   width: calc(50% - 5px); 
   margin-right: 10px; 
   border: 2px solid black;
@@ -208,16 +207,16 @@
   color: #333; 
 }
 
-.form-input:last-child {
+.form-input:last-child { /* Remove right margin from the last input in the row */
   margin-right: 0; 
 }
 
 .form-input::placeholder,
-.form-textarea::placeholder {
+.form-textarea::placeholder { /* Placeholder text styling for input and text area fields */
   color: #000000;
 }
 
-.form-textarea {
+.form-textarea { /*Styling message field*/
   width: 100%;
   height: 100px; 
   border-radius: 25px; 
@@ -228,7 +227,7 @@
   color: #999;
 }
 
-.submit-btn {
+.submit-btn { /*Send button*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,15 +243,17 @@
   margin-top: 20px;
 }
 
-.submit-btn:hover {
+.submit-btn:hover { /* Send button state change on hover*/
   background-color: #4d0000; 
 }
 
-.send-icon {
+.send-icon { /*Send icon of the button*/
   margin-left: 10px; 
   width: 20px; 
   height: 20px; 
 }
+
+/*Responsive*/
 
 @media only screen and (max-width: 900px) {  
   .flex-container {
@@ -281,7 +282,6 @@
   .foto-yo {
       max-width: 100%;
       text-align: left;
-
   }
 
   .descripcion span {
@@ -294,7 +294,6 @@
   .flex-container {
       flex-direction: row;
       margin: 27vh 10vw;
-      
   }
 }
 
@@ -303,7 +302,6 @@
       margin-left: 10vw;
       margin-right: 10vw;
       margin-top: 120px;
-      
   }
 
   .banda {
