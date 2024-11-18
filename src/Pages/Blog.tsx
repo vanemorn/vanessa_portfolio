@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Blog.css'; // CSS File
-
+import PostsList from '../features/posts/'
 // Images of the blog entry
 import businessHeadshot from '../assets/business-headshot.jpg'; 
 import aestheticShot from '../assets/aesthetic-shot.jpg';
@@ -12,6 +12,8 @@ const Blog: React.FC = () => {
   return (
     <>
       <Header />
+
+      <PostsList />
       
       <div className="container"> {/*Blog container */}
         <h1 className="blog-title">Blog</h1> {/*Title of the page*/}
