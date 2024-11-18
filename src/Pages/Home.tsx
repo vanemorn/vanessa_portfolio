@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             fontWeight: 700, 
             lineHeight: '70px', 
             textAlign: "left" }}>
-            HI, I AAAAAAM&nbsp;
+            HI, I AM&nbsp;
           </span>
 
           <span style={{ color: '#9C0000', // Change of color for my name
