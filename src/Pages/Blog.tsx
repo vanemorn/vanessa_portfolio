@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Blog.css'; // CSS File
-import PostsList from '../features/posts/'
+import PostsList from '../features/posts/PostsList';
 // Images of the blog entry
 import businessHeadshot from '../assets/business-headshot.jpg'; 
 import aestheticShot from '../assets/aesthetic-shot.jpg';
