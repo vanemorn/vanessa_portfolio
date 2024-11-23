@@ -79,6 +79,8 @@ body {
     object-fit: cover;
     margin-bottom: 20px;
     margin-left: 20px;
+    text-align: left;
+    align-content: left;
 }
 
 
