@@ -3,12 +3,7 @@ import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Blog.css'; // CSS File
 
-// Images of the blog entry (Post 1)
-import businessHeadshot from '../assets/business-headshot.jpg'; 
-import aestheticShot from '../assets/aesthetic-shot.jpg';
-import passionShot from '../assets/passion-shot.jpg';
-
-// Images of the blog entry (Post 2)
+// Images of the blog entry
 import image0 from '../assets/blog-entry-2/0.png';
 import image1 from '../assets/blog-entry-2/1.png';
 import image2 from '../assets/blog-entry-2/2.png';
@@ -20,37 +15,29 @@ import image7 from '../assets/blog-entry-2/7.png';
 import image8 from '../assets/blog-entry-2/8.png';
 import image9 from '../assets/blog-entry-2/9.png';
 
+import businessHeadshot from '../assets/business-headshot.jpg'; 
+import aestheticShot from '../assets/aesthetic-shot.jpg';
+import passionShot from '../assets/passion-shot.jpg';
+
 const Blog: React.FC = () => {
-  // State to handle lightbox visibility and current image
-  const [isLightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // List of Post 2 images for the lightbox gallery
-  const post2Images = [
-    image0, image1, image2, image3, image4, image5, image6, image7, image8, image9
-  ];
-
-  // Open the lightbox with the clicked image
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setLightboxOpen(true);
   };
 
-  // Close the lightbox
   const closeLightbox = () => {
     setLightboxOpen(false);
   };
 
-  // Navigate to the next image in the lightbox
   const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % post2Images.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 10); // Loop through the images
   };
 
-  // Navigate to the previous image in the lightbox
   const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? post2Images.length - 1 : prevIndex - 1
-    );
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + 10) % 10); // Loop through the images
   };
 
   return (
@@ -79,8 +66,8 @@ const Blog: React.FC = () => {
             angles, clothes and props. I also looked for visual references and created mood boards to clarify the overall
              direction for each shot. All the photos were edited in Adobe Photoshop.
           </p>
-          <h3 className= "post-subtitle">Business-Type Headshot</h3>
-          <img className= "post-image" src={businessHeadshot} alt="Business Headshot"/>
+          <h3 className="post-subtitle">Business-Type Headshot</h3>
+          <img className="post-image" src={businessHeadshot} alt="Business Headshot"/>
           <p className="post-content">
             For the business headshot, I wanted to create an image that balances professionalism with approachability. 
             I chose soft frontal lighting to keep the exposure even across my face and avoid harsh shadows, giving a 
@@ -101,8 +88,8 @@ const Blog: React.FC = () => {
             a neutral look. After checking them out, I chose the full smile for its friendly quality. Including a warm 
             smile gives the image a sense of reliability, which is boosted by the lighting and wardrobe choices.
           </p>
-          <h3 className= "post-subtitle">Aesthetic Shot</h3>
-          <img className= "post-image" src={aestheticShot} alt="Aesthetic Shot" />
+          <h3 className="post-subtitle">Aesthetic Shot</h3>
+          <img className="post-image" src={aestheticShot} alt="Aesthetic Shot" />
           <p className="post-content">
             For the aesthetic shot, I drew inspiration from cinematic photography that features deep shadows and rich 
             colours, aiming to create a moody and thoughtful atmosphere. I set up the composition with a centered 
@@ -122,8 +109,8 @@ const Blog: React.FC = () => {
             the greens visible through the window and subtly increased the contrast to sharpen the silhouette and enrich 
             the tonal range, allowing the main elements of the composition to stand out.
           </p>
-          <h3 className= "post-subtitle">Passion Shot</h3>
-          <img className= "post-image" src={passionShot} alt="Passion Shot" />
+          <h3 className="post-subtitle">Passion Shot</h3>
+          <img className="post-image" src={passionShot} alt="Passion Shot" />
           <p className="post-content">
             For the passion shot, I wanted to capture my favourite activity since moving to Ireland: traveling and 
             exploring new places. To visually share this topic, I carefully arranged a composition with key items 
@@ -147,46 +134,50 @@ const Blog: React.FC = () => {
             cohesive visual experience that matched the theme of exploration and creativity.
           </p>
         </div>
-        
-        <hr />
 
-        {/* Second entry with images for the lightbox gallery */}
+        {/* Second entry with gallery */}
         <div className="post">
-          <h2 className="post-title">Exploring Visual Storytelling</h2>
+          <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
           <div className="post-meta">
-            <span className="post-date">Published: 25/11/2024</span> |
-            <span className="post-read-time">Reading time: 6 min</span>
+            <span className="post-date">Published: 23/11/2024</span> |
+            <span className="post-read-time">Reading time: 8 min</span>
+          </div>
+          
+          <div className="post-gallery">
           </div>
           <p className="post-content">
-            This post focuses on the importance of visual storytelling in modern photography. Through a gallery of images,
-            we explore how framing, lighting, and composition can tell a story without any text.
+            During the last couple of weeks, I worked on a group video assignment titled “Drink for Thought”, 
+            a short film for the Sligo university student film festival. I was asked to act in the film, which 
+            was to be themed around a “dialogue-based film”. My acting role was that of a young professional 
+            talking with an older mentor, exploring the relationship between them through conversation.
           </p>
-          
-          <div className="gallery">
-            {post2Images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Gallery Image ${index + 1}`}
-                className="post-image"
-                onClick={() => openLightbox(index)}
-              />
-            ))}
-          </div>
+          <p className="post-content">
+            The film was shot in a very short time frame, with locations near our university campus. The whole 
+            process from filming to editing took place over a weekend, and it was incredibly satisfying to see 
+            our efforts come together in a finished product. The story was about mentorship, trust, and life 
+            choices, and I worked closely with the director to establish my character's emotional tone for the 
+            scene. It was a challenging role, but I think it helped me grow as an actor and storyteller.
+          </p>
+          <p className="post-content">
+            My role in this project also included assisting with post-production tasks. The film’s editing involved 
+            a lot of sound work, adding layers of ambient sound and dialogue to bring the film’s world to life. 
+            I worked on After Effects to help integrate various visual elements and enhance the impact of 
+            the film’s themes.
+          </p>
         </div>
 
-        {/* Lightbox for Post 2 */}
-        {isLightboxOpen && (
-          <div className="lightbox" onClick={closeLightbox}>
+        {lightboxOpen && (
+          <div className="lightbox">
             <div className="lightbox-content">
-              <span className="prev" onClick={prevImage}>❮</span>
-              <img src={post2Images[currentImageIndex]} alt={`Lightbox Image ${currentImageIndex + 1}`} />
-              <span className="next" onClick={nextImage}>❯</span>
+              <button className="close-btn" onClick={closeLightbox}>Close</button>
+              <button className="prev-btn" onClick={prevImage}>Previous</button>
+              <img src={[image0, image1, image2, image3, image4, image5, image6, image7, image8, image9][currentImageIndex]} alt="Lightbox" />
+              <button className="next-btn" onClick={nextImage}>Next</button>
             </div>
           </div>
         )}
       </div>
-      
+
       <Footer />
     </>
   );
