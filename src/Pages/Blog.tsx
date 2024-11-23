@@ -30,6 +30,19 @@ const Blog: React.FC = () => {
     image0, image1, image2, image3, image4, image5, image6, image7, image8, image9
   ];
 
+  // Descriptions for each image
+  const imageDescriptions = [
+    "Image 1 description: A serene landscape with bright blue skies.",
+    "Image 2 description: A close-up of a textured wall with contrasting light.",
+    "Image 3 description: A dark alley with a single source of light illuminating a street corner.",
+    "Image 4 description: A portrait of a person under a dim light, showing expressive emotion.",
+    "Image 5 description: A beach scene captured during golden hour.",
+    "Image 6 description: A wide shot of a city skyline at night with lights shining brightly.",
+    "Image 7 description: A close-up of a cup of coffee with a blurred background.",
+    "Image 8 description: A sunset over a mountain range with mist in the foreground.",
+    "Image 9 description: A scenic rural view with a winding road leading into the horizon."
+  ];
+
   // Open the lightbox with the clicked image
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -60,8 +73,9 @@ const Blog: React.FC = () => {
       <div className="container"> {/* Blog container */}
         <h1 className="blog-title">Blog</h1> {/* Title of the page */}
         
-        {/* First entry */}
-        <div className="post">
+ {/*First entry*/}
+
+ <div className="post">
           <h2 className="post-title">Photography Series Analysis</h2>
           <div className="post-meta">
             <span className="post-date">Published: 30/10/2024</span> |
@@ -147,20 +161,68 @@ const Blog: React.FC = () => {
             cohesive visual experience that matched the theme of exploration and creativity.
           </p>
         </div>
-        
-        <hr />
 
         {/* Second entry with images for the lightbox gallery */}
         <div className="post">
-          <h2 className="post-title">Exploring Visual Storytelling</h2>
+          <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
           <div className="post-meta">
-            <span className="post-date">Published: 25/11/2024</span> |
-            <span className="post-read-time">Reading time: 6 min</span>
+            <span className="post-date">Published: 23/11/2024</span> |
+            <span className="post-read-time">Reading time: 8 min</span>
           </div>
+          
           <p className="post-content">
-            This post focuses on the importance of visual storytelling in modern photography. Through a gallery of images,
-            we explore how framing, lighting, and composition can tell a story without any text.
+          During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
+          production I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
+          of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating 
+          special effects and music. 
           </p>
+          <p className="post-content">
+          For the editing process, I used Adobe After Effects. Once all the footage was recorded, the team uploaded 
+          the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
+          cohesive timeline in After Effects, ensuring the final video would not exceed two minutes.  
+          </p>
+
+          <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
+          <p className="post-content">
+          After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
+          scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
+          tool in After Effects to achieve a consistent look throughout the video
+          </p>
+
+          <h3 className= "post-subtitle">Special Effects and Compositions</h3>
+          <p className="post-content">
+          Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
+          I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
+          light bulb that appears when the designer conceives a new packaging idea. I also created fade-in and 
+          fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later”. 
+          </p>
+
+          <h3 className= "post-subtitle">Audio Design</h3>
+          <p className="post-content">
+          Since all scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com and 
+          Freesound.org, I matched music to the three narrative sections: failure, change, and success, ensuring the mood aligned 
+          with the emotions of the protagonist. For sound effects, I synchronized the "idea" sound and the apple-biting sound, 
+          both downloaded from Freesound, with the composed shoots. 
+          </p>
+
+          <h3 className= "post-subtitle">Export and Final Details</h3>
+          <p className="post-content">
+          Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
+          I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
+          video maintained high quality while adhering to file size constraints. 
+          </p>
+
+          <h3 className= "post-subtitle">Outcome Reflection</h3>
+          <p className="post-content">
+          This project allowed me to manage post-production editing and creative enhancements. My role was instrumental in 
+          unifying the team's efforts into a cohesive final product that communicated our idea. I particularly learnt a lot 
+          about video compression because of the file size limits, it required a lot of research and trial-error. 
+          </p>
+          <p className="post-content">
+          I feel satisfied and proud with how my contributions brought the project all together and how it aligned with 
+          the team’s collective vision.  
+          </p>
+
           
           <div className="gallery">
             {post2Images.map((image, index) => (
@@ -181,6 +243,7 @@ const Blog: React.FC = () => {
             <div className="lightbox-content">
               <span className="prev" onClick={prevImage}>❮</span>
               <img src={post2Images[currentImageIndex]} alt={`Lightbox Image ${currentImageIndex + 1}`} />
+              <p className="image-description">{imageDescriptions[currentImageIndex]}</p>
               <span className="next" onClick={nextImage}>❯</span>
             </div>
           </div>
