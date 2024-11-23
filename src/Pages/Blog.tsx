@@ -21,7 +21,6 @@ import passionShot from '../assets/passion-shot.jpg';
 const Blog: React.FC = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
-  const [imageIndex, setImageIndex] = useState<number>(-1);
 
   // Array of images with src and alt text
   const images = [
@@ -43,7 +42,6 @@ const Blog: React.FC = () => {
   // Open lightbox and set current image and index
   const openLightbox = (index: number) => {
     setCurrentImage(images[index].src);
-    setImageIndex(index);
     setLightboxOpen(true);
   };
 
@@ -52,19 +50,6 @@ const Blog: React.FC = () => {
     setLightboxOpen(false);
   };
 
-  // Next image in the lightbox
-  const nextImage = () => {
-    const nextIndex = (imageIndex + 1) % images.length;
-    setCurrentImage(images[nextIndex].src);
-    setImageIndex(nextIndex);
-  };
-
-  // Previous image in the lightbox
-  const prevImage = () => {
-    const prevIndex = (imageIndex - 1 + images.length) % images.length;
-    setCurrentImage(images[prevIndex].src);
-    setImageIndex(prevIndex);
-  };
 
   return (
     <>
@@ -163,16 +148,6 @@ const Blog: React.FC = () => {
             cohesive visual experience that matched the theme of exploration and creativity.
           </p>
 
-          {/* Lightbox for images */}
-          {lightboxOpen && (
-            <div className="lightbox">
-              <img src={currentImage} alt="lightbox" />
-              <button className="lightbox-close" onClick={closeLightbox}>X</button>
-              <button className="lightbox-prev" onClick={prevImage}>&lt;</button>
-              <button className="lightbox-next" onClick={nextImage}>&gt;</button>
-            </div>
-          )}
-
         </div>
 
         {/* Second entry */}
@@ -238,8 +213,7 @@ const Blog: React.FC = () => {
           <div className="lightbox" onClick={closeLightbox}>
             <div className="lightbox-content">
               <img className="lightbox-image" src={currentImage} alt="Enlarged view" />
-              <button className="lightbox-prev" onClick={prevImage}>‹</button>
-              <button className="lightbox-next" onClick={nextImage}>›</button>
+
             </div>
           </div>
       )}
