@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Blog.css'; // CSS File
-//import PostsList from '../features/posts/PostsList';
 
+// Images of the blog entry (Post 1)
+import businessHeadshot from '../assets/business-headshot.jpg'; 
+import aestheticShot from '../assets/aesthetic-shot.jpg';
+import passionShot from '../assets/passion-shot.jpg';
 
-// Images of the blog entry
+// Images of the blog entry (Post 2)
 import image0 from '../assets/blog-entry-2/0.png';
 import image1 from '../assets/blog-entry-2/1.png';
 import image2 from '../assets/blog-entry-2/2.png';
@@ -17,21 +20,47 @@ import image7 from '../assets/blog-entry-2/7.png';
 import image8 from '../assets/blog-entry-2/8.png';
 import image9 from '../assets/blog-entry-2/9.png';
 
-
-import businessHeadshot from '../assets/business-headshot.jpg'; 
-import aestheticShot from '../assets/aesthetic-shot.jpg';
-import passionShot from '../assets/passion-shot.jpg';
-
 const Blog: React.FC = () => {
+  // State to handle lightbox visibility and current image
+  const [isLightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  // List of Post 2 images for the lightbox gallery
+  const post2Images = [
+    image0, image1, image2, image3, image4, image5, image6, image7, image8, image9
+  ];
+
+  // Open the lightbox with the clicked image
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  // Close the lightbox
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  // Navigate to the next image in the lightbox
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % post2Images.length);
+  };
+
+  // Navigate to the previous image in the lightbox
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? post2Images.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <>
       <Header />
       
-      <div className="container"> {/*Blog container */}
-        <h1 className="blog-title">Blog</h1> {/*Title of the page*/}
+      <div className="container"> {/* Blog container */}
+        <h1 className="blog-title">Blog</h1> {/* Title of the page */}
         
-        {/*First entry*/}
-
+        {/* First entry */}
         <div className="post">
           <h2 className="post-title">Photography Series Analysis</h2>
           <div className="post-meta">
@@ -118,92 +147,47 @@ const Blog: React.FC = () => {
             cohesive visual experience that matched the theme of exploration and creativity.
           </p>
         </div>
-          
+        
         <hr />
 
-        {/*Second entry*/}
-
+        {/* Second entry with images for the lightbox gallery */}
         <div className="post">
-          <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
+          <h2 className="post-title">Exploring Visual Storytelling</h2>
           <div className="post-meta">
-            <span className="post-date">Published: 23/11/2024</span> |
-            <span className="post-read-time">Reading time: 8 min</span>
+            <span className="post-date">Published: 25/11/2024</span> |
+            <span className="post-read-time">Reading time: 6 min</span>
           </div>
+          <p className="post-content">
+            This post focuses on the importance of visual storytelling in modern photography. Through a gallery of images,
+            we explore how framing, lighting, and composition can tell a story without any text.
+          </p>
           
-          <p className="post-content">
-          During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
-          production I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
-          of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating 
-          special effects and music. 
-          </p>
-          <p className="post-content">
-          For the editing process, I used Adobe After Effects. Once all the footage was recorded, the team uploaded 
-          the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
-          cohesive timeline in After Effects, ensuring the final video would not exceed two minutes. 
-          </p>
-
-
-          <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
-          <p className="post-content">
-          After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
-          scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
-          tool in After Effects to achieve a consistent look throughout the video
-          </p>
-
-          <h3 className= "post-subtitle">Special Effects and Compositions</h3>
-          <p className="post-content">
-          Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
-          I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
-          light bulb that appears when the designer conceives a new packaging idea. I also created fade-in and 
-          fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later”. 
-          </p>
-
-          <h3 className= "post-subtitle">Audio Design</h3>
-          <p className="post-content">
-          Since all scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com and 
-          Freesound.org, I matched music to the three narrative sections: failure, change, and success, ensuring the mood aligned 
-          with the emotions of the protagonist. For sound effects, I synchronized the "idea" sound and the apple-biting sound, 
-          both downloaded from Freesound, with the composed shoots. 
-          </p>
-
-          <h3 className= "post-subtitle">Export and Final Details</h3>
-          <p className="post-content">
-          Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
-          I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
-          video maintained high quality while adhering to file size constraints. 
-          </p>
-
-          <h3 className= "post-subtitle">Outcome Reflection</h3>
-          <p className="post-content">
-          This project allowed me to manage post-production editing and creative enhancements. My role was instrumental in 
-          unifying the team's efforts into a cohesive final product that communicated our idea. I particularly learnt a lot 
-          about video compression because of the file size limits, it required a lot of research and trial-error. 
-          </p>
-          <p className="post-content">
-          I feel satisfied and proud with how my contributions brought the project all together and how it aligned with 
-          the team’s collective vision.  
-          </p>
-
-          <img className= "post-image" src={image0} alt="export-configuration" />
-          <img className= "post-image" src={image1} alt="export-configuration" />
-          <img className= "post-image" src={image2} alt="export-configuration" />
-          <img className= "post-image" src={image3} alt="export-configuration" />
-          <img className= "post-image" src={image4} alt="export-configuration" />
-          <img className= "post-image" src={image5} alt="export-configuration" />
-          <img className= "post-image" src={image6} alt="export-configuration" />
-          <img className= "post-image" src={image7} alt="export-configuration" />
-          <img className= "post-image" src={image8} alt="export-configuration" />
-          <img className= "post-image" src={image9} alt="export-configuration" />
-
-
-          
+          <div className="gallery">
+            {post2Images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Gallery Image ${index + 1}`}
+                className="post-image"
+                onClick={() => openLightbox(index)}
+              />
+            ))}
+          </div>
         </div>
 
+        {/* Lightbox for Post 2 */}
+        {isLightboxOpen && (
+          <div className="lightbox" onClick={closeLightbox}>
+            <div className="lightbox-content">
+              <span className="prev" onClick={prevImage}>❮</span>
+              <img src={post2Images[currentImageIndex]} alt={`Lightbox Image ${currentImageIndex + 1}`} />
+              <span className="next" onClick={nextImage}>❯</span>
+            </div>
+          </div>
+        )}
       </div>
-
-      <footer>
-        <Footer />
-      </footer>
+      
+      <Footer />
     </>
   );
 };
