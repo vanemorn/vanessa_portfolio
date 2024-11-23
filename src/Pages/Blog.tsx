@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Blog.css'; // CSS File
+//import PostsList from '../features/posts/PostsList';
 
-// Images of the blog entry (Post 1)
-import businessHeadshot from '../assets/business-headshot.jpg'; 
-import aestheticShot from '../assets/aesthetic-shot.jpg';
-import passionShot from '../assets/passion-shot.jpg';
 
-// Images of the blog entry (Post 2)
+// Images of the blog entry
 import image0 from '../assets/blog-entry-2/0.png';
 import image1 from '../assets/blog-entry-2/1.png';
 import image2 from '../assets/blog-entry-2/2.png';
@@ -20,62 +17,22 @@ import image7 from '../assets/blog-entry-2/7.png';
 import image8 from '../assets/blog-entry-2/8.png';
 import image9 from '../assets/blog-entry-2/9.png';
 
+
+import businessHeadshot from '../assets/business-headshot.jpg'; 
+import aestheticShot from '../assets/aesthetic-shot.jpg';
+import passionShot from '../assets/passion-shot.jpg';
+
 const Blog: React.FC = () => {
-  // State to handle lightbox visibility and current image
-  const [isLightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-
-  // List of Post 2 images for the lightbox gallery
-  const post2Images = [
-    image0, image1, image2, image3, image4, image5, image6, image7, image8, image9
-  ];
-
-  // Descriptions for each image
-  const imageDescriptions = [
-    "Image 1 description: A serene landscape with bright blue skies.",
-    "Image 2 description: A close-up of a textured wall with contrasting light.",
-    "Image 3 description: A dark alley with a single source of light illuminating a street corner.",
-    "Image 4 description: A portrait of a person under a dim light, showing expressive emotion.",
-    "Image 5 description: A beach scene captured during golden hour.",
-    "Image 6 description: A wide shot of a city skyline at night with lights shining brightly.",
-    "Image 7 description: A close-up of a cup of coffee with a blurred background.",
-    "Image 8 description: A sunset over a mountain range with mist in the foreground.",
-    "Image 9 description: A scenic rural view with a winding road leading into the horizon."
-  ];
-
-  // Open the lightbox with the clicked image
-  const openLightbox = (index: number) => {
-    setCurrentImageIndex(index);
-    setLightboxOpen(true);
-  };
-
-  // Close the lightbox
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
-
-  // Navigate to the next image in the lightbox
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % post2Images.length);
-  };
-
-  // Navigate to the previous image in the lightbox
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? post2Images.length - 1 : prevIndex - 1
-    );
-  };
-
   return (
     <>
       <Header />
       
-      <div className="container"> {/* Blog container */}
-        <h1 className="blog-title">Blog</h1> {/* Title of the page */}
+      <div className="container"> {/*Blog container */}
+        <h1 className="blog-title">Blog</h1> {/*Title of the page*/}
         
- {/*First entry*/}
+        {/*First entry*/}
 
- <div className="post">
+        <div className="post">
           <h2 className="post-title">Photography Series Analysis</h2>
           <div className="post-meta">
             <span className="post-date">Published: 30/10/2024</span> |
@@ -162,7 +119,8 @@ const Blog: React.FC = () => {
           </p>
         </div>
 
-        {/* Second entry with images for the lightbox gallery */}
+        {/*Second entry*/}
+
         <div className="post">
           <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
           <div className="post-meta">
@@ -170,6 +128,8 @@ const Blog: React.FC = () => {
             <span className="post-read-time">Reading time: 8 min</span>
           </div>
           
+          <img className= "post-image" src={image0} alt="after-effects"/>
+          <img className= "post-image" src={image1} alt="acting role"/>
           <p className="post-content">
           During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
           production I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
@@ -183,6 +143,10 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
+          <img className= "post-image" src={image2} alt="scene1-comparison"/>
+          <img className= "post-image" src={image3} alt="scene2-comparison"/>
+          <img className= "post-image" src={image4} alt="scene3-comparison"/>
+          <img className= "post-image" src={image5} alt="sequence-comparison"/>
           <p className="post-content">
           After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
           scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
@@ -190,6 +154,9 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Special Effects and Compositions</h3>
+          <img className= "post-image" src={image6} alt="product-composition" />
+          <img className= "post-image" src={image7} alt="idea-icon" />
+          <img className= "post-image" src={image8} alt="credits" />
           <p className="post-content">
           Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
           I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
@@ -206,6 +173,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Export and Final Details</h3>
+          <img className= "post-image" src={image9} alt="export-configuration" />
           <p className="post-content">
           Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
           I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
@@ -222,35 +190,14 @@ const Blog: React.FC = () => {
           I feel satisfied and proud with how my contributions brought the project all together and how it aligned with 
           the team’s collective vision.  
           </p>
-
           
-          <div className="gallery">
-            {post2Images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Gallery Image ${index + 1}`}
-                className="post-image"
-                onClick={() => openLightbox(index)}
-              />
-            ))}
-          </div>
         </div>
 
-        {/* Lightbox for Post 2 */}
-        {isLightboxOpen && (
-          <div className="lightbox" onClick={closeLightbox}>
-            <div className="lightbox-content">
-              <span className="prev" onClick={prevImage}>❮</span>
-              <img src={post2Images[currentImageIndex]} alt={`Lightbox Image ${currentImageIndex + 1}`} />
-              <p className="image-description">{imageDescriptions[currentImageIndex]}</p>
-              <span className="next" onClick={nextImage}>❯</span>
-            </div>
-          </div>
-        )}
       </div>
-      
-      <Footer />
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
