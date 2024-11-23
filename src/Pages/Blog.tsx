@@ -129,13 +129,13 @@ const Blog: React.FC = () => {
   </div>
 
   <p className="post-content">
-    During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
+    During the production of the video *Drink for Thought*, I played as the Manager for the meeting scenes and in 
     production, I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
     of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating 
     special effects and music.
   </p>
 
-  {/* Images aligned to the left after the paragraph */}
+  {/* Images now appear on a new line after the text */}
   <img className="post-image2" src={image0} alt="after-effects"/>
   <img className="post-image2" src={image1} alt="acting role"/>
 

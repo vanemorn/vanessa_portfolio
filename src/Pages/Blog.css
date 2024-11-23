@@ -73,12 +73,9 @@ body {
     float: right;
 }
 
-.post-image2 { /* Style of the image for Post 1 aligned to the left */
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-    float: left; /* Aligns the image to the left */
-    margin-right: 20px; /* Space between the image and the text */
-    margin-bottom: 15px; /* Space between image and the next element (text or another image) */
-    clear: both; /* Ensure that the image and the text don't overlap with each other */
+.post-image2 { 
+    width: 300px;              
+    height: auto;              
+    object-fit: cover;         
+    display: block;           
 }
