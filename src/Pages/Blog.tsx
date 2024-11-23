@@ -140,16 +140,10 @@ const Blog: React.FC = () => {
           For the editing process, I used Adobe After Effects. Once all the footage was recorded, the team uploaded 
           the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
           cohesive timeline in After Effects, ensuring the final video would not exceed two minutes. 
-          <img className= "post-image" src={image1} alt="acting role"/>
-          <img className= "post-image" src={image0} alt="after-effects"/>
           </p>
 
 
           <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
-          <img className= "post-image" src={image2} alt="scene1-comparison"/>
-          <img className= "post-image" src={image3} alt="scene2-comparison"/>
-          <img className= "post-image" src={image4} alt="scene3-comparison"/>
-          <img className= "post-image" src={image5} alt="sequence-comparison"/>
           <p className="post-content">
           After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
           scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
@@ -157,9 +151,6 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Special Effects and Compositions</h3>
-          <img className= "post-image" src={image6} alt="product-composition" />
-          <img className= "post-image" src={image7} alt="idea-icon" />
-          <img className= "post-image" src={image8} alt="credits" />
           <p className="post-content">
           Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
           I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
@@ -176,7 +167,6 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Export and Final Details</h3>
-          <img className= "post-image" src={image9} alt="export-configuration" />
           <p className="post-content">
           Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
           I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
@@ -193,6 +183,19 @@ const Blog: React.FC = () => {
           I feel satisfied and proud with how my contributions brought the project all together and how it aligned with 
           the team’s collective vision.  
           </p>
+
+          <img className= "post-image" src={image0} alt="export-configuration" />
+          <img className= "post-image" src={image1} alt="export-configuration" />
+          <img className= "post-image" src={image2} alt="export-configuration" />
+          <img className= "post-image" src={image3} alt="export-configuration" />
+          <img className= "post-image" src={image4} alt="export-configuration" />
+          <img className= "post-image" src={image5} alt="export-configuration" />
+          <img className= "post-image" src={image6} alt="export-configuration" />
+          <img className= "post-image" src={image7} alt="export-configuration" />
+          <img className= "post-image" src={image8} alt="export-configuration" />
+          <img className= "post-image" src={image9} alt="export-configuration" />
+
+
           
         </div>
 
