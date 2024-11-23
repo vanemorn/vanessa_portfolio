@@ -73,6 +73,14 @@ body {
     float: right;
 }
 
+.post-images-container {
+    display: flex;             
+    flex-wrap: wrap;          
+    gap: 20px;                 
+    justify-content: flex-start; 
+}
+
+/* Adjust individual image style */
 .post-image2 { 
     width: 300px;              
     height: auto;              

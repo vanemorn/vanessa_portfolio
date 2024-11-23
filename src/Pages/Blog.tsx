@@ -121,6 +121,8 @@ const Blog: React.FC = () => {
 
 {/* Second entry */}
 
+{/* Second entry */}
+
 <div className="post">
   <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
   <div className="post-meta">
@@ -135,9 +137,11 @@ const Blog: React.FC = () => {
     special effects and music.
   </p>
 
-  {/* Images now appear on a new line after the text */}
-  <img className="post-image2" src={image0} alt="after-effects"/>
-  <img className="post-image2" src={image1} alt="acting role"/>
+  {/* Wrap multiple images in the container */}
+  <div className="post-images-container">
+    <img className="post-image2" src={image0} alt="after-effects"/>
+    <img className="post-image2" src={image1} alt="acting role"/>
+  </div>
 
   <h3 className="post-subtitle">Visual Adjustments and Editing</h3>
   <p className="post-content">
@@ -146,10 +150,12 @@ const Blog: React.FC = () => {
     tool in After Effects to achieve a consistent look throughout the video.
   </p>
 
-  <img className="post-image2" src={image2} alt="scene1-comparison"/>
-  <img className="post-image2" src={image3} alt="scene2-comparison"/>
-  <img className="post-image2" src={image4} alt="scene3-comparison"/>
-  <img className="post-image2" src={image5} alt="sequence-comparison"/>
+  <div className="post-images-container">
+    <img className="post-image2" src={image2} alt="scene1-comparison"/>
+    <img className="post-image2" src={image3} alt="scene2-comparison"/>
+    <img className="post-image2" src={image4} alt="scene3-comparison"/>
+    <img className="post-image2" src={image5} alt="sequence-comparison"/>
+  </div>
 
   <h3 className="post-subtitle">Special Effects and Compositions</h3>
   <p className="post-content">
@@ -159,9 +165,11 @@ const Blog: React.FC = () => {
     fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later".
   </p>
 
-  <img className="post-image2" src={image6} alt="product-composition"/>
-  <img className="post-image2" src={image7} alt="idea-icon"/>
-  <img className="post-image2" src={image8} alt="credits"/>
+  <div className="post-images-container">
+    <img className="post-image2" src={image6} alt="product-composition"/>
+    <img className="post-image2" src={image7} alt="idea-icon"/>
+    <img className="post-image2" src={image8} alt="credits"/>
+  </div>
 
   <h3 className="post-subtitle">Audio Design</h3>
   <p className="post-content">
@@ -178,7 +186,9 @@ const Blog: React.FC = () => {
     video maintained high quality while adhering to file size constraints. 
   </p>
 
-  <img className="post-image2" src={image9} alt="export-configuration"/>
+  <div className="post-images-container">
+    <img className="post-image2" src={image9} alt="export-configuration"/>
+  </div>
 
   <h3 className="post-subtitle">Outcome Reflection</h3>
   <p className="post-content">
@@ -191,6 +201,7 @@ const Blog: React.FC = () => {
     the team’s collective vision.  
   </p>
 </div>
+
 
       </div>
 
