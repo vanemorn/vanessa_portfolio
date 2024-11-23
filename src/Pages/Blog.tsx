@@ -22,11 +22,27 @@ import passionShot from '../assets/passion-shot.jpg';
 const Blog: React.FC = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
+  const [imageIndex, setImageIndex] = useState<number>(-1); // To track the index of the current image
+  
+  const images = [
+    {src: image0, alt: 'Image 0'},
+    {src: image1, alt: 'Image 1'},
+    {src: image2, alt: 'Image 2'},
+    {src: image3, alt: 'Image 3'},
+    {src: image4, alt: 'Image 4'},
+    {src: image5, alt: 'Image 5'},
+    {src: image6, alt: 'Image 6'},
+    {src: image7, alt: 'Image 7'},
+    {src: image8, alt: 'Image 8'},
+    {src: image9, alt: 'Image 9'},
+    {src: businessHeadshot, alt: 'Business Headshot'},
+    {src: aestheticShot, alt: 'Aesthetic Shot'},
+    {src: passionShot, alt: 'Passion Shot'},
+  ]; // List of all images with alt texts
 
-  const images = [image0, image1, image2, image3, image4, image5, image6, image7, image8, image9]; // List of images
-
-  const openLightbox = (src: string) => {
-    setCurrentImage(src);
+  const openLightbox = (index: number) => {
+    setCurrentImage(images[index].src);
+    setImageIndex(index);
     setLightboxOpen(true);
   };
 
@@ -35,15 +51,15 @@ const Blog: React.FC = () => {
   };
 
   const nextImage = () => {
-    const currentIndex = images.indexOf(currentImage);
-    const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentImage(images[nextIndex]);
+    const nextIndex = (imageIndex + 1) % images.length;
+    setCurrentImage(images[nextIndex].src);
+    setImageIndex(nextIndex);
   };
 
   const prevImage = () => {
-    const currentIndex = images.indexOf(currentImage);
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentImage(images[prevIndex]);
+    const prevIndex = (imageIndex - 1 + images.length) % images.length;
+    setCurrentImage(images[prevIndex].src);
+    setImageIndex(prevIndex);
   };
 
   return (
@@ -74,7 +90,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className="post-subtitle">Business-Type Headshot</h3>
-          <img className="post-image" src={businessHeadshot} alt="Business Headshot" onClick={() => openLightbox(businessHeadshot)} />
+          <img className="post-image" src={businessHeadshot} alt="Business Headshot" onClick={() => openLightbox(10)} />
           <p className="post-content">
             For the business headshot, I wanted to create an image that balances professionalism with approachability. 
             I chose soft frontal lighting to keep the exposure even across my face and avoid harsh shadows, giving a 
@@ -97,7 +113,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className="post-subtitle">Aesthetic Shot</h3>
-          <img className="post-image" src={aestheticShot} alt="Aesthetic Shot" onClick={() => openLightbox(aestheticShot)} />
+          <img className="post-image" src={aestheticShot} alt="Aesthetic Shot" onClick={() => openLightbox(11)} />
           <p className="post-content">
             For the aesthetic shot, I drew inspiration from cinematic photography that features deep shadows and rich 
             colours, aiming to create a moody and thoughtful atmosphere. I set up the composition with a centered 
@@ -119,7 +135,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className="post-subtitle">Passion Shot</h3>
-          <img className="post-image" src={passionShot} alt="Passion Shot" onClick={() => openLightbox(passionShot)} />
+          <img className="post-image" src={passionShot} alt="Passion Shot" onClick={() => openLightbox(12)} />
           <p className="post-content">
             For the passion shot, I wanted to capture my favourite activity since moving to Ireland: traveling and 
             exploring new places. To visually share this topic, I carefully arranged a composition with key items 
@@ -171,8 +187,8 @@ const Blog: React.FC = () => {
           </p>
 
           <div className="post-images-container">
-            <img className="post-image2" src={image0} alt="after-effects" onClick={() => openLightbox(image0)} />
-            <img className="post-image2" src={image1} alt="acting role" onClick={() => openLightbox(image1)} />
+            <img className="post-image2" src={image0} alt="after-effects" onClick={() => openLightbox(0)} />
+            <img className="post-image2" src={image1} alt="acting role" onClick={() => openLightbox(1)} />
           </div>
 
           <h3 className="post-subtitle">Visual Adjustments and Editing</h3>
@@ -183,10 +199,10 @@ const Blog: React.FC = () => {
           </p>
 
           <div className="post-images-container">
-            <img className="post-image2" src={image2} alt="scene1-comparison" onClick={() => openLightbox(image2)} />
-            <img className="post-image2" src={image3} alt="scene2-comparison" onClick={() => openLightbox(image3)} />
-            <img className="post-image2" src={image4} alt="scene3-comparison" onClick={() => openLightbox(image4)} />
-            <img className="post-image2" src={image5} alt="sequence-comparison" onClick={() => openLightbox(image5)} />
+            <img className="post-image2" src={image2} alt="scene1-comparison" onClick={() => openLightbox(2)} />
+            <img className="post-image2" src={image3} alt="scene2-comparison" onClick={() => openLightbox(3)} />
+            <img className="post-image2" src={image4} alt="scene3-comparison" onClick={() => openLightbox(4)} />
+            <img className="post-image2" src={image5} alt="sequence-comparison" onClick={() => openLightbox(5)} />
           </div>
 
           <h3 className="post-subtitle">Special Effects and Compositions</h3>
@@ -196,9 +212,9 @@ const Blog: React.FC = () => {
           </p>
 
           <div className="post-images-container">
-            <img className="post-image2" src={image6} alt="product-composition" onClick={() => openLightbox(image6)} />
-            <img className="post-image2" src={image7} alt="idea-icon" onClick={() => openLightbox(image7)} />
-            <img className="post-image2" src={image8} alt="credits" onClick={() => openLightbox(image8)} />
+            <img className="post-image2" src={image6} alt="product-composition" onClick={() => openLightbox(6)} />
+            <img className="post-image2" src={image7} alt="idea-icon" onClick={() => openLightbox(7)} />
+            <img className="post-image2" src={image8} alt="credits" onClick={() => openLightbox(8)} />
           </div>
 
           <h3 className="post-subtitle">Audio Design</h3>
@@ -207,7 +223,7 @@ const Blog: React.FC = () => {
           </p>
 
           <div className="post-images-container">
-            <img className="post-image2" src={image9} alt="export-configuration" onClick={() => openLightbox(image9)} />
+            <img className="post-image2" src={image9} alt="export-configuration" onClick={() => openLightbox(9)} />
           </div>
         </div>
       </div>
@@ -215,6 +231,16 @@ const Blog: React.FC = () => {
       <footer>
         <Footer />
       </footer>
+ {/* Lightbox */}
+ 
+ {lightboxOpen && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <img className="lightbox-image" src={currentImage} alt="Enlarged view" />
+          <button className="lightbox-prev" onClick={prevImage}>‹</button>
+          <button className="lightbox-next" onClick={nextImage}>›</button>
+        </div>
+      )}
+
     </>
   );
 };
