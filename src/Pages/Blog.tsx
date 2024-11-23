@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from '../components/Header'; // Importing Header
-import Footer from '../components/Footer'; // Importing Footer
-import './Blog.css'; // CSS File
+import Header from '../components/Header'; 
+import Footer from '../components/Footer'; 
+import './Blog.css'; 
 
-// Images of the blog entry
+// Image imports
 import image0 from '../assets/blog-entry-2/0.png';
 import image1 from '../assets/blog-entry-2/1.png';
 import image2 from '../assets/blog-entry-2/2.png';
@@ -14,7 +14,6 @@ import image6 from '../assets/blog-entry-2/6.png';
 import image7 from '../assets/blog-entry-2/7.png';
 import image8 from '../assets/blog-entry-2/8.png';
 import image9 from '../assets/blog-entry-2/9.png';
-
 import businessHeadshot from '../assets/business-headshot.jpg'; 
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import passionShot from '../assets/passion-shot.jpg';
@@ -22,40 +21,45 @@ import passionShot from '../assets/passion-shot.jpg';
 const Blog: React.FC = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState('');
-  const [imageIndex, setImageIndex] = useState<number>(-1); // To track the index of the current image
-  
-  const images = [
-    {src: image0, alt: 'Image 0'},
-    {src: image1, alt: 'Image 1'},
-    {src: image2, alt: 'Image 2'},
-    {src: image3, alt: 'Image 3'},
-    {src: image4, alt: 'Image 4'},
-    {src: image5, alt: 'Image 5'},
-    {src: image6, alt: 'Image 6'},
-    {src: image7, alt: 'Image 7'},
-    {src: image8, alt: 'Image 8'},
-    {src: image9, alt: 'Image 9'},
-    {src: businessHeadshot, alt: 'Business Headshot'},
-    {src: aestheticShot, alt: 'Aesthetic Shot'},
-    {src: passionShot, alt: 'Passion Shot'},
-  ]; // List of all images with alt texts
+  const [imageIndex, setImageIndex] = useState<number>(-1);
 
+  // Array of images with src and alt text
+  const images = [
+    { src: image0, alt: 'Image 0' },
+    { src: image1, alt: 'Image 1' },
+    { src: image2, alt: 'Image 2' },
+    { src: image3, alt: 'Image 3' },
+    { src: image4, alt: 'Image 4' },
+    { src: image5, alt: 'Image 5' },
+    { src: image6, alt: 'Image 6' },
+    { src: image7, alt: 'Image 7' },
+    { src: image8, alt: 'Image 8' },
+    { src: image9, alt: 'Image 9' },
+    { src: businessHeadshot, alt: 'Business Headshot' },
+    { src: aestheticShot, alt: 'Aesthetic Shot' },
+    { src: passionShot, alt: 'Passion Shot' },
+  ];
+
+  // Open lightbox and set current image and index
   const openLightbox = (index: number) => {
     setCurrentImage(images[index].src);
     setImageIndex(index);
     setLightboxOpen(true);
   };
 
+  // Close lightbox
   const closeLightbox = () => {
     setLightboxOpen(false);
   };
 
+  // Next image in the lightbox
   const nextImage = () => {
     const nextIndex = (imageIndex + 1) % images.length;
     setCurrentImage(images[nextIndex].src);
     setImageIndex(nextIndex);
   };
 
+  // Previous image in the lightbox
   const prevImage = () => {
     const prevIndex = (imageIndex - 1 + images.length) % images.length;
     setCurrentImage(images[prevIndex].src);
@@ -169,7 +173,7 @@ const Blog: React.FC = () => {
             </div>
           )}
 
-        </div> {/* End of first entry */}
+        </div>
 
         {/* Second entry */}
         <div className="post">
@@ -228,18 +232,21 @@ const Blog: React.FC = () => {
         </div>
       </div>
 
+      
+        {/* Lightbox */}
+        {lightboxOpen && (
+          <div className="lightbox" onClick={closeLightbox}>
+            <div className="lightbox-content">
+              <img className="lightbox-image" src={currentImage} alt="Enlarged view" />
+              <button className="lightbox-prev" onClick={prevImage}>‹</button>
+              <button className="lightbox-next" onClick={nextImage}>›</button>
+            </div>
+          </div>
+      )}
+
       <footer>
         <Footer />
       </footer>
- {/* Lightbox */}
- 
- {lightboxOpen && (
-        <div className="lightbox" onClick={closeLightbox}>
-          <img className="lightbox-image" src={currentImage} alt="Enlarged view" />
-          <button className="lightbox-prev" onClick={prevImage}>‹</button>
-          <button className="lightbox-next" onClick={nextImage}>›</button>
-        </div>
-      )}
 
     </>
   );
