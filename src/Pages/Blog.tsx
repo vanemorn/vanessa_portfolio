@@ -119,81 +119,78 @@ const Blog: React.FC = () => {
           </p>
         </div>
 
-        {/*Second entry*/}
+{/* Second entry */}
 
-        <div className="post">
-          <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
-          <div className="post-meta">
-            <span className="post-date">Published: 23/11/2024</span> |
-            <span className="post-read-time">Reading time: 8 min</span>
-          </div>
-          
+<div className="post">
+  <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
+  <div className="post-meta">
+    <span className="post-date">Published: 23/11/2024</span> |
+    <span className="post-read-time">Reading time: 8 min</span>
+  </div>
 
-          <p className="post-content">
-          During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
-          production I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
-          of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating 
-          special effects and music. 
-          </p>
-          <p className="post-content">
-          For the editing process, I used Adobe After Effects. Once all the footage was recorded, the team uploaded 
-          the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
-          cohesive timeline in After Effects, ensuring the final video would not exceed two minutes.  
-          </p>
-          <img className= "post-image2" src={image0} alt="after-effects"/>
-          <img className= "post-image2" src={image1} alt="acting role"/>
+  <p className="post-content">
+    During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
+    production, I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
+    of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating 
+    special effects and music.
+  </p>
 
-          <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
-          <p className="post-content">
-          After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
-          scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
-          tool in After Effects to achieve a consistent look throughout the video
-          </p>
-          <img className= "post-image2" src={image2} alt="scene1-comparison"/>
-          <img className= "post-image2" src={image3} alt="scene2-comparison"/>
-          <img className= "post-image2" src={image4} alt="scene3-comparison"/>
-          <img className= "post-image2" src={image5} alt="sequence-comparison"/>
+  {/* Images aligned to the left after the paragraph */}
+  <img className="post-image2" src={image0} alt="after-effects"/>
+  <img className="post-image2" src={image1} alt="acting role"/>
 
-          <h3 className= "post-subtitle">Special Effects and Compositions</h3>
-          <p className="post-content">
-          Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
-          I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
-          light bulb that appears when the designer conceives a new packaging idea. I also created fade-in and 
-          fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later”. 
-          </p>
-          <img className= "post-image2" src={image6} alt="product-composition" />
-          <img className= "post-image2" src={image7} alt="idea-icon" />
-          <img className= "post-image2" src={image8} alt="credits" />
+  <h3 className="post-subtitle">Visual Adjustments and Editing</h3>
+  <p className="post-content">
+    After organizing the footage, I focused on unifying brightness, colours, and contrast, since some of the 
+    scenes were filmed from different angles and with different lighting conditions. I mainly used the Lumetri Color 
+    tool in After Effects to achieve a consistent look throughout the video.
+  </p>
 
-          <h3 className= "post-subtitle">Audio Design</h3>
-          <p className="post-content">
-          Since all scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com and 
-          Freesound.org, I matched music to the three narrative sections: failure, change, and success, ensuring the mood aligned 
-          with the emotions of the protagonist. For sound effects, I synchronized the "idea" sound and the apple-biting sound, 
-          both downloaded from Freesound, with the composed shoots. 
-          </p>
+  <img className="post-image2" src={image2} alt="scene1-comparison"/>
+  <img className="post-image2" src={image3} alt="scene2-comparison"/>
+  <img className="post-image2" src={image4} alt="scene3-comparison"/>
+  <img className="post-image2" src={image5} alt="sequence-comparison"/>
 
-          <h3 className= "post-subtitle">Export and Final Details</h3>
-          <p className="post-content">
-          Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
-          I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
-          video maintained high quality while adhering to file size constraints. 
-          </p>
-          <img className= "post-image2" src={image9} alt="export-configuration" />
+  <h3 className="post-subtitle">Special Effects and Compositions</h3>
+  <p className="post-content">
+    Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
+    I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
+    light bulb that appears when the designer conceives a new packaging idea. I also created fade-in and 
+    fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later".
+  </p>
 
+  <img className="post-image2" src={image6} alt="product-composition"/>
+  <img className="post-image2" src={image7} alt="idea-icon"/>
+  <img className="post-image2" src={image8} alt="credits"/>
 
-          <h3 className= "post-subtitle">Outcome Reflection</h3>
-          <p className="post-content">
-          This project allowed me to manage post-production editing and creative enhancements. My role was instrumental in 
-          unifying the team's efforts into a cohesive final product that communicated our idea. I particularly learnt a lot 
-          about video compression because of the file size limits, it required a lot of research and trial-error. 
-          </p>
-          <p className="post-content">
-          I feel satisfied and proud with how my contributions brought the project all together and how it aligned with 
-          the team’s collective vision.  
-          </p>
-          
-        </div>
+  <h3 className="post-subtitle">Audio Design</h3>
+  <p className="post-content">
+    Since all scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com and 
+    Freesound.org, I matched music to the three narrative sections: failure, change, and success, ensuring the mood aligned 
+    with the emotions of the protagonist. For sound effects, I synchronized the "idea" sound and the apple-biting sound, 
+    both downloaded from Freesound, with the composed shots. 
+  </p>
+
+  <h3 className="post-subtitle">Export and Final Details</h3>
+  <p className="post-content">
+    Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
+    I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
+    video maintained high quality while adhering to file size constraints. 
+  </p>
+
+  <img className="post-image2" src={image9} alt="export-configuration"/>
+
+  <h3 className="post-subtitle">Outcome Reflection</h3>
+  <p className="post-content">
+    This project allowed me to manage post-production editing and creative enhancements. My role was instrumental in 
+    unifying the team's efforts into a cohesive final product that communicated our idea. I particularly learned a lot 
+    about video compression because of the file size limits, which required a lot of research and trial-error. 
+  </p>
+  <p className="post-content">
+    I feel satisfied and proud of how my contributions brought the project all together and aligned with 
+    the team’s collective vision.  
+  </p>
+</div>
 
       </div>
 
