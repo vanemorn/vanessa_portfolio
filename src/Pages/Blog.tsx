@@ -149,10 +149,10 @@ const Blog: React.FC = () => {
           </p>
 
         </div>
-
+        <hr />
         {/* Second entry */}
         <div className="post">
-          <h2 className="post-title">Contribution to video assignment: Drink for Thought</h2>
+          <h2 className="post-title">Contribution to Video Assignment: Drink for Thought</h2>
           <div className="post-meta">
             <span className="post-date">Published: 23/11/2024</span> |
             <span className="post-read-time">Reading time: 8 min</span>
@@ -161,7 +161,7 @@ const Blog: React.FC = () => {
           <p className="post-content">
           During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in production 
           I took on the role of editor. My responsibilities included reviewing and enhancing the quality of the footage by 
-          balancing brightness, colours and contrast and combining all the shots and incorporating special effects and music. 
+          balancing brightness, colours and contrast, combining all the shots and incorporating special effects and music. 
           </p>
           <p className="post-content">
           For the editing process, I used Adobe After Effects. Once all the footage was recorded, the team uploaded the clips 
@@ -190,7 +190,7 @@ const Blog: React.FC = () => {
 
           <h3 className="post-subtitle">Special Effects and Compositions</h3>
           <p className="post-content">
-          Next, I added special effects to enhance the storytelling. Firslyn the final shot of the apple juice, I replaced 
+          Next, I added special effects to enhance the storytelling. For the final shot of the apple juice, I replaced 
           the background with a graphic composition created in Adobe Photoshop. Secondly, I animated a light bulb that 
           appears when the designer conceives a new packaging idea. I also created fade-in and fade-out compositions in 
           Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later."  
@@ -204,8 +204,8 @@ const Blog: React.FC = () => {
 
           <h3 className="post-subtitle">Audio Design</h3>
           <p className="post-content">
-          Since all scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com 
-          and Freesound.org, I matched music to the three narrative sections: failure, change, and success, ensuring 
+          Since all the scenes were silent, I selected music and sound effects to complement the video. Using Bensound.com 
+          and Freesound.org, I matched music to the three narrative sections: failure, change and success, ensuring 
           the mood aligned with the emotions of the protagonist. For sound effects, I synchronized the "idea" sound 
           and the apple-biting sound, both downloaded from Freesound, with the composed shoots. 
           </p>
