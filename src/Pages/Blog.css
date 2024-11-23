@@ -73,4 +73,12 @@ body {
     float: right;
 }
 
+.post-image2 { /* Style of the image for Post 1 */
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
 

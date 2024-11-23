@@ -128,8 +128,8 @@ const Blog: React.FC = () => {
             <span className="post-read-time">Reading time: 8 min</span>
           </div>
           
-          <img className= "post-image" src={image0} alt="after-effects"/>
-          <img className= "post-image" src={image1} alt="acting role"/>
+          <img className= "post-image2" src={image0} alt="after-effects"/>
+          <img className= "post-image2" src={image1} alt="acting role"/>
           <p className="post-content">
           During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
           production I took on the role of editor. My responsibilities included reviewing and enhancing the quality 
@@ -143,10 +143,10 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Visual Adjustments and Editing </h3>
-          <img className= "post-image" src={image2} alt="scene1-comparison"/>
-          <img className= "post-image" src={image3} alt="scene2-comparison"/>
-          <img className= "post-image" src={image4} alt="scene3-comparison"/>
-          <img className= "post-image" src={image5} alt="sequence-comparison"/>
+          <img className= "post-image2" src={image2} alt="scene1-comparison"/>
+          <img className= "post-image2" src={image3} alt="scene2-comparison"/>
+          <img className= "post-image2" src={image4} alt="scene3-comparison"/>
+          <img className= "post-image2" src={image5} alt="sequence-comparison"/>
           <p className="post-content">
           After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
           scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
@@ -154,9 +154,9 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Special Effects and Compositions</h3>
-          <img className= "post-image" src={image6} alt="product-composition" />
-          <img className= "post-image" src={image7} alt="idea-icon" />
-          <img className= "post-image" src={image8} alt="credits" />
+          <img className= "post-image2" src={image6} alt="product-composition" />
+          <img className= "post-image2" src={image7} alt="idea-icon" />
+          <img className= "post-image2" src={image8} alt="credits" />
           <p className="post-content">
           Next, I added special effects to enhance the storytelling. Firstly, in the final shot of the apple juice, 
           I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
@@ -173,7 +173,7 @@ const Blog: React.FC = () => {
           </p>
 
           <h3 className= "post-subtitle">Export and Final Details</h3>
-          <img className= "post-image" src={image9} alt="export-configuration" />
+          <img className= "post-image2" src={image9} alt="export-configuration" />
           <p className="post-content">
           Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
           I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
