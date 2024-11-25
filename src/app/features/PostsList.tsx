@@ -1,35 +1,31 @@
 import { useSelector } from "react-redux";
+import { selectAllPosts } from "./posts/postsSlice";
 import PostAuthor from "./posts/PostAuthor";
 import TimeAgo from "./posts/TimeAgo";
-import ReactionButtons from "./posts/ReactionButtons"; 
+import ReactionButtons from "./posts/ReactionButtons";
+import { RootState } from "./posts/store";
 
-type PostWithDate = {
+interface Post {
   id: string;
   title: string;
   content: string;
+  date: string;
   userId: string;
-  date: string; 
-  reactions: { 
+  reactions: {
     thumbsUp: number;
     wow: number;
     heart: number;
     rocket: number;
     coffee: number;
   };
-};
-
-interface RootState {
-  posts: {
-    posts: PostWithDate[]; 
-  };
 }
 
 const PostsList = () => {
-  const posts = useSelector((state: RootState) => state.posts.posts);
+  const posts = useSelector((state: RootState) => selectAllPosts(state)); // Explicitly type the state
 
-  const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+  const orderedPosts: Post[] = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
 
-  const renderedPosts = orderedPosts.map((post) => (
+  const renderedPosts = orderedPosts.map((post: Post) => (
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.substring(0, 100)}</p>
@@ -37,7 +33,7 @@ const PostsList = () => {
         <PostAuthor userId={post.userId} />
         <TimeAgo timestamp={post.date} />
       </p>
-      <ReactionButtons post={post} /> {}
+      <ReactionButtons post={post} />
     </article>
   ));
 
