@@ -1,21 +1,33 @@
 import { useSelector } from "react-redux";
-import { selectAllPosts } from "./posts/postsSlice";
 import PostAuthor from "./posts/PostAuthor";
 import TimeAgo from "./posts/TimeAgo";
+import ReactionButtons from "./posts/ReactionButtons"; 
 
-// Extend the type locally to include the 'date' property
 type PostWithDate = {
   id: string;
   title: string;
   content: string;
   userId: string;
-  date: string;
+  date: string; 
+  reactions: { 
+    thumbsUp: number;
+    wow: number;
+    heart: number;
+    rocket: number;
+    coffee: number;
+  };
 };
 
-const PostsList = () => {
-  const posts = useSelector(selectAllPosts) as PostWithDate[];
+interface RootState {
+  posts: {
+    posts: PostWithDate[]; 
+  };
+}
 
-  const orderedPosts = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
+const PostsList = () => {
+  const posts = useSelector((state: RootState) => state.posts.posts);
+
+  const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
 
   const renderedPosts = orderedPosts.map((post) => (
     <article key={post.id}>
@@ -25,6 +37,7 @@ const PostsList = () => {
         <PostAuthor userId={post.userId} />
         <TimeAgo timestamp={post.date} />
       </p>
+      <ReactionButtons post={post} /> {}
     </article>
   ));
 
