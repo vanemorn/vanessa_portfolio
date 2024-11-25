@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddPostForm from './app/features/posts/AddPostForm';
+import PostsList from './app/features/PostsList';
 
 // Importing pages
 import Home from 'C:/Users/linda/vanessa_portfolio/src/Pages/Home.tsx';
@@ -18,6 +19,7 @@ const App: React.FC = () => {
     <Router basename="/vanessa_portfolio"> {/*Project root*/} 
       <div className="app-container">
         <AddPostForm />
+        <PostsList />
         {/*Routed paths*/}
         <Routes>
           <Route path="/" element={<Home />} />
