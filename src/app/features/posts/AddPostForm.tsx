@@ -57,11 +57,13 @@ const AddPostForm = () => {
                     name="postContent"
                     value={content}
                     onChange={onContentChanged}
-                    disabled={!canSave}
+                    // Removed 'disabled={!canSave}' to allow editing content
                 />
                 <button 
                     type="button" 
-                    onClick={onSavePostClicked}>
+                    onClick={onSavePostClicked}
+                    disabled={!canSave} // Only disable button if canSave is false
+                >
                     Save Post
                 </button>
             </form>
