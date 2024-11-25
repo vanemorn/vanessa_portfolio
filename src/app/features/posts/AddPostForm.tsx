@@ -8,22 +8,21 @@ const AddPostForm = () => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [userId, setUserId] = useState<string>(''); // userId is always a string (empty string if no author)
+    const [userId, setUserId] = useState<string>(''); // Always a string, default to empty string
 
     const users = useSelector(selectAllUsers);
 
-    // Type the event parameter
     const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
     const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value);
-    const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value || ''); // Ensure userId is always a string
+    const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value);
 
     const onSavePostClicked = () => {
         if (title && content) {
-            // Dispatch the postAdded action, userId will now always be a string (empty string if no author)
-            dispatch(postAdded(title, content, userId)); 
+            // Pass userId as a string, or explicitly use an empty string to represent no author
+            dispatch(postAdded(title, content, userId || 'Unknown')); // Replace undefined with a fallback
             setTitle('');
             setContent('');
-            setUserId('');  // Optionally reset userId as well after saving
+            setUserId('');
         }
     };
 
@@ -49,7 +48,6 @@ const AddPostForm = () => {
                 />
                 <label htmlFor="postAuthor">Author:</label>
                 <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
-                    <option value="">Select an author</option>
                     {usersOptions}
                 </select>
                 <label htmlFor="postContent">Content:</label>
