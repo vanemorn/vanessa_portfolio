@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Counter from './app/features/counter/Counter';
+import PostsList from './app/features/PostsList';
 
 // Importing pages
 import Home from 'C:/Users/linda/vanessa_portfolio/src/Pages/Home.tsx';
@@ -17,8 +17,7 @@ const App: React.FC = () => {
   return (
     <Router basename="/vanessa_portfolio"> {/*Project root*/} 
       <div className="app-container">
-        <Counter />
-
+        <PostsList />
         {/*Routed paths*/}
         <Routes>
           <Route path="/" element={<Home />} />
