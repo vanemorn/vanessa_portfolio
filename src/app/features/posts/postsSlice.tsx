@@ -1,7 +1,8 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
+import { sub } from 'date-fns';
 
-// Define the shape of a post
+// Define the Post interface (unchanged)
 interface Post {
   id: string;
   title: string;
@@ -9,18 +10,30 @@ interface Post {
   userId: string;
 }
 
-// Define the initial state as an array of posts
-const initialState: Post[] = [
-  { id: '1', title: 'Learning Redux Toolkit', content: "Sample text", userId: '1' },
-  { id: '2', title: 'Slices...', content: "Sample text", userId: '2' },
-];
+// Define the initial state
+const initialState = [
+  {
+    id: '1',
+    title: 'Learning Redux Toolkit',
+    content: "Sample text",
+    userId: "user1",
+    date: sub(new Date(), { minutes: 10 }).toISOString(), // Added date
+  },
+  {
+    id: '2',
+    title: 'Slices...',
+    content: "Sample text",
+    userId: "user2",
+    date: sub(new Date(), { minutes: 5 }).toISOString(), // Added date
+  },
+] as Omit<Post, 'date'>[] & { date: string }[]; // Assert date property
 
 const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
     postAdded: {
-      reducer(state, action: PayloadAction<Post>) {
+      reducer(state, action: PayloadAction<Post & { date: string }>) {
         state.push(action.payload);
       },
       prepare(title: string, content: string, userId: string) {
@@ -29,12 +42,13 @@ const postsSlice = createSlice({
             id: nanoid(),
             title,
             content,
-            userId
-          }
+            date: new Date().toISOString(), // Ensure date exists
+            userId,
+          },
         };
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 // Selector to get all posts
