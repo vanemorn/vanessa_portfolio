@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
 import { selectAllUsers } from "../users/usersSlice";
 
-const PostAuthor = ({ userId }: { userId: string }) => {
-    const users = useSelector(selectAllUsers);  // Fetch all users from Redux store
-    const author = users.find(user => user.id === userId);  // Find the author by userId
+interface PostAuthorProps {
+  userId: string; 
+}
 
-    // If author is found, display the name, otherwise show "Unknown author"
+const PostAuthor: React.FC<PostAuthorProps> = ({ userId }) => {
+    const users = useSelector(selectAllUsers);
+
+    const author = Array.isArray(users) ? users.find(user => user.id === userId) : null;
+
     return <span>by {author ? author.name : 'Unknown author'}</span>;
 };
 
