@@ -1,40 +1,39 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { postAdded } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
 
 const AddPostForm = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
-    const [userId, setUserId] = useState('')
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [userId, setUserId] = useState<string>(''); // userId is always a string (empty string if no author)
 
-    const users = useSelector(selectAllUsers)
+    const users = useSelector(selectAllUsers);
 
     // Type the event parameter
-    const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
-    const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)
-    const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value)
+    const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
+    const onContentChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value);
+    const onAuthorChanged = (e: React.ChangeEvent<HTMLSelectElement>) => setUserId(e.target.value || ''); // Ensure userId is always a string
 
     const onSavePostClicked = () => {
-        if (title && content && userId) {
-            // Dispatch the postAdded action with 3 separate arguments (title, content, userId)
-            dispatch(postAdded(title, content, userId))
-            setTitle('')
-            setContent('')
-            setUserId('')  // Optionally reset userId as well after saving
+        if (title && content) {
+            // Dispatch the postAdded action, userId will now always be a string (empty string if no author)
+            dispatch(postAdded(title, content, userId)); 
+            setTitle('');
+            setContent('');
+            setUserId('');  // Optionally reset userId as well after saving
         }
-    }
+    };
 
-    const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
+    const canSave = Boolean(title) && Boolean(content);
 
     const usersOptions = users.map(user => (
         <option key={user.id} value={user.id}>
             {user.name}
         </option>
-    ))
+    ));
 
     return (
         <section>
@@ -69,6 +68,7 @@ const AddPostForm = () => {
                 </button>
             </form>
         </section>
-    )
-}
-export default AddPostForm
+    );
+};
+
+export default AddPostForm;
