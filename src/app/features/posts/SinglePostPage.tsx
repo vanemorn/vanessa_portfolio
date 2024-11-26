@@ -1,11 +1,12 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { selectPostById, deletePost } from "./postsSlice";
-import { RootState } from "./store";
+import { useDispatch } from "react-redux";
+import { deletePost } from "./postsSlice"; // Correct import
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectPostById } from "./postsSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
+import { RootState } from "./store";
 
 const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -13,17 +14,22 @@ const SinglePostPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  if (!post) {
-    return <section><h2>Post not found!</h2></section>;
-  }
-
+  // Handle post deletion
   const handleDelete = () => {
     if (postId) {
-      dispatch(deletePost(postId));
-      // Redirect back to the post list after deletion
-      navigate("/post");
+      dispatch(deletePost(postId)); // Dispatch the deletePost action
+      navigate("/blog"); // After deleting, navigate back to the blog page
     }
   };
+
+  // If post is not found
+  if (!post) {
+    return (
+      <section>
+        <h2>Post not found!</h2>
+      </section>
+    );
+  }
 
   return (
     <article>
@@ -31,9 +37,9 @@ const SinglePostPage: React.FC = () => {
       <p>{post.body}</p>
       <p className="postCredit">
         <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
-        <button onClick={handleDelete}>Delete Post</button>
         <PostAuthor userId={post.userId} />
         <TimeAgo timestamp={post.date} />
+        <button onClick={handleDelete}>Delete Post</button>
       </p>
       <ReactionButtons post={post} />
     </article>

@@ -22,16 +22,18 @@ const EditPostForm: React.FC = () => {
   }, [post]);
 
   const handleSave = () => {
-    // Dispatch the update post action
     if (postId && post) {
+      // Create an updated post object
       const updatedPost = {
         ...post,
         title,
         body,
       };
 
+      // Dispatch the update action to update the post in the store
       dispatch(updatePost(updatedPost));
-      // Navigate back to the single post page after saving
+
+      // After dispatching, navigate to the post detail page
       navigate(`/post/${postId}`);
     }
   };
