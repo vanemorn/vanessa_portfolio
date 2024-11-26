@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectPostById } from "./postsSlice";
+import { selectPostById, getPostsStatus, getPostsError } from "./postsSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
@@ -9,8 +9,9 @@ import { RootState } from './store';
 
 const SinglePostPage: React.FC = () => {
     const { postId } = useParams<{ postId: string }>();
-    
-    // Check if postId is undefined and handle accordingly
+    const postStatus = useSelector(getPostsStatus);
+    const postError = useSelector(getPostsError);
+
     if (!postId) {
         return (
             <section>
@@ -19,8 +20,23 @@ const SinglePostPage: React.FC = () => {
         );
     }
 
-    // Now postId is guaranteed to be a string
     const post = useSelector((state: RootState) => selectPostById(state, postId));
+
+    if (postStatus === 'loading') {
+        return (
+            <section>
+                <h2>Loading post...</h2>
+            </section>
+        );
+    }
+
+    if (postError) {
+        return (
+            <section>
+                <h2>Error loading post: {postError}</h2>
+            </section>
+        );
+    }
 
     if (!post) {
         return (

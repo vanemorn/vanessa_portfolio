@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
@@ -7,17 +7,20 @@ import { Provider } from 'react-redux';
 import { fetchPosts } from './app/features/posts/postsSlice';
 import { fetchUsers } from './app/features/users/usersSlice';
 
-// Suppress the unused warning
-// @ts-ignore
-store.dispatch(fetchPosts());
+const Root = () => {
+  useEffect(() => {
+    // Dispatch the fetchPosts and fetchUsers actions when the app starts
+    store.dispatch(fetchPosts());
+    store.dispatch(fetchUsers());
+  }, []);
 
-// @ts-ignore
-store.dispatch(fetchUsers());
+  return <App />;
+};
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <Root />
     </Provider>
   </StrictMode>
 );
