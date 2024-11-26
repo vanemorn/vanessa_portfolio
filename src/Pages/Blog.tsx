@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
+import { store } from '../app/features/posts/store.tsx';
 import Header from '../components/Header'; 
 import Footer from '../components/Footer'; 
+import AddPostForm from '../app/features/posts/AddPostForm.tsx';
+import PostsList from '../app/features/PostsList.tsx';
+
+import { fetchPosts } from '../app/features/posts/postsSlice.tsx';
+import { fetchUsers } from '../app/features/users/usersSlice.tsx';
+
+store.dispatch(fetchPosts());
+store.dispatch(fetchUsers());
+
 import './Blog.css'; 
 
 // Image imports
@@ -242,7 +252,11 @@ const Blog: React.FC = () => {
 
             </div>
           </div>
+
       )}
+
+        <AddPostForm />
+        <PostsList />
 
       <footer>
         <Footer />
