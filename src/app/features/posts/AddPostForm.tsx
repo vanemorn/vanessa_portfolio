@@ -1,68 +1,63 @@
-import { useState, ChangeEvent, FormEvent } from "react";
-import { useDispatch } from "react-redux";
-import { postAdded } from "./postsSlice"; // Import postAdded action
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import Quill's default theme
 
-const AddPostForm = () => {
-  const [title, setTitle] = useState<string>("");
-  const [body, setBody] = useState<string>("");
-  const [file, setFile] = useState<File | null>(null); // Type the file state as File | null
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const AddPostForm: React.FC = () => {
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
 
-  const onSavePostClicked = () => {
-    if (title && body) {
-      // Dispatch the action with title, body, and file (if any)
-      dispatch(postAdded(title, body, file));  
-      setTitle("");  // Reset form
-      setBody("");
-      setFile(null); // Reset file input
-      navigate("/"); // Navigate back to posts list
-    }
+  // Handle text change in the Quill editor
+  const handleBodyChange = (value: string) => {
+    setBody(value); // Update the body state with the new content
   };
 
-  const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files ? e.target.files[0] : null; // Get the selected file
-    setFile(selectedFile); // Set the file in state
-  };
-
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    onSavePostClicked(); // Save the post
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Now you have the title and formatted body content (HTML) in the state
+    console.log('Post Title:', title);
+    console.log('Post Content:', body); // This is the formatted HTML content
   };
 
   return (
-    <section>
-      <h2>Add a New Post</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+    <form onSubmit={handleSubmit}>
+      <div>
+        <h2>Create Post</h2>
+
+        <label>Title</label>
+        <input 
+          type="text" 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)} 
+          placeholder="Enter post title" 
+        />
+
+        {/* React Quill editor */}
+        <div style={{ marginTop: '20px' }}>
+          <ReactQuill 
+            value={body} 
+            onChange={handleBodyChange} 
+            theme="snow"
+            placeholder="Start writing your post..."
+            modules={{
+              toolbar: [
+                [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'align': [] }],
+                ['bold', 'italic', 'underline'],
+                [{ 'color': [] }, { 'background': [] }],
+                ['link'],
+                ['clean'] // 'clean' button for clearing formatting
+              ]
+            }}
+            formats={[
+              'header', 'font', 'list', 'align', 'bold', 'italic', 'underline', 'color', 'background', 'link'
+            ]}
           />
         </div>
-        <div>
-          <label htmlFor="body">Content</label>
-          <textarea
-            id="body"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="file">Upload File</label>
-          <input
-            type="file"
-            id="file"
-            onChange={onFileChange}
-          />
-        </div>
-        <button type="submit">Save Post</button>
-      </form>
-    </section>
+
+        <button type="submit">Create Post</button>
+      </div>
+    </form>
   );
 };
 

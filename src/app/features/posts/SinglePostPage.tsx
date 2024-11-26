@@ -29,7 +29,12 @@ const SinglePostPage: React.FC = () => {
   return (
     <article>
       <h2>{post.title}</h2>
-      <p>{post.body}</p>
+
+      {/* Render the body as raw HTML */}
+      <div 
+        className="post-body" 
+        dangerouslySetInnerHTML={{ __html: post.body }} 
+      />
 
       {/* Display the image if the post has a file */}
       {post.file && (
