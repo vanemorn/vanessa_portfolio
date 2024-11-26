@@ -1,89 +1,68 @@
-import React, { useState, useRef } from 'react';
+import { useState, ChangeEvent, FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { postAdded } from "./postsSlice"; // Import postAdded action
+import { useNavigate } from "react-router-dom";
 
-const AddPostForm: React.FC = () => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const editorRef = useRef<HTMLDivElement>(null);
+const AddPostForm = () => {
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null); // Type the file state as File | null
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // Handle basic formatting actions (bold, italic, underline, etc.)
-  const formatText = (command: string) => {
-    if (editorRef.current) {
-      document.execCommand(command, false, '');
+  const onSavePostClicked = () => {
+    if (title && body) {
+      // Dispatch the action with title, body, and file (if any)
+      dispatch(postAdded(title, body, file));  
+      setTitle("");  // Reset form
+      setBody("");
+      setFile(null); // Reset file input
+      navigate("/"); // Navigate back to posts list
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const formattedContent = editorRef.current?.innerHTML;
-    // Here you can save `title` and `formattedContent` to your state/store
-    console.log('Post Title:', title);
-    console.log('Post Content:', formattedContent);
+  const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files ? e.target.files[0] : null; // Get the selected file
+    setFile(selectedFile); // Set the file in state
   };
 
-  // Handle editor input and update the body state
-  const handleEditorInput = () => {
-    if (editorRef.current) {
-      setBody(editorRef.current.innerHTML); // Update the body state
-    }
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    onSavePostClicked(); // Save the post
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h2>Create Post</h2>
-
-        <label>Title</label>
-        <input 
-          type="text" 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
-          placeholder="Enter post title" 
-        />
-
+    <section>
+      <h2>Add a New Post</h2>
+      <form onSubmit={onSubmit}>
         <div>
-          <button type="button" onClick={() => formatText('bold')}>
-            Bold
-          </button>
-          <button type="button" onClick={() => formatText('italic')}>
-            Italic
-          </button>
-          <button type="button" onClick={() => formatText('underline')}>
-            Underline
-          </button>
-          <button type="button" onClick={() => formatText('insertUnorderedList')}>
-            Bullet List
-          </button>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
-
-        <div
-          ref={editorRef}
-          contentEditable
-          style={{
-            border: '1px solid #ccc',
-            minHeight: '150px',
-            padding: '10px',
-            marginTop: '10px',
-            whiteSpace: 'pre-wrap',
-            wordWrap: 'break-word',
-            position: 'relative'
-          }}
-          onInput={handleEditorInput}
-        >
-          {/* Placeholder behavior */}
-          {body === '' && (
-            <span style={{
-              position: 'absolute',
-              color: '#ccc',
-              top: '10px',
-              left: '10px',
-              pointerEvents: 'none'
-            }}>Start writing your post...</span>
-          )}
+        <div>
+          <label htmlFor="body">Content</label>
+          <textarea
+            id="body"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          />
         </div>
-      </div>
-
-      <button type="submit">Create Post</button>
-    </form>
+        <div>
+          <label htmlFor="file">Upload File</label>
+          <input
+            type="file"
+            id="file"
+            onChange={onFileChange}
+          />
+        </div>
+        <button type="submit">Save Post</button>
+      </form>
+    </section>
   );
 };
 
