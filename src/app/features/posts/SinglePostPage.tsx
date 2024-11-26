@@ -1,17 +1,15 @@
 import { useSelector } from "react-redux";
-import { selectPostById, getPostsStatus, getPostsError } from "./postsSlice";
+import { useParams, Link } from "react-router-dom";
+import { selectPostById } from "./postsSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { RootState } from './store';
 
 const SinglePostPage: React.FC = () => {
     const { postId } = useParams<{ postId: string }>();
-    const postStatus = useSelector(getPostsStatus);
-    const postError = useSelector(getPostsError);
 
+    // Ensure postId exists
     if (!postId) {
         return (
             <section>
@@ -21,22 +19,6 @@ const SinglePostPage: React.FC = () => {
     }
 
     const post = useSelector((state: RootState) => selectPostById(state, postId));
-
-    if (postStatus === 'loading') {
-        return (
-            <section>
-                <h2>Loading post...</h2>
-            </section>
-        );
-    }
-
-    if (postError) {
-        return (
-            <section>
-                <h2>Error loading post: {postError}</h2>
-            </section>
-        );
-    }
 
     if (!post) {
         return (

@@ -32,7 +32,6 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
 
-          {/* Layout and post routes */}
           <Route path="/" element={<Layout />}>
             <Route index element={<PostsList />} />
             <Route path="post">
