@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updatePost, selectPostById } from "./postsSlice";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { RootState } from "./store";
+import { updatePost, selectPostById } from "./postsSlice";
 
 const EditPostForm: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
-  const post = useSelector((state: RootState) => selectPostById(state, postId || ""));
+  const { postId } = useParams<{ postId: string }>();  // Get postId from the URL params
+  const post = useSelector((state: RootState) => selectPostById(state, postId!));  // Get the post by ID from the store
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  // Initialize state for title and body based on the post
+  const [title, setTitle] = useState(post?.title || "");
+  const [body, setBody] = useState(post?.body || "");
 
-  // Populate form with post data when it is loaded
   useEffect(() => {
     if (post) {
       setTitle(post.title);
@@ -21,58 +22,44 @@ const EditPostForm: React.FC = () => {
     }
   }, [post]);
 
+  // Handle Save button click
   const handleSave = () => {
-    if (postId && post) {
-      // Create an updated post object
+    if (post) {
+      // Dispatch the updatePost action with the updated data
       const updatedPost = {
         ...post,
         title,
         body,
       };
-
-      // Dispatch the update action to update the post in the store
-      dispatch(updatePost(updatedPost));
-
-      // After dispatching, navigate to the post detail page
-      navigate(`/post/${postId}`);
+      dispatch(updatePost(updatedPost));  // Dispatch the update action to update the post in the store
+      navigate(`/post/${post.id}`);  // Navigate back to the single post page
     }
   };
 
-  const handleCancel = () => {
-    navigate(`/post/${postId}`); // Go back to the single post view without saving
-  };
+  if (!post) {
+    return <p>Post not found!</p>;
+  }
 
   return (
-    <section>
+    <div>
       <h2>Edit Post</h2>
-      {post ? (
-        <form>
-          <label htmlFor="postTitle">Post Title</label>
-          <input
-            type="text"
-            id="postTitle"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-
-          <label htmlFor="postBody">Post Body</label>
-          <textarea
-            id="postBody"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-          />
-
-          <button type="button" onClick={handleSave}>
-            Save Post
-          </button>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
-        </form>
-      ) : (
-        <p>Post not found!</p>
-      )}
-    </section>
+      <div>
+        <label>Title</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}  // Handle title input change
+        />
+      </div>
+      <div>
+        <label>Body</label>
+        <textarea
+          value={body}
+          onChange={(e) => setBody(e.target.value)}  // Handle body input change
+        />
+      </div>
+      <button onClick={handleSave}>Save</button>  // Call handleSave when Save button is clicked
+    </div>
   );
 };
 

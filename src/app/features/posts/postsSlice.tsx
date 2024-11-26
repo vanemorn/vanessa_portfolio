@@ -37,7 +37,7 @@ export const updatePost = createAsyncThunk(
   'posts/updatePost',
   async (updatedPost: Post) => {
     const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
-    return response.data;
+    return response.data;  // Return the updated post from the response
   }
 );
 
@@ -54,6 +54,7 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
+    // Only declare the 'postAdded' once
     postAdded: {
       reducer(state, action: PayloadAction<Post>) {
         state.posts.push(action.payload);
@@ -119,7 +120,7 @@ const postsSlice = createSlice({
       .addCase(updatePost.fulfilled, (state, action) => {
         const index = state.posts.findIndex(post => post.id === action.payload.id);
         if (index !== -1) {
-          state.posts[index] = action.payload;
+          state.posts[index] = action.payload;  // Update the post in the state with the updated data
         }
       })
       .addCase(deletePost.fulfilled, (state, action) => {
@@ -128,10 +129,9 @@ const postsSlice = createSlice({
   },
 });
 
-
-
-export const { postAdded: addNewPost } = postsSlice.actions;
-export const { postAdded, reactionAdded } = postsSlice.actions;
+// Export only once
+export const { postAdded } = postsSlice.actions;
+export const { reactionAdded } = postsSlice.actions;  // Export only reactionAdded as needed
 
 export const selectPostById = (state: RootState, postId: string) =>
   state.posts.posts.find(post => post.id === postId);
