@@ -18,21 +18,28 @@ const AddPostForm = () => {
 
     const onSavePostClicked = () => {
         if (title && content) {
-            // Pass userId as a string, or explicitly use an empty string to represent no author
-            dispatch(postAdded(title, content, userId || 'Unknown')); // Replace undefined with a fallback
+            // If userId is empty, default to "Unknown"
+            dispatch(postAdded(title, content, userId || 'Unknown')); // If no author, use "Unknown"
             setTitle('');
             setContent('');
-            setUserId('');
+            setUserId(''); // Reset userId to empty after saving
         }
     };
 
-    const canSave = Boolean(title) && Boolean(content);
+    const canSave = Boolean(title) && Boolean(content); // Ensure both title and content are not empty
 
+    // Create the user options dropdown list
     const usersOptions = users.map(user => (
         <option key={user.id} value={user.id}>
             {user.name}
         </option>
     ));
+
+    // Add the option for "Unknown" if no user is selected
+    const usersSelectOptions = [
+        <option key="unknown" value="">Unknown</option>, 
+        ...usersOptions
+    ];
 
     return (
         <section>
@@ -48,7 +55,7 @@ const AddPostForm = () => {
                 />
                 <label htmlFor="postAuthor">Author:</label>
                 <select id="postAuthor" value={userId} onChange={onAuthorChanged}>
-                    {usersOptions}
+                    {usersSelectOptions}
                 </select>
                 <label htmlFor="postContent">Content:</label>
                 <textarea
