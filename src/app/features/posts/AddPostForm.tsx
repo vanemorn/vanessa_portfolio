@@ -37,7 +37,7 @@ const AddPostForm = () => {
 
     // Add the option for "Unknown" if no user is selected
     const usersSelectOptions = [
-        <option key="unknown" value="">Unknown</option>, 
+        <option key="unknown" value=""></option>, 
         ...usersOptions
     ];
 
