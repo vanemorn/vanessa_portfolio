@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { selectPostById, deletePost } from "./postsSlice";
 import { RootState } from "./store";
-import PostAuthor from "./PostAuthor";
-import TimeAgo from "./TimeAgo";
-import ReactionButtons from "./ReactionButtons";
+import TimeAgo from "./TimeAgo";  // Keep the time ago feature
+import ReactionButtons from "./ReactionButtons"; // Keep reaction buttons
 
 const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -13,10 +12,12 @@ const SinglePostPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // If post is not found, show a message
   if (!post) {
     return <section><h2>Post not found!</h2></section>;
   }
 
+  // Handle deletion of the post
   const handleDelete = () => {
     if (postId) {
       dispatch(deletePost(postId));
@@ -30,12 +31,12 @@ const SinglePostPage: React.FC = () => {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <p className="postCredit">
-        <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
-        <button onClick={handleDelete}>Delete Post</button>
-        <PostAuthor userId={post.userId} />
+        {/* Removed Edit Post link */}
+        {/* Removed PostAuthor component since userId is no longer used */}
         <TimeAgo timestamp={post.date} />
       </p>
       <ReactionButtons post={post} />
+      <button onClick={handleDelete}>Delete Post</button>
     </article>
   );
 };

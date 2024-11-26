@@ -15,6 +15,7 @@ const AddPostForm = () => {
 
   const onSavePostClicked = () => {
     if (title && body && userId) {
+      // Ensure you pass 3 arguments: title, body, and userId
       dispatch(postAdded(title, body, userId));  // Dispatch the action to add post
       setTitle("");  // Reset form
       setBody("");

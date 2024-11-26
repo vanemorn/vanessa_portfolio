@@ -91,7 +91,7 @@ const postsSlice = createSlice({
             coffee: 0,
           };
         }
-        existingPost.reactions[reaction]++;
+        existingPost.reactions[reaction]++; // Increment the reaction count
       }
     },
   },
@@ -130,8 +130,7 @@ const postsSlice = createSlice({
 });
 
 // Export only once
-export const { postAdded } = postsSlice.actions;
-export const { reactionAdded } = postsSlice.actions;  // Export only reactionAdded as needed
+export const { postAdded, reactionAdded } = postsSlice.actions;
 
 export const selectPostById = (state: RootState, postId: string) =>
   state.posts.posts.find(post => post.id === postId);
