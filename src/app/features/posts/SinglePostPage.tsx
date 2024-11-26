@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { selectPostById, deletePost } from "./postsSlice";
 import { RootState } from "./store";
-import TimeAgo from "./TimeAgo"; // Keep the time ago feature
-import ReactionButtons from "./ReactionButtons"; // Keep reaction buttons
+import TimeAgo from "./TimeAgo";
+import ReactionButtons from "./ReactionButtons";
 
 const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -30,11 +30,8 @@ const SinglePostPage: React.FC = () => {
     <article>
       <h2>{post.title}</h2>
 
-      {/* Render formatted content */}
-      <div 
-        className="post-body" 
-        dangerouslySetInnerHTML={{ __html: post.body }} 
-      />
+      {/* Render formatted HTML content */}
+      <div dangerouslySetInnerHTML={{ __html: post.body }} />
 
       {/* Display the image if the post has a file */}
       {post.file && (

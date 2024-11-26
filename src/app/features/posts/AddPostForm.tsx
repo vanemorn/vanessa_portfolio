@@ -1,82 +1,89 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postAdded } from "./postsSlice"; // Import postAdded action
-import { useNavigate } from "react-router-dom";
-import ReactQuill from 'react-quill';
-import "react-quill/dist/quill.snow.css"; // Import Quill styles
+import React, { useState, useRef } from 'react';
 
 const AddPostForm: React.FC = () => {
-  const [title, setTitle] = useState<string>("");
-  const [body, setBody] = useState<string>(""); // Store the body as HTML
-  const [file, setFile] = useState<File | null>(null); // For file uploads
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const editorRef = useRef<HTMLDivElement>(null);
 
-  const onSavePostClicked = () => {
-    if (title && body) {
-      // Dispatch the action with title, body, and file (if any)
-      dispatch(postAdded(title, body, file));  
-      setTitle("");  // Reset form
-      setBody("");  // Reset body text editor
-      setFile(null); // Reset file input
-      navigate("/"); // Navigate back to posts list
+  // Handle basic formatting actions (bold, italic, underline, etc.)
+  const formatText = (command: string) => {
+    if (editorRef.current) {
+      document.execCommand(command, false, '');
     }
   };
 
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files ? e.target.files[0] : null; // Get the selected file
-    setFile(selectedFile); // Set the file in state
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formattedContent = editorRef.current?.innerHTML;
+    // Here you can save `title` and `formattedContent` to your state/store
+    console.log('Post Title:', title);
+    console.log('Post Content:', formattedContent);
+  };
+
+  // Handle editor input and update the body state
+  const handleEditorInput = () => {
+    if (editorRef.current) {
+      setBody(editorRef.current.innerHTML); // Update the body state
+    }
   };
 
   return (
-    <section>
-      <h2>Add a New Post</h2>
-      <form onSubmit={(e) => { e.preventDefault(); onSavePostClicked(); }}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <h2>Create Post</h2>
+
+        <label>Title</label>
+        <input 
+          type="text" 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)} 
+          placeholder="Enter post title" 
+        />
 
         <div>
-          <label htmlFor="body">Content</label>
-          {/* ReactQuill component for rich text editing */}
-          <ReactQuill 
-            value={body}
-            onChange={setBody} // Updates the body content on change
-            theme="snow" // This is the theme we are using
-            modules={{
-              toolbar: [
-                [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                ['bold', 'italic', 'underline'],
-                [{ 'color': [] }, { 'background': [] }],
-                ['link'],
-                ['blockquote', 'code-block'],
-                [{ 'indent': '-1'}, { 'indent': '+1' }],
-                ['clean'] // Adds the option to clear the formatting
-              ],
-            }}
-          />
+          <button type="button" onClick={() => formatText('bold')}>
+            Bold
+          </button>
+          <button type="button" onClick={() => formatText('italic')}>
+            Italic
+          </button>
+          <button type="button" onClick={() => formatText('underline')}>
+            Underline
+          </button>
+          <button type="button" onClick={() => formatText('insertUnorderedList')}>
+            Bullet List
+          </button>
         </div>
 
-        <div>
-          <label htmlFor="file">Upload File</label>
-          <input
-            type="file"
-            id="file"
-            onChange={onFileChange}
-          />
+        <div
+          ref={editorRef}
+          contentEditable
+          style={{
+            border: '1px solid #ccc',
+            minHeight: '150px',
+            padding: '10px',
+            marginTop: '10px',
+            whiteSpace: 'pre-wrap',
+            wordWrap: 'break-word',
+            position: 'relative'
+          }}
+          onInput={handleEditorInput}
+        >
+          {/* Placeholder behavior */}
+          {body === '' && (
+            <span style={{
+              position: 'absolute',
+              color: '#ccc',
+              top: '10px',
+              left: '10px',
+              pointerEvents: 'none'
+            }}>Start writing your post...</span>
+          )}
         </div>
+      </div>
 
-        <button type="submit">Save Post</button>
-      </form>
-    </section>
+      <button type="submit">Create Post</button>
+    </form>
   );
 };
 
