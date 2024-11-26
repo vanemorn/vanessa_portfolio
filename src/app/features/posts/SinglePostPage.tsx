@@ -1,14 +1,14 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
-import { selectPostById, deletePost } from "./postsSlice";
-import { RootState } from "./store";
-import TimeAgo from "./TimeAgo";  // Keep the time ago feature
-import ReactionButtons from "./ReactionButtons"; // Keep reaction buttons
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { selectPostById, postDeleted } from './postsSlice';
+import { RootState } from './store';
+import TimeAgo from './TimeAgo'; // Keep the time ago feature
+import ReactionButtons from './ReactionButtons'; // Keep reaction buttons
 
 const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
-  const post = useSelector((state: RootState) => selectPostById(state, postId || ""));
+  const post = useSelector((state: RootState) => selectPostById(state, postId || ''));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,9 +20,9 @@ const SinglePostPage: React.FC = () => {
   // Handle deletion of the post
   const handleDelete = () => {
     if (postId) {
-      dispatch(deletePost(postId));
+      dispatch(postDeleted(postId));
       // Redirect back to the post list after deletion
-      navigate("/post");
+      navigate('/post');
     }
   };
 
