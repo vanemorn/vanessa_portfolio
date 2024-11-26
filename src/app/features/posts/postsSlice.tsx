@@ -1,80 +1,69 @@
-import { createSlice, nanoid, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { sub } from "date-fns";
+import { createSlice, nanoid, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { RootState } from "./store";
 
-// Define the Post interface to type the state properly
-interface Post {
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+
+// Explicitly export the Post interface
+export interface Post {
     id: string;
     title: string;
-    body: string; 
+    body: string;
     date: string;
     userId: string;
-    reactions: {
-        thumbsUp: number;
-        wow: number;
-        heart: number;
-        rocket: number;
-        coffee: number;
-    };
+    reactions: { [key: string]: number };
 }
 
-// Define the valid keys for reactions
-type ReactionType = "thumbsUp" | "wow" | "heart" | "rocket" | "coffee";
-
-const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
-
-// Define the initial state type
-const initialState: {
+interface PostsState {
     posts: Post[];
-    status: string;
-    error: string | null | undefined;
-} = {
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null;
+}
+
+const initialState: PostsState = {
     posts: [],
-    status: "idle",
-    error: null,
+    status: 'idle',
+    error: null
 };
 
-// Thunk for fetching posts
-export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
-    try {
-        const response = await axios.get(POSTS_URL);
-        return [...response.data];
-    } catch (err: any) {
-        return err.message;
-    }
+// Async action to fetch posts
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+    const response = await axios.get(POSTS_URL);
+    return response.data;
 });
 
-export const AddNewPost = createAsyncThunk(
-    'posts/addNewPost',
-    async (initialPost: Post) => {
-        try {
-            const response = await axios.post(POSTS_URL, initialPost);
-            return response.data; // Return the response data directly
-        } catch (err: unknown) {
-            if (err instanceof Error) {
-                return err.message; // Return error message if it exists
-            }
-            return 'An unknown error occurred';
-        }
+// Async action to update a post
+export const updatePost = createAsyncThunk(
+    'posts/updatePost',
+    async (updatedPost: Post) => {
+        const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
+        return response.data; // This should return the updated post object
     }
 );
 
-// Create the posts slice
+// Async action to delete a post
+export const deletePost = createAsyncThunk(
+    'posts/deletePost',
+    async (postId: string) => {
+        await axios.delete(`${POSTS_URL}/${postId}`);
+        return postId;
+    }
+);
+
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        // Action for adding a post
         postAdded: {
             reducer(state, action: PayloadAction<Post>) {
                 state.posts.push(action.payload);
             },
-            prepare(title: string, body: string, userId: string) {
+            prepare(title: string, content: string, userId: string) {
                 return {
                     payload: {
                         id: nanoid(),
                         title,
-                        body,
+                        body: content,
                         date: new Date().toISOString(),
                         userId,
                         reactions: {
@@ -82,67 +71,58 @@ const postsSlice = createSlice({
                             wow: 0,
                             heart: 0,
                             rocket: 0,
-                            coffee: 0,
-                        },
-                    },
+                            coffee: 0
+                        }
+                    }
                 };
-            },
-        },
-        // Action for adding a reaction to a post
-        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: ReactionType }>) {
-            const { postId, reaction } = action.payload;
-            const existingPost = state.posts.find((post) => post.id === postId);
-            if (existingPost) {
-                existingPost.reactions[reaction] += 1;
             }
         },
+        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
+            const { postId, reaction } = action.payload;
+            const existingPost = state.posts.find(post => post.id === postId);
+            if (existingPost) {
+                existingPost.reactions[reaction]++;
+            }
+        }
     },
-    extraReducers: (builder) => {
+    extraReducers(builder) {
         builder
             .addCase(fetchPosts.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(fetchPosts.fulfilled, (state, action: PayloadAction<Post[]>) => {
+            .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                let min = 1;
-                const loadedPosts = action.payload.map((post) => ({
-                    ...post,
-                    date: sub(new Date(), { minutes: min++ }).toISOString(),
-                    reactions: {
-                        thumbsUp: 0,
-                        wow: 0,
-                        heart: 0,
-                        rocket: 0,
-                        coffee: 0,
-                    },
-                }));
-                state.posts = state.posts.concat(loadedPosts);
+                state.posts = action.payload;
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.error.message || null;
+                // Ensure that 'action.error' is typed properly
+                state.error = (action.error as Error).message;
             })
-            .addCase(AddNewPost.fulfilled, (state, action) => {
-                const newPost = action.payload;
-                newPost.userId = String(newPost.userId); // Ensure userId is a string
-                newPost.date = new Date().toISOString();
-                newPost.reactions = {
-                    thumbsUp: 0,
-                    wow: 0,
-                    heart: 0,
-                    rocket: 0,
-                    coffee: 0,
-                };
-                state.posts.push(newPost); // Add new post to the state
+            // Handling the updatePost action
+            .addCase(updatePost.fulfilled, (state, action) => {
+                const index = state.posts.findIndex(post => post.id === action.payload.id);
+                if (index !== -1) {
+                    state.posts[index] = action.payload; // Update the post in the state
+                }
+            })
+            // Handling the deletePost action
+            .addCase(deletePost.fulfilled, (state, action) => {
+                state.posts = state.posts.filter(post => post.id !== action.payload);
             });
-    },
+    }
 });
 
-// Selectors for accessing state
-export const selectAllPosts = (state: { posts: typeof initialState }) => state.posts.posts;
-export const getPostsStatus = (state: { posts: typeof initialState }) => state.posts.status;
-export const getPostsError = (state: { posts: typeof initialState }) => state.posts.error;
+export const { postAdded: addNewPost, reactionAdded } = postsSlice.actions;
 
-// Export actions and reducer
-export const { postAdded, reactionAdded } = postsSlice.actions;
+// Fix the type for postId in selectPostById
+export const selectPostById = (state: RootState, postId: string) =>
+    state.posts.posts.find(post => post.id === postId);
+
+export const getPostsStatus = (state: RootState) => state.posts.status;
+export const getPostsError = (state: RootState) => state.posts.error;
+
+
+export const selectAllPosts = (state: RootState) => state.posts.posts;
+
 export default postsSlice.reducer;
