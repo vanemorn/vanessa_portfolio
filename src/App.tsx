@@ -7,22 +7,23 @@ import EditPostForm from "./app/features/posts/EditPostForm";
 import Layout from "./components/layout";
 
 // Importing pages
-import Home from 'C:/Users/linda/vanessa_portfolio/src/Pages/Home.tsx';
-import About from 'C:/Users/linda/vanessa_portfolio/src/Pages/About.tsx';
-import Projects from 'C:/Users/linda/vanessa_portfolio/src/Pages/Projects.tsx';
-import Contact from 'C:/Users/linda/vanessa_portfolio/src/Pages/Contact.tsx';
-import Gallery from 'C:/Users/linda/vanessa_portfolio/src/Pages/Gallery.tsx';
-import Blog from 'C:/Users/linda/vanessa_portfolio/src/Pages/Blog.tsx';
-import Videogallery from 'C:/Users/linda/vanessa_portfolio/src/Pages/Videogallery.tsx';
+import Home from './Pages/Home';
+import About from './Pages/About';
+import Projects from './Pages/Projects';
+import Contact from './Pages/Contact';
+import Gallery from './Pages/Gallery';
+import Blog from './Pages/Blog';
+import Videogallery from './Pages/Videogallery';
 
 import './App.css'; // CSS File
 
 const App: React.FC = () => {
   return (
-    <Router basename="/vanessa_portfolio"> {/*Project root*/} 
+    <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
-        {/*Routed paths*/}
+        {/* Routed paths */}
         <Routes>
+          {/* Top-level routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
@@ -30,17 +31,17 @@ const App: React.FC = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
+
+          {/* Layout and post routes */}
           <Route path="/" element={<Layout />}>
-
-          <Route index element={<PostsList />} />
-
-          <Route path="post">
-            <Route index element={<AddPostForm />} />
-            <Route path=":postId" element={<SinglePostPage />} />
-            <Route path="edit/:postId" element={<EditPostForm />} />
+            <Route index element={<PostsList />} />
+            <Route path="post">
+              <Route index element={<AddPostForm />} />
+              <Route path=":postId" element={<SinglePostPage />} />
+              <Route path="edit/:postId" element={<EditPostForm />} />
+            </Route>
           </Route>
 
-        </Route>
         </Routes>
       </div>
     </Router>
