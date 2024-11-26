@@ -1,21 +1,46 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postAdded } from './postsSlice';  // Import postAdded action
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill's default theme
 
 const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [file, setFile] = useState<File | null>(null);  // File state
+  const dispatch = useDispatch();
 
   // Handle text change in the Quill editor
   const handleBodyChange = (value: string) => {
     setBody(value); // Update the body state with the new content
   };
 
+  // Handle file selection
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);  // Set the file state
+    }
+  };
+
+  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Now you have the title and formatted body content (HTML) in the state
-    console.log('Post Title:', title);
-    console.log('Post Content:', body); // This is the formatted HTML content
+    if (title && body) {
+      console.log('Submitting Post...');
+      console.log('Title:', title);
+      console.log('Body:', body);
+      console.log('File:', file);
+
+      // Dispatch the postAdded action with the form values
+      dispatch(postAdded(title, body, file));
+
+      // Optionally reset the form after submission
+      setTitle('');
+      setBody('');
+      setFile(null);
+    } else {
+      console.log("Please fill out both title and body fields.");
+    }
   };
 
   return (
@@ -49,10 +74,14 @@ const AddPostForm: React.FC = () => {
                 ['clean'] // 'clean' button for clearing formatting
               ]
             }}
-            formats={[
-              'header', 'font', 'list', 'align', 'bold', 'italic', 'underline', 'color', 'background', 'link'
-            ]}
+            formats={['header', 'font', 'list', 'align', 'bold', 'italic', 'underline', 'color', 'background', 'link']}
           />
+        </div>
+
+        {/* File input */}
+        <div>
+          <label>Attach File</label>
+          <input type="file" onChange={handleFileChange} />
         </div>
 
         <button type="submit">Create Post</button>
