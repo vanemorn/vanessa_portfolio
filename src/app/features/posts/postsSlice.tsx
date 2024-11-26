@@ -29,7 +29,13 @@ const initialState: PostsState = {
 // Async action to fetch posts
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await axios.get(POSTS_URL);
-    return response.data;
+
+    // Filter out posts that contain "sample" in the title or unwanted data
+    const filteredPosts = response.data.filter((post: Post) => 
+        !post.title.toLowerCase().includes('sample') && post.body.trim() !== ""
+    );
+
+    return filteredPosts;
 });
 
 // Async action to update a post

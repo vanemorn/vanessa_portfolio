@@ -34,13 +34,11 @@ const App: React.FC = () => {
 
           {/* Layout and post routes */}
           <Route path="/" element={<Layout />}>
-            <Route index element={<PostsList />} /> {/* Default post listing page */}
-
-            {/* Routes for the Post CRUD operations */}
+            <Route index element={<PostsList />} />
             <Route path="post">
-              <Route index element={<AddPostForm />} /> {/* Add Post form */}
-              <Route path=":postId" element={<SinglePostPage />} /> {/* Single post view */}
-              <Route path="edit/:postId" element={<EditPostForm />} /> {/* Edit post form */}
+              <Route index element={<AddPostForm />} />
+              <Route path=":postId" element={<SinglePostPage />} />
+              <Route path="edit/:postId" element={<EditPostForm />} />
             </Route>
           </Route>
 
