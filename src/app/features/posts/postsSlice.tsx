@@ -6,7 +6,7 @@ import axios from "axios";
 interface Post {
     id: string;
     title: string;
-    body: string; // Changed 'content' to 'body'
+    body: string; 
     date: string;
     userId: string;
     reactions: {
@@ -44,6 +44,21 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
     }
 });
 
+export const AddNewPost = createAsyncThunk(
+    'posts/addNewPost',
+    async (initialPost: Post) => {
+        try {
+            const response = await axios.post(POSTS_URL, initialPost);
+            return response.data; // Return the response data directly
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                return err.message; // Return error message if it exists
+            }
+            return 'An unknown error occurred';
+        }
+    }
+);
+
 // Create the posts slice
 const postsSlice = createSlice({
     name: 'posts',
@@ -54,12 +69,12 @@ const postsSlice = createSlice({
             reducer(state, action: PayloadAction<Post>) {
                 state.posts.push(action.payload);
             },
-            prepare(title: string, body: string, userId: string) {  // Changed 'content' to 'body'
+            prepare(title: string, body: string, userId: string) {
                 return {
                     payload: {
                         id: nanoid(),
                         title,
-                        body,  // Changed 'content' to 'body'
+                        body,
                         date: new Date().toISOString(),
                         userId,
                         reactions: {
@@ -92,7 +107,7 @@ const postsSlice = createSlice({
                 let min = 1;
                 const loadedPosts = action.payload.map((post) => ({
                     ...post,
-                    date: sub(new Date(), { minutes: min++ }).toISOString(), // Add parentheses
+                    date: sub(new Date(), { minutes: min++ }).toISOString(),
                     reactions: {
                         thumbsUp: 0,
                         wow: 0,
@@ -101,11 +116,24 @@ const postsSlice = createSlice({
                         coffee: 0,
                     },
                 }));
-                state.posts = state.posts.concat(loadedPosts);  // Can be adjusted if you want to maintain order
+                state.posts = state.posts.concat(loadedPosts);
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message || null;
+            })
+            .addCase(AddNewPost.fulfilled, (state, action) => {
+                const newPost = action.payload;
+                newPost.userId = String(newPost.userId); // Ensure userId is a string
+                newPost.date = new Date().toISOString();
+                newPost.reactions = {
+                    thumbsUp: 0,
+                    wow: 0,
+                    heart: 0,
+                    rocket: 0,
+                    coffee: 0,
+                };
+                state.posts.push(newPost); // Add new post to the state
             });
     },
 });
