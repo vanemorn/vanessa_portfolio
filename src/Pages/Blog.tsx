@@ -255,8 +255,8 @@ const Blog: React.FC = () => {
 
       )}
 
-        <AddPostForm />
-        <PostsList />
+        {/*<AddPostForm />
+        <PostsList />*/}
 
       <footer>
         <Footer />
