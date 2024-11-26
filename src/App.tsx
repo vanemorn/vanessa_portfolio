@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PostsList from "./app/features/PostsList";
 import AddPostForm from "./app/features/posts/AddPostForm";
 import SinglePostPage from "./app/features/posts/SinglePostPage";
-import EditPostForm from "./app/features/posts/EditPostForm";
 import Layout from "./components/layout";
 
 // Importing pages
@@ -37,7 +36,6 @@ const App: React.FC = () => {
             <Route path="post">
               <Route index element={<AddPostForm />} />
               <Route path=":postId" element={<SinglePostPage />} />
-              <Route path="edit/:postId" element={<EditPostForm />} />
             </Route>
           </Route>
 

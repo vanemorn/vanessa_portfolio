@@ -10,7 +10,6 @@ export interface Post {
   title: string;
   body: string;
   date: string;
-  userId: string;
   reactions: { [key: string]: number }; // Ensure reactions are included
 }
 
@@ -59,14 +58,13 @@ const postsSlice = createSlice({
       reducer(state, action: PayloadAction<Post>) {
         state.posts.push(action.payload);
       },
-      prepare(title: string, content: string, userId: string) {
+      prepare(title: string, content: string) {
         return {
           payload: {
             id: nanoid(),
             title,
             body: content,
             date: new Date().toISOString(),
-            userId,
             reactions: { 
               thumbsUp: 0, 
               wow: 0, 
