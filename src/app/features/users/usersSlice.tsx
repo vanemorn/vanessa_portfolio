@@ -1,51 +1,40 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "../posts/store";
 
-// Define the users URL
-const USERS_URL = "https://jsonplaceholder.typicode.com/users";
+const USERS_URL = 'https://jsonplaceholder.typicode.com/users';
 
-// Define the User type to improve type safety
+// Define the User type
 interface User {
-    id: string;
+    id: number;
     name: string;
     username: string;
     email: string;
+    // Add any other fields from the API response
 }
 
-// Set the initial state for users (initially an empty array)
+// Define initial state with the correct type
 const initialState: User[] = [];
 
-// Create an async thunk to fetch users
+// Create async thunk to fetch users
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-    try {
-        const response = await axios.get(USERS_URL);
-        return response.data as User[]; // Explicitly type the response
-    } catch (err: any) {
-        return err.message; // Handle errors
-    }
+    const response = await axios.get(USERS_URL);
+    return response.data;
 });
 
-// Create the users slice
+// Create the slice with proper state typing
 const usersSlice = createSlice({
     name: 'users',
     initialState,
-    reducers: {},
+    reducers: {}, // Remove if you don't need any custom reducers
     extraReducers(builder) {
-        builder
-            .addCase(fetchUsers.fulfilled, (state, action) => {
-                return action.payload; // Store the fetched users
-            })
-            .addCase(fetchUsers.rejected, (state, action) => {
-                console.error("Failed to fetch users: ", action.error.message);
-                // You can also update the state here with an error message if needed
-                // For example: state.error = action.error.message;
-            });
+        builder.addCase(fetchUsers.fulfilled, (_state, action) => {
+            // Here we're returning action.payload directly to update the state
+            return action.payload;
+        });
     }
 });
 
-// Selector to access all users from state
-export const selectAllUsers = (state: RootState) => state.users;
+// Selector to access users from the state
+export const selectAllUsers = (state: { users: User[] }) => state.users;
 
-// Export the reducer as default
 export default usersSlice.reducer;
