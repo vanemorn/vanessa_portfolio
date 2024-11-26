@@ -1,37 +1,42 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { selectPostById, deletePost } from './postsSlice';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { selectPostById, deletePost } from "./postsSlice";
+import { RootState } from "./store";
+import PostAuthor from "./PostAuthor";
+import TimeAgo from "./TimeAgo";
+import ReactionButtons from "./ReactionButtons";
 
-const SinglePostPage = () => {
+const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
-  const navigate = useNavigate();
-  
-  // Handle undefined postId case
-  if (!postId) {
-    return <h2>Post not found!</h2>;
-  }
-
-  const post = useSelector((state: any) => selectPostById(state, postId));
+  const post = useSelector((state: RootState) => selectPostById(state, postId || ""));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   if (!post) {
-    return <h2>Post not found!</h2>;
+    return <section><h2>Post not found!</h2></section>;
   }
 
-  const onDeletePost = () => {
-    dispatch(deletePost(post.id));
-    navigate('/');  // Navigate back to the posts list after delete
+  const handleDelete = () => {
+    if (postId) {
+      dispatch(deletePost(postId));
+      // Redirect back to the post list after deletion
+      navigate("/post");
+    }
   };
 
   return (
-    <section>
+    <article>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
-      <p><strong>Author:</strong> {post.userId}</p>
-      <button onClick={() => navigate(`/editPost/${post.id}`)}>Edit</button>
-      <button onClick={onDeletePost}>Delete</button>
-      <Link to="/">Back to Posts</Link>
-    </section>
+      <p className="postCredit">
+        <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+        <button onClick={handleDelete}>Delete Post</button>
+        <PostAuthor userId={post.userId} />
+        <TimeAgo timestamp={post.date} />
+      </p>
+      <ReactionButtons post={post} />
+    </article>
   );
 };
 
