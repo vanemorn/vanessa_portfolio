@@ -30,11 +30,22 @@ const SinglePostPage: React.FC = () => {
     <article>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
+
+      {/* Display the image if the post has a file */}
+      {post.file && (
+        <div className="post-image">
+          <img
+            src={URL.createObjectURL(post.file)} // Assuming the file is stored as a Blob or File object
+            alt="Post Image"
+            className="post-image__img"
+          />
+        </div>
+      )}
+
       <p className="postCredit">
-        {/* Removed Edit Post link */}
-        {/* Removed PostAuthor component since userId is no longer used */}
         <TimeAgo timestamp={post.date} />
       </p>
+      
       <ReactionButtons post={post} />
       <button onClick={handleDelete}>Delete Post</button>
     </article>

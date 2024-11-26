@@ -4,13 +4,14 @@ import { RootState } from "./store";
 
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
 
-// Post interface
+// Post interface with file support
 export interface Post {
   id: string;
   title: string;
   body: string;
   date: string;
   reactions: { [key: string]: number }; // Ensure reactions are included
+  file?: File | null; // Optional file property
 }
 
 interface PostsState {
@@ -53,12 +54,12 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    // Only declare the 'postAdded' once
+    // Modify postAdded to accept file as part of the payload
     postAdded: {
       reducer(state, action: PayloadAction<Post>) {
         state.posts.push(action.payload);
       },
-      prepare(title: string, content: string) {
+      prepare(title: string, content: string, file: File | null) {
         return {
           payload: {
             id: nanoid(),
@@ -72,6 +73,7 @@ const postsSlice = createSlice({
               rocket: 0, 
               coffee: 0 
             },
+            file, // Include the file in the payload
           },
         };
       },
@@ -127,7 +129,6 @@ const postsSlice = createSlice({
   },
 });
 
-// Export only once
 export const { postAdded, reactionAdded } = postsSlice.actions;
 
 export const selectPostById = (state: RootState, postId: string) =>
