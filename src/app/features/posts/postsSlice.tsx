@@ -128,6 +128,9 @@ const postsSlice = createSlice({
   },
 });
 
+
+
+export const { postAdded: addNewPost } = postsSlice.actions;
 export const { postAdded, reactionAdded } = postsSlice.actions;
 
 export const selectPostById = (state: RootState, postId: string) =>
