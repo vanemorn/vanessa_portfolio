@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { selectPostById, deletePost } from "./postsSlice";
 import { RootState } from "./store";
-import TimeAgo from "./TimeAgo";  // Keep the time ago feature
+import TimeAgo from "./TimeAgo"; // Keep the time ago feature
 import ReactionButtons from "./ReactionButtons"; // Keep reaction buttons
 
 const SinglePostPage: React.FC = () => {
@@ -29,7 +29,12 @@ const SinglePostPage: React.FC = () => {
   return (
     <article>
       <h2>{post.title}</h2>
-      <p>{post.body}</p>
+
+      {/* Render formatted content */}
+      <div 
+        className="post-body" 
+        dangerouslySetInnerHTML={{ __html: post.body }} 
+      />
 
       {/* Display the image if the post has a file */}
       {post.file && (
