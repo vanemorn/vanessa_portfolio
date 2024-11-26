@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostsList from "./app/features/PostsList";
+import PostsList from "./app/features/posts/PostsList";
 import AddPostForm from "./app/features/posts/AddPostForm";
 import SinglePostPage from "./app/features/posts/SinglePostPage";
 import Layout from "./components/layout";
@@ -31,13 +31,13 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
 
-          <Route path="/" element={<Layout />}>
+          {/*<Route path="/" element={<Layout />}>
             <Route index element={<PostsList />} />
             <Route path="post">
               <Route index element={<AddPostForm />} />
               <Route path=":postId" element={<SinglePostPage />} />
             </Route>
-          </Route>
+          </Route>*/}
 
         </Routes>
       </div>
