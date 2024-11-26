@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postAdded } from "./postsSlice"; // Import postAdded action
 import { useNavigate } from "react-router-dom";
-import ReactQuill from "react-quill"; // Import ReactQuill for the rich text editor
+import ReactQuill from 'react-quill';
 import "react-quill/dist/quill.snow.css"; // Import Quill styles
 
 const AddPostForm: React.FC = () => {
