@@ -11,11 +11,8 @@ export interface Post {
     body: string;
     date: string;
     userId: string;
-    reactions: { [key in ReactionType]: number };
+    reactions: { [key: string]: number };  // Ensure reactions are included
 }
-
-// Define the type for possible reactions
-export type ReactionType = 'thumbsUp' | 'wow' | 'heart' | 'rocket' | 'coffee';
 
 interface PostsState {
     posts: Post[];
@@ -69,7 +66,7 @@ const postsSlice = createSlice({
                         body: content,
                         date: new Date().toISOString(),
                         userId,
-                        reactions: {
+                        reactions: {  // Initialize reactions correctly
                             thumbsUp: 0,
                             wow: 0,
                             heart: 0,
@@ -80,12 +77,21 @@ const postsSlice = createSlice({
                 };
             }
         },
-        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: ReactionType }>) {
+        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
             const { postId, reaction } = action.payload;
             const existingPost = state.posts.find(post => post.id === postId);
             if (existingPost) {
-                // Increment the reaction for the given post and reaction type
-                existingPost.reactions[reaction]++;
+                // Ensure reactions exist before updating
+                if (!existingPost.reactions) {
+                    existingPost.reactions = { 
+                        thumbsUp: 0, 
+                        wow: 0, 
+                        heart: 0, 
+                        rocket: 0, 
+                        coffee: 0 
+                    };
+                }
+                existingPost.reactions[reaction]++;  // Increment the reaction
             }
         }
     },
@@ -96,35 +102,42 @@ const postsSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.posts = action.payload;
+                // Ensure each post has reactions initialized
+                state.posts = action.payload.map((post: any) => ({
+                    ...post,
+                    reactions: post.reactions || {  // Initialize reactions if not present
+                        thumbsUp: 0,
+                        wow: 0,
+                        heart: 0,
+                        rocket: 0,
+                        coffee: 0
+                    }
+                }));
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
-                // Ensure that 'action.error' is typed properly
                 state.error = (action.error as Error).message;
             })
-            // Handling the updatePost action
             .addCase(updatePost.fulfilled, (state, action) => {
                 const index = state.posts.findIndex(post => post.id === action.payload.id);
                 if (index !== -1) {
-                    state.posts[index] = action.payload; // Update the post in the state
+                    state.posts[index] = action.payload;  // Update the post with the new data
                 }
             })
-            // Handling the deletePost action
             .addCase(deletePost.fulfilled, (state, action) => {
-                state.posts = state.posts.filter(post => post.id !== action.payload);
+                state.posts = state.posts.filter(post => post.id !== action.payload);  // Remove post
             });
     }
 });
 
 export const { postAdded: addNewPost, reactionAdded } = postsSlice.actions;
 
-export const selectAllPosts = (state: RootState) => state.posts.posts;
-
 export const selectPostById = (state: RootState, postId: string) =>
     state.posts.posts.find(post => post.id === postId);
 
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
+
+export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;
