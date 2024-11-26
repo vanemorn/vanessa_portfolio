@@ -11,8 +11,11 @@ export interface Post {
     body: string;
     date: string;
     userId: string;
-    reactions: { [key: string]: number };
+    reactions: { [key in ReactionType]: number };
 }
+
+// Define the type for possible reactions
+export type ReactionType = 'thumbsUp' | 'wow' | 'heart' | 'rocket' | 'coffee';
 
 interface PostsState {
     posts: Post[];
@@ -77,10 +80,11 @@ const postsSlice = createSlice({
                 };
             }
         },
-        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
+        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: ReactionType }>) {
             const { postId, reaction } = action.payload;
             const existingPost = state.posts.find(post => post.id === postId);
             if (existingPost) {
+                // Increment the reaction for the given post and reaction type
                 existingPost.reactions[reaction]++;
             }
         }
@@ -115,14 +119,12 @@ const postsSlice = createSlice({
 
 export const { postAdded: addNewPost, reactionAdded } = postsSlice.actions;
 
-// Fix the type for postId in selectPostById
+export const selectAllPosts = (state: RootState) => state.posts.posts;
+
 export const selectPostById = (state: RootState, postId: string) =>
     state.posts.posts.find(post => post.id === postId);
 
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
-
-
-export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;
