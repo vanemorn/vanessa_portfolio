@@ -20,44 +20,18 @@ interface PostsState {
 }
 
 const initialState: PostsState = {
-    posts: [
-        {
-            id: "1",
-            title: "Test Post 1",
-            body: "This is the body of Test Post 1.",
-            date: new Date().toISOString(),
-            userId: "1",
-            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
-        },
-        {
-            id: "2",
-            title: "Test Post 2",
-            body: "This is the body of Test Post 2.",
-            date: new Date().toISOString(),
-            userId: "2",
-            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
-        },
-        {
-            id: "3",
-            title: "Test Post 3",
-            body: "This is the body of Test Post 3.",
-            date: new Date().toISOString(),
-            userId: "3",
-            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
-        },
-    ],
+    posts: [],
     status: "idle",
     error: null,
 };
 
+// Async thunk to fetch posts
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await axios.get(POSTS_URL);
-
-    // Map the response to conform to the Post type
     return response.data.map((post: any) => ({
         ...post,
-        date: new Date().toISOString(), // Add a date if not present
-        userId: post.userId || "1", // Default userId if not available
+        date: new Date().toISOString(),
+        userId: post.userId || "1",
         reactions: {
             thumbsUp: 0,
             wow: 0,
@@ -68,16 +42,16 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     }));
 });
 
+// Async thunk to update a post
 export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
     const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
-
-    // Merge server response with local data to preserve reactions and other local fields
     return {
         ...response.data,
         reactions: updatedPost.reactions,
     };
 });
 
+// Async thunk to delete a post
 export const deletePost = createAsyncThunk('posts/deletePost', async (postId: string) => {
     await axios.delete(`${POSTS_URL}/${postId}`);
     return postId;
@@ -110,12 +84,12 @@ const postsSlice = createSlice({
                 };
             },
         },
-        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
+        // Handle reactions
+        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: keyof Post['reactions'] }>) {
             const { postId, reaction } = action.payload;
             const existingPost = state.posts.find((post) => post.id === postId);
             if (existingPost) {
-                // TypeScript fix: `reaction` is now one of the valid keys of `reactions`
-                existingPost.reactions[reaction as keyof Post['reactions']] = (existingPost.reactions[reaction as keyof Post['reactions']] || 0) + 1;
+                existingPost.reactions[reaction] = (existingPost.reactions[reaction] || 0) + 1;
             }
         },
     },
