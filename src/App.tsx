@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostsList from "./app/features/posts/PostsList";
-import AddPostForm from "./app/features/posts/AddPostForm";
-import SinglePostPage from "./app/features/posts/SinglePostPage";
+import PostsList from "./app/features/comments/ComentsList";
+import AddPostForm from "./app/features/comments/AddCommentForm";
+import SinglePostPage from "./app/features/comments/SingleComentPage";
 import Layout from "./components/layout";
 
 // Importing pages
