@@ -1,47 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { db } from './firebase'; // Import Firestore from firebase.ts
-import { collection, getDocs } from 'firebase/firestore'; // Import Firestore methods
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPosts } from './postsSlice'; // fetchPosts is a normal Redux action
+import { RootState } from './store';
+import { Link } from 'react-router-dom';
 
-const PostList: React.FC = () => {
-  const [posts, setPosts] = useState<any[]>([]);
+const PostsList: React.FC = () => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state: RootState) => state.posts.posts);
+  const postsStatus = useSelector((state: RootState) => state.posts.status);
 
-  // Fetch posts when the component mounts
+  // If posts are not yet fetched, dispatch fetchPosts action
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsCollection = collection(db, 'posts');
-        const snapshot = await getDocs(postsCollection);
-        const postList = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setPosts(postList); // Set the posts in state
-      } catch (error) {
-        console.error('Error fetching posts: ', error);
-      }
-    };
+    if (postsStatus === 'idle') {
+      dispatch(fetchPosts());
+    }
+  }, [dispatch, postsStatus]);
 
-    fetchPosts();
-  }, []);
+  let content;
+
+  if (postsStatus === 'loading') {
+    content = <div>Loading...</div>;
+  } else if (postsStatus === 'succeeded') {
+    content = (
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Link to={`/post/${post.id}`}>{post.title}</Link>
+          </li>
+        ))}
+      </ul>
+    );
+  } else if (postsStatus === 'failed') {
+    content = <div>Error loading posts</div>;
+  }
 
   return (
-    <div>
-      <h2>Blog Posts</h2>
-      {posts.length === 0 ? (
-        <p>No posts available</p>
-      ) : (
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-              {post.imageUrl && <img src={post.imageUrl} alt={post.title} />}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <section>
+      <h2>Posts</h2>
+      {content}
+    </section>
   );
 };
 
-export default PostList;
+export default PostsList;

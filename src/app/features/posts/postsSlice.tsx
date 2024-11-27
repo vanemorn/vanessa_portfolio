@@ -1,15 +1,16 @@
-import { createSlice, nanoid, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from './store';
-import { db } from './firebase'; 
-import { collection, addDoc, doc, updateDoc, deleteDoc, getDocs } from 'firebase/firestore';
+import { createSlice, nanoid, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
+import { RootState } from "./store";
 
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+
+// Post interface
 export interface Post {
   id: string;
   title: string;
   body: string;
   date: string;
-  reactions: { [key: string]: number };
-  file?: string | null;  // Ensure that 'file' is either a string (URL) or null
+  reactions: { [key: string]: number }; // Ensure reactions are included
 }
 
 interface PostsState {
@@ -24,117 +25,117 @@ const initialState: PostsState = {
   error: null,
 };
 
-export const fetchPostsFromFirebase = createAsyncThunk(
-  'posts/fetchPostsFromFirebase',
-  async () => {
-    const postRef = collection(db, 'posts');  // Correct collection reference
-    const snapshot = await getDocs(postRef);
-    const postsList = snapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        id: doc.id,
-        title: data.title || '',
-        body: data.body || '',
-        date: data.date || '',
-        reactions: data.reactions || { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
-        file: data.file || null,
-      };
-    });
-    return postsList;
+// Async action to fetch posts
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  const response = await axios.get(POSTS_URL);
+  return response.data;
+});
+
+// Async action to update a post
+export const updatePost = createAsyncThunk(
+  'posts/updatePost',
+  async (updatedPost: Post) => {
+    const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
+    return response.data;  // Return the updated post from the response
   }
 );
 
-export const addPostToFirebase = createAsyncThunk('posts/addPostToFirebase', async (post: Omit<Post, 'id'>) => {
-  const postRef = collection(db, 'posts');  // Correct collection reference
-  const newDocRef = await addDoc(postRef, {
-    title: post.title,
-    body: post.body,
-    date: post.date,
-    reactions: post.reactions,
-    file: post.file,
-  });
-  
-  return { ...post, id: newDocRef.id };  // Return the post with the generated id
-});
-
-export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
-  const postRef = doc(db, 'posts', updatedPost.id!);  // Correct doc reference
-  await updateDoc(postRef, {
-    title: updatedPost.title,
-    body: updatedPost.body,
-    reactions: updatedPost.reactions,
-    date: updatedPost.date,
-    file: updatedPost.file,
-  });
-  return updatedPost;
-});
-
-export const deletePost = createAsyncThunk('posts/deletePost', async (postId: string) => {
-  const postRef = doc(db, 'posts', postId);  // Correct doc reference
-  await deleteDoc(postRef);
-  return postId;
-});
+// Async action to delete a post
+export const deletePost = createAsyncThunk(
+  'posts/deletePost',
+  async (postId: string) => {
+    await axios.delete(`${POSTS_URL}/${postId}`);
+    return postId;
+  }
+);
 
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
+    // Only declare the 'postAdded' once
     postAdded: {
-      reducer(state, { payload }: PayloadAction<Post>) {
-        state.posts.push(payload);
+      reducer(state, action: PayloadAction<Post>) {
+        state.posts.push(action.payload);
       },
-      prepare(title: string, body: string, file: string | null) {
+      prepare(title: string, content: string) {
         return {
           payload: {
-            id: nanoid(),  // Generate the id for new posts
+            id: nanoid(),
             title,
-            body,
+            body: content,
             date: new Date().toISOString(),
-            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
-            file,
+            reactions: { 
+              thumbsUp: 0, 
+              wow: 0, 
+              heart: 0, 
+              rocket: 0, 
+              coffee: 0 
+            },
           },
         };
       },
     },
-    postDeleted(state, action: PayloadAction<string>) {
-      state.posts = state.posts.filter((post) => post.id !== action.payload);
-    },
     reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
       const { postId, reaction } = action.payload;
-      const existingPost = state.posts.find((post) => post.id === postId);
+      const existingPost = state.posts.find(post => post.id === postId);
       if (existingPost) {
-        existingPost.reactions[reaction] = (existingPost.reactions[reaction] || 0) + 1;
+        if (!existingPost.reactions) {
+          existingPost.reactions = {
+            thumbsUp: 0,
+            wow: 0,
+            heart: 0,
+            rocket: 0,
+            coffee: 0,
+          };
+        }
+        existingPost.reactions[reaction]++; // Increment the reaction count
       }
     },
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchPostsFromFirebase.pending, (state) => {
+      .addCase(fetchPosts.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchPostsFromFirebase.fulfilled, (state, action) => {
+      .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.posts = action.payload;
+        state.posts = action.payload.map((post: any) => ({
+          ...post,
+          reactions: post.reactions || {
+            thumbsUp: 0,
+            wow: 0,
+            heart: 0,
+            rocket: 0,
+            coffee: 0,
+          },
+        }));
       })
-      .addCase(fetchPostsFromFirebase.rejected, (state, action) => {
+      .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || null;
+        state.error = (action.error as Error).message;
       })
-      .addCase(addPostToFirebase.fulfilled, (state, action) => {
-        state.posts.push(action.payload);
+      .addCase(updatePost.fulfilled, (state, action) => {
+        const index = state.posts.findIndex(post => post.id === action.payload.id);
+        if (index !== -1) {
+          state.posts[index] = action.payload;  // Update the post in the state with the updated data
+        }
       })
       .addCase(deletePost.fulfilled, (state, action) => {
-        state.posts = state.posts.filter((post) => post.id !== action.payload);
+        state.posts = state.posts.filter(post => post.id !== action.payload);
       });
   },
 });
 
-export const { postAdded, postDeleted, reactionAdded } = postsSlice.actions;
-export const selectAllPosts = (state: RootState) => state.posts.posts;
+// Export only once
+export const { postAdded, reactionAdded } = postsSlice.actions;
+
 export const selectPostById = (state: RootState, postId: string) =>
-  state.posts.posts.find((post) => post.id === postId);
+  state.posts.posts.find(post => post.id === postId);
 
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
+
+export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;
