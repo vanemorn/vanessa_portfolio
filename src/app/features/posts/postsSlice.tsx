@@ -1,16 +1,14 @@
-import { createSlice, nanoid, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
-import { RootState } from "./store";
+import { createSlice, nanoid, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { RootState } from './store';
 
-const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
-
-// Post interface
+// Post interface with file support
 export interface Post {
   id: string;
   title: string;
   body: string;
   date: string;
   reactions: { [key: string]: number }; // Ensure reactions are included
+  file?: File | null; // Optional file property
 }
 
 interface PostsState {
@@ -20,79 +18,86 @@ interface PostsState {
 }
 
 const initialState: PostsState = {
-  posts: [],
+  posts: JSON.parse(localStorage.getItem('posts') || '[]'), // Initialize from localStorage
   status: 'idle',
   error: null,
 };
 
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+
 // Async action to fetch posts
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get(POSTS_URL);
-  return response.data;
+  const response = await fetch(POSTS_URL);
+  const data = await response.json();
+  return data;
 });
 
 // Async action to update a post
-export const updatePost = createAsyncThunk(
-  'posts/updatePost',
-  async (updatedPost: Post) => {
-    const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
-    return response.data;  // Return the updated post from the response
-  }
-);
+export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
+  const response = await fetch(`${POSTS_URL}/${updatedPost.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(updatedPost),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.json(); // Return updated post
+});
 
 // Async action to delete a post
-export const deletePost = createAsyncThunk(
-  'posts/deletePost',
-  async (postId: string) => {
-    await axios.delete(`${POSTS_URL}/${postId}`);
-    return postId;
-  }
-);
+export const deletePost = createAsyncThunk('posts/deletePost', async (postId: string) => {
+  await fetch(`${POSTS_URL}/${postId}`, { method: 'DELETE' });
+  return postId;
+});
 
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    // Only declare the 'postAdded' once
+    // Modify postAdded to accept file as part of the payload
     postAdded: {
-      reducer(state, action: PayloadAction<Post>) {
-        state.posts.push(action.payload);
+      reducer(state, { payload }: PayloadAction<Post>) {
+        state.posts.push(payload);
+        // Save updated posts to localStorage after adding a post
+        localStorage.setItem('posts', JSON.stringify(state.posts));
       },
-      prepare(title: string, content: string) {
+      prepare(title: string, content: string, file: File | null) {
         return {
           payload: {
             id: nanoid(),
             title,
             body: content,
             date: new Date().toISOString(),
-            reactions: { 
-              thumbsUp: 0, 
-              wow: 0, 
-              heart: 0, 
-              rocket: 0, 
-              coffee: 0 
+            reactions: {
+              thumbsUp: 0,
+              wow: 0,
+              heart: 0,
+              rocket: 0,
+              coffee: 0,
             },
+            file,
           },
         };
       },
     },
+
+    // Post deletion action
+    postDeleted(state, action: PayloadAction<string>) {
+      state.posts = state.posts.filter((post) => post.id !== action.payload);
+      // Save updated posts to localStorage after deletion
+      localStorage.setItem('posts', JSON.stringify(state.posts));
+    },
+
+    // Reaction added action
     reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
       const { postId, reaction } = action.payload;
-      const existingPost = state.posts.find(post => post.id === postId);
+      const existingPost = state.posts.find((post) => post.id === postId);
       if (existingPost) {
-        if (!existingPost.reactions) {
-          existingPost.reactions = {
-            thumbsUp: 0,
-            wow: 0,
-            heart: 0,
-            rocket: 0,
-            coffee: 0,
-          };
-        }
-        existingPost.reactions[reaction]++; // Increment the reaction count
+        existingPost.reactions[reaction] = (existingPost.reactions[reaction] || 0) + 1;
       }
     },
   },
+
   extraReducers(builder) {
     builder
       .addCase(fetchPosts.pending, (state) => {
@@ -110,32 +115,23 @@ const postsSlice = createSlice({
             coffee: 0,
           },
         }));
+        // Save fetched posts to localStorage
+        localStorage.setItem('posts', JSON.stringify(state.posts));
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = (action.error as Error).message;
-      })
-      .addCase(updatePost.fulfilled, (state, action) => {
-        const index = state.posts.findIndex(post => post.id === action.payload.id);
-        if (index !== -1) {
-          state.posts[index] = action.payload;  // Update the post in the state with the updated data
-        }
-      })
-      .addCase(deletePost.fulfilled, (state, action) => {
-        state.posts = state.posts.filter(post => post.id !== action.payload);
+        state.error = action.error.message || null;
       });
   },
 });
 
-// Export only once
-export const { postAdded, reactionAdded } = postsSlice.actions;
+export const { postAdded, postDeleted, reactionAdded } = postsSlice.actions;
 
+export const selectAllPosts = (state: RootState) => state.posts.posts;
 export const selectPostById = (state: RootState, postId: string) =>
-  state.posts.posts.find(post => post.id === postId);
+  state.posts.posts.find((post) => post.id === postId);
 
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
-
-export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;
