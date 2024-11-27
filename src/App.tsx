@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PostsList from "./app/features/posts/PostsList"; // List all posts
 import AddPostForm from "./app/features/posts/AddPostForm"; // Form to add a new post
-import SinglePostPage from './app/features/posts/SinglePostPage'; // View a single post
-import EditPostForm from './app/features/posts/EditPostForm'; // Edit an existing post
+
 
 // Importing other pages for top-level routing
 import Home from './Pages/Home'; // Home page
@@ -33,11 +32,6 @@ const App: React.FC = () => {
           <Route path="/videogallery" element={<Videogallery />} />
           <Route path="/blog" element={<Blog />} /> {/* Blog Home page */}
           
-          {/* Blog-related routes */}
-          <Route path="/blog" element={<PostsList />} /> {/* List all posts (Blog Home) */}
-          <Route path="/post/new" element={<AddPostForm />} /> {/* Add a new post */}
-          <Route path="/posts/:postId" element={<SinglePostPage />} /> {/* View a single post */}
-          <Route path="/post/edit/:postId" element={<EditPostForm />} /> {/* Edit an existing post */}
         </Routes>
       </div>
     </Router>
