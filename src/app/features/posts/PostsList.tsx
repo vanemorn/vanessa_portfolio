@@ -29,7 +29,7 @@ const PostsList: React.FC = () => {
                 const postPromises = postsData.map(async (post: any) => {
                     const contentResponse = await axios.get(post.download_url); // Get the raw file content
 
-                    // Only process posts that have content
+                    // Only process posts that have non-empty content
                     if (contentResponse.data && contentResponse.data.trim() !== "") {
                         return {
                             id: post.sha,  // Using sha or another identifier
@@ -50,7 +50,8 @@ const PostsList: React.FC = () => {
 
                 // Dispatch valid posts to Redux store
                 validPosts.forEach((post) => {
-                    dispatch(postAdded(post.title, post.body, null));  // Adjust to add files if needed
+                    // Ensure only non-dummy posts are added
+                    dispatch(postAdded(post.title, post.body, post.reactions)); 
                 });
 
                 setLoading(false);  // Stop loading once data is fetched
