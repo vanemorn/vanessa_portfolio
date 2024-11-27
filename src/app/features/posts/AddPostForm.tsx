@@ -1,34 +1,63 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill'; // Import Quill component
 import 'react-quill/dist/quill.snow.css'; // Import Quill's CSS
-import { useDispatch } from 'react-redux';
-import { postAdded } from './postsSlice'; // Assuming postAdded is the action to add a post
 import { useNavigate } from 'react-router-dom';
+import { db, storage } from './firebase'; // Import Firebase Firestore and Storage
+import { collection, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Storage functions
 
 const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>(''); // This will store the Quill editor's content
   const [file, setFile] = useState<File | null>(null);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (title && body) {
-      // Dispatch the action to add the post, passing the necessary parameters directly
-      dispatch(postAdded(title, body, file)); // Dispatch the postAdded action
-      navigate('/posts'); // Redirect to posts list after adding the post
+      try {
+        // If a file is uploaded, upload it to Firebase Storage
+        let imageUrl = null;
+        if (file) {
+          imageUrl = await uploadImage(file);
+        }
+
+        // Create a new post object
+        const newPost = {
+          title,
+          body,
+          imageUrl, // Include image URL if file is uploaded
+          createdAt: new Date()
+        };
+
+        // Save the post to Firestore
+        const postsCollection = collection(db, 'posts');
+        await addDoc(postsCollection, newPost);
+
+        // Redirect to the posts list after successful submission
+        navigate('/posts');
+      } catch (error) {
+        console.error('Error adding post: ', error);
+      }
     }
   };
 
-  // Handle file change
+  // Handle file change (file selection)
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setFile(file);
     }
+  };
+
+  // Function to upload image to Firebase Storage
+  const uploadImage = async (file: File) => {
+    const storageRef = ref(storage, `images/${file.name}`);
+    await uploadBytes(storageRef, file); // Upload the file
+    const imageUrl = await getDownloadURL(storageRef); // Get the file's URL
+    return imageUrl;
   };
 
   return (
