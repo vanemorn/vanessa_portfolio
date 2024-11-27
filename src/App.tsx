@@ -6,6 +6,10 @@ import SinglePostPage from "./app/features/posts/SinglePostPage";
 import EditPostForm from "./app/features/posts/EditPostForm";
 import Layout from "./components/layout";
 
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchPosts } from './app/features/posts/PostSlice';
+
 // Importing pages
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -17,7 +21,16 @@ import Videogallery from './Pages/Videogallery';
 
 import './App.css'; // CSS File
 
+
+
 const App: React.FC = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchPosts());  // Dispatch the fetchPosts action to get the posts
+  }, [dispatch]);
+
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">

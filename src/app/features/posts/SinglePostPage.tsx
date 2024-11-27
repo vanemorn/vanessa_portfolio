@@ -3,7 +3,8 @@ import { selectPostById, getPostsStatus, getPostsError } from "./PostSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RootState } from './store';
 
 const SinglePostPage: React.FC = () => {
@@ -19,10 +20,8 @@ const SinglePostPage: React.FC = () => {
         );
     }
 
-    // Fetch the post from Redux store
     const post = useSelector((state: RootState) => selectPostById(state, postId));
 
-    // Handle loading state
     if (postStatus === 'loading') {
         return (
             <section>
@@ -31,7 +30,6 @@ const SinglePostPage: React.FC = () => {
         );
     }
 
-    // Handle error state if post fetching failed
     if (postError) {
         return (
             <section>
@@ -40,7 +38,6 @@ const SinglePostPage: React.FC = () => {
         );
     }
 
-    // If the post is not found, show a "not found" message
     if (!post) {
         return (
             <section>
