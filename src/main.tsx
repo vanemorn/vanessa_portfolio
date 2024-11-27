@@ -4,12 +4,12 @@ import './index.css';
 import App from './App.tsx';
 import { store } from './app/features/posts/store.tsx';
 import { Provider } from 'react-redux';
-import { fetchPosts } from './app/features/posts/postsSlice';
+import { fetchPostsFromFirebase } from './app/features/posts/postsSlice'; // Correct import
 
 const Root = () => {
   useEffect(() => {
-    // Dispatch the fetchPosts and fetchUsers actions when the app starts
-    store.dispatch(fetchPosts());
+    // Dispatch the fetchPostsFromFirebase action when the app starts
+    store.dispatch(fetchPostsFromFirebase()); // Use the correct action
   }, []);
 
   return <App />;
