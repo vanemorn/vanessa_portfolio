@@ -21,7 +21,6 @@ const App: React.FC = () => {
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
         <AddPostForm/>
-        <PostsList/>
         {/* Routed paths */}
         <Routes>
           {/* Top-level routes */}
@@ -35,14 +34,6 @@ const App: React.FC = () => {
           <Route path="/" element={<PostsList />} />
             <Route path="post/:postId" element={<SinglePostPage />} />
             <Route path="post/edit/:postId" element={<EditPostForm />} />
-
-            {/*<Route path="/" element={<Layout />}>
-            <Route index element={<PostsList />} />
-            <Route path="post">
-              <Route index element={<AddPostForm />} />
-              <Route path=":postId" element={<SinglePostPage />} />
-            </Route>
-          </Route>*/}
         </Routes>
       </div>
     </Router>
