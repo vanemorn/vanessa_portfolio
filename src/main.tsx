@@ -2,18 +2,16 @@ import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
-import { store } from './app/features/comments/store.tsx';
+import { store } from './app/features/posts/store.tsx';
 import { Provider } from 'react-redux';
-import { fetchPosts } from '../src/app/features/comments/comentSlice.tsx';
-import { fetchUsers } from '../src/app/features/users/usersSlice.tsx';
-
-store.dispatch(fetchPosts());
-store.dispatch(fetchUsers());
+import { fetchPosts } from './app/features/posts/PostSlice.tsx';
+import { fetchUsers } from './app/features/users/usersSlice';
 
 const Root = () => {
   useEffect(() => {
     // Dispatch the fetchPosts and fetchUsers actions when the app starts
     store.dispatch(fetchPosts());
+    store.dispatch(fetchUsers());
   }, []);
 
   return <App />;

@@ -1,64 +1,53 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { RootState } from '../posts/store';  // Ensure RootState is imported from the correct path
 
-// Define the shape of a User
-interface User {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-        geo: {
-            lat: string;
-            lng: string;
-        };
-    };
-    phone: string;
-    website: string;
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    };
-}
-
-// Define the initial state type
-interface UsersState {
-    users: User[];
-}
-
-// Define the API URL
 const USERS_URL = 'https://jsonplaceholder.typicode.com/users';
 
-// Define the initial state
+// Ensure this interface is exported so it can be used in other files
+export interface User {
+    id: string;
+    name: string;
+}
+
+interface UsersState {
+    users: User[];
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null; // Error is either string or null
+}
+
 const initialState: UsersState = {
     users: [],
+    status: 'idle',
+    error: null
 };
 
-// Create an async thunk to fetch users from the API
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     const response = await axios.get(USERS_URL);
     return response.data;
 });
 
-// Create the users slice
 const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(fetchUsers.fulfilled, (state, action) => {
-            state.users = action.payload;
-        });
+        builder
+            .addCase(fetchUsers.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.users = action.payload;
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.status = 'failed';
+                // Fix the type error: handle the case where action.error.message might be undefined
+                state.error = action.error.message ?? null; // Default to null if message is undefined
+            });
     }
 });
 
-// Selector to get all users
-export const selectAllUsers = (state: { users: UsersState }) => state.users.users;
+export const selectAllUsers = (state: RootState) => state.users.users;
 
-// Export the reducer as default
 export default usersSlice.reducer;

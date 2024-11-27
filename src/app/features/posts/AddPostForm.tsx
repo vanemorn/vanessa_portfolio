@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewPost } from "./comentSlice"; // Import addNewPost
+import { addNewPost } from "./PostSlice"; // make sure to import the correct action
 import { selectAllUsers } from "../users/usersSlice";
 import { useNavigate } from "react-router-dom";
+
+// Define the type of the User explicitly here for TypeScript
+interface User {
+    id: string;
+    name: string;
+}
 
 const AddPostForm = () => {
     const dispatch = useDispatch();
@@ -13,6 +19,7 @@ const AddPostForm = () => {
     const [userId, setUserId] = useState('');
     const [addRequestStatus, setAddRequestStatus] = useState('idle');
 
+    // Select all users from the Redux state
     const users = useSelector(selectAllUsers);
 
     const onTitleChanged = (e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
@@ -25,16 +32,20 @@ const AddPostForm = () => {
         if (canSave) {
             try {
                 setAddRequestStatus('pending');
-                // Dispatch the async action and await the result
-                await dispatch(addNewPost({ title, content, userId }));
+                // Dispatch the action with individual arguments (title, content, userId)
+                const resultAction = await dispatch(addNewPost(title, content, userId));  // Pass individual arguments
 
-                // Reset form and navigate on success
-                setTitle('');
-                setContent('');
-                setUserId('');
-                navigate('/');
+                // unwrap the action result to handle success/failure
+                const unwrappedResult = resultAction.payload;
+
+                // Clear form fields if the post was successfully added
+                if (unwrappedResult.id) {
+                    setTitle('');
+                    setContent('');
+                    setUserId('');
+                    navigate('/');  // Redirect to home or another page after success
+                }
             } catch (err) {
-                // Handle any error from the async action
                 console.error('Failed to save the post', err);
             } finally {
                 setAddRequestStatus('idle');
@@ -42,18 +53,18 @@ const AddPostForm = () => {
         }
     };
 
-    // Convert user id to string when rendering options
-    const usersOptions = users.map(user => (
-        <option key={user.id} value={String(user.id)}>
+    // Type the user parameter explicitly to avoid the "implicit any" error
+    const usersOptions = users.map((user: User) => (
+        <option key={user.id} value={user.id}>
             {user.name}
         </option>
     ));
 
     return (
         <section>
-            <h2>Add a New Comment</h2>
+            <h2>Add a New Post</h2>
             <form>
-                <label htmlFor="postTitle">Comment Title:</label>
+                <label htmlFor="postTitle">Post Title:</label>
                 <input
                     type="text"
                     id="postTitle"
@@ -77,9 +88,7 @@ const AddPostForm = () => {
                     type="button"
                     onClick={onSavePostClicked}
                     disabled={!canSave}
-                >
-                    Save Comment
-                </button>
+                >Save Post</button>
             </form>
         </section>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PostsList from './app/features/comments/ComentsList';  // Correct the path
-import AddPostForm from './app/features/comments/AddCommentForm';  // Correct the path
-import EditPostForm from './app/features/comments/EditCommentForm';  // Correct the path
-import SinglePostPage from './app/features/comments/SingleComentPage';  // Correct the path
-import Layout from './components/layout';  // Ensure this is correctly imported
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PostsList from "./app/features/posts/PostsList";
+import AddPostForm from "./app/features/posts/AddPostForm";
+import SinglePostPage from "./app/features/posts/SinglePostPage";
+import EditPostForm from "./app/features/posts/EditPostForm";
+import Layout from "./components/layout";
 
 // Importing pages
 import Home from './Pages/Home';
@@ -19,7 +19,7 @@ import './App.css'; // CSS File
 
 const App: React.FC = () => {
   return (
-    <Router basename="/vanessa_portfolio">
+    <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
         <AddPostForm/>
         <PostsList/>
@@ -34,13 +34,15 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
 
-          {/* Routes related to posts */}
-          <Route path="/posts" element={<PostsList />} />  {/* Add PostsList Route here */}
-          <Route path="post" element={<Layout />}>
-            <Route index element={<AddPostForm />} />
-            <Route path=":postId" element={<SinglePostPage />} />
-            <Route path="edit/:postId" element={<EditPostForm />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<PostsList />} />
+            <Route path="post">
+              <Route index element={<AddPostForm />} />
+              <Route path=":postId" element={<SinglePostPage />} />
+              <Route path="edit/:postId" element={<EditPostForm />} />
+            </Route>
           </Route>
+
         </Routes>
       </div>
     </Router>
