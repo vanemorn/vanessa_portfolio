@@ -29,7 +29,7 @@ const EditPostForm: React.FC = () => {
                     title,
                     body: content,
                     date: post.date,
-                    userId: post.userId,
+                    userId: post.userId, // This is now valid as userId is added to the Post type
                     reactions: post.reactions,
                 })
             );

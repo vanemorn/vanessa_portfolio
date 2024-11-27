@@ -1,18 +1,19 @@
-import React from "react";
 import { Post } from "./PostSlice";
+import { ReactNode } from "react";
 
 interface PostExcerptProps {
     post: Post;
+    children: ReactNode;
 }
 
-const PostsExcerpt: React.FC<PostExcerptProps> = ({ post }) => {
+const PostExcerpt: React.FC<PostExcerptProps> = ({ post, children }) => {
     return (
-        <div>
+        <article className="post-excerpt">
             <h3>{post.title}</h3>
             <p>{post.body}</p>
-            <p><strong>Date:</strong> {new Date(post.date).toLocaleString()}</p>
-        </div>
+            {children}  {/* Render the TimeAgo and ReactionButtons components here */}
+        </article>
     );
 };
 
-export default PostsExcerpt;
+export default PostExcerpt;

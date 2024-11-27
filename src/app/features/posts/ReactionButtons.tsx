@@ -2,40 +2,39 @@ import { useDispatch } from "react-redux";
 import { reactionAdded } from "./PostSlice";
 import { Post } from "./PostSlice";
 
-// Defining the possible reaction names
-const reactionEmoji: { [key in keyof Post['reactions']]: string } = {
-    thumbsUp: '👍',
-    wow: '😮',
-    heart: '❤️',
-    rocket: '🚀',
-    coffee: '☕',
-};
-
 interface ReactionButtonsProps {
     post: Post;
 }
 
+const reactionEmoji: { [key: string]: string } = {
+    thumbsUp: '👍',
+    wow: '😮',
+    heart: '❤️',
+    rocket: '🚀',
+    coffee: '☕'
+};
+
 const ReactionButtons: React.FC<ReactionButtonsProps> = ({ post }) => {
     const dispatch = useDispatch();
 
-    // Destructure reactions to ensure it's always available and typed correctly
-    const reactions = post.reactions || {  // Fallback to default values if reactions is undefined
+    // Ensure that reactions are initialized
+    const reactions = post.reactions || {
         thumbsUp: 0,
         wow: 0,
         heart: 0,
         rocket: 0,
-        coffee: 0,
+        coffee: 0
     };
 
-    // Generate buttons for each reaction type
-    const reactionButtons = Object.entries(reactionEmoji).map(([reaction, emoji]) => (
+    // Generate reaction buttons for each reaction type
+    const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => (
         <button
-            key={reaction}
+            key={name}
             type="button"
             className="reactionButton"
-            onClick={() => dispatch(reactionAdded({ postId: post.id, reaction: reaction as keyof Post['reactions'] }))}
+            onClick={() => dispatch(reactionAdded({ postId: post.id, reaction: name as keyof Post['reactions'] }))}
         >
-            {emoji} {reactions[reaction as keyof Post['reactions']]}  {/* Access reaction count safely */}
+            {emoji} {reactions[name as keyof Post['reactions']]}  {/* Safely access reaction count */}
         </button>
     ));
 

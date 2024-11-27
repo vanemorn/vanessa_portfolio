@@ -9,8 +9,9 @@ export interface Post {
     title: string;
     body: string;
     date: string;
-    userId: string;
-    reactions: { thumbsUp: number; wow: number; heart: number; rocket: number; coffee: number };
+    reactions: { [key: string]: number };
+    userId: string;  // Add this line to include userId
+
 }
 
 interface PostsState {
@@ -31,7 +32,6 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     return response.data.map((post: any) => ({
         ...post,
         date: new Date().toISOString(),
-        userId: post.userId || "1",
         reactions: {
             thumbsUp: 0,
             wow: 0,
