@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectAllPosts, getPostsStatus, getPostsError, postAdded } from './postsSlice';
 import PostsExcerpt from './PostsExcerpt';
 import { RootState } from './store';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const PostsList: React.FC = () => {
     const dispatch = useDispatch();
@@ -28,27 +28,41 @@ const PostsList: React.FC = () => {
                 // Fetch content for each post from GitHub
                 const postPromises = postsData.map(async (post: any) => {
                     const contentResponse = await axios.get(post.download_url); // Get the raw file content
-                    return {
-                        id: post.sha,  // Using sha or another identifier
-                        title: post.name.replace('.md', ''),  // Assuming the name is the title
-                        body: contentResponse.data,  // The post content (Markdown/HTML)
-                        date: new Date().toISOString(),  // Adjust this if your posts contain date info
-                        reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },  // Default reactions
-                    };
+
+                    // Only process posts that have content
+                    if (contentResponse.data && contentResponse.data.trim() !== "") {
+                        return {
+                            id: post.sha,  // Using sha or another identifier
+                            title: post.name.replace('.md', ''),  // Assuming the name is the title
+                            body: contentResponse.data,  // The post content (Markdown/HTML)
+                            date: new Date().toISOString(),  // Adjust this if your posts contain date info
+                            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },  // Default reactions
+                        };
+                    }
+                    return null;  // Skip this post if it's empty or invalid
                 });
 
                 // Wait for all post content to be fetched
                 const postsWithContent = await Promise.all(postPromises);
 
-                // Dispatch posts to Redux store
-                postsWithContent.forEach((post) => {
+                // Filter out any null posts (empty or invalid)
+                const validPosts = postsWithContent.filter(post => post !== null);
+
+                // Dispatch valid posts to Redux store
+                validPosts.forEach((post) => {
                     dispatch(postAdded(post.title, post.body, null));  // Adjust to add files if needed
                 });
 
                 setLoading(false);  // Stop loading once data is fetched
             } catch (err) {
-                console.error('Error fetching posts from GitHub:', err);
-                setFetchError('Error fetching posts from GitHub');
+                // Type the error explicitly as AxiosError (or Error)
+                if (err instanceof AxiosError) {
+                    console.error('Error fetching posts from GitHub:', err.message);
+                    setFetchError('Error fetching posts from GitHub');
+                } else {
+                    console.error('Unknown error:', err);
+                    setFetchError('An unknown error occurred');
+                }
                 setLoading(false);
             }
         };
