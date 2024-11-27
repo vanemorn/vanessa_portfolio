@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { postAdded } from './postsSlice';  // Import postAdded action
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill's default theme
+import axios from 'axios';
 
 const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -23,7 +24,7 @@ const AddPostForm: React.FC = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (title && body) {
       console.log('Submitting Post...');
@@ -33,6 +34,14 @@ const AddPostForm: React.FC = () => {
 
       // Dispatch the postAdded action with the form values
       dispatch(postAdded(title, body, file));
+
+      // Send post data to backend (GitHub integration)
+      try {
+        await axios.post('http://localhost:5000/savePost', { title, body });
+        console.log('Post saved to GitHub');
+      } catch (error) {
+        console.error('Error saving post:', error);
+      }
 
       // Optionally reset the form after submission
       setTitle('');
@@ -71,7 +80,7 @@ const AddPostForm: React.FC = () => {
                 ['bold', 'italic', 'underline'],
                 [{ 'color': [] }, { 'background': [] }],
                 ['link'],
-                ['clean'] // 'clean' button for clearing formatting
+                ['clean']
               ]
             }}
             formats={['header', 'font', 'list', 'align', 'bold', 'italic', 'underline', 'color', 'background', 'link']}

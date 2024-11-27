@@ -5,6 +5,13 @@ import { selectPostById, postDeleted } from './postsSlice';
 import { RootState } from './store';
 import TimeAgo from './TimeAgo'; // Keep the time ago feature
 import ReactionButtons from './ReactionButtons'; // Keep reaction buttons
+import { marked } from 'marked';
+
+// Component to render the body content after converting markdown to HTML
+const PostContent: React.FC<{ content: string }> = ({ content }) => {
+  const htmlContent = marked(content); // Convert markdown to HTML
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
 
 const SinglePostPage: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -30,11 +37,8 @@ const SinglePostPage: React.FC = () => {
     <article>
       <h2>{post.title}</h2>
 
-      {/* Render the body as raw HTML */}
-      <div 
-        className="post-body" 
-        dangerouslySetInnerHTML={{ __html: post.body }} 
-      />
+      {/* Render the body content by passing the post body to PostContent */}
+      <PostContent content={post.body} />
 
       {/* Display the image if the post has a file */}
       {post.file && (
