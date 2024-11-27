@@ -1,13 +1,23 @@
-import { useSelector } from 'react-redux';
-import { selectAllPosts, getPostsStatus, getPostsError } from './postsSlice';
+// PostsList.tsx
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllPosts, getPostsStatus, getPostsError, fetchPostsFromFirebase } from './postsSlice';
 import PostsExcerpt from './PostsExcerpt';
 import { RootState } from './store';
-import { Post } from './postsSlice'; // Import Post type for explicit typing
+import { Post } from './postsSlice';
 
 const PostsList: React.FC = () => {
+  const dispatch = useDispatch();
   const posts = useSelector((state: RootState) => selectAllPosts(state));
   const postStatus = useSelector((state: RootState) => getPostsStatus(state));
   const error = useSelector((state: RootState) => getPostsError(state));
+
+  // Dispatch the fetch action when the component mounts
+  useEffect(() => {
+    if (postStatus === 'idle') {
+      dispatch(fetchPostsFromFirebase()); // Fetch posts from Firebase when the component mounts
+    }
+  }, [dispatch, postStatus]);
 
   let content;
   if (postStatus === 'loading') {

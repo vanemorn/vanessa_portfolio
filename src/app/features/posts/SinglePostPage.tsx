@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { selectPostById } from './postsSlice';
-import { deletePostFromFirebase } from './postsSlice'; // Firebase delete thunk import
+import { deletePost } from './postsSlice'; // Correct import
 import { RootState } from './store';
 import TimeAgo from './TimeAgo'; // Keep the time ago feature
 import ReactionButtons from './ReactionButtons'; // Keep reaction buttons
@@ -25,7 +25,7 @@ const SinglePostPage: React.FC = () => {
   // Handle deletion of the post
   const handleDelete = async () => {
     if (postId) {
-      await dispatch(deletePostFromFirebase(postId)); // Call Firebase delete thunk
+      await dispatch(deletePost(postId)); // Correct action for deleting post
       navigate('/post'); // Redirect back to the post list after deletion
     }
   };

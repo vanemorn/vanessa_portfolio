@@ -1,7 +1,7 @@
 import { createSlice, nanoid, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from './store';
-import { db } from './firebase'; // Firebase Firestore import
-import { collection, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'; // Firestore functions
+import { db } from './firebase'; // Import Firestore functions
+import { collection, addDoc, doc, updateDoc, deleteDoc, getDocs } from 'firebase/firestore';
 
 // Post interface with file support
 export interface Post {
@@ -25,37 +25,30 @@ const initialState: PostsState = {
   error: null,
 };
 
-const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
-
-// Async action to fetch posts
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await fetch(POSTS_URL);
-  const data = await response.json();
-  return data;
-});
-
-// Async action to update a post
-export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
-  const postRef = doc(db, 'posts', updatedPost.id); // Firestore document reference
-  await updateDoc(postRef, {
-    title: updatedPost.title,
-    body: updatedPost.body,
-    reactions: updatedPost.reactions,
-    date: updatedPost.date,
-  });
-  return updatedPost; // Return the updated post
-});
-
-// Async action to delete a post from Firebase
-export const deletePostFromFirebase = createAsyncThunk('posts/deletePostFromFirebase', async (postId: string) => {
-  const postRef = doc(db, 'posts', postId); // Firestore document reference
-  await deleteDoc(postRef); // Delete the post from Firestore
-  return postId;
-});
+// Async action to fetch posts from Firebase
+export const fetchPostsFromFirebase = createAsyncThunk(
+  'posts/fetchPostsFromFirebase',
+  async () => {
+    const postRef = collection(db, 'posts');
+    const snapshot = await getDocs(postRef);
+    const postsList = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        title: data.title || '',
+        body: data.body || '',
+        date: data.date || '',
+        reactions: data.reactions || { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
+        file: data.file || null,
+      };
+    });
+    return postsList;
+  }
+);
 
 // Async action to add a post to Firebase
 export const addPostToFirebase = createAsyncThunk('posts/addPostToFirebase', async (post: Post) => {
-  const postRef = collection(db, 'posts'); // Firestore collection reference
+  const postRef = collection(db, 'posts');
   const newDocRef = await addDoc(postRef, {
     title: post.title,
     body: post.body,
@@ -63,8 +56,26 @@ export const addPostToFirebase = createAsyncThunk('posts/addPostToFirebase', asy
     reactions: post.reactions,
   });
 
-  // Return the post with its Firestore ID
   return { ...post, id: newDocRef.id };
+});
+
+// Async action to update a post
+export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
+  const postRef = doc(db, 'posts', updatedPost.id);
+  await updateDoc(postRef, {
+    title: updatedPost.title,
+    body: updatedPost.body,
+    reactions: updatedPost.reactions,
+    date: updatedPost.date,
+  });
+  return updatedPost;
+});
+
+// Async action to delete a post
+export const deletePost = createAsyncThunk('posts/deletePost', async (postId: string) => {
+  const postRef = doc(db, 'posts', postId);
+  await deleteDoc(postRef);
+  return postId;
 });
 
 const postsSlice = createSlice({
@@ -85,13 +96,7 @@ const postsSlice = createSlice({
             title,
             body: content,
             date: new Date().toISOString(),
-            reactions: {
-              thumbsUp: 0,
-              wow: 0,
-              heart: 0,
-              rocket: 0,
-              coffee: 0,
-            },
+            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
             file,
           },
         };
@@ -117,36 +122,24 @@ const postsSlice = createSlice({
 
   extraReducers(builder) {
     builder
-      .addCase(fetchPosts.pending, (state) => {
+      .addCase(fetchPostsFromFirebase.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchPosts.fulfilled, (state, action) => {
+      .addCase(fetchPostsFromFirebase.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.posts = action.payload.map((post: any) => ({
-          ...post,
-          reactions: post.reactions || {
-            thumbsUp: 0,
-            wow: 0,
-            heart: 0,
-            rocket: 0,
-            coffee: 0,
-          },
-        }));
-        // Save fetched posts to localStorage
+        state.posts = action.payload;
         localStorage.setItem('posts', JSON.stringify(state.posts));
       })
-      .addCase(fetchPosts.rejected, (state, action) => {
+      .addCase(fetchPostsFromFirebase.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || null;
       })
       .addCase(addPostToFirebase.fulfilled, (state, action) => {
         state.posts.push(action.payload);
-        // Save updated posts to localStorage after adding the post to Firebase
         localStorage.setItem('posts', JSON.stringify(state.posts));
       })
-      .addCase(deletePostFromFirebase.fulfilled, (state, action) => {
+      .addCase(deletePost.fulfilled, (state, action) => {
         state.posts = state.posts.filter((post) => post.id !== action.payload);
-        // Save updated posts to localStorage after deletion
         localStorage.setItem('posts', JSON.stringify(state.posts));
       });
   },
