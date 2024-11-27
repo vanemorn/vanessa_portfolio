@@ -1,16 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from './comentSlice';
-import usersReducer from '../users/usersSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import postsReducer from './comentSlice';  // Correct path to your slice
+import usersReducer from '../users/usersSlice';  // If you have a users slice
 
-// Create the Redux store with posts and users reducers
 export const store = configureStore({
   reducer: {
     posts: postsReducer,
-    users: usersReducer,
+    users: usersReducer,  // If you have a users slice
   },
 });
 
-// Export RootState as the type of the entire Redux state
-export type RootState = ReturnType<typeof store.getState>; // This infers the state type from the store
-
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
