@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.tsx';
 import { store } from './app/features/posts/store.tsx';
 import { Provider } from 'react-redux';
-import { fetchPosts } from './app/features/posts/postsSlice';
+import { fetchPosts } from './app/features/posts/PostSlice.tsx';
 import { fetchUsers } from './app/features/users/usersSlice';
 
 const Root = () => {
