@@ -2,9 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PostsList from "./app/features/posts/PostsList";
 import AddPostForm from "./app/features/posts/AddPostForm";
-import SinglePostPage from "./app/features/posts/SinglePostPage";
-import EditPostForm from "./app/features/posts/EditPostForm";
-import Layout from "./components/layout";
 
 // Importing pages
 import Home from './Pages/Home';
@@ -33,16 +30,6 @@ const App: React.FC = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
-
-          <Route path="/" element={<Layout />}>
-            <Route index element={<PostsList />} />
-            <Route path="post">
-              <Route index element={<AddPostForm />} />
-              <Route path=":postId" element={<SinglePostPage />} />
-              <Route path="edit/:postId" element={<EditPostForm />} />
-            </Route>
-          </Route>
-
         </Routes>
       </div>
     </Router>
