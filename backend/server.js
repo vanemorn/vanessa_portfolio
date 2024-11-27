@@ -1,62 +1,58 @@
 const express = require('express');
-const axios = require('axios');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const { Octokit } = require('@octokit/rest');
+const bodyParser = require('body-parser');
+require('dotenv').config();  // Load environment variables
 
 const app = express();
-const port = 5000;
+app.use(bodyParser.json());
 
-app.use(express.json());
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,  // GitHub PAT from .env file
+});
 
-// Endpoint to save posts to GitHub
+const OWNER = 'vanemorn';
+const REPO = 'vanessa_portfolio';
+const POST_DIRECTORY = 'posts';  // Folder to store posts
+
+// POST endpoint to save a post to GitHub
 app.post('/savePost', async (req, res) => {
-  const { title, body, file } = req.body;
-  const githubToken = process.env.GITHUB_TOKEN;
-  const repoOwner = process.env.REPO_OWNER;
-  const repoName = process.env.REPO_NAME;
-
-  // Prepare post data to save as a markdown file
-  const content = `# ${title}\n\n${body}`;
+  const { title, body } = req.body;
+  const fileName = `${title}.md`;  // Use title as the file name
+  const fileContent = `# ${title}\n\n${body}`; // Markdown format
 
   try {
-    // GitHub API URL for creating or updating files
-    const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/posts/${title}.md`;
-
-    // Check if the file exists (we'll use the "sha" of the file to update it)
-    let sha = '';
-    try {
-      const getFileResponse = await axios.get(url, {
-        headers: {
-          Authorization: `token ${githubToken}`,
-        },
-      });
-      sha = getFileResponse.data.sha;
-    } catch (error) {
-      console.log('File not found, creating new file...');
-    }
-
-    // Prepare the data to send to GitHub
-    const data = {
-      message: `Create new post: ${title}`,
-      content: Buffer.from(content).toString('base64'),
-      ...(sha && { sha }), // If updating, include sha
-    };
-
-    // Make a request to GitHub API to save the post as a markdown file
-    await axios.put(url, data, {
-      headers: {
-        Authorization: `token ${githubToken}`,
-      },
+    // Attempt to get the file from GitHub (check if it exists)
+    const { data: existingFile } = await octokit.repos.getContent({
+      owner: OWNER,
+      repo: REPO,
+      path: `${POST_DIRECTORY}/${fileName}`,
     });
 
-    res.status(200).json({ message: 'Post saved to GitHub' });
+    if (existingFile) {
+      // If file exists, update it
+      await octokit.repos.createOrUpdateFileContents({
+        owner: OWNER,
+        repo: REPO,
+        path: `${POST_DIRECTORY}/${fileName}`,
+        message: `Update post: ${title}`,
+        content: Buffer.from(fileContent).toString('base64'),
+        sha: existingFile.sha,  // Required for updating existing file
+      });
+      return res.status(200).send('Post updated successfully!');
+    }
   } catch (error) {
-    console.error('Error saving post:', error);
-    res.status(500).json({ error: 'Failed to save post to GitHub' });
+    // If file doesn't exist, create a new post
+    await octokit.repos.createOrUpdateFileContents({
+      owner: OWNER,
+      repo: REPO,
+      path: `${POST_DIRECTORY}/${fileName}`,
+      message: `Create post: ${title}`,
+      content: Buffer.from(fileContent).toString('base64'),
+    });
+    return res.status(200).send('Post created successfully!');
   }
 });
 
-app.listen(port, () => {
-  console.log(`Backend server running at http://localhost:${port}`);
+app.listen(5000, () => {
+  console.log('Server running on port 5000');
 });
