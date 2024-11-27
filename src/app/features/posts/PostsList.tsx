@@ -24,7 +24,10 @@ const PostsList: React.FC = () => {
             return dateB.localeCompare(dateA); // Ensure both dates are strings
         });
 
-        content = orderedPosts.map(post => (
+        // Limit to the first 3 posts (this is the initial state you want)
+        const limitedPosts = orderedPosts.slice(0, 3);
+
+        content = limitedPosts.map(post => (
             <PostExcerpt key={post.id} post={post}>
                 <TimeAgo timestamp={post.date} />
                 <ReactionButtons post={post} />

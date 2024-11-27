@@ -11,7 +11,6 @@ export interface Post {
     date: string;
     reactions: { [key: string]: number };
     userId: string;  // Add this line to include userId
-
 }
 
 interface PostsState {
@@ -100,7 +99,8 @@ const postsSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.posts = action.payload;
+                // Limit the posts to the first 3 after fetching
+                state.posts = action.payload.slice(0, 3); // Only keep the first 3 posts
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
