@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill'; // Import Quill component
 import 'react-quill/dist/quill.snow.css'; // Import Quill's CSS
 import { useNavigate } from 'react-router-dom';
-import { db, storage } from './firebase'; // Import Firebase Firestore and Storage
-import { collection, addDoc } from 'firebase/firestore';
+import { db, storage } from './firebase'; // Import Firestore from firebase.ts
+import { collection, addDoc } from 'firebase/firestore'; // Import Firestore methods
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Storage functions
 
 const AddPostForm: React.FC = () => {
@@ -18,10 +18,13 @@ const AddPostForm: React.FC = () => {
 
     if (title && body) {
       try {
+        console.log('Form Data:', { title, body, file }); // Log the form data
+        
         // If a file is uploaded, upload it to Firebase Storage
         let imageUrl = null;
         if (file) {
           imageUrl = await uploadImage(file);
+          console.log('Uploaded Image URL:', imageUrl); // Log the image URL
         }
 
         // Create a new post object
@@ -29,8 +32,10 @@ const AddPostForm: React.FC = () => {
           title,
           body,
           imageUrl, // Include image URL if file is uploaded
-          createdAt: new Date()
+          createdAt: new Date(),
         };
+
+        console.log('New Post:', newPost); // Log the post data
 
         // Save the post to Firestore
         const postsCollection = collection(db, 'posts');
@@ -39,7 +44,7 @@ const AddPostForm: React.FC = () => {
         // Redirect to the posts list after successful submission
         navigate('/posts');
       } catch (error) {
-        console.error('Error adding post: ', error);
+        console.error('Error adding post: ', error); // Log any error
       }
     }
   };
