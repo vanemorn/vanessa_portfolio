@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostsList from "./app/features/comments/ComentsList";
-import AddPostForm from "./app/features/comments/AddCommentForm";
-import SinglePostPage from "./app/features/comments/SingleComentPage";
-import Layout from "./components/layout";
+import PostsList from './app/features/comments/ComentsList';  // Correct the file path
+import AddPostForm from './app/features/comments/AddCommentForm';  // Correct the file path
+import EditPostForm from './app/features/comments/EditCommentForm';  // Correct the file path
+import SinglePostPage from './app/features/comments/SingleComentPage';  // Correct the file path
+import Layout from './components/layout';  // Ensure this is correctly imported
 
 // Importing pages
 import Home from './Pages/Home';
@@ -31,12 +32,13 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
 
-          <Route path="/" element={<Layout />}>
-            <Route index element={<PostsList />} />
-            <Route path="post">
-              <Route index element={<AddPostForm />} />
-              <Route path=":postId" element={<SinglePostPage />} />
-            </Route>
+          {/* Routes related to posts */}
+          <Route path="/posts" element={<PostsList />} /> {/* Add this line */}
+          {/* Routes related to posts */}
+          <Route path="post" element={<Layout />}>
+            <Route index element={<AddPostForm />} />
+            <Route path=":postId" element={<SinglePostPage />} />
+            <Route path="edit/:postId" element={<EditPostForm />} />
           </Route>
 
         </Routes>
