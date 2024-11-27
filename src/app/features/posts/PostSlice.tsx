@@ -10,7 +10,7 @@ export interface Post {
     body: string;
     date: string;
     userId: string;
-    reactions: { [key: string]: number };
+    reactions: { thumbsUp: number; wow: number; heart: number; rocket: number; coffee: number };
 }
 
 interface PostsState {
@@ -114,7 +114,8 @@ const postsSlice = createSlice({
             const { postId, reaction } = action.payload;
             const existingPost = state.posts.find((post) => post.id === postId);
             if (existingPost) {
-                existingPost.reactions[reaction] = (existingPost.reactions[reaction] || 0) + 1;
+                // TypeScript fix: `reaction` is now one of the valid keys of `reactions`
+                existingPost.reactions[reaction as keyof Post['reactions']] = (existingPost.reactions[reaction as keyof Post['reactions']] || 0) + 1;
             }
         },
     },

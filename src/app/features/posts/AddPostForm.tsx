@@ -33,17 +33,18 @@ const AddPostForm = () => {
             try {
                 setAddRequestStatus('pending');
                 // Dispatch the action with individual arguments (title, content, userId)
-                const resultAction = await dispatch(addNewPost(title, content, userId));  // Pass individual arguments
-
+                const resultAction = await dispatch(addNewPost(title, content, userId));
+    
                 // unwrap the action result to handle success/failure
                 const unwrappedResult = resultAction.payload;
-
+    
                 // Clear form fields if the post was successfully added
                 if (unwrappedResult.id) {
                     setTitle('');
                     setContent('');
                     setUserId('');
-                    navigate('/');  // Redirect to home or another page after success
+                    // After the post is added, update the posts list in the store
+                    navigate('/'); // Redirect to home or another page after success
                 }
             } catch (err) {
                 console.error('Failed to save the post', err);
@@ -52,6 +53,7 @@ const AddPostForm = () => {
             }
         }
     };
+    
 
     // Type the user parameter explicitly to avoid the "implicit any" error
     const usersOptions = users.map((user: User) => (

@@ -9,6 +9,7 @@ const PostsList: React.FC = () => {
     const error = useSelector((state: RootState) => getPostsError(state));
 
     let content;
+
     if (postStatus === 'loading') {
         content = <p>Loading...</p>;
     } else if (postStatus === 'succeeded') {
