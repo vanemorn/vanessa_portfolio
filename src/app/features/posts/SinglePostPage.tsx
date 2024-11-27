@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { selectPostById, postDeleted } from './postsSlice';
+import { selectPostById } from './postsSlice';
+import { deletePostFromFirebase } from './postsSlice'; // Firebase delete thunk import
 import { RootState } from './store';
 import TimeAgo from './TimeAgo'; // Keep the time ago feature
 import ReactionButtons from './ReactionButtons'; // Keep reaction buttons
@@ -14,15 +15,18 @@ const SinglePostPage: React.FC = () => {
 
   // If post is not found, show a message
   if (!post) {
-    return <section><h2>Post not found!</h2></section>;
+    return (
+      <section>
+        <h2>Post not found!</h2>
+      </section>
+    );
   }
 
   // Handle deletion of the post
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (postId) {
-      dispatch(postDeleted(postId));
-      // Redirect back to the post list after deletion
-      navigate('/post');
+      await dispatch(deletePostFromFirebase(postId)); // Call Firebase delete thunk
+      navigate('/post'); // Redirect back to the post list after deletion
     }
   };
 
@@ -31,9 +35,9 @@ const SinglePostPage: React.FC = () => {
       <h2>{post.title}</h2>
 
       {/* Render the body as raw HTML */}
-      <div 
-        className="post-body" 
-        dangerouslySetInnerHTML={{ __html: post.body }} 
+      <div
+        className="post-body"
+        dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
       {/* Display the image if the post has a file */}
@@ -50,7 +54,7 @@ const SinglePostPage: React.FC = () => {
       <p className="postCredit">
         <TimeAgo timestamp={post.date} />
       </p>
-      
+
       <ReactionButtons post={post} />
       <button onClick={handleDelete}>Delete Post</button>
     </article>

@@ -1,5 +1,7 @@
 import { createSlice, nanoid, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from './store';
+import { db } from './firebase'; // Firebase Firestore import
+import { collection, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'; // Firestore functions
 
 // Post interface with file support
 export interface Post {
@@ -7,7 +9,7 @@ export interface Post {
   title: string;
   body: string;
   date: string;
-  reactions: { [key: string]: number }; // Ensure reactions are included
+  reactions: { [key: string]: number };
   file?: File | null; // Optional file property
 }
 
@@ -34,20 +36,35 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 // Async action to update a post
 export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
-  const response = await fetch(`${POSTS_URL}/${updatedPost.id}`, {
-    method: 'PUT',
-    body: JSON.stringify(updatedPost),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const postRef = doc(db, 'posts', updatedPost.id); // Firestore document reference
+  await updateDoc(postRef, {
+    title: updatedPost.title,
+    body: updatedPost.body,
+    reactions: updatedPost.reactions,
+    date: updatedPost.date,
   });
-  return response.json(); // Return updated post
+  return updatedPost; // Return the updated post
 });
 
-// Async action to delete a post
-export const deletePost = createAsyncThunk('posts/deletePost', async (postId: string) => {
-  await fetch(`${POSTS_URL}/${postId}`, { method: 'DELETE' });
+// Async action to delete a post from Firebase
+export const deletePostFromFirebase = createAsyncThunk('posts/deletePostFromFirebase', async (postId: string) => {
+  const postRef = doc(db, 'posts', postId); // Firestore document reference
+  await deleteDoc(postRef); // Delete the post from Firestore
   return postId;
+});
+
+// Async action to add a post to Firebase
+export const addPostToFirebase = createAsyncThunk('posts/addPostToFirebase', async (post: Post) => {
+  const postRef = collection(db, 'posts'); // Firestore collection reference
+  const newDocRef = await addDoc(postRef, {
+    title: post.title,
+    body: post.body,
+    date: post.date,
+    reactions: post.reactions,
+  });
+
+  // Return the post with its Firestore ID
+  return { ...post, id: newDocRef.id };
 });
 
 const postsSlice = createSlice({
@@ -121,6 +138,16 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || null;
+      })
+      .addCase(addPostToFirebase.fulfilled, (state, action) => {
+        state.posts.push(action.payload);
+        // Save updated posts to localStorage after adding the post to Firebase
+        localStorage.setItem('posts', JSON.stringify(state.posts));
+      })
+      .addCase(deletePostFromFirebase.fulfilled, (state, action) => {
+        state.posts = state.posts.filter((post) => post.id !== action.payload);
+        // Save updated posts to localStorage after deletion
+        localStorage.setItem('posts', JSON.stringify(state.posts));
       });
   },
 });
