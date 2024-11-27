@@ -33,8 +33,8 @@ const App: React.FC = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
           <Route path="/" element={<PostsList />} />
-            <Route path="post/:postId" element={<SinglePostPage />} />
-            <Route path="post/edit/:postId" element={<EditPostForm />} />
+          <Route path="/posts/:postId" element={<SinglePostPage />} />
+          <Route path="/post/edit/:postId" element={<EditPostForm />} />
         </Routes>
       </div>
     </Router>

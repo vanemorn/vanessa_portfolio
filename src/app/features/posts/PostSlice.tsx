@@ -20,8 +20,33 @@ interface PostsState {
 }
 
 const initialState: PostsState = {
-    posts: [],
-    status: 'idle',
+    posts: [
+        {
+            id: "1",
+            title: "Test Post 1",
+            body: "This is the body of Test Post 1.",
+            date: new Date().toISOString(),
+            userId: "1",
+            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
+        },
+        {
+            id: "2",
+            title: "Test Post 2",
+            body: "This is the body of Test Post 2.",
+            date: new Date().toISOString(),
+            userId: "2",
+            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
+        },
+        {
+            id: "3",
+            title: "Test Post 3",
+            body: "This is the body of Test Post 3.",
+            date: new Date().toISOString(),
+            userId: "3",
+            reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },
+        },
+    ],
+    status: "idle",
     error: null,
 };
 
