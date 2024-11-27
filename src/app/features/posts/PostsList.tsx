@@ -17,6 +17,20 @@ const PostsList: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [fetchError, setFetchError] = useState<string>('');
 
+    // Filter function to remove dummy content
+    const isValidContent = (content: string) => {
+        // Add custom validation for "test" or "sample" content
+        const dummyPatterns = [
+            /test/i, // Match any content with the word 'test'
+            /sample/i, // Match any content with the word 'sample'
+            /placeholder/i, // Match any content with the word 'placeholder'
+            /no content/i, // Match content indicating missing data
+            // Add other patterns or keywords that signify test data here
+        ];
+
+        return !dummyPatterns.some(pattern => pattern.test(content));
+    };
+
     // Fetch posts from GitHub when the component mounts
     useEffect(() => {
         const fetchPostsFromGitHub = async () => {
@@ -29,23 +43,24 @@ const PostsList: React.FC = () => {
                 const postPromises = postsData.map(async (post: any) => {
                     const contentResponse = await axios.get(post.download_url); // Get the raw file content
 
-                    // Only process posts that have non-empty content
-                    if (contentResponse.data && contentResponse.data.trim() !== "") {
+                    // Only process posts that have non-empty content and valid data
+                    const content = contentResponse.data;
+                    if (content && content.trim() !== "" && isValidContent(content)) {
                         return {
                             id: post.sha,  // Using sha or another identifier
                             title: post.name.replace('.md', ''),  // Assuming the name is the title
-                            body: contentResponse.data,  // The post content (Markdown/HTML)
+                            body: content,  // The post content (Markdown/HTML)
                             date: new Date().toISOString(),  // Adjust this if your posts contain date info
                             reactions: { thumbsUp: 0, wow: 0, heart: 0, rocket: 0, coffee: 0 },  // Default reactions
                         };
                     }
-                    return null;  // Skip this post if it's empty or invalid
+                    return null;  // Skip this post if it's empty, invalid, or dummy data
                 });
 
                 // Wait for all post content to be fetched
                 const postsWithContent = await Promise.all(postPromises);
 
-                // Filter out any null posts (empty or invalid)
+                // Filter out any null posts (empty or invalid, including dummy ones)
                 const validPosts = postsWithContent.filter(post => post !== null);
 
                 // Dispatch valid posts to Redux store
