@@ -4,12 +4,11 @@ import { selectPostById } from "./PostSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-import { RootState } from './store';
+import { RootState } from "./store";
 
 const SinglePostPage: React.FC = () => {
     const { postId } = useParams<{ postId: string }>();
 
-    // Ensure postId exists
     if (!postId) {
         return (
             <section>
