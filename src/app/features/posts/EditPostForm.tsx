@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { updatePost, selectPostById } from "./PostSlice";
+import { postUpdated, selectPostById } from "./PostSlice";  // Change updatePost to postUpdated
 import { RootState } from "./store";
 import { AppDispatch } from "./store";
 
@@ -24,7 +24,7 @@ const EditPostForm: React.FC = () => {
   const onSavePostClicked = () => {
     if (postId && title && content) {
       dispatch(
-        updatePost({
+        postUpdated({
           id: postId,
           title,
           body: content,

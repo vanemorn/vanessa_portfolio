@@ -1,9 +1,5 @@
-import { createSlice, nanoid, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
-
-// URL for fetching posts
-const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 // Define the Post type
 export interface Post {
@@ -22,35 +18,57 @@ interface PostsState {
   error: string | null;
 }
 
+// 3 hardcoded posts
 const initialState: PostsState = {
-  posts: [],
+  posts: [
+    {
+      id: nanoid(),
+      title: "First Post",
+      body: "This is the body of the first post.",
+      date: new Date().toISOString(),
+      userId: "1",
+      reactions: {
+        thumbsUp: 0,
+        wow: 0,
+        heart: 0,
+        rocket: 0,
+        coffee: 0,
+      },
+    },
+    {
+      id: nanoid(),
+      title: "Second Post",
+      body: "This is the body of the second post.",
+      date: new Date().toISOString(),
+      userId: "2",
+      reactions: {
+        thumbsUp: 0,
+        wow: 0,
+        heart: 0,
+        rocket: 0,
+        coffee: 0,
+      },
+    },
+    {
+      id: nanoid(),
+      title: "Third Post",
+      body: "This is the body of the third post.",
+      date: new Date().toISOString(),
+      userId: "3",
+      reactions: {
+        thumbsUp: 0,
+        wow: 0,
+        heart: 0,
+        rocket: 0,
+        coffee: 0,
+      },
+    },
+  ],
   status: 'idle',
   error: null,
 };
 
-// Async thunk to fetch posts
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get(POSTS_URL);
-  return response.data.map((post: any) => ({
-    ...post,
-    date: new Date().toISOString(),
-    reactions: {
-      thumbsUp: 0,
-      wow: 0,
-      heart: 0,
-      rocket: 0,
-      coffee: 0,
-    },
-  }));
-});
-
-// Async thunk to update a post
-export const updatePost = createAsyncThunk('posts/updatePost', async (updatedPost: Post) => {
-  const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
-  return response.data;
-});
-
-// Define the posts slice with reducers and extraReducers
+// Define the posts slice with reducers
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
@@ -86,30 +104,18 @@ const postsSlice = createSlice({
         existingPost.reactions[reaction] = (existingPost.reactions[reaction] || 0) + 1;
       }
     },
-  },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchPosts.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchPosts.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.posts = action.payload;
-      })
-      .addCase(fetchPosts.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message || null;
-      })
-      .addCase(updatePost.fulfilled, (state, action) => {
-        const index = state.posts.findIndex((post) => post.id === action.payload.id);
-        if (index !== -1) {
-          state.posts[index] = action.payload;
-        }
-      });
+    // New reducer to update a post
+    postUpdated(state, action: PayloadAction<Post>) {
+      const updatedPost = action.payload;
+      const index = state.posts.findIndex((post) => post.id === updatedPost.id);
+      if (index !== -1) {
+        state.posts[index] = updatedPost;
+      }
+    },
   },
 });
 
-export const { postAdded, reactionAdded } = postsSlice.actions;
+export const { postAdded, reactionAdded, postUpdated } = postsSlice.actions;
 
 export const selectAllPosts = (state: RootState) => state.posts.posts;
 export const getPostsStatus = (state: RootState) => state.posts.status;
