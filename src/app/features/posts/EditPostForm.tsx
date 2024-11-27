@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { postUpdated, selectPostById } from "./PostSlice";  // Change updatePost to postUpdated
+import { postUpdated, selectPostById } from "./PostSlice";  // Corrected import for postUpdated
 import { RootState } from "./store";
 import { AppDispatch } from "./store";
 
@@ -28,9 +28,9 @@ const EditPostForm: React.FC = () => {
           id: postId,
           title,
           body: content,
-          date: post.date,
+          date: post.date, // You can keep the existing date or update it as well
           userId: post.userId,
-          reactions: post.reactions,
+          reactions: post.reactions, // You can also update reactions if necessary
         })
       );
       navigate(`/posts/${postId}`);

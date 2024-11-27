@@ -1,25 +1,27 @@
-// PostsList.tsx
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectAllPosts } from './PostSlice';
-import PostExcerpt from './PostExcerpt'; // Ensure you have the necessary components
-import TimeAgo from './TimeAgo';
-import ReactionButtons from './ReactionButtons';
-import { RootState } from './store';
+import { selectAllPosts } from './PostSlice'; // Import selector to get posts
 
-const PostsList: React.FC = () => {
-  const posts = useSelector((state: RootState) => selectAllPosts(state));
+const PostList: React.FC = () => {
+  const posts = useSelector(selectAllPosts);  // Get posts from the Redux store
 
-  // Only the first 3 posts will be displayed
-  const displayedPosts = posts.slice(0, 3);
-
-  const content = displayedPosts.map((post) => (
-    <PostExcerpt key={post.id} post={post}>
-      <TimeAgo timestamp={post.date} />
-      <ReactionButtons post={post} />
-    </PostExcerpt>
-  ));
-
-  return <section>{content}</section>;
+  return (
+    <section>
+      <h2>Posts</h2>
+      {posts.length > 0 ? (
+        posts.map((post) => (
+          <div key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+            <p>{post.date}</p>
+            <p>User ID: {post.userId}</p>
+          </div>
+        ))
+      ) : (
+        <p>No posts available.</p>
+      )}
+    </section>
+  );
 };
 
-export default PostsList;
+export default PostList;

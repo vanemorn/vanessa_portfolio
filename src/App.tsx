@@ -20,8 +20,6 @@ const App: React.FC = () => {
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
-        <AddPostForm/>
-        <PostsList/>
         {/* Routed paths */}
         <Routes>
           {/* Top-level routes */}
@@ -30,9 +28,12 @@ const App: React.FC = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/videogallery" element={<Videogallery />} />
-          <Route path="/" element={<PostsList />} />
+          <Route path="/blog" element={<Blog />} />
+          
+          {/* Blog routes with posts */}
+          <Route path="/blog" element={<PostsList />} /> {/* Show PostsList only on /blog */}
+          <Route path="/post/new" element={<AddPostForm />} /> {/* Form for creating new post */}
           <Route path="/posts/:postId" element={<SinglePostPage />} />
           <Route path="/post/edit/:postId" element={<EditPostForm />} />
         </Routes>

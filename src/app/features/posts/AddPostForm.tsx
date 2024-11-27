@@ -1,49 +1,50 @@
-// AddPostForm.tsx
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { postAdded } from "./PostSlice"; // Import postAdded action from PostSlice
-import { AppDispatch } from "./store";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { postAdded } from './PostSlice';
 
 const AddPostForm: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [userId, setUserId] = useState('');
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [userId, setUserId] = useState(""); // Added state for userId (author)
-
-  const onSavePostClicked = () => {
+  const handleAddPost = () => {
     if (title && content && userId) {
-      // Dispatch the postAdded action with title, content, and userId (author)
-      dispatch(postAdded(title, content, userId));
-      setTitle(""); // Clear input fields after dispatching
-      setContent("");
-      setUserId("");
+      dispatch(postAdded(title, content, userId)); // Dispatch the action to add a post
+      setTitle('');
+      setContent('');
+      setUserId('');
     }
   };
 
   return (
     <section>
-      <h2>Add a New Post</h2>
+      <h2>Add New Post</h2>
       <form>
         <label htmlFor="postTitle">Title:</label>
         <input
           id="postTitle"
+          type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)} // Update title state
+          onChange={(e) => setTitle(e.target.value)}
         />
+
         <label htmlFor="postContent">Content:</label>
         <textarea
           id="postContent"
           value={content}
-          onChange={(e) => setContent(e.target.value)} // Update content state
+          onChange={(e) => setContent(e.target.value)}
         />
-        <label htmlFor="userId">User ID (Author):</label>
+
+        <label htmlFor="postUserId">User ID:</label>
         <input
-          id="userId"
+          id="postUserId"
+          type="text"
           value={userId}
-          onChange={(e) => setUserId(e.target.value)} // Update userId state (author)
+          onChange={(e) => setUserId(e.target.value)}
         />
-        <button type="button" onClick={onSavePostClicked}>
+
+        <button type="button" onClick={handleAddPost}>
           Save Post
         </button>
       </form>

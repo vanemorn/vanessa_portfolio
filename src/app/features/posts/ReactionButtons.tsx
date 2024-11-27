@@ -1,17 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { reactionAdded } from "./PostSlice";
-import { Post } from "./PostSlice";
+import { reactionAdded } from "./PostSlice"; // Import reactionAdded from PostSlice
+import { Post } from "./PostSlice"; // Import Post type for proper typing
 
 interface ReactionButtonsProps {
-  post: Post;
+  post: Post; // Define the post prop
 }
 
 const ReactionButtons: React.FC<ReactionButtonsProps> = ({ post }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Use Redux dispatch
 
+  // Handle reaction button clicks
   const handleReaction = (reaction: keyof Post['reactions']) => {
-    dispatch(reactionAdded({ postId: post.id, reaction }));
+    dispatch(reactionAdded({ postId: post.id, reaction })); // Dispatch reactionAdded with postId and reaction
   };
 
   return (
