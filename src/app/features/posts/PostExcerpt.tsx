@@ -1,19 +1,26 @@
-import { Post } from "./PostSlice";
-import { ReactNode } from "react";
+import { Link } from 'react-router-dom';
+import PostAuthor from './PostAuthor';
+import TimeAgo from './TimeAgo';
+import ReactionButtons from './ReactionButtons';
+import { Post } from './PostSlice'; // Correctly import the Post type
 
-interface PostExcerptProps {
+interface PostsExcerptProps {
     post: Post;
-    children: ReactNode;
 }
 
-const PostExcerpt: React.FC<PostExcerptProps> = ({ post, children }) => {
+const PostsExcerpt: React.FC<PostsExcerptProps> = ({ post }) => {
     return (
-        <article className="post-excerpt">
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            {children}  {/* Render the TimeAgo and ReactionButtons components here */}
+        <article>
+            <h2>{post.title}</h2>
+            <p className="excerpt">{post.body.substring(0, 75)}...</p>
+            <p className="postCredit">
+                <Link to={`/posts/${post.id}`}>View Post</Link>
+                <PostAuthor userId={post.userId} />
+                <TimeAgo timestamp={post.date} />
+            </p>
+            <ReactionButtons post={post} />
         </article>
     );
 };
 
-export default PostExcerpt;
+export default PostsExcerpt;

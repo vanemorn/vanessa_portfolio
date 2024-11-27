@@ -1,110 +1,143 @@
-import { createSlice, nanoid, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, nanoid, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
+import { RootState } from "./store";
 
-// Define the Post type
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
+
+// Explicitly export the Post interface
 export interface Post {
-  id: string;
-  title: string;
-  body: string;
-  date: string;
-  reactions: { [key: string]: number };
-  userId: string;
+    id: string;
+    title: string;
+    body: string;
+    date: string;
+    userId: string;
+    reactions: { [key: string]: number };  // Ensure reactions are included
 }
 
-// Define the state structure for posts
 interface PostsState {
-  posts: Post[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
+    posts: Post[];
+    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    error: string | null;
 }
 
-// Initial state
 const initialState: PostsState = {
-  posts: [],  // Start with an empty array (no hardcoded posts)
-  status: 'idle',
-  error: null,
+    posts: [],
+    status: 'idle',
+    error: null
 };
-
-// URL for fetching posts (Use your own API or endpoint here)
-const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts'; // Example URL
 
 // Async action to fetch posts
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get(POSTS_URL);  // Replace with your own API endpoint
-  return response.data;  // Return the posts data
+    const response = await axios.get(POSTS_URL);
+    return response.data;
 });
 
-// Define the posts slice
+// Async action to update a post
+export const updatePost = createAsyncThunk(
+    'posts/updatePost',
+    async (updatedPost: Post) => {
+        const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
+        return response.data; // This should return the updated post object
+    }
+);
+
+// Async action to delete a post
+export const deletePost = createAsyncThunk(
+    'posts/deletePost',
+    async (postId: string) => {
+        await axios.delete(`${POSTS_URL}/${postId}`);
+        return postId;
+    }
+);
+
 const postsSlice = createSlice({
-  name: 'posts',
-  initialState,
-  reducers: {
-    // Action to add a post to the list
-    postAdded: {
-      reducer(state, action: PayloadAction<Post>) {
-        state.posts.push(action.payload); // Add the new post to the array
-      },
-      prepare(title: string, content: string, userId: string) {
-        return {
-          payload: {
-            id: nanoid(),  // Generate unique id for the new post
-            title,
-            body: content,
-            date: new Date().toISOString(),
-            userId,
-            reactions: {
-              thumbsUp: 0,
-              wow: 0,
-              heart: 0,
-              rocket: 0,
-              coffee: 0,
+    name: 'posts',
+    initialState,
+    reducers: {
+        postAdded: {
+            reducer(state, action: PayloadAction<Post>) {
+                state.posts.push(action.payload);
             },
-          },
-        };
-      },
+            prepare(title: string, content: string, userId: string) {
+                return {
+                    payload: {
+                        id: nanoid(),
+                        title,
+                        body: content,
+                        date: new Date().toISOString(),
+                        userId,
+                        reactions: {  // Initialize reactions correctly
+                            thumbsUp: 0,
+                            wow: 0,
+                            heart: 0,
+                            rocket: 0,
+                            coffee: 0
+                        }
+                    }
+                };
+            }
+        },
+        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
+            const { postId, reaction } = action.payload;
+            const existingPost = state.posts.find(post => post.id === postId);
+            if (existingPost) {
+                // Ensure reactions exist before updating
+                if (!existingPost.reactions) {
+                    existingPost.reactions = { 
+                        thumbsUp: 0, 
+                        wow: 0, 
+                        heart: 0, 
+                        rocket: 0, 
+                        coffee: 0 
+                    };
+                }
+                existingPost.reactions[reaction]++;  // Increment the reaction
+            }
+        }
     },
-    // Action to update a post (for editing)
-    postUpdated(state, action: PayloadAction<Post>) {
-      const { id, title, body } = action.payload;
-      const existingPost = state.posts.find(post => post.id === id);
-      if (existingPost) {
-        existingPost.title = title;
-        existingPost.body = body;
-      }
-    },
-    // Action to handle reactions (thumbs up, heart, etc.)
-    reactionAdded(state, action: PayloadAction<{ postId: string; reaction: keyof Post['reactions'] }>) {
-      const { postId, reaction } = action.payload;
-      const existingPost = state.posts.find(post => post.id === postId);
-      if (existingPost) {
-        existingPost.reactions[reaction] += 1;
-      }
-    },
-  },
-  // Handle the extra reducers for async actions (fetchPosts)
-  extraReducers: (builder) => {
-    // Fetch posts
-    builder
-      .addCase(fetchPosts.pending, (state) => {
-        state.status = 'loading';  // Set loading status
-      })
-      .addCase(fetchPosts.fulfilled, (state, action) => {
-        state.status = 'succeeded';  // Set succeeded status
-        state.posts = action.payload;  // Save the fetched posts into state
-      })
-      .addCase(fetchPosts.rejected, (state, action) => {
-        state.status = 'failed';  // Set failed status
-        state.error = action.error.message || 'Failed to fetch posts';  // Set error message
-      });
-  },
+    extraReducers(builder) {
+        builder
+            .addCase(fetchPosts.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchPosts.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                // Ensure each post has reactions initialized
+                state.posts = action.payload.map((post: any) => ({
+                    ...post,
+                    reactions: post.reactions || {  // Initialize reactions if not present
+                        thumbsUp: 0,
+                        wow: 0,
+                        heart: 0,
+                        rocket: 0,
+                        coffee: 0
+                    }
+                }));
+            })
+            .addCase(fetchPosts.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = (action.error as Error).message;
+            })
+            .addCase(updatePost.fulfilled, (state, action) => {
+                const index = state.posts.findIndex(post => post.id === action.payload.id);
+                if (index !== -1) {
+                    state.posts[index] = action.payload;  // Update the post with the new data
+                }
+            })
+            .addCase(deletePost.fulfilled, (state, action) => {
+                state.posts = state.posts.filter(post => post.id !== action.payload);  // Remove post
+            });
+    }
 });
 
-// Export actions
-export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
+export const { postAdded: addNewPost, reactionAdded } = postsSlice.actions;
 
-// Selector to access posts from the Redux state
-export const selectAllPosts = (state: { posts: PostsState }) => state.posts.posts;
-export const selectPostById = (state: { posts: PostsState }, postId: string) =>
-  state.posts.posts.find(post => post.id === postId);
+export const selectPostById = (state: RootState, postId: string) =>
+    state.posts.posts.find(post => post.id === postId);
+
+export const getPostsStatus = (state: RootState) => state.posts.status;
+export const getPostsError = (state: RootState) => state.posts.error;
+
+export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;

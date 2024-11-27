@@ -1,27 +1,32 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectAllPosts } from './PostSlice'; // Import selector to get posts
+import { useSelector } from "react-redux";
+import { selectAllPosts, getPostsStatus, getPostsError } from "./PostSlice";
+import PostsExcerpt from "./PostExcerpt";
+import { RootState } from "./store";
 
-const PostList: React.FC = () => {
-  const posts = useSelector(selectAllPosts);  // Get posts from the Redux store
+const PostsList: React.FC = () => {
+    const posts = useSelector((state: RootState) => selectAllPosts(state));
+    const postStatus = useSelector((state: RootState) => getPostsStatus(state));
+    const error = useSelector((state: RootState) => getPostsError(state));
 
-  return (
-    <section>
-      <h2>Posts</h2>
-      {posts.length > 0 ? (
-        posts.map((post) => (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            <p>{post.date}</p>
-            <p>User ID: {post.userId}</p>
-          </div>
-        ))
-      ) : (
-        <p>No posts available.</p>
-      )}
-    </section>
-  );
+    let content;
+    if (postStatus === 'loading') {
+        content = <p>Loading...</p>;
+    } else if (postStatus === 'succeeded') {
+        const orderedPosts = posts.slice().sort((a, b) => {
+            const dateA = a.date || ''; // Provide fallback if no date
+            const dateB = b.date || ''; // Provide fallback if no date
+            return dateB.localeCompare(dateA); // Ensure both dates are strings
+        });
+        content = orderedPosts.map(post => <PostsExcerpt key={post.id} post={post} />);
+    } else if (postStatus === 'failed') {
+        content = <p>{error}</p>;
+    }
+
+    return (
+        <section>
+            {content}
+        </section>
+    );
 };
 
-export default PostList;
+export default PostsList;
