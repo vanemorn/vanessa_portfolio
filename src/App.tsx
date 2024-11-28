@@ -5,8 +5,6 @@ import { fetchPosts } from './app/features/posts/PostSlice';
 
 import PostsList from './app/features/posts/PostsList';
 import AddPostForm from './app/features/posts/AddPostForm';
-import SinglePostPage from './app/features/posts/SinglePostPage';
-import EditPostForm from './app/features/posts/EditPostForm';
 
 // Importing pages
 import Home from './Pages/Home';
@@ -40,12 +38,6 @@ const App: React.FC = () => {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/videogallery" element={<Videogallery />} />
-
-            {/* Post-related routes */}
-            <Route path="/blog/posts" element={<PostsList />} />
-            <Route path="/post/:postId" element={<SinglePostPage />} />
-            <Route path="/post/edit/:postId" element={<EditPostForm />} />
-            <Route path="/post/add" element={<AddPostForm />} />
           </Routes>
         
       </div>
