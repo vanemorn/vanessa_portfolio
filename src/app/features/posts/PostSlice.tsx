@@ -58,8 +58,8 @@ const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        // Add new post
-        postAdded: {
+        // Add new post action
+        addNewPost: {
             reducer(state, action: PayloadAction<Post>) {
                 state.posts.push(action.payload);
             },
@@ -136,14 +136,15 @@ const postsSlice = createSlice({
     }
 });
 
-export const { postAdded, reactionAdded } = postsSlice.actions;
+// Export actions, including the new 'addNewPost'
+export const { addNewPost, reactionAdded } = postsSlice.actions;
 
+// Selectors
 export const selectPostById = (state: RootState, postId: string) =>
     state.posts.posts.find(post => post.id === postId);
 
 export const getPostsStatus = (state: RootState) => state.posts.status;
 export const getPostsError = (state: RootState) => state.posts.error;
-
 export const selectAllPosts = (state: RootState) => state.posts.posts;
 
 export default postsSlice.reducer;
