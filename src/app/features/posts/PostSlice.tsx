@@ -1,17 +1,16 @@
-import { createSlice, nanoid, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { RootState } from './store';
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
+import { RootState } from "./store";
 
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
 
-// Explicitly export the Post interface
 export interface Post {
     id: string;
     title: string;
     body: string;
     date: string;
     userId: string;
-    reactions: { [key: string]: number }; // Ensure reactions are included
+    reactions: { [key: string]: number };
 }
 
 interface PostsState {
@@ -26,22 +25,22 @@ const initialState: PostsState = {
     error: null
 };
 
-// Async action to fetch posts
+// Fetch posts asynchronously
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
     const response = await axios.get(POSTS_URL);
     return response.data;
 });
 
-// Async action to update a post
+// Update post asynchronously
 export const updatePost = createAsyncThunk(
     'posts/updatePost',
     async (updatedPost: Post) => {
         const response = await axios.put(`${POSTS_URL}/${updatedPost.id}`, updatedPost);
-        return response.data; // This should return the updated post object
+        return response.data;
     }
 );
 
-// Async action to delete a post
+// Delete post asynchronously
 export const deletePost = createAsyncThunk(
     'posts/deletePost',
     async (postId: string) => {
@@ -61,7 +60,7 @@ const postsSlice = createSlice({
             prepare(title: string, content: string, userId: string) {
                 return {
                     payload: {
-                        id: nanoid(),
+                        id: new Date().toISOString(), // Unique ID
                         title,
                         body: content,
                         date: new Date().toISOString(),
@@ -76,23 +75,6 @@ const postsSlice = createSlice({
                     }
                 };
             }
-        },
-        reactionAdded(state, action: PayloadAction<{ postId: string; reaction: string }>) {
-            const { postId, reaction } = action.payload;
-            const existingPost = state.posts.find(post => post.id === postId);
-            if (existingPost) {
-                // Ensure reactions exist before updating
-                if (!existingPost.reactions) {
-                    existingPost.reactions = {
-                        thumbsUp: 0,
-                        wow: 0,
-                        heart: 0,
-                        rocket: 0,
-                        coffee: 0
-                    };
-                }
-                existingPost.reactions[reaction]++; // Increment the reaction
-            }
         }
     },
     extraReducers(builder) {
@@ -102,34 +84,25 @@ const postsSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.posts = action.payload.map((post: any) => ({
-                    ...post,
-                    reactions: post.reactions || {
-                        thumbsUp: 0,
-                        wow: 0,
-                        heart: 0,
-                        rocket: 0,
-                        coffee: 0
-                    }
-                }));
+                state.posts = action.payload;
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = (action.error as Error).message;
+                state.error = action.error.message || 'Failed to fetch posts';
             })
             .addCase(updatePost.fulfilled, (state, action) => {
                 const index = state.posts.findIndex(post => post.id === action.payload.id);
                 if (index !== -1) {
-                    state.posts[index] = action.payload; // Update the post with the new data
+                    state.posts[index] = action.payload;
                 }
             })
             .addCase(deletePost.fulfilled, (state, action) => {
-                state.posts = state.posts.filter(post => post.id !== action.payload); // Remove post
+                state.posts = state.posts.filter(post => post.id !== action.payload);
             });
     }
 });
 
-export const { postAdded: addNewPost, reactionAdded } = postsSlice.actions;
+export const { postAdded } = postsSlice.actions;
 
 export const selectPostById = (state: RootState, postId: string) =>
     state.posts.posts.find(post => post.id === postId);

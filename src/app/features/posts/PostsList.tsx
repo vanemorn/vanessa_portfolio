@@ -13,9 +13,7 @@ const PostsList: React.FC = () => {
         content = <p>Loading...</p>;
     } else if (postStatus === 'succeeded') {
         const orderedPosts = posts.slice().sort((a, b) => {
-            const dateA = a.date || ''; // Provide fallback if no date
-            const dateB = b.date || ''; // Provide fallback if no date
-            return dateB.localeCompare(dateA); // Ensure both dates are strings
+            return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
         content = orderedPosts.map(post => <PostsExcerpt key={post.id} post={post} />);
     } else if (postStatus === 'failed') {

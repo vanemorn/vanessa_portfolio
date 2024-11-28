@@ -3,12 +3,11 @@ import { selectPostById, getPostsStatus, getPostsError } from "./PostSlice";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { RootState } from './store';
 
 const SinglePostPage: React.FC = () => {
-    const { postId } = useParams<{ postId: string }>(); // Get postId from the URL params
+    const { postId } = useParams<{ postId: string }>();
     const postStatus = useSelector(getPostsStatus);
     const postError = useSelector(getPostsError);
 
@@ -22,6 +21,7 @@ const SinglePostPage: React.FC = () => {
 
     const post = useSelector((state: RootState) => selectPostById(state, postId));
 
+    // Handling loading and error states
     if (postStatus === 'loading') {
         return (
             <section>
@@ -51,7 +51,7 @@ const SinglePostPage: React.FC = () => {
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p className="postCredit">
-                <Link to={`/posts/edit/${post.id}`}>Edit Post</Link> {/* Link to edit post */}
+                <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
                 <PostAuthor userId={post.userId} />
                 <TimeAgo timestamp={post.date} />
             </p>

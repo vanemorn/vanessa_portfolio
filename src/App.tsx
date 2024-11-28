@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostsList from "./app/features/posts/PostsList";
-import AddPostForm from "./app/features/posts/AddPostForm";
-import SinglePostPage from "./app/features/posts/SinglePostPage";
-import EditPostForm from "./app/features/posts/EditPostForm";
-import Layout from "./components/layout";
-
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchPosts } from './app/features/posts/PostSlice';
+
+import PostsList from './app/features/posts/PostsList';
+import AddPostForm from './app/features/posts/AddPostForm';
+import SinglePostPage from './app/features/posts/SinglePostPage';
+import EditPostForm from './app/features/posts/EditPostForm';
 
 // Importing pages
 import Home from './Pages/Home';
@@ -21,41 +19,33 @@ import Videogallery from './Pages/Videogallery';
 
 import './App.css'; // CSS File
 
-
-
 const App: React.FC = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(fetchPosts());  // Dispatch the fetchPosts action to get the posts
+    dispatch(fetchPosts());  // Dispatch the fetchPosts action to get the posts when the app loads
   }, [dispatch]);
 
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
-        <AddPostForm/>
-        {/* Routed paths */}
-        <Routes>
-          {/* Top-level routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/videogallery" element={<Videogallery />} />
+          <Routes>
+            {/* Top-level routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/videogallery" element={<Videogallery />} />
 
-          {/* Layout and post routes */}
-          <Route path="/" element={<Layout />}>
-            <Route path="post">
-            <Route path="/" element={<PostsList />} />
-            <Route path="/posts/:postId" element={<SinglePostPage />} />
-            <Route path="/posts/edit/:postId" element={<EditPostForm />} />
-            </Route>
-          </Route>
-
-        </Routes>
+            {/* Post-related routes */}
+            <Route path="/blog/posts" element={<PostsList />} />
+            <Route path="/post/:postId" element={<SinglePostPage />} />
+            <Route path="/post/edit/:postId" element={<EditPostForm />} />
+            <Route path="/post/add" element={<AddPostForm />} />
+          </Routes>
+        
       </div>
     </Router>
   );
