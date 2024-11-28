@@ -29,6 +29,8 @@ const App: React.FC = () => {
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className="app-container">
+        <PostsList/>
+        <AddPostForm/>
           <Routes>
             {/* Top-level routes */}
             <Route path="/" element={<Home />} />
