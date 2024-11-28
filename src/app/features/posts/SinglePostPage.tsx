@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { RootState } from './store';
 
 const SinglePostPage: React.FC = () => {
-    const { postId } = useParams<{ postId: string }>();
+    const { postId } = useParams<{ postId: string }>(); // Get postId from the URL params
     const postStatus = useSelector(getPostsStatus);
     const postError = useSelector(getPostsError);
 
@@ -51,7 +51,7 @@ const SinglePostPage: React.FC = () => {
             <h2>{post.title}</h2>
             <p>{post.body}</p>
             <p className="postCredit">
-                <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+                <Link to={`/posts/edit/${post.id}`}>Edit Post</Link> {/* Link to edit post */}
                 <PostAuthor userId={post.userId} />
                 <TimeAgo timestamp={post.date} />
             </p>

@@ -1,6 +1,6 @@
-import { createSlice, nanoid, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
-import { RootState } from "./store";
+import { createSlice, nanoid, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { RootState } from './store';
 
 const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -11,7 +11,7 @@ export interface Post {
     body: string;
     date: string;
     userId: string;
-    reactions: { [key: string]: number };  // Ensure reactions are included
+    reactions: { [key: string]: number }; // Ensure reactions are included
 }
 
 interface PostsState {
@@ -66,7 +66,7 @@ const postsSlice = createSlice({
                         body: content,
                         date: new Date().toISOString(),
                         userId,
-                        reactions: {  // Initialize reactions correctly
+                        reactions: {
                             thumbsUp: 0,
                             wow: 0,
                             heart: 0,
@@ -83,15 +83,15 @@ const postsSlice = createSlice({
             if (existingPost) {
                 // Ensure reactions exist before updating
                 if (!existingPost.reactions) {
-                    existingPost.reactions = { 
-                        thumbsUp: 0, 
-                        wow: 0, 
-                        heart: 0, 
-                        rocket: 0, 
-                        coffee: 0 
+                    existingPost.reactions = {
+                        thumbsUp: 0,
+                        wow: 0,
+                        heart: 0,
+                        rocket: 0,
+                        coffee: 0
                     };
                 }
-                existingPost.reactions[reaction]++;  // Increment the reaction
+                existingPost.reactions[reaction]++; // Increment the reaction
             }
         }
     },
@@ -102,10 +102,9 @@ const postsSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                // Ensure each post has reactions initialized
                 state.posts = action.payload.map((post: any) => ({
                     ...post,
-                    reactions: post.reactions || {  // Initialize reactions if not present
+                    reactions: post.reactions || {
                         thumbsUp: 0,
                         wow: 0,
                         heart: 0,
@@ -121,11 +120,11 @@ const postsSlice = createSlice({
             .addCase(updatePost.fulfilled, (state, action) => {
                 const index = state.posts.findIndex(post => post.id === action.payload.id);
                 if (index !== -1) {
-                    state.posts[index] = action.payload;  // Update the post with the new data
+                    state.posts[index] = action.payload; // Update the post with the new data
                 }
             })
             .addCase(deletePost.fulfilled, (state, action) => {
-                state.posts = state.posts.filter(post => post.id !== action.payload);  // Remove post
+                state.posts = state.posts.filter(post => post.id !== action.payload); // Remove post
             });
     }
 });

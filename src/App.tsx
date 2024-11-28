@@ -52,9 +52,9 @@ const App: React.FC = () => {
 
             {/* Routes for the Post CRUD operations */}
             <Route path="post">
-              <Route index element={<AddPostForm />} /> {/* Add Post form */}
-              <Route path=":postId" element={<SinglePostPage />} /> {/* Single post view */}
-              <Route path="edit/:postId" element={<EditPostForm />} /> {/* Edit post form */}
+            <Route path="/" element={<PostsList />} />
+            <Route path="/posts/:postId" element={<SinglePostPage />} />
+            <Route path="/posts/edit/:postId" element={<EditPostForm />} />
             </Route>
           </Route>
 
