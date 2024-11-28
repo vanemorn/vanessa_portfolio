@@ -1,44 +1,31 @@
-import { useDispatch } from "react-redux";
-import { reactionAdded } from "./PostSlice";
-import { Post } from "./PostSlice";
+// src/app/features/posts/ReactionButtons.tsx
 
-interface ReactionButtonsProps {
-    post: Post;
+import { useDispatch } from "react-redux";
+import { reactionAdded } from "./PostSlice"; // Make sure this import is correct
+import { Post } from "./PostSlice"; // Import Post type if needed
+
+interface ReactionButtonProps {
+  post: Post;
 }
 
-const reactionEmoji: { [key: string]: string } = {
-    thumbsUp: '👍',
-    wow: '😮',
-    heart: '❤️',
-    rocket: '🚀',
-    coffee: '☕'
-};
+const ReactionButtons: React.FC<ReactionButtonProps> = ({ post }) => {
+  const dispatch = useDispatch();
 
-const ReactionButtons: React.FC<ReactionButtonsProps> = ({ post }) => {
-    const dispatch = useDispatch();
+  const reactions = ['thumbsUp', 'heart', 'wow', 'rocket', 'coffee'];
 
-    // Ensure that reactions is initialized and safe to access
-    const reactions = post.reactions || {  // Provide a fallback in case reactions is undefined
-        thumbsUp: 0,
-        wow: 0,
-        heart: 0,
-        rocket: 0,
-        coffee: 0
-    };
+  const onReactionClick = (reaction: string) => {
+    dispatch(reactionAdded({ postId: post.id, reaction }));
+  };
 
-    // Generate buttons for each reaction type
-    const reactionButtons = Object.entries(reactionEmoji).map(([name, emoji]) => (
-        <button
-            key={name}
-            type="button"
-            className="reactionButton"
-            onClick={() => dispatch(reactionAdded({ postId: post.id, reaction: name }))}
-        >
-            {emoji} {reactions[name]}  {/* Safely access reaction count */}
+  return (
+    <div>
+      {reactions.map(reaction => (
+        <button key={reaction} onClick={() => onReactionClick(reaction)}>
+          {reaction} {post.reactions[reaction]}
         </button>
-    ));
-
-    return <div>{reactionButtons}</div>;
+      ))}
+    </div>
+  );
 };
 
 export default ReactionButtons;
