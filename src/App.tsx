@@ -48,9 +48,6 @@ const App: React.FC = () => {
 
           {/* Layout and post routes */}
           <Route path="/" element={<Layout />}>
-            <Route index element={<PostsList />} /> {/* Default post listing page */}
-
-            {/* Routes for the Post CRUD operations */}
             <Route path="post">
             <Route path="/" element={<PostsList />} />
             <Route path="/posts/:postId" element={<SinglePostPage />} />
