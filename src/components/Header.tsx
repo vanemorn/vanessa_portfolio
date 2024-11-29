@@ -21,11 +21,6 @@ const Header: React.FC = () => {
         </Link>
       </div>
 
-      {/* Hamburger Menu Button */}
-      <button className="dropdown-toggle" onClick={toggleDropdown}>
-        ☰ {/* Hamburger Menu Icon */}
-      </button>
-
       {/* Navigation Links */}
       <nav className={`menu ${isDropdownOpen ? 'show' : ''}`}>
         <Link to="/About" onClick={toggleDropdown}>About</Link>
@@ -45,6 +40,12 @@ const Header: React.FC = () => {
       <div className="theme-switcher-container">
         <ThemeSwitcher />
       </div>
+
+       {/* Hamburger Menu Button */}
+       <button className="dropdown-toggle" onClick={toggleDropdown}>
+        ☰ {/* Hamburger Menu Icon */}
+      </button>
+      
     </header>
   );
 };

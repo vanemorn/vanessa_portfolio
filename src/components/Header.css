@@ -3,7 +3,7 @@
   display: flex;
   align-items: center; 
   justify-content: space-between; 
-  padding: 0 20px; /* Removed top padding, keep left and right padding */
+  padding: 20 20px; /* Removed top padding, keep left and right padding */
   background-color: #F1F0EC;
   margin: 0; /* Ensure no margin at the top */
 }
@@ -34,6 +34,7 @@
   margin: 10px 0; /* Adjust spacing between menu items */
   transition: color 0.3s;
   text-decoration: none;
+  text-align: center;
 }
 
 .menu a:hover {
@@ -61,7 +62,7 @@
 
 /* Add styles for the Theme Switcher container */
 .theme-switcher-container {
-  margin-left: 20px; /* Space between the CV button and theme switcher */
+  margin-left: 10px; /* Space between the CV button and theme switcher */
 }
 
 /* Hamburger button */
