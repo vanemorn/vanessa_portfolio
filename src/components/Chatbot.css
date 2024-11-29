@@ -85,6 +85,11 @@
   margin: 0;
   color: #333; /* Dark gray text */
   margin-bottom: 8px;
+  white-space: nowrap; /* Prevent text from wrapping onto the next line */
+  overflow: hidden;
+  display: inline-block;
+  width: 0;
+  animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Typing and blinking cursor */
 }
 
 .message strong {
@@ -92,9 +97,19 @@
 }
 
 /* Typing animation */
-.bot-typing {
-  font-style: italic;
-  color: #555; /* Ensure typing text is visible */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 /* Chatbot footer with input and send button */
@@ -177,4 +192,11 @@
 
 .chatbot-content a:hover {
   text-decoration: underline; /* Underline on hover */
+}
+
+/* Add horizontal gray line between each question and answer */
+.message + .message {
+  border-top: 1px solid #ccc; /* Light gray line */
+  padding-top: 10px;
+  margin-top: 10px;
 }
