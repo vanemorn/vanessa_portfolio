@@ -165,33 +165,16 @@
   color: #1d1d1d; /* Blue for user's messages */
 }
 
-.chatbot-content ul {
-  list-style-type: disc; /* Default bullet points */
-  padding-left: 20px; /* Add some left padding to indent the list */
-  margin-bottom: 10px; /* Space between list and other content */
+/* Styling for multi-line messages */
+.message p {
+  display: block; /* Ensure the message is block-level so that multi-line messages work */
+  overflow: hidden;
+  white-space: normal; /* Allow text to wrap onto new lines */
 }
 
-/* Style for ordered lists (ol) */
-.chatbot-content ol {
-  list-style-type: decimal; /* Numbered list style */
-  padding-left: 20px; /* Add some left padding */
-  margin-bottom: 10px; /* Space between list and other content */
-}
-
-/* Style for list items (li) */
-.chatbot-content li {
-  margin-bottom: 5px; /* Space between list items */
-  font-size: 14px; /* Adjust font size for list items */
-}
-
-/* Optional: Style for anchor tags inside lists */
-.chatbot-content a {
-  color: #007bff; /* Blue color for links */
-  text-decoration: none; /* Remove underline */
-}
-
-.chatbot-content a:hover {
-  text-decoration: underline; /* Underline on hover */
+/* Add a delay for the answer to appear after the question */
+.message.answer p {
+  animation: typing 2s steps(30) 3s forwards, blink 0.75s step-end infinite; /* Answer starts after 3s */
 }
 
 /* Add horizontal gray line between each question and answer */
