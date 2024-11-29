@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import './ScrollingBand.css';
 
 const expertiseAreas: string[] = [
@@ -13,19 +12,11 @@ const expertiseAreas: string[] = [
 
 const ScrollingBand: React.FC = () => {
   // Duplicate the expertise areas to create the loop effect
-  const expertiseToDisplay = [...expertiseAreas, ...expertiseAreas]; // This duplicates the array
+  const expertiseToDisplay = [...expertiseAreas, ...expertiseAreas]; // Duplicate the array for seamless scrolling
 
   return (
     <div className="scrolling-band-wrapper">
-      <motion.div
-        className="scrolling-band"
-        animate={{ x: '-100%' }}
-        transition={{
-          repeat: Infinity,
-          duration: 10,
-          ease: 'linear',
-        }}
-      >
+      <div className="scrolling-band">
         {expertiseToDisplay.map((expertise, index) => (
           <React.Fragment key={index}>
             <div className="expertise-item">{expertise}</div>
@@ -34,7 +25,7 @@ const ScrollingBand: React.FC = () => {
             )}
           </React.Fragment>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

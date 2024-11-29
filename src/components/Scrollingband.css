@@ -1,20 +1,21 @@
 .scrolling-band-wrapper {
     width: 100%;
-    overflow: hidden; /* Hide overflow to keep it clean */
-    background-color: #D5DA26; /* Light background for contrast */
+    overflow: hidden; /* Hide the overflow to keep it clean */
+    background-color: #D5DA26; /* Background color for contrast */
     padding: 20px 0;
   }
   
   .scrolling-band {
     display: flex;
     white-space: nowrap;
-    justify-content: center;
+    justify-content: flex-start; /* Align the content to the left */
     align-items: center;
+    animation: scrolling 20s linear infinite; /* Smooth and continuous scrolling */
   }
   
   .expertise-item {
     display: inline-block;
-    font-size: 24px; /* Base font size for the expertise area */
+    font-size: 24px; /* Font size for the expertise area */
     text-align: center;
     margin: 0 15px;
   }
@@ -22,10 +23,21 @@
   .separator {
     font-size: 30px; /* Make the separator larger */
     margin: 0 10px;
-    color: #242424; /* Light color for the separator */
+    color: #242424; /* Darker color for the separator */
   }
   
-  .scrolling-band:hover {
+  /* Keyframes for smooth infinite scrolling */
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Scroll all content to the left */
+    }
+  }
+  
+  /* Pause animation when hovering over the scrolling band */
+  .scrolling-band-wrapper:hover .scrolling-band {
     animation-play-state: paused;
   }
   
