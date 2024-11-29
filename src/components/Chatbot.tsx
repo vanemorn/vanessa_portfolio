@@ -83,21 +83,46 @@ const Chatbot: React.FC = () => {
 
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    setConversation([
-      ...conversation,
+    setConversation((prev) => [
+      ...prev,
       { user: question, bot: '' }, // Add the question and an empty bot response initially
     ]);
 
     // Simulate bot's typing effect for the answer
     if (typeof answer === 'string') {
       simulateTyping(answer, () => {
-        setConversation((prev) => [...prev, { user: question, bot: answer }]);
+        setConversation((prev) => [
+          ...prev,
+          { user: question, bot: answer },
+          { user: '', bot: showQuestionButtons() }, // Re-show buttons after answer
+        ]);
       });
     } else {
-      setConversation((prev) => [...prev, { user: question, bot: answer }]);
+      setConversation((prev) => [
+        ...prev,
+        { user: question, bot: answer },
+        { user: '', bot: showQuestionButtons() }, // Re-show buttons after answer
+      ]);
     }
 
     setShowButtons(false); // Hide buttons after a question is asked and answered
+  };
+
+  // Function to show the question buttons
+  const showQuestionButtons = () => {
+    return (
+      <div className="question-buttons">
+        {defaultQuestions.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => handleQuestionClick(item.question, item.answer)}
+            className="question-btn"
+          >
+            {item.question}
+          </button>
+        ))}
+      </div>
+    );
   };
 
   // Show the initial greeting with typing effect when the window is opened
@@ -109,19 +134,7 @@ const Chatbot: React.FC = () => {
           ...prev,
           {
             user: '',
-            bot: (
-              <div className="question-buttons">
-                {defaultQuestions.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleQuestionClick(item.question, item.answer)}
-                    className="question-btn"
-                  >
-                    {item.question}
-                  </button>
-                ))}
-              </div>
-            ),
+            bot: showQuestionButtons(), // Show the question buttons after greeting
           },
         ]);
       });
@@ -148,8 +161,8 @@ const Chatbot: React.FC = () => {
           <div className="chatbot-content">
             {conversation.map((msg, index) => (
               <div key={index} className="message">
-                <p><strong>You:</strong> {msg.user}</p>
-                <p><strong>Bot:</strong> {msg.bot}</p>
+                {msg.user && <p><strong>You:</strong> {msg.user}</p>}
+                {msg.bot && <p><strong>Bot:</strong> {msg.bot}</p>}
               </div>
             ))}
             {botMessage && (
@@ -159,19 +172,7 @@ const Chatbot: React.FC = () => {
             )}
           </div>
           <div className="chatbot-footer">
-            {showButtons && (
-              <div className="question-buttons">
-                {defaultQuestions.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleQuestionClick(item.question, item.answer)}
-                    className="question-btn"
-                  >
-                    {item.question}
-                  </button>
-                ))}
-              </div>
-            )}
+            {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
           </div>
         </div>
       )}
