@@ -96,3 +96,9 @@
 .reactions button:hover {
   transform: scale(1.2);
 }
+
+.reaction-count {
+  font-weight: bold;
+  color: #000; /* Choose a contrasting color */
+  margin-left: 5px; /* Adds space between emoji and the number */
+}

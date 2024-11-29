@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Post.css';
+import './Post.css'; // Ensure your CSS file is linked properly
 
 // Define Comment and Post interfaces
 interface Comment {
@@ -130,11 +130,9 @@ const Post: React.FC = () => {
             <p>{timeAgo(comment.timestamp)}</p> {/* Time ago for each comment */}
             <div className="reactions">
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
-                <button
-                  key={emoji}
-                  onClick={() => handleAddReaction(comment.id, emoji)} // Add reaction on click
-                >
-                  {emoji} {comment.reactions[emoji]} {/* Display count of reactions for each emoji */}
+                <button key={emoji} onClick={() => handleAddReaction(comment.id, emoji)}>
+                  {emoji}
+                  <span className="reaction-count">{comment.reactions[emoji]}</span> {/* Display count with styling */}
                 </button>
               ))}
             </div>
