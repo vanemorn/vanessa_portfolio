@@ -85,8 +85,9 @@
 .btn {
   background-color: #D5DA26; /* Red background */
   color: #242424; /* White text */
-  padding: 10px 20px; /* Add padding */
-  border-radius: 30px; /* Rounded corners */
+  border: #242424;
+  border-width: 2px;
+  padding: 25px 25px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
