@@ -76,9 +76,10 @@
   font-size: 14px;
   display: flex;
   flex-direction: column-reverse; /* Ensure messages are shown from the bottom */
-  height: 100%; /* Ensure it fills the container */
+  height: calc(100% - 60px); /* Allow space for header/footer */
 }
 
+/* Message style */
 .message p {
   margin: 0;
   color: #333; /* Dark gray text */

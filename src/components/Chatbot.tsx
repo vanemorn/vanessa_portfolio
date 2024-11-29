@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]);
-  const [showButtons, setShowButtons] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
+  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Conversation state
+  const [showButtons, setShowButtons] = useState(false); // State to control button visibility
   
-  const chatContentRef = useRef<HTMLDivElement>(null);
+  const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content
 
+  // Predefined questions and answers
   const defaultQuestions = [
     {
       question: 'What graphic design services do you offer?',
@@ -61,54 +62,36 @@ const Chatbot: React.FC = () => {
     },
   ];
 
+  // Function to toggle chatbot state
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
-      setConversation([]);
-      setShowButtons(false);
+      setConversation([]); // Clear conversation when opening the chatbot
+      setShowButtons(false); // Hide buttons when the window is opened
     }
   };
 
-  const simulateTyping = (message: string, callback: () => void) => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setConversation((prev) => {
-        const updatedConversation = [...prev];
-        updatedConversation[updatedConversation.length - 1] = { user: '', bot: message.slice(0, index + 1) };
-        return updatedConversation;
-      });
-      index++;
-      if (index === message.length) {
-        clearInterval(interval);
-        callback();
-      }
-    }, 50);
-  };
-
+  // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    setConversation((prev) => [
-      ...prev,
-      { user: question, bot: '' }, 
-    ]);
-
-    if (typeof answer === 'string') {
-      simulateTyping(answer, () => {
-        setConversation((prev) => [
-          ...prev,
-          { user: question, bot: answer },
-          { user: '', bot: showQuestionButtons() },
-        ]);
-      });
-    } else {
+    // Prevent adding the same question twice to the conversation
+    if (conversation[conversation.length - 1]?.user !== question) {
       setConversation((prev) => [
         ...prev,
-        { user: question, bot: answer },
-        { user: '', bot: showQuestionButtons() },
+        { user: question, bot: '' }, // Add the question and an empty bot response initially
       ]);
     }
-    setShowButtons(false);
+
+    // Add the answer directly to the conversation (no typing effect)
+    setConversation((prev) => [
+      ...prev,
+      { user: question, bot: answer },
+      { user: '', bot: showQuestionButtons() }, // Re-show buttons after answer
+    ]);
+
+    setShowButtons(false); // Hide buttons after a question is asked and answered
   };
 
+  // Function to show the question buttons
   const showQuestionButtons = () => {
     return (
       <div className="question-buttons">
@@ -125,24 +108,20 @@ const Chatbot: React.FC = () => {
     );
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      setConversation([]); 
-      simulateTyping('Hi there! How can I help you today?', () => {
-        setConversation((prev) => [
-          ...prev,
-          { user: '', bot: 'Hi there! How can I help you today?' }, 
-        ]);
-        setShowButtons(true);
-      });
-    }
-  }, [isOpen]);
-
+  // Scroll to the bottom every time the conversation is updated
   useEffect(() => {
     if (chatContentRef.current) {
       chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
     }
   }, [conversation]);
+
+  // Show the initial greeting immediately when the chatbot is opened
+  useEffect(() => {
+    if (isOpen) {
+      setConversation([{ user: '', bot: 'Hi there! How can I help you today?' }]);
+      setShowButtons(true); // Show the question buttons after greeting
+    }
+  }, [isOpen]);
 
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
