@@ -101,3 +101,8 @@
 .nav-links a:hover {
   color: #FFD700; /* Gold color on hover */
 }
+
+/* Add styles for the Theme Switcher container */
+.theme-switcher-container {
+  margin-left: 20px; /* Space between the CV button and theme switcher */
+}

@@ -43,7 +43,7 @@ const App: React.FC = () => {
       <div className="app-container">
         {/* Include Header Component */}
         <Header toggleDropdown={toggleDropdown} isDropdownOpen={isDropdownOpen} />
-
+        
         {/* Include ThemeSwitcher */}
         <ThemeSwitcher /> {/* Ensure the ThemeSwitcher is rendered here */}
         
