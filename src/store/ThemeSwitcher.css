@@ -11,21 +11,44 @@
   z-index: 1000;
 }
 
+/* The toggle button */
 .theme-switcher-button {
-  background-color: transparent;
+  background-color: #ddd; /* light gray background in default (light mode) */
+  border-radius: 30px; /* Round button */
   border: none;
   cursor: pointer;
   padding: 10px;
-  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+  height: 25px;
+  position: relative;
+  transition: background-color 0.3s ease;
 }
 
-.theme-switcher-button:hover {
-  transform: scale(1.2);
+/* The moving circle inside the toggle */
+.theme-switcher-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #333; /* dark circle color in light mode */
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.icon {
-  width: 30px;
-  height: 30px;
+/* When dark mode is enabled, modify styles */
+.theme-switcher-button.dark {
+  background-color: #ddd; /* light gray background in dark mode */
+}
+
+.theme-switcher-button.dark::before {
+  background-color: #333; /* dark circle color in dark mode */
+  transform: translateY(-50%) translateX(25px); /* move the circle to the right */
 }
 
 /* Light theme styles */
@@ -38,16 +61,14 @@
   background-color: #333;
 }
 
-/* You can add further styles for page elements that change based on theme */
-
-/* Global light theme */
+/* Global light theme styles */
 body.light-mode {
   background-color: #fff;
   color: #333;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Global dark theme */
+/* Global dark theme styles */
 body.dark-mode {
   background-color: #333;
   color: #fff;

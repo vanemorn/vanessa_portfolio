@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react';
 import './ThemeSwitcher.css'; // import the CSS for the theme switcher
 
-// Import SVGs as React components
-import { ReactComponent as DayIcon } from '../assets/lightmode.svg';
-import { ReactComponent as NightIcon } from '../assets/darkmode.svg';
-
 const ThemeSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -27,11 +23,7 @@ const ThemeSwitcher = () => {
   return (
     <div className={`theme-switcher ${isDarkMode ? 'dark' : 'light'}`}>
       <button onClick={toggleTheme} className="theme-switcher-button">
-        {isDarkMode ? (
-          <NightIcon className="icon" />
-        ) : (
-          <DayIcon className="icon" />
-        )}
+        {isDarkMode ? '🌙' : '☀️'}
       </button>
     </div>
   );
