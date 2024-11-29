@@ -65,6 +65,7 @@ const Chatbot: React.FC = () => {
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
     setConversation([]); // Clear conversation when toggling open
+    setShowButtons(false); // Hide buttons when closing the chat
   };
 
   // Function to simulate typing effect
@@ -87,31 +88,16 @@ const Chatbot: React.FC = () => {
       { user: question, bot: '' }, // Add the question and an empty bot response initially
     ]);
 
+    // Simulate bot's typing effect for the answer
     if (typeof answer === 'string') {
-      simulateTyping(answer, () => {});
+      simulateTyping(answer, () => {
+        setConversation((prev) => [...prev, { user: question, bot: answer }]);
+      });
     } else {
-      setBotMessage(''); // Clear bot message initially if it's JSX content
+      setConversation((prev) => [...prev, { user: question, bot: answer }]);
     }
 
-    // After the message is typed, show the default question buttons again
-    setTimeout(() => {
-      setConversation((prev) => [
-        ...prev,
-        { user: '', bot: (
-          <div className="question-buttons">
-            {defaultQuestions.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => handleQuestionClick(item.question, item.answer)}
-                className="question-btn"
-              >
-                {item.question}
-              </button>
-            ))}
-          </div>
-        )}, // Re-add question buttons after response
-      ]);
-    }, 1000); // Wait before showing question buttons again
+    setShowButtons(false); // Hide buttons after a question is asked and answered
   };
 
   // Show the initial greeting with typing effect when the window is opened
@@ -119,15 +105,25 @@ const Chatbot: React.FC = () => {
     if (isOpen) {
       setBotMessage(''); // Clear any previous bot message
       simulateTyping('Hi there! How can I help you today?', () => {
-        // After the initial greeting typing finishes, show the question buttons one by one
-        let buttonIndex = 0;
-        const interval = setInterval(() => {
-          setShowButtons(true); // Display buttons with a delay
-          buttonIndex++;
-          if (buttonIndex === defaultQuestions.length) {
-            clearInterval(interval);
-          }
-        }, 500); // Delay for showing the buttons
+        setConversation((prev) => [
+          ...prev,
+          {
+            user: '',
+            bot: (
+              <div className="question-buttons">
+                {defaultQuestions.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleQuestionClick(item.question, item.answer)}
+                    className="question-btn"
+                  >
+                    {item.question}
+                  </button>
+                ))}
+              </div>
+            ),
+          },
+        ]);
       });
     }
   }, [isOpen]);
@@ -150,15 +146,16 @@ const Chatbot: React.FC = () => {
             </button>
           </div>
           <div className="chatbot-content">
-            {conversation.length === 0 ? (
-              <p>{botMessage}</p>
-            ) : (
-              conversation.map((msg, index) => (
-                <div key={index} className="message">
-                  <p><strong>You:</strong> {msg.user}</p>
-                  <p><strong>Bot:</strong> {msg.bot}</p>
-                </div>
-              ))
+            {conversation.map((msg, index) => (
+              <div key={index} className="message">
+                <p><strong>You:</strong> {msg.user}</p>
+                <p><strong>Bot:</strong> {msg.bot}</p>
+              </div>
+            ))}
+            {botMessage && (
+              <div>
+                <p><strong>Bot:</strong> {botMessage}</p>
+              </div>
             )}
           </div>
           <div className="chatbot-footer">
