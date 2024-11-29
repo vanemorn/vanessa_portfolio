@@ -68,6 +68,7 @@ const ProjectGrid: React.FC = () => {
             onClick={() => handleViewMore(project.title)}
           >
             View More
+            <span className="hover-effect"></span>
           </button>
         </div>
       ))}
