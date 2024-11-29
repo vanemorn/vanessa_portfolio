@@ -65,9 +65,11 @@ const Chatbot: React.FC = () => {
 
   // Function to toggle chatbot state
   const toggleChatbot = () => {
-    setIsOpen(!isOpen);
-    setConversation([]); // Clear conversation when toggling open
-    setShowButtons(false); // Hide buttons when closing the chat
+    setIsOpen(!isOpen); // Toggle chatbot visibility
+    if (!isOpen) {
+      setConversation([]); // Clear conversation when opening the chatbot
+      setShowButtons(false); // Hide buttons when the window is opened
+    }
   };
 
   // Function to simulate typing effect
