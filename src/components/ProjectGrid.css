@@ -1,0 +1,52 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 projects */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+.project-card {
+  background-color: #ffffff; /* White card background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Clip overflow */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 20px;
+  margin: 15px 0 10px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap; /* Wrap tags to the next line if needed */
+  justify-content: center;
+  gap: 8px; /* Space between tags */
+  margin: 10px 0;
+}
+
+.project-tag {
+  background-color: #d5da26; /* Highlight color */
+  color: #242424; /* Dark text */
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.project-description {
+  font-size: 16px;
+  color: #555555;
+  margin: 10px 15px 15px;
+}

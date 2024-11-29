@@ -3,6 +3,8 @@ import Footer from '../components/Footer'; // Imports footer
 import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import ScrollingBand from '../components/Scrollingband.tsx';
+import ProjectGrid from '../components/ProjectGrid';
+
 
 //Importing images for the featured works section
 import project1 from '../assets/project1.png'; 
@@ -41,6 +43,8 @@ const Home: React.FC = () => {
       </div>
 
       <ScrollingBand />
+      <ProjectGrid />
+
 
       {/* Featured works section */}
       <div className="featured-works-section">

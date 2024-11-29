@@ -31,7 +31,7 @@
   color: #242424;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   position: relative;
   display: inline-block;
@@ -51,7 +51,7 @@
   bottom: -5px; /* Space below text */
   width: 0;
   height: 3px;
-  background-color: #d5da26; /* Underline color */
+  background-color: #314697; /* Underline color */
   transition: width 0.4s ease; /* Smooth animation */
 }
 
