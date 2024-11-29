@@ -134,7 +134,7 @@ const Post: React.FC = () => {
                   key={emoji}
                   onClick={() => handleAddReaction(comment.id, emoji)} // Add reaction on click
                 >
-                  {emoji} {comment.reactions[emoji] || 0} {/* Display count of reactions for each emoji */}
+                  {emoji} {comment.reactions[emoji]} {/* Display count of reactions for each emoji */}
                 </button>
               ))}
             </div>
