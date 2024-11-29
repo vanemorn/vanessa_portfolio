@@ -33,7 +33,7 @@ const Home: React.FC = () => {
             fontWeight: 700, 
             lineHeight: '70px', 
             textAlign: "left" }}>
-            Hey there! I'm Vanessa&nbsp;
+            I'm Vanessa ⎯ &nbsp;<br/>
           </span>
           
           <span style={{ color: 'black', 
