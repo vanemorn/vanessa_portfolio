@@ -24,13 +24,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc; /* Default background for light mode */
+  background-color: #ccc;
   transition: 0.4s;
   border-radius: 50px;
 }
 
 .theme-switcher input:checked + .slider {
-  background-color: #2e2e2e; /* Dark grey when dark mode is on */
+  background-color: #4CAF50; /* Green color when checked (for dark mode) */
 }
 
 .theme-switcher .slider:before {
@@ -39,28 +39,47 @@
   height: 26px;
   width: 26px;
   border-radius: 50%;
-  background-color: white; /* The circle */
-  transition: 0.4s; /* Smooth transition for moving the circle */
-  left: 4px; /* Position the circle on the left initially */
+  left: 4px;
   bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
 }
 
-/* The icon should be inside the circle */
-.theme-switcher .theme-icon {
+.theme-switcher input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Position and size for the icons */
+.theme-icon {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  transition: transform 0.4s ease;
-  z-index: 1;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Ensure icon is centered inside the circle */
+  transform: translateY(-50%);
+  width: 18px;  /* Set the width of the icon */
+  height: 18px; /* Set the height of the icon */
+  transition: opacity 0.3s ease;
 }
 
-.theme-switcher input:checked ~ .theme-icon {
-  transform: translate(-50%, -50%) translateX(26px); /* Move icon along with the circle when checked */
+.moon-icon {
+  left: 10px;
 }
 
-.theme-switcher input:not(:checked) ~ .theme-icon {
-  transform: translate(-50%, -50%) translateX(0); /* Reset icon position when unchecked */
+.sun-icon {
+  right: 10px;
+}
+
+/* Fade out the moon icon when the toggle is checked */
+.theme-switcher input:checked ~ .theme-icon.moon-icon {
+  opacity: 0;
+}
+
+/* Fade out the sun icon when the toggle is not checked */
+.theme-switcher input:not(:checked) ~ .theme-icon.sun-icon {
+  opacity: 0;
+}
+
+/* Ensure that the image tags are displayed correctly */
+.theme-switcher img {
+  width: 100%;  /* Ensure the image fills the icon area */
+  height: 100%; /* Ensure the image fills the icon area */
+  object-fit: contain; /* Maintain the aspect ratio of the SVG */
 }
