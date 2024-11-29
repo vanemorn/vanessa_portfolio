@@ -10,7 +10,7 @@
     white-space: nowrap;
     justify-content: flex-start; /* Align the content to the left */
     align-items: center;
-    animation: scrolling 20s linear infinite; /* Smooth and continuous scrolling */
+    animation: scrolling 10s linear infinite; /* Smooth and continuous scrolling */
   }
   
   .expertise-item {
