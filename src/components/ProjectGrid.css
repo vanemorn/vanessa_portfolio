@@ -16,6 +16,8 @@
   flex-direction: column;
   align-items: left;
   text-align: left;
+  justify-content: left;
+  justify-items: left;
   padding: 20px;
 
 }
@@ -74,7 +76,7 @@
   padding: 10px 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  width: 100px;
+  width: auto;
 }
 
 .view-more-button-project:hover {
