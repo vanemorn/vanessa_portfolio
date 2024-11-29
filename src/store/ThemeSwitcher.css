@@ -39,41 +39,28 @@
   height: 26px;
   width: 26px;
   border-radius: 50%;
-  left: 4px;
+  background-color: white; /* The circle */
+  transition: 0.4s; /* Smooth transition for moving the circle */
+  left: 4px; /* Position the circle on the left initially */
   bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
 }
 
-/* Adjust the icon inside the circle */
-.theme-switcher .slider:before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* The icon should move along with the white circle */
-.theme-icon {
+/* The icon should be inside the circle */
+.theme-switcher .theme-icon {
   position: absolute;
   width: 18px;
   height: 18px;
-  transition: transform 0.4s ease; /* Move with the circle */
-  z-index: 1; /* Make sure it's always above the circle */
+  transition: transform 0.4s ease;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ensure icon is centered inside the circle */
 }
 
 .theme-switcher input:checked ~ .theme-icon {
-  transform: translateX(26px); /* Move the icon to the right when dark mode is on */
+  transform: translate(-50%, -50%) translateX(26px); /* Move icon along with the circle when checked */
 }
 
 .theme-switcher input:not(:checked) ~ .theme-icon {
-  transform: translateX(0); /* Move the icon back to the left when light mode is on */
-}
-
-/* Hide icon in dark mode for correct visibility */
-.theme-switcher input:checked ~ .theme-icon img {
-  opacity: 1; /* Show the moon icon */
-}
-
-.theme-switcher input:not(:checked) ~ .theme-icon img {
-  opacity: 1; /* Show the sun icon */
+  transform: translate(-50%, -50%) translateX(0); /* Reset icon position when unchecked */
 }
