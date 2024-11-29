@@ -39,6 +39,13 @@ const posts: Post[] = [
 ];
 
 const Blog: React.FC = () => {
+  // Function to calculate total reactions for a post
+  const getTotalReactionsForPost = (post: Post) => {
+    return post.comments.reduce((acc, comment) => {
+      return acc + Object.values(comment.reactions).reduce((acc2, count) => acc2 + count, 0);
+    }, 0);
+  };
+
   return (
     <div className="blog">
       <h1>My Blog</h1>
@@ -49,17 +56,7 @@ const Blog: React.FC = () => {
             <p>{post.content.slice(0, 100)}...</p> {/* Show a preview of the content */}
             <p>{post.comments.length} Comments</p> {/* Show the number of comments */}
             <p>
-              Reactions:
-              {Object.keys(post.comments.reduce((acc, comment) => {
-                for (const emoji of Object.keys(comment.reactions)) {
-                  acc[emoji] = (acc[emoji] || 0) + comment.reactions[emoji];
-                }
-                return acc;
-              }, {} as { [emoji: string]: number })).map((emoji) => (
-                <span key={emoji}>
-                  {emoji} {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}
-                </span>
-              ))}
+              Reactions: {getTotalReactionsForPost(post)} {/* Show total reactions */}
             </p>
             <Link to={`/post/${post.id}`}>Read more</Link> {/* Link to individual post */}
           </div>

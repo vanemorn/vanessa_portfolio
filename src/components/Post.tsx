@@ -80,6 +80,11 @@ const Post: React.FC = () => {
     }
   };
 
+  // Function to calculate total reactions for a comment
+  const getTotalReactions = (comment: Comment) => {
+    return Object.values(comment.reactions).reduce((acc, count) => acc + count, 0);
+  };
+
   return (
     <div className="post">
       <h2>{post.title}</h2>
@@ -104,6 +109,7 @@ const Post: React.FC = () => {
                   {emoji} {comment.reactions[emoji] || 0}
                 </button>
               ))}
+              <p>Total Reactions: {getTotalReactions(comment)}</p> {/* Display total reactions for the comment */}
             </div>
           </div>
         ))}
