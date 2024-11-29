@@ -68,7 +68,7 @@ const Post: React.FC = () => {
       post.comments.push({
         id: Date.now(),
         text: newComment,
-        reactions: {},
+        reactions: {}, // Start with no reactions
         timestamp: Date.now(),
       });
       setNewComment('');
@@ -79,6 +79,7 @@ const Post: React.FC = () => {
   const handleAddReaction = (commentId: number, emoji: string) => {
     const comment = post.comments.find((c) => c.id === commentId);
     if (comment) {
+      // Update the reactions count for the specific emoji
       comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
     }
   };
@@ -102,12 +103,13 @@ const Post: React.FC = () => {
             <p>{comment.text}</p>
             <p>{timeAgo(comment.timestamp)}</p> {/* Time ago for each comment */}
             <div className="reactions">
+              {/* List of emoji reactions */}
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
                 <button
                   key={emoji}
-                  onClick={() => handleAddReaction(comment.id, emoji)}
+                  onClick={() => handleAddReaction(comment.id, emoji)} // Add reaction on click
                 >
-                  {emoji} {comment.reactions[emoji] || 0} {/* Reactions count per comment */}
+                  {emoji} {comment.reactions[emoji] || 0} {/* Display count of reactions for each emoji */}
                 </button>
               ))}
             </div>
