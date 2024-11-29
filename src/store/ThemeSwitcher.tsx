@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import './ThemeSwitcher.css'; // import the CSS for the theme switcher
 
 // Import SVGs as React components
-import { ReactComponent as DayIcon } from './assets/day-icon.svg';
-import { ReactComponent as NightIcon } from './assets/night-icon.svg';
+import { ReactComponent as DayIcon } from '../assets/lightmode.svg';
+import { ReactComponent as NightIcon } from '../assets/darkmode.svg';
 
 const ThemeSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
