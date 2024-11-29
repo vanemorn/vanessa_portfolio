@@ -149,3 +149,32 @@
 .message.user-message p {
   color: #1d1d1d; /* Blue for user's messages */
 }
+
+.chatbot-content ul {
+  list-style-type: disc; /* Default bullet points */
+  padding-left: 20px; /* Add some left padding to indent the list */
+  margin-bottom: 10px; /* Space between list and other content */
+}
+
+/* Style for ordered lists (ol) */
+.chatbot-content ol {
+  list-style-type: decimal; /* Numbered list style */
+  padding-left: 20px; /* Add some left padding */
+  margin-bottom: 10px; /* Space between list and other content */
+}
+
+/* Style for list items (li) */
+.chatbot-content li {
+  margin-bottom: 5px; /* Space between list items */
+  font-size: 14px; /* Adjust font size for list items */
+}
+
+/* Optional: Style for anchor tags inside lists */
+.chatbot-content a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none; /* Remove underline */
+}
+
+.chatbot-content a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
