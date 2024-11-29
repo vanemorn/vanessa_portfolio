@@ -1,38 +1,38 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from '../store/themeSlice';
-import { RootState } from '../store';
-import './ThemeSwitcher.css'; // Import CSS for styling
+import { useState, useEffect } from 'react';
+import './ThemeSwitcher.css'; // import the CSS for the theme switcher
 
-// Import SVGs as default imports
-import MoonIcon from '../assets/darkmode.svg'; // Adjust the path if needed
-import SunIcon from '../assets/lightmode.svg'; // Adjust the path if needed
+// Import SVGs as React components
+import { ReactComponent as DayIcon } from './assets/day-icon.svg';
+import { ReactComponent as NightIcon } from './assets/night-icon.svg';
 
-const ThemeSwitcher: React.FC = () => {
-  const dispatch = useDispatch();
-  const theme = useSelector((state: RootState) => state.theme.theme);
+const ThemeSwitcher = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleToggle = () => {
-    dispatch(toggleTheme()); // Dispatch the action to toggle the theme
+  // Toggle the theme
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
+  // Apply the theme class to the body element when isDarkMode changes
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
+
   return (
-    <div className="theme-switcher-container">
-      <label className="theme-switcher">
-        <input 
-          type="checkbox" 
-          checked={theme === 'dark'} 
-          onChange={handleToggle} 
-        />
-        <span className="slider"></span>
-        {/* Display the corresponding icon based on the theme */}
-        <span className="theme-icon moon-icon">
-          {theme === 'dark' && <img src={MoonIcon} alt="Moon icon" />}
-        </span>
-        <span className="theme-icon sun-icon">
-          {theme !== 'dark' && <img src={SunIcon} alt="Sun icon" />}
-        </span>
-      </label>
+    <div className={`theme-switcher ${isDarkMode ? 'dark' : 'light'}`}>
+      <button onClick={toggleTheme} className="theme-switcher-button">
+        {isDarkMode ? (
+          <NightIcon className="icon" />
+        ) : (
+          <DayIcon className="icon" />
+        )}
+      </button>
     </div>
   );
 };
