@@ -28,7 +28,7 @@
 }
 
 .project-title {
-  font-size: 20px;
+  font-size: 23px;
   margin: 15px 0 10px;
   font-weight: bold;
   color: #333333;
@@ -67,14 +67,14 @@
   background-color: transparent; /* Transparent background */
   color: #242424; /* Dark text color */
   border: 2px solid #242424; /* Border color */
-  border-radius: 12px;
+  border-radius: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  width: 150px;
+  width: 100px;
 }
 
 .view-more-button-project:hover {
