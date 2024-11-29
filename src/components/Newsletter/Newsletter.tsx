@@ -21,7 +21,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
     <div className="newsletter-container">
       <div className="newsletter-form">
         <h2>Subscribe to Our Newsletter</h2>
-        <p>Stay updated with the latest news and offers!</p>
+        <p>Lorem Ipsum</p>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
