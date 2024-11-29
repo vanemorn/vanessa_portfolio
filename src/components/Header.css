@@ -1,4 +1,5 @@
-.header-container { /*Layout of the header */
+/* Layout of the header */
+.header-container {
   display: flex;
   align-items: center; 
   justify-content: space-between; 
@@ -6,17 +7,18 @@
   background-color: #F1F0EC;
 }
 
-.logo-img { /*Size of the logo */
+.logo-img {
   max-height: 40px;
   margin-top: 7px;
 }
 
-.menu { /*Layout of the menu */
+/* Layout of the menu */
+.menu {
   flex-grow: 1; 
   text-align: center;
 }
 
-.menu a { /*Menu items*/
+.menu a {
   color: #7B7B7B;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
@@ -26,13 +28,14 @@
   text-decoration: none;
 }
 
-.menu a:hover { /*Change of the appareance of menu items when they are on hover*/
+.menu a:hover {
   color: #9C0000;
-  font-weight: 800; 
+  font-weight: 800;
   text-decoration: underline;
 }
 
-.btn { /*Download CV button*/
+/* Download CV button */
+.btn {
   background-color: #9C0000; 
   color: white; 
   padding: 10px 20px; 
@@ -44,6 +47,57 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn:hover { /*Change of the appareance of Download button on hover*/
+.btn:hover {
   background-color: #4d0000; 
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9C0000;
+  padding: 10px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #FFD700; /* Gold color on hover */
 }
