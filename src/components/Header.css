@@ -3,7 +3,7 @@
   display: flex;
   align-items: center; 
   justify-content: space-between; 
-  padding: 20 20px; /* Removed top padding, keep left and right padding */
+  padding: 0 20px; /* Removed top padding, keep left and right padding */
   background-color: #F1F0EC;
   margin: 0; /* Ensure no margin at the top */
 }
@@ -16,8 +16,14 @@
 
 /* Layout of the menu */
 .menu {
+  display: none; /* Hide by default */
   flex-grow: 1; 
   text-align: center;
+}
+
+.menu.show {
+  display: flex; /* Show the menu when the 'show' class is added */
+  flex-direction: column; /* Stack the menu items vertically for mobile view */
 }
 
 .menu a {
@@ -25,7 +31,7 @@
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  margin: 0 20px;
+  margin: 10px 0; /* Adjust spacing between menu items */
   transition: color 0.3s;
   text-decoration: none;
 }
@@ -53,58 +59,33 @@
   background-color: #4d0000; 
 }
 
-/* Navbar Styling (remove if it's not needed) */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #9C0000;
-  padding: 10px 20px;
-  color: white;
-  font-family: Arial, sans-serif;
-  position: relative;
-}
-
-.nav-logo a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  display: none;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 0 10px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #FFD700; /* Gold color on hover */
-}
-
 /* Add styles for the Theme Switcher container */
 .theme-switcher-container {
   margin-left: 20px; /* Space between the CV button and theme switcher */
+}
+
+/* Hamburger button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #9C0000;
+  font-size: 30px;
+  cursor: pointer;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .menu a {
+    margin: 0 20px; /* Adjust spacing for desktop */
+  }
+
+  .dropdown-toggle {
+    display: none; /* Hide the hamburger menu button on large screens */
+  }
 }

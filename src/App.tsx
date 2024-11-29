@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
 
@@ -27,12 +27,6 @@ const App: React.FC = () => {
     document.body.className = theme; // Set body class to 'light' or 'dark'
   }, [theme]);
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className={`app ${theme}`}>
@@ -41,7 +35,7 @@ const App: React.FC = () => {
 
       <div className="app-container">
         {/* Include Header Component */}
-        <Header toggleDropdown={toggleDropdown} isDropdownOpen={isDropdownOpen} />
+        <Header />
                 
         {/* Routes */}
         <Routes>
