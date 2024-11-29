@@ -24,14 +24,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ccc; /* Light grey background by default */
   transition: 0.4s;
   border-radius: 50px;
 }
 
-/* Dark mode: change background to dark grey */
+/* Dark mode: Change the circle background to a darker grey */
 .theme-switcher input:checked + .slider {
-  background-color: #333; /* Dark grey for dark mode */
+  background-color: #555; /* Darker grey background when dark mode is on */
 }
 
 /* Circle knob animation */
@@ -45,6 +45,9 @@
   bottom: 4px;
   background-color: white;
   transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Move the circle to the right when toggled */
@@ -52,24 +55,13 @@
   transform: translateX(26px);
 }
 
-/* Icon styling */
+/* Icon styling inside the knob */
 .theme-icon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers the icon */
-  font-size: 18px;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.theme-icon img {
-  width: 16px;
-  height: 16px;
+  transform: translate(-50%, -50%); /* Centers the icon inside the knob */
+  font-size: 16px;
 }
 
 /* When dark mode is active, change the icon to white */
@@ -77,11 +69,20 @@
   filter: invert(1); /* Inverts the color to white */
 }
 
-/* Hide the icon on the opposite side */
-.theme-switcher input:checked ~ .theme-icon {
+/* Show the moon icon in dark mode, sun icon in light mode */
+.theme-switcher input:checked ~ .theme-icon .moon-icon {
+  opacity: 1;
+}
+
+.theme-switcher input:not(:checked) ~ .theme-icon .sun-icon {
+  opacity: 1;
+}
+
+/* Hide the other icon */
+.theme-switcher input:checked ~ .theme-icon .sun-icon {
   opacity: 0;
 }
 
-.theme-switcher input:not(:checked) ~ .theme-icon {
-  opacity: 1;
+.theme-switcher input:not(:checked) ~ .theme-icon .moon-icon {
+  opacity: 0;
 }

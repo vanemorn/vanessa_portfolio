@@ -26,13 +26,18 @@ const ThemeSwitcher: React.FC = () => {
         />
         <span className="slider"></span>
         
-        {/* Display the appropriate icon based on the current theme */}
+        {/* Icons inside the moving circle */}
         <span className="theme-icon">
-          {theme === 'dark' ? (
-            <img src={moonIcon} alt="Moon Icon" />
-          ) : (
-            <img src={sunIcon} alt="Sun Icon" />
-          )}
+          <img 
+            className="moon-icon" 
+            src={moonIcon} 
+            alt="Moon Icon" 
+          />
+          <img 
+            className="sun-icon" 
+            src={sunIcon} 
+            alt="Sun Icon" 
+          />
         </span>
       </label>
     </div>
