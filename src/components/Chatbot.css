@@ -85,6 +85,8 @@
   margin: 0;
   color: #333; /* Dark gray text */
   margin-bottom: 8px;
+  opacity: 0; /* Initial state for animation */
+  animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
 }
 
 .message strong {
@@ -184,4 +186,11 @@
   border-top: 1px solid #ccc; /* Light gray line */
   padding-top: 10px;
   margin-top: 10px;
+}
+
+/* Animation for message fade-in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
