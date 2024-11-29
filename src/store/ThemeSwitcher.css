@@ -63,22 +63,22 @@
 
 /* Icon style */
 .theme-switcher .theme-icon {
-  font-size: 14px;  /* Smaller icon size */
-  color: #333;  /* Icon color */
-  transition: opacity 0.3s ease;
+  font-size: 16px;  /* Smaller icon size */
+  color: #333;  /* Icon color in light mode */
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* Vertically align icons to the knob */
+  transition: opacity 0.3s ease;
 }
 
-/* Positioning the icons for light mode */
-.theme-switcher input:not(:checked) ~ .theme-icon.sun {
+/* Sun icon styling (light mode) */
+.theme-switcher.input:not(:checked) ~ .theme-icon.sun {
   opacity: 1;
   left: 10px;
 }
 
-/* Positioning the icons for dark mode */
-.theme-switcher input:checked ~ .theme-icon.moon {
+/* Moon icon styling (dark mode) */
+.theme-switcher.input:checked ~ .theme-icon.moon {
   opacity: 1;
   right: 10px;
 }
@@ -90,4 +90,9 @@
 
 .theme-switcher input:not(:checked) ~ .theme-icon.moon {
   opacity: 0;
+}
+
+/* Moon icon color in dark mode */
+.theme-switcher input:checked ~ .theme-icon.moon {
+  color: #fff; /* Set moon icon color to white in dark mode */
 }
