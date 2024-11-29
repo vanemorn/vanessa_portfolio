@@ -5,26 +5,26 @@
   justify-content: space-between;
   padding: 20px 20px;
   position: relative;
-  background-color: #E8E7E7;
+  background-color: #e8e7e7;
 }
 
 .logo-img {
-  max-height: 40px;  /* Increase size temporarily */
+  max-height: 40px;
 }
 
 /* Main Menu */
 .menu {
-  display: none; /* Hidden by default */
-  flex-direction: column; /* Stack items vertically */
-  position: absolute; /* Position dropdown below header */
-  top: 60px;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-}
-
-.menu.show {
-  display: flex; /* Show menu when active */
+  display: flex;
+  flex-direction: row;
+  position: static;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  width: 50%;
+  top: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .menu a {
@@ -32,19 +32,54 @@
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  margin: 10px 0;
   text-decoration: none;
-  text-align: center;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* Hover Animations */
 .menu a:hover {
-  font-weight: 800;
-  text-decoration: underline;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  color: #9c0000; /* Highlight color */
+}
+
+/* Dynamic Underline Animation */
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Space below text */
+  width: 0;
+  height: 3px;
+  background-color: #d5da26; /* Underline color */
+  transition: width 0.4s ease; /* Smooth animation */
+}
+
+.menu a:hover::after {
+  width: 100%; /* Fully expand underline on hover */
+}
+
+/* Bounce Animation */
+.menu a:hover {
+  animation: bounce 0.3s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 /* Dropdown Actions (Mobile View Only) */
 .dropdown-actions {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -57,7 +92,7 @@
 
 /* Header Actions (Desktop View Only) */
 .header-actions {
-  display: none; /* Hidden by default */
+  display: none;
   align-items: center;
   gap: 10px;
 }
@@ -70,42 +105,33 @@
 .dropdown-toggle {
   background: none;
   border: none;
-  color: #9C0000; /* Default color (red) for the hamburger icon */
+  color: #9c0000;
   font-size: 30px;
   cursor: pointer;
 }
 
-/* Change background to red and icon color to white on hover */
 .dropdown-toggle:hover {
-  background-color: #9C0000; /* Red background */
-  color: #ffffff; /* White color for the hamburger icon */
+  background-color: #9c0000;
+  color: #ffffff;
 }
 
 /* Button Styling: Download CV */
 .btn {
-  background-color: #D5DA26; /* Red background */
+  background-color: #d5da26;
   border: 3px solid #242424;
-  color:#242424;
+  color: #242424;
   border-radius: 8px;
-  padding: 15px 10px; /* Add padding */
-  font-weight: bold; /* Bold text */
-  text-decoration: none; /* No underline */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  padding: 15px 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn:hover {
-  background-color: #727514; /* Darker red on hover */
+  background-color: #727514;
   border: 3px solid #242424;
-  color:#242424;
-  border-radius: 8px;
-  padding: 15px 10px; /* Add padding */
-  font-weight: bold; /* Bold text */
-  text-decoration: none; /* No underline */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Large Screen Styles */
@@ -113,59 +139,19 @@
   .menu {
     display: flex;
     flex-direction: row;
-    position: static; /* Position inline with header */
-    background: none;
-    padding: 0;
-    box-shadow: none;
-    width: 50%;
-    top: auto;
-    align-items: center;
-    justify-content: center; /* Align menu items to center */
-  }
-
-  .menu a {
-    margin: 0 20px;
-    padding: 0;
-    text-align: center;
+    justify-content: center;
   }
 
   .dropdown-actions {
-    display: none; /* Hide dropdown-specific actions on large screens */
+    display: none;
   }
 
   .header-actions {
-    display: flex; /* Show header actions on large screens */
+    display: flex;
   }
 
   .dropdown-toggle {
-    display: none; /* Hide hamburger on large screens */
-  }
-
-  .btn {
-    background-color: #D5DA26; /* Red background */
-    border: 3px solid #242424;
-    color:#242424;
-    border-radius: 8px;
-    padding: 15px 10px; /* Add padding */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* No underline */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    
-  }
-  
-  .btn:hover {
-    background-color: #727514; /* Darker red on hover */
-    border: 3px solid #242424;
-    color:#242424;
-    border-radius: 8px;
-    padding: 15px 10px; /* Add padding */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* No underline */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    display: none;
   }
 }
 
@@ -174,8 +160,8 @@
   .menu {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align menu items to the right */
-    padding: 20 20px;
+    align-items: center;
+    padding: 20px;
   }
 
   .menu a {
@@ -184,28 +170,6 @@
   }
 
   .dropdown-actions .btn {
-    background-color: #D5DA26; /* Red background */
-    border: 3px solid #242424;
-    color:#242424;
-    border-radius: 8px;
-    padding: 15px 10px; /* Add padding */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* No underline */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .dropdown-actions .btn:hover {
-    background-color: #727514; /* No change in background on hover */
-    border: 3px solid #242424;
-    color:#242424;
-    border-radius: 8px;
-    padding: 15px 10px; /* Add padding */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* No underline */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
   }
 }

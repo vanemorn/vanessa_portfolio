@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             fontWeight: 300, 
             lineHeight: '70px', 
             textAlign: "left" }}>
-            an enthusiastic UX Designer <br /> based in Limerick
+            an enthusiastic UX Designer <br /> based in Limerick, Ireland
           </span>
         </div>
       </div>
