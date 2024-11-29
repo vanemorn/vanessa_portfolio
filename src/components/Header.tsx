@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'C:/Users/linda/vanessa_portfolio/src/components/Header.css'; // CSS File
+import logo from 'C:/Users/linda/vanessa_portfolio/src/assets/logo-header-negro.svg'; // Logo
 import { Link } from 'react-router-dom'; // Routing the pages
 import cvFile from 'C:/Users/linda/vanessa_portfolio/public/CV_VANESSA-MORENO.pdf'; // Downloadable PDF of my CV
 import ThemeSwitcher from '../store/ThemeSwitcher'; // Import the ThemeSwitcher
@@ -35,8 +36,7 @@ const Header: React.FC = () => {
     <header className="header-container">
       <div className="logo">
         <Link to="/">
-          {/* Corrected logo path */}
-          <img src="/logo-header-negro.svg" alt="logo" className="logo-img" />
+          <img src={logo} alt="logo" className="logo-img" />
         </Link>
       </div>
 
