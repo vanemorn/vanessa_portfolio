@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer'; // Imports footer
 import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
+import ScrollingBand from '../components/Scrollingband.tsx';
+
 
 //Importing images for the "What I do" section
 import expertise1 from '../assets/expertise1.svg'; 
@@ -47,6 +49,8 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      <ScrollingBand />
+
       {/*Separator with my skills*/}
       <div className="banda">
         <div className="banda-background"></div>
@@ -74,6 +78,7 @@ const Home: React.FC = () => {
         <div className="grid-item"><img src={expertise5} alt="Expertise 5" /></div>
         <div className="grid-item"><img src={expertise6} alt="Expertise 6" /></div>
       </div>
+      
 
       {/* Featured works section */}
       <div className="featured-works-section">

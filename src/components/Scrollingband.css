@@ -1,0 +1,31 @@
+.scrolling-band-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background-color: #D5DA26; /* Light background for contrast */
+    padding: 20px 0;
+  }
+  
+  .scrolling-band {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .expertise-item {
+    display: inline-block;
+    font-size: 24px; /* Base font size for the expertise area */
+    text-align: center;
+    margin: 0 15px;
+  }
+  
+  .separator {
+    font-size: 32px; /* Make the separator larger */
+    margin: 0 10px;
+    color: #888; /* Light color for the separator */
+  }
+  
+  .scrolling-band:hover {
+    animation-play-state: paused;
+  }
+  
