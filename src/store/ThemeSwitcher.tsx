@@ -4,7 +4,7 @@ import { toggleTheme } from '../store/themeSlice';
 import { RootState } from '../store';
 import './ThemeSwitcher.css'; // Import CSS for styling
 
-// Import the custom icons (Assuming they are in src/assets folder)
+// Import the custom icons (Assuming they are in the src/assets folder)
 import moonIcon from '../assets/darkmode.svg'; // Path to the moon icon
 import sunIcon from '../assets/lightmode.svg';   // Path to the sun icon
 

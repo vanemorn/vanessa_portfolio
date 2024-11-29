@@ -29,10 +29,12 @@
   border-radius: 50px;
 }
 
+/* Dark mode: change background to dark grey */
 .theme-switcher input:checked + .slider {
-  background-color: #4CAF50; /* Green color when checked (for dark mode) */
+  background-color: #333; /* Dark grey for dark mode */
 }
 
+/* Circle knob animation */
 .theme-switcher .slider:before {
   position: absolute;
   content: "";
@@ -45,35 +47,41 @@
   transition: 0.4s;
 }
 
+/* Move the circle to the right when toggled */
 .theme-switcher input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* Icon styling */
 .theme-icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the icon */
   font-size: 18px;
   transition: opacity 0.3s ease;
-  color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
+.theme-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+/* When dark mode is active, change the icon to white */
+.theme-switcher input:checked ~ .theme-icon img {
+  filter: invert(1); /* Inverts the color to white */
+}
+
+/* Hide the icon on the opposite side */
 .theme-switcher input:checked ~ .theme-icon {
   opacity: 0;
 }
 
 .theme-switcher input:not(:checked) ~ .theme-icon {
   opacity: 1;
-  left: 10px;
-}
-
-.theme-switcher input:checked ~ .theme-icon {
-  opacity: 1;
-  right: 10px;
-}
-
-.theme-switcher img {
-  width: 20px; /* Adjust size of the icon */
-  height: 20px; /* Adjust size of the icon */
-  object-fit: contain; /* Ensure the icon is not distorted */
 }
