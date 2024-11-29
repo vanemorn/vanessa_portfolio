@@ -24,16 +24,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc; /* Default light background (for light mode) */
+  background-color: #ccc; /* Light gray background in light mode */
   transition: 0.4s;
   border-radius: 50px;
 }
 
-/* Dark mode background color */
-.theme-switcher input:checked + .slider {
-  background-color: #f1f1f1; /* Light gray background for dark mode */
+/* Background color for light mode */
+.theme-switcher input:not(:checked) + .slider {
+  background-color: #ccc; /* Light gray background */
 }
 
+/* Background color for dark mode */
+.theme-switcher input:checked + .slider {
+  background-color: #000; /* Black background in dark mode */
+}
+
+/* Knob color for light mode */
 .theme-switcher .slider:before {
   position: absolute;
   content: "";
@@ -42,29 +48,26 @@
   border-radius: 50%;
   left: 4px;
   bottom: 4px;
-  background-color: #333; /* Dark circle by default */
+  background-color: #fff; /* White knob in light mode */
   transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Moving circle (knob) changes to dark gray when dark mode is active */
+/* Knob color for dark mode */
 .theme-switcher input:checked + .slider:before {
-  transform: translateX(26px);
-  background-color: #555; /* Dark gray circle when checked (dark mode) */
+  transform: translateX(26px); /* Move the knob to the right when checked */
+  background-color: #555; /* Dark gray knob in dark mode */
 }
 
+/* Icon style */
 .theme-switcher .theme-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;  /* Adjusted font size */
-  transition: opacity 0.3s ease;
-  color: #f9f9f9;
+  font-size: 14px;  /* Smaller icon size */
+  color: #333;  /* Set icon color */
 }
 
-.theme-switcher input:checked ~ .theme-icon {
-  opacity: 0;
-}
-
+/* Adjust icon positioning */
 .theme-switcher input:not(:checked) ~ .theme-icon {
   opacity: 1;
   left: 10px;
@@ -73,4 +76,9 @@
 .theme-switcher input:checked ~ .theme-icon {
   opacity: 1;
   right: 10px;
+}
+
+/* Hide icon when toggled */
+.theme-switcher input:checked ~ .theme-icon {
+  opacity: 0;
 }
