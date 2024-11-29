@@ -4,15 +4,6 @@ import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import ScrollingBand from '../components/Scrollingband.tsx';
 
-
-//Importing images for the "What I do" section
-import expertise1 from '../assets/expertise1.svg'; 
-import expertise2 from '../assets/expertise2.svg'; 
-import expertise3 from '../assets/expertise3.svg'; 
-import expertise4 from '../assets/expertise4.svg'; 
-import expertise5 from '../assets/expertise5.svg'; 
-import expertise6 from '../assets/expertise6.svg'; 
-
 //Importing images for the featured works section
 import project1 from '../assets/project1.png'; 
 import project2 from '../assets/project2.png'; 
@@ -50,35 +41,6 @@ const Home: React.FC = () => {
       </div>
 
       <ScrollingBand />
-
-      {/*Separator with my skills*/}
-      <div className="banda">
-        <div className="banda-background"></div>
-        <div className="banda-item">interface</div>
-        <div className="banda-separator">/</div>
-        <div className="banda-item">user experience</div>
-        <div className="banda-separator">/</div>
-        <div className="banda-item">web development</div>
-        <div className="banda-separator">/</div>
-        <div className="banda-item">branding & merch</div>
-        <div className="banda-separator">/</div>
-        <div className="banda-item">layout design</div>
-        <div className="banda-separator">/</div>
-        <div className="banda-item">motion graphics</div>
-      </div>
-
-      {/*Expertise section*/}
-      <div className="What-can-do" style={{ fontFamily: 'Arial, sans-serif' }}>What I can do</div>
-
-      <div className="expertise"> {/* Expertise images grid */}
-        <div className="grid-item"><img src={expertise1} alt="Expertise 1" /></div>
-        <div className="grid-item"><img src={expertise2} alt="Expertise 2" /></div>
-        <div className="grid-item"><img src={expertise3} alt="Expertise 3" /></div>
-        <div className="grid-item"><img src={expertise4} alt="Expertise 4" /></div>
-        <div className="grid-item"><img src={expertise5} alt="Expertise 5" /></div>
-        <div className="grid-item"><img src={expertise6} alt="Expertise 6" /></div>
-      </div>
-      
 
       {/* Featured works section */}
       <div className="featured-works-section">
