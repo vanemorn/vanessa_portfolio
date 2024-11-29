@@ -4,6 +4,7 @@
   bottom: 20px;
   right: 20px;
   z-index: 1000;
+  font-family: 'Arial', sans-serif;
 }
 
 /* Styles for the chatbot icon */
@@ -48,8 +49,8 @@
 
 /* Chatbot window styles */
 .chatbot-window {
-  width: 300px;
-  height: 400px;
+  width: 350px;
+  height: 450px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -57,6 +58,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding: 10px;
 }
 
 /* Chatbot header with minimize button */
@@ -70,6 +72,7 @@
   border-bottom: 1px solid #ddd;
 }
 
+/* Minimize button */
 .minimize-btn {
   background: none;
   border: none;
@@ -84,6 +87,24 @@
   padding: 10px;
   overflow-y: auto;
   font-size: 14px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message p {
+  margin: 5px;
+}
+
+strong {
+  color: #9c0000; /* Red color for user and bot labels */
+}
+
+/* Typing animation */
+.bot-typing {
+  font-style: italic;
+  color: #555;
 }
 
 /* Chatbot footer with input and send button */
@@ -114,64 +135,22 @@
   background-color: #7a0000; /* Darker red on hover */
 }
 
-/* Minimized state */
-.minimized .chatbot-window {
-  display: none;
-}
-
-/* New styles for message rendering */
-.message {
-  margin-bottom: 12px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-.message p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.message .user {
-  background-color: #eaeaea;
-}
-
-.message .bot {
-  background-color: #f1f1f1;
-}
-
-/* New styles for the buttons */
-.question-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Styling for the question buttons */
 .question-btn {
   background-color: #9c0000;
   color: white;
-  border: none;
-  border-radius: 4px;
   padding: 10px;
+  border-radius: 4px;
+  margin: 5px;
+  border: none;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .question-btn:hover {
   background-color: #7a0000;
 }
 
-/* Contact button styling */
-.contact-btn {
-  background-color: #9c0000;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.contact-btn:hover {
-  background-color: #7a0000;
+/* Minimized state */
+.minimized .chatbot-window {
+  display: none;
 }

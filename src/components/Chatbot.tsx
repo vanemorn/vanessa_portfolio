@@ -4,7 +4,8 @@ import './Chatbot.css';
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
   const [message, setMessage] = useState(''); // State to store the input message
-  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // State to store conversation history
+  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Updated to allow JSX.Element
+  const [botMessage, setBotMessage] = useState(''); // State to store the current bot message
 
   // Default predefined questions and answers
   const defaultQuestions = [
@@ -36,7 +37,11 @@ const Chatbot: React.FC = () => {
             <li>Feedback & Revisions</li>
             <li>Final Delivery</li>
           </ol>
-          If you're ready to start, feel free to <a href="mailto:vanessamorenoperez55@gmail.com"><button className="contact-btn">Contact me via email</button></a>.
+          If you're ready to start, feel free to{' '}
+          <a href="mailto:vanessamorenoperez55@gmail.com">
+            <button className="contact-btn">Contact me via email</button>
+          </a>
+          .
         </span>
       ),
     },
@@ -46,7 +51,11 @@ const Chatbot: React.FC = () => {
         <span>
           Of course! You can view my portfolio and some of my recent projects on my website.
           <br />
-          Visit my <a href="https://vanemorn.github.io/vanessa_portfolio/Projects" target="_blank" rel="noopener noreferrer">Projects Page</a> to see examples of my work.
+          Visit my{' '}
+          <a href="https://vanemorn.github.io/vanessa_portfolio/Projects" target="_blank" rel="noopener noreferrer">
+            Projects Page
+          </a>{' '}
+          to see examples of my work.
         </span>
       ),
     },
@@ -58,12 +67,50 @@ const Chatbot: React.FC = () => {
     setConversation([]); // Clear conversation when toggling open
   };
 
+  // Function to simulate typing effect
+  const simulateTyping = (message: string) => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setBotMessage((prev) => prev + message[index]);
+      index++;
+      if (index === message.length) {
+        clearInterval(interval);
+      }
+    }, 50); // Adjust typing speed (milliseconds)
+  };
+
   // Function to handle the button click for default questions
-  const handleQuestionClick = (question: string, answer: JSX.Element | string) => {
+  const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
     setConversation([
       ...conversation,
-      { user: question, bot: answer }, // Add the question and answer to the conversation
+      { user: question, bot: '' }, // Add the question and an empty bot response initially
     ]);
+
+    if (typeof answer === 'string') {
+      simulateTyping(answer); // Simulate typing effect for string answers
+    } else {
+      setBotMessage(''); // Clear bot message initially if it's JSX content
+    }
+
+    // After the message is typed, show the default question buttons again
+    setTimeout(() => {
+      setConversation((prev) => [
+        ...prev,
+        { user: '', bot: (
+          <div className="question-buttons">
+            {defaultQuestions.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => handleQuestionClick(item.question, item.answer)}
+                className="question-btn"
+              >
+                {item.question}
+              </button>
+            ))}
+          </div>
+        )}, // Re-add question buttons after response
+      ]);
+    }, 1000); // Wait before showing question buttons again
   };
 
   return (
@@ -90,24 +137,9 @@ const Chatbot: React.FC = () => {
               conversation.map((msg, index) => (
                 <div key={index} className="message">
                   <p><strong>You:</strong> {msg.user}</p>
-                  <p><strong>Bot:</strong> {msg.bot}</p>
+                  <p><strong>Bot:</strong> {msg.bot ? msg.bot : botMessage}</p>
                 </div>
               ))
-            )}
-
-            {/* Show the 3 default questions */}
-            {conversation.length === 0 && (
-              <div className="question-buttons">
-                {defaultQuestions.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleQuestionClick(item.question, item.answer)}
-                    className="question-btn"
-                  >
-                    {item.question}
-                  </button>
-                ))}
-              </div>
             )}
           </div>
           <div className="chatbot-footer">
