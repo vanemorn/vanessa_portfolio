@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Blog.css';
 
 interface Comment {
@@ -78,7 +77,7 @@ const Blog: React.FC = () => {
             const newComment: Comment = {
               id: Date.now(),
               text: newCommentText,
-              reactions: {},
+              reactions: {}, // No reactions initially
             };
             return {
               ...post,
@@ -101,18 +100,6 @@ const Blog: React.FC = () => {
             <p>{post.content.slice(0, 100)}...</p> {/* Show a preview of the content */}
             <p>{post.comments.length} Comments</p> {/* Show the number of comments */}
 
-            {/* Reactions Section */}
-            <p>
-              Reactions:
-              {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
-                <span key={emoji}>
-                  {emoji} 
-                  {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}{' '}
-                </span>
-              ))}
-            </p>
-            <Link to={`/post/${post.id}`}>Read more</Link> {/* Link to individual post */}
-
             {/* Display the comments for the post */}
             <div className="comments-section">
               {post.comments.map((comment) => (
@@ -124,7 +111,7 @@ const Blog: React.FC = () => {
                         key={emoji}
                         onClick={() => handleAddReaction(post.id, comment.id, emoji)} // Increase reaction count
                       >
-                        {emoji} {comment.reactions[emoji] || 0} {/* Show count */}
+                        {emoji} {comment.reactions[emoji] || 0} {/* Only show count per comment */}
                       </button>
                     ))}
                   </div>
