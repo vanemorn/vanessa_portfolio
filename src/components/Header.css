@@ -53,6 +53,21 @@
   margin-top: 20px;
 }
 
+.dropdown-actions .btn {
+  margin-bottom: 10px;
+}
+
+/* Header Actions (Desktop View Only) */
+.header-actions {
+  display: none; /* Hidden by default */
+  align-items: center;
+  gap: 10px;
+}
+
+.header-actions .btn {
+  margin-left: 10px;
+}
+
 /* Hamburger Button */
 .dropdown-toggle {
   background: none;
@@ -66,9 +81,58 @@
   color: #4d0000;
 }
 
-/* Button Styling: Download CV (Mobile screens) */
-@media screen and (max-width: 767px) {
-  .dropdown-actions .btn {
+/* Button Styling: Download CV */
+.btn {
+  background-color: #9C0000; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 30px; /* Rounded corners */
+  font-weight: bold; /* Bold text */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn:hover {
+  background-color: #4d0000; /* Darker red on hover */
+}
+
+/* Large Screen Styles */
+@media screen and (min-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    position: static; /* Position inline with header */
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    width: 50%;
+    top: auto;
+    align-items: right;
+    align-content: right;
+  }
+
+  .menu a {
+    margin: 0 20px;
+    padding: 0;
+    text-align: right;
+    align-content: right;
+  }
+
+  .dropdown-actions {
+    display: none; /* Hide dropdown-specific actions on large screens */
+  }
+
+  .header-actions {
+    display: flex; /* Show header actions on large screens */
+  }
+
+  .dropdown-toggle {
+    display: none; /* Hide hamburger on large screens */
+  }
+
+  .btn {
     background-color: #9C0000; /* Red background */
     color: white; /* White text */
     padding: 10px 20px; /* Add padding */
@@ -78,10 +142,9 @@
     transition: background-color 0.3s ease; /* Smooth hover effect */
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 10px; /* Spacing for the button */
   }
-
-  .dropdown-actions .btn:hover {
+  
+  .btn:hover {
     background-color: #4d0000; /* Darker red on hover */
   }
 }
