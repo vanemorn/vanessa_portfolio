@@ -22,8 +22,13 @@ const ThemeSwitcher: React.FC = () => {
           onChange={handleToggle} 
         />
         <span className="slider"></span>
-        <span className="theme-icon">
-          {theme === 'dark' ? <FaMoon /> : <FaSun />} {/* Replace emojis with icons */}
+        
+        {/* The sun and moon icons with distinct classes */}
+        <span className="theme-icon sun">
+          <FaSun />
+        </span>
+        <span className="theme-icon moon">
+          <FaMoon />
         </span>
       </label>
     </div>
