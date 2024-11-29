@@ -49,9 +49,9 @@
 .dropdown-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align text to the right */
-  text-align: right;
-  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .dropdown-actions .btn {
