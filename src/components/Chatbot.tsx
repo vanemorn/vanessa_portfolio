@@ -2,48 +2,39 @@ import React, { useState } from 'react';
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
-  const [messages, setMessages] = useState<{ user: string; bot: string }[]>([]);
-  const [userInput, setUserInput] = useState('');
+  const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
 
-  // Predefined responses for the chatbot
-  const botResponses: { [key: string]: string } = {
-    hello: 'Hi there! How can I help you today?',
-    how: 'I am doing well, thank you for asking!',
-    default: 'Sorry, I didn’t quite get that. Can you rephrase your question?',
-  };
-
-  // Function to handle sending messages
-  const sendMessage = () => {
-    if (userInput.trim()) {
-      const botReply =
-        botResponses[userInput.toLowerCase()] || botResponses.default; // Get bot response
-      setMessages([...messages, { user: userInput, bot: botReply }]);
-      setUserInput(''); // Clear user input after sending
-    }
+  // Function to toggle chatbot state
+  const toggleChatbot = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="chatbot-container">
-      <div className="chatbot-header">
-        <h3>Chatbot</h3>
-      </div>
-      <div className="chatbot-messages">
-        {messages.map((msg, index) => (
-          <div key={index} className="chatbot-message">
-            <div className="user-message">{msg.user}</div>
-            <div className="bot-message">{msg.bot}</div>
+    <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
+      {!isOpen && (
+        <div className="chatbot-icon" onClick={toggleChatbot}>
+          💬
+          <div className="notification-badge"></div> {/* Notification indicator */}
+        </div>
+      )}
+
+      {isOpen && (
+        <div className="chatbot-window">
+          <div className="chatbot-header">
+            <h4>Chatbot</h4>
+            <button onClick={toggleChatbot} className="minimize-btn">
+              –
+            </button>
           </div>
-        ))}
-      </div>
-      <div className="chatbot-input">
-        <input
-          type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Ask me something..."
-        />
-        <button onClick={sendMessage}>Send</button>
-      </div>
+          <div className="chatbot-content">
+            <p>Hi there! How can I help you today?</p>
+          </div>
+          <div className="chatbot-footer">
+            <input type="text" placeholder="Type a message..." />
+            <button>Send</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
