@@ -1,30 +1,28 @@
-import { useState, useEffect } from 'react';
-import './ThemeSwitcher.css'; // import the CSS for the theme switcher
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../store/themeSlice';
+import { RootState } from '../store';
+import './ThemeSwitcher.css'; // Import CSS for styling
 
-const ThemeSwitcher = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+const ThemeSwitcher: React.FC = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
-  // Toggle the theme
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+  const handleToggle = () => {
+    dispatch(toggleTheme()); // Dispatch the action to toggle the theme
   };
 
-  // Apply the theme class to the body element when isDarkMode changes
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add('dark-mode');
-      document.body.classList.remove('light-mode');
-    } else {
-      document.body.classList.add('light-mode');
-      document.body.classList.remove('dark-mode');
-    }
-  }, [isDarkMode]);
-
   return (
-    <div className={`theme-switcher ${isDarkMode ? 'dark' : 'light'}`}>
-      <button onClick={toggleTheme} className="theme-switcher-button">
-        {isDarkMode ? '🌙' : '☀️'}
-      </button>
+    <div className="theme-switcher-container">
+      <label className="theme-switcher">
+        <input 
+          type="checkbox" 
+          checked={theme === 'dark'} 
+          onChange={handleToggle} 
+        />
+        <span className="slider"></span>
+        <span className="theme-icon">{theme === 'dark' ? '🌙' : '🌞'}</span>
+      </label>
     </div>
   );
 };
