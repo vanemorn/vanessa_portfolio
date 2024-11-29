@@ -40,14 +40,14 @@
   flex-wrap: wrap; /* Wrap tags to the next line if needed */
   justify-content: left;
   gap: 8px; /* Space between tags */
-  margin: 10px 0;
+  margin: 12px 0;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 
 .project-tag {
-  background-color: #314697; /* Highlight color */
-  color: #f7f7f7; /* Dark text */
+  background-color: #D5DA26; /* Highlight color */
+  color: #242424; /* Dark text */
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 10px;
@@ -67,18 +67,19 @@
   background-color: transparent; /* Transparent background */
   color: #242424; /* Dark text color */
   border: 2px solid #242424; /* Border color */
-  border-radius: 8px;
+  border-radius: 12px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  width: auto;
+  width: 150px;
 }
 
 .view-more-button-project:hover {
   background-color: #314697; /* Highlight on hover */
+  color: #f7f7f7;
   transform: translateX(3px); /* Slight lift effect */
 }
 
