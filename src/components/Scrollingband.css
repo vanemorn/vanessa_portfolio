@@ -1,6 +1,6 @@
 .scrolling-band-wrapper {
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Hide overflow to keep it clean */
     background-color: #D5DA26; /* Light background for contrast */
     padding: 20px 0;
   }
@@ -20,9 +20,9 @@
   }
   
   .separator {
-    font-size: 32px; /* Make the separator larger */
+    font-size: 30px; /* Make the separator larger */
     margin: 0 10px;
-    color: #888; /* Light color for the separator */
+    color: #242424; /* Light color for the separator */
   }
   
   .scrolling-band:hover {
