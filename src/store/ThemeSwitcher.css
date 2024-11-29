@@ -24,13 +24,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ccc; /* Default light background (for light mode) */
   transition: 0.4s;
   border-radius: 50px;
 }
 
+/* Dark mode background color */
 .theme-switcher input:checked + .slider {
-  background-color: #4CAF50; /* Green color when checked (for dark mode) */
+  background-color: #f1f1f1; /* Light gray background for dark mode */
 }
 
 .theme-switcher .slider:before {
@@ -41,19 +42,21 @@
   border-radius: 50%;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #333; /* Dark circle by default */
   transition: 0.4s;
 }
 
+/* Moving circle (knob) changes to dark gray when dark mode is active */
 .theme-switcher input:checked + .slider:before {
   transform: translateX(26px);
+  background-color: #555; /* Dark gray circle when checked (dark mode) */
 }
 
-.theme-icon {
+.theme-switcher .theme-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 18px;
+  font-size: 20px;  /* Adjusted font size */
   transition: opacity 0.3s ease;
   color: #f9f9f9;
 }

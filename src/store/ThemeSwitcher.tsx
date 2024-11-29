@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../store/themeSlice';
 import { RootState } from '../store';
+import { FaMoon, FaSun } from 'react-icons/fa'; // Import the icons
 import './ThemeSwitcher.css'; // Import CSS for styling
 
 const ThemeSwitcher: React.FC = () => {
@@ -21,7 +22,9 @@ const ThemeSwitcher: React.FC = () => {
           onChange={handleToggle} 
         />
         <span className="slider"></span>
-        <span className="theme-icon">{theme === 'dark' ? '🌙' : '🌞'}</span>
+        <span className="theme-icon">
+          {theme === 'dark' ? <FaMoon /> : <FaSun />} {/* Replace emojis with icons */}
+        </span>
       </label>
     </div>
   );
