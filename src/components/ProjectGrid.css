@@ -50,9 +50,9 @@
 
 /* View More Button Styling */
 .view-more-button {
-  background: none;
+  background: none; /* No background */
   border: none;
-  color: #242424;
+  color: #242424; /* Dark text color */
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -61,12 +61,13 @@
   display: inline-block;
   padding: 5px 10px;
   transition: transform 0.3s ease, color 0.3s ease;
+  text-transform: uppercase; /* Optional: Adds more style to the button */
 }
 
 /* Hover Animations */
 .view-more-button:hover {
   transform: scale(1.1); /* Slightly enlarge on hover */
-  color: #314697; /* Change color on hover */
+  color: #314697; /* Change text color */
 }
 
 /* Dynamic Underline Animation */
