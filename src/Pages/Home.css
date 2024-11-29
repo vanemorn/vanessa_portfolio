@@ -32,10 +32,10 @@
   margin-bottom: 35%;
 }
 
-.foto-yo {
-  flex: 1;
-  max-width: 100%;
-  text-align: center;
+.descripcion {
+  margin-top: 600px;
+  margin-bottom: 600px;
+  margin-left: 500px;
 }
 
 .What-can-do {
