@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
-  const [message, setMessage] = useState(''); // State to store the input message
   const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Updated to allow JSX.Element
   const [botMessage, setBotMessage] = useState(''); // State to store the current bot message
+  const [showButtons, setShowButtons] = useState(false); // State to control button visibility
 
   // Default predefined questions and answers
   const defaultQuestions = [
@@ -68,13 +68,14 @@ const Chatbot: React.FC = () => {
   };
 
   // Function to simulate typing effect
-  const simulateTyping = (message: string) => {
+  const simulateTyping = (message: string, callback: () => void) => {
     let index = 0;
     const interval = setInterval(() => {
       setBotMessage((prev) => prev + message[index]);
       index++;
       if (index === message.length) {
         clearInterval(interval);
+        callback(); // Call the callback once typing finishes
       }
     }, 50); // Adjust typing speed (milliseconds)
   };
@@ -87,7 +88,7 @@ const Chatbot: React.FC = () => {
     ]);
 
     if (typeof answer === 'string') {
-      simulateTyping(answer); // Simulate typing effect for string answers
+      simulateTyping(answer, () => {});
     } else {
       setBotMessage(''); // Clear bot message initially if it's JSX content
     }
@@ -113,6 +114,24 @@ const Chatbot: React.FC = () => {
     }, 1000); // Wait before showing question buttons again
   };
 
+  // Show the initial greeting with typing effect when the window is opened
+  useEffect(() => {
+    if (isOpen) {
+      setBotMessage(''); // Clear any previous bot message
+      simulateTyping('Hi there! How can I help you today?', () => {
+        // After the initial greeting typing finishes, show the question buttons one by one
+        let buttonIndex = 0;
+        const interval = setInterval(() => {
+          setShowButtons(true); // Display buttons with a delay
+          buttonIndex++;
+          if (buttonIndex === defaultQuestions.length) {
+            clearInterval(interval);
+          }
+        }, 500); // Delay for showing the buttons
+      });
+    }
+  }, [isOpen]);
+
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
       {!isOpen && (
@@ -132,26 +151,30 @@ const Chatbot: React.FC = () => {
           </div>
           <div className="chatbot-content">
             {conversation.length === 0 ? (
-              <p>Hi there! How can I help you today?</p>
+              <p>{botMessage}</p>
             ) : (
               conversation.map((msg, index) => (
                 <div key={index} className="message">
                   <p><strong>You:</strong> {msg.user}</p>
-                  <p><strong>Bot:</strong> {msg.bot ? msg.bot : botMessage}</p>
+                  <p><strong>Bot:</strong> {msg.bot}</p>
                 </div>
               ))
             )}
           </div>
           <div className="chatbot-footer">
-            <input 
-              type="text" 
-              placeholder="Type a message..." 
-              value={message} 
-              onChange={(e) => setMessage(e.target.value)} 
-            />
-            <button onClick={() => handleQuestionClick(message, 'This is a custom message!')}>
-              Send
-            </button>
+            {showButtons && (
+              <div className="question-buttons">
+                {defaultQuestions.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleQuestionClick(item.question, item.answer)}
+                    className="question-btn"
+                  >
+                    {item.question}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
