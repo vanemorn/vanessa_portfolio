@@ -3,12 +3,11 @@
   grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 projects */
   gap: 20px; /* Space between cards */
   padding: 20px;
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .project-card {
-  background-color: #ffffff; /* White card background */
   border: 1px solid #ccc; /* Light gray border */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -47,11 +46,11 @@
 }
 
 .project-tag {
-  background-color: #d5da26; /* Highlight color */
-  color: #242424; /* Dark text */
+  background-color: #314697; /* Highlight color */
+  color: #f7f7f7; /* Dark text */
   font-size: 14px;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -68,17 +67,18 @@
   background-color: transparent; /* Transparent background */
   color: #242424; /* Dark text color */
   border: 2px solid #242424; /* Border color */
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  width: auto;
 }
 
 .view-more-button-project:hover {
-  background-color: #d5da26; /* Highlight on hover */
+  background-color: #314697; /* Highlight on hover */
   transform: translateX(3px); /* Slight lift effect */
 }
 
