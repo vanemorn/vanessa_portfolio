@@ -64,7 +64,7 @@ const ProjectGrid: React.FC = () => {
           </div>
           <p className="project-description">{project.description}</p>
           <button
-            className="view-more-button"
+            className="view-more-button-project"
             onClick={() => handleViewMore(project.title)}
           >
             View More →

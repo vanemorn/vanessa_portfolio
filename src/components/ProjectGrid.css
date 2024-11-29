@@ -3,6 +3,8 @@
   grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 projects */
   gap: 20px; /* Space between cards */
   padding: 20px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 .project-card {
@@ -16,8 +18,7 @@
   align-items: left;
   text-align: left;
   padding: 20px;
-  margin-left: 250px;
-  margin-right: 250px;
+
 }
 
 .project-image {
@@ -63,22 +64,27 @@
 
 }
 
-.view-more-button {
-  background-color: none;
-  color: #242424; /* White text */
-  border: 2px solid #242424;
-  border-radius: 8px;
+.view-more-button-project {
+  background-color: transparent; /* Transparent background */
+  color: #242424; /* Dark text color */
+  border: 2px solid #242424; /* Border color */
+  border-radius: 6px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: bold;
-  border: none;
-  border-radius: 6px;
   padding: 10px 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.view-more-button:hover {
+.view-more-button-project:hover {
   background-color: #d5da26; /* Highlight on hover */
-  transform: translateX(3px); /* Lift the button slightly */
+  transform: translateX(3px); /* Slight lift effect */
+}
+
+.view-more-button-project:focus,
+.view-more-button-project:active {
+  outline: none;
+  background-color: transparent; /* Reset any background color on focus */
+  border: 2px solid #242424; /* Keep the border on focus */
 }
