@@ -75,8 +75,8 @@
   overflow-y: auto;
   font-size: 14px;
   display: flex;
-  flex-direction: column-reverse; /* Ensure messages are shown from the bottom */
-  height: calc(100% - 60px); /* Allow space for header/footer */
+  flex-direction: column; /* Changed to column */
+  height: 100%; /* Ensure it fills the container */
 }
 
 /* Message style */
