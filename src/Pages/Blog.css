@@ -43,3 +43,33 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.blog {
+  padding: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.post-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.post-card h2 {
+  margin-top: 0;
+}
+
+.post-card a {
+  color: blue;
+  text-decoration: none;
+}
+
+.post-card a:hover {
+  text-decoration: underline;
+}
+

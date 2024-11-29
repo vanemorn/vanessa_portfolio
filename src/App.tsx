@@ -9,6 +9,7 @@ import Contact from './Pages/Contact';
 import Gallery from './Pages/Gallery';
 import Blog from './Pages/Blog';
 import Videogallery from './Pages/Videogallery';
+import Post from './components/Post';
 
 import './App.css'; // CSS File
 
@@ -37,6 +38,8 @@ const App: React.FC = () => {
             <li><Link to="/contact" onClick={() => setIsDropdownOpen(false)}>Contact</Link></li>
             <li><Link to="/gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link></li>
             <li><Link to="/blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link></li>
+            <Route path="/post/:id" element={<Post />} /> {/* Individual Post page */}
+
             <li><Link to="/videogallery" onClick={() => setIsDropdownOpen(false)}>Video Gallery</Link></li>
           </ul>
         </nav>

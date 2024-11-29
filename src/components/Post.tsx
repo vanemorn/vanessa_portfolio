@@ -1,20 +1,44 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './Post.css';
 
 interface Comment {
   id: number;
   text: string;
   reactions: { [emoji: string]: number };
-  timestamp: number; // Timestamp to store the time when the comment was created
+  timestamp: number;
 }
 
-interface PostProps {
+interface Post {
+  id: number;
   title: string;
   content: string;
   tags: string[];
+  comments: Comment[];
 }
 
-// Function to format the time ago
+const posts: Post[] = [
+  {
+    id: 1,
+    title: 'Post 1',
+    content: 'This is the full content for post 1.',
+    tags: ['tag1', 'tag2'],
+    comments: [
+      { id: 1, text: 'Great post!', reactions: { '👍': 2, '❤️': 1 }, timestamp: Date.now() - 100000 },
+      { id: 2, text: 'I disagree with your point on XYZ.', reactions: { '😢': 1 }, timestamp: Date.now() - 500000 },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Post 2',
+    content: 'This is the full content for post 2.',
+    tags: ['tag3', 'tag4'],
+    comments: [
+      { id: 1, text: 'Very insightful, thanks!', reactions: { '👍': 3 }, timestamp: Date.now() - 300000 },
+    ],
+  },
+];
+
 const timeAgo = (timestamp: number): string => {
   const now = Date.now();
   const diff = now - timestamp;
@@ -27,95 +51,68 @@ const timeAgo = (timestamp: number): string => {
   return `${days} day${days === 1 ? '' : 's'} ago`;
 };
 
-const Post: React.FC<PostProps> = ({ title, content, tags }) => {
-  // Initial comments with random content and timestamps
-  const generateRandomComments = () => {
-    const comments: Comment[] = [];
-    const randomTexts = [
-      "Great post, I really enjoyed reading this!",
-      "This was super helpful, thanks!",
-      "I completely disagree with your point on XYZ.",
-    ];
-    
-    for (let i = 0; i < 3; i++) {
-      comments.push({
-        id: Date.now() + i, // Ensure unique IDs
-        text: randomTexts[i],
-        reactions: {},
-        timestamp: Date.now() - (Math.random() * 10000000), // Random timestamp in the past
-      });
-    }
-    return comments;
-  };
+const Post: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const post = posts.find((p) => p.id.toString() === id);
 
-  const [comments, setComments] = useState<Comment[]>(generateRandomComments);
-  const [newComment, setNewComment] = useState<string>('');
+  if (!post) {
+    return <p>Post not found</p>;
+  }
+
+  const [newComment, setNewComment] = useState('');
 
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
-      setComments([
-        ...comments,
-        { id: Date.now(), text: newComment, reactions: {}, timestamp: Date.now() },
-      ]);
+      post.comments.push({
+        id: Date.now(),
+        text: newComment,
+        reactions: {},
+        timestamp: Date.now(),
+      });
       setNewComment('');
     }
   };
 
   const handleAddReaction = (commentId: number, emoji: string) => {
-    setComments((prevComments) =>
-      prevComments.map((comment) =>
-        comment.id === commentId
-          ? {
-              ...comment,
-              reactions: {
-                ...comment.reactions,
-                [emoji]: (comment.reactions[emoji] || 0) + 1,
-              },
-            }
-          : comment
-      )
-    );
+    const comment = post.comments.find((c) => c.id === commentId);
+    if (comment) {
+      comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
+    }
   };
 
   return (
     <div className="post">
-      <h2 className="post-title">{title}</h2>
-      <p className="post-content">{content}</p>
+      <h2>{post.title}</h2>
+      <p>{post.content}</p>
       <div className="post-tags">
-        {tags.map((tag, index) => (
+        {post.tags.map((tag, index) => (
           <span key={index} className="tag">
             #{tag}
           </span>
         ))}
       </div>
+
       <div className="comments-section">
         <h3>Comments</h3>
-        <div className="add-comment">
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Write a comment..."
-          />
-          <button onClick={handleAddComment}>Post</button>
-        </div>
-        <ul className="comments-list">
-          {comments.map((comment) => (
-            <li key={comment.id} className="comment">
-              <p>{comment.text}</p>
-              <p className="time-ago">{timeAgo(comment.timestamp)}</p>
-              <div className="reactions">
-                {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
-                  <button
-                    key={emoji}
-                    onClick={() => handleAddReaction(comment.id, emoji)}
-                  >
-                    {emoji} {comment.reactions[emoji] || 0}
-                  </button>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
+        {post.comments.map((comment) => (
+          <div key={comment.id} className="comment">
+            <p>{comment.text}</p>
+            <p>{timeAgo(comment.timestamp)}</p>
+            <div className="reactions">
+              {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
+                <button key={emoji} onClick={() => handleAddReaction(comment.id, emoji)}>
+                  {emoji} {comment.reactions[emoji] || 0}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+        <textarea
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          placeholder="Write a comment..."
+        />
+        <button onClick={handleAddComment}>Post Comment</button>
       </div>
     </div>
   );
