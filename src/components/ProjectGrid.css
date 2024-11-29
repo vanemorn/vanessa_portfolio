@@ -3,7 +3,8 @@
   grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
   gap: 30px; /* Space between cards */
   padding: 20px;
-  margin: 50px; /* Adjust margin for smaller devices */
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 .project-card {
