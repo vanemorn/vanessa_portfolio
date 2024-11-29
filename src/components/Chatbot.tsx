@@ -5,7 +5,6 @@ const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
   const [conversation, setConversation] = useState<{ sender: string; message: string | JSX.Element }[]>([]); // Conversation state
   const [showButtons, setShowButtons] = useState(false); // State to control button visibility
-  const [isTyping, setIsTyping] = useState(false); // Define the isTyping state to track the typing status
 
   const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content to control scrolling
 
@@ -72,32 +71,6 @@ const Chatbot: React.FC = () => {
     }
   };
 
-  // Function to simulate the bot typing (typing animation)
-  const typeMessage = (message: string) => {
-    let i = 0;
-    setIsTyping(true); // Set the bot as typing
-    const interval = setInterval(() => {
-      setConversation((prev) => {
-        const lastMessage = prev[prev.length - 1];
-        if (lastMessage && lastMessage.sender === 'bot') {
-          // Update the last bot message with one character at a time
-          return [
-            ...prev.slice(0, prev.length - 1),
-            { sender: 'bot', message: lastMessage.message + message[i] },
-          ];
-        } else {
-          return [...prev, { sender: 'bot', message: message[i] }];
-        }
-      });
-      i += 1;
-      if (i === message.length) {
-        clearInterval(interval); // Stop once the message is fully typed
-        setIsTyping(false); // Mark typing as finished
-        setShowButtons(true); // Show question options after typing
-      }
-    }, 50); // Typing speed: 50ms per character
-  };
-
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
     // First, we add the user's question to the conversation
@@ -106,10 +79,14 @@ const Chatbot: React.FC = () => {
       { sender: 'user', message: question },
     ]);
 
-    // Then, simulate typing for the bot's response
+    // Then, we add the bot's answer after a slight delay to simulate a response
     setTimeout(() => {
-      typeMessage(answer as string); // Call typing animation for bot response
-    }, 500); // Delay before bot starts typing (simulate thinking time)
+      setConversation((prev) => [
+        ...prev,
+        { sender: 'bot', message: answer },
+      ]);
+      setShowButtons(true); // Show the question options again after the bot's answer
+    }, 500); // Delay to simulate typing
   };
 
   // Function to show the question buttons
@@ -142,14 +119,12 @@ const Chatbot: React.FC = () => {
       setConversation([]); // Reset conversation when opening
       setShowButtons(false); // Hide buttons initially
 
-      // Set the initial greeting message with typing effect
+      // Set the initial greeting message
       setConversation((prev) => [
         ...prev,
-        { sender: 'bot', message: '' }, // Empty message to start typing
+        { sender: 'bot', message: 'Hi there! How can I help you today?' },
       ]);
-      setTimeout(() => {
-        typeMessage('Hi there! How can I help you today?'); // Simulate typing for greeting
-      }, 500); // Delay before bot starts typing
+      setShowButtons(true); // Show buttons after greeting
     }
   }, [isOpen]);
 
@@ -177,12 +152,6 @@ const Chatbot: React.FC = () => {
                 {msg.sender === 'bot' && <p><strong>Vanessa:</strong> {msg.message}</p>}
               </div>
             ))}
-            {/* Show typing indicator when the bot is typing */}
-            {isTyping && (
-              <div className="typing-indicator">
-                <span>Vanessa is typing...</span>
-              </div>
-            )}
           </div>
           <div className="chatbot-footer">
             {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
