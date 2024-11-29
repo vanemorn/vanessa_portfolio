@@ -4,7 +4,7 @@ import { toggleTheme } from '../store/themeSlice';
 import { RootState } from '../store';
 import './ThemeSwitcher.css'; // Import CSS for styling
 
-// Import the custom icons (Assuming they are in the src/assets folder)
+// Import the custom icons (Assuming they are in src/assets folder)
 import moonIcon from '../assets/darkmode.svg'; // Path to the moon icon
 import sunIcon from '../assets/lightmode.svg';   // Path to the sun icon
 
@@ -26,18 +26,11 @@ const ThemeSwitcher: React.FC = () => {
         />
         <span className="slider"></span>
         
-        {/* Icons inside the moving circle */}
+        {/* Display the appropriate icon based on the current theme */}
         <span className="theme-icon">
-          <img 
-            className="moon-icon" 
-            src={moonIcon} 
-            alt="Moon Icon" 
-          />
-          <img 
-            className="sun-icon" 
-            src={sunIcon} 
-            alt="Sun Icon" 
-          />
+          {/* Dark mode: Show moon icon, Light mode: Show sun icon */}
+          <img src={moonIcon} alt="Moon Icon" className="moon-icon" />
+          <img src={sunIcon} alt="Sun Icon" className="sun-icon" />
         </span>
       </label>
     </div>
