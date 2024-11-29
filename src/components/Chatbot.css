@@ -34,19 +34,6 @@
   border-radius: 50%;
 }
 
-/* Animation for attention-grabbing bounce */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
 /* Chatbot window styles */
 .chatbot-window {
   width: 350px;
@@ -94,11 +81,7 @@
 
 .message p {
   margin: 0;
-}
-
-/* Ensure the bot's messages are displayed in dark text */
-.message.bot-message p {
-  color: #333; /* Dark gray for bot's messages */
+  color: #333; /* Dark gray text */
 }
 
 .message strong {
