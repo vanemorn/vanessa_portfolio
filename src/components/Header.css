@@ -156,24 +156,26 @@
   .menu {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Align menu items to the right */
-    padding: 0 20px;
+    align-items: center; /* Align menu items to the right */
+    padding: 20 20px;
   }
 
   .menu a {
     margin: 10px 0;
-    text-align: right;
+    text-align: center;
   }
 
   .dropdown-actions .btn {
+    background-color: #9C0000; /* No change in background on hover */
     transition: none; /* No transition for the button in the dropdown */
     text-decoration: none; /* Ensure no underline on hover */
     color: white; /* Ensure text stays white */
   }
 
   .dropdown-actions .btn:hover {
-    background-color: #9C0000; /* No change in background on hover */
+    background-color: #4d0000;; /* No change in background on hover */
     color: white; /* Keep text white */
     text-decoration: none; /* No underline */
+    transition: none;
   }
 }
