@@ -34,29 +34,42 @@
   border-radius: 50%;
 }
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 /* Chatbot window styles */
 .chatbot-window {
   width: 350px;
   height: 450px;
   background-color: white;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 10px;
+  padding: 30px;
 }
 
 /* Chatbot header with minimize button */
 .chatbot-header {
   background-color: #9c0000; /* Red header */
   color: white;
-  padding: 10px;
+  padding: 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
+  border-radius: 20px;
 }
 
 /* Minimize button */
@@ -132,7 +145,7 @@
   background-color: #9c0000;
   color: white;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 5px;
   border: none;
   cursor: pointer;
@@ -140,6 +153,16 @@
 
 .question-btn:hover {
   background-color: #7a0000;
+}
+
+.contact-btn {
+  background-color: #222222;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 /* Minimized state */
@@ -154,8 +177,9 @@
 
 .chatbot-content ul {
   list-style-type: disc; /* Default bullet points */
-  padding-left: 20px; /* Add some left padding to indent the list */
+  padding-left: 15px; /* Add some left padding to indent the list */
   margin-bottom: 10px; /* Space between list and other content */
+  margin-top: 10px;
 }
 
 /* Style for ordered lists (ol) */
