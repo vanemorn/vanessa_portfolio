@@ -38,7 +38,6 @@
 }
 
 .menu a:hover {
-  color: #9C0000;
   font-weight: 800;
   text-decoration: underline;
 }
@@ -84,8 +83,8 @@
 
 /* Button Styling: Download CV */
 .btn {
-  background-color: #9C0000; /* Red background */
-  color: white; /* White text */
+  background-color: #D5DA26; /* Red background */
+  color: #242424; /* White text */
   padding: 10px 20px; /* Add padding */
   border-radius: 30px; /* Rounded corners */
   font-weight: bold; /* Bold text */
@@ -96,9 +95,9 @@
 }
 
 .btn:hover {
-  background-color: #4d0000; /* Darker red on hover */
+  background-color: #727514; /* Darker red on hover */
   text-decoration: none;
-  color: white;
+  color: #242424;
 }
 
 /* Large Screen Styles */
@@ -135,8 +134,8 @@
   }
 
   .btn {
-    background-color: #9C0000; /* Red background */
-    color: white; /* White text */
+    background-color: #D5DA26; /* Red background */
+    color: #242424; /* White text */
     padding: 10px 20px; /* Add padding */
     border-radius: 30px; /* Rounded corners */
     font-weight: bold; /* Bold text */
@@ -147,7 +146,7 @@
   }
   
   .btn:hover {
-    background-color: #4d0000; /* Darker red on hover */
+    background-color: #727514; /* Darker red on hover */
   }
 }
 
@@ -166,15 +165,15 @@
   }
 
   .dropdown-actions .btn {
-    background-color: #9C0000; /* No change in background on hover */
+    background-color: #D5DA26; /* No change in background on hover */
     transition: none; /* No transition for the button in the dropdown */
     text-decoration: none; /* Ensure no underline on hover */
-    color: white; /* Ensure text stays white */
+    color: #242424; /* Ensure text stays white */
   }
 
   .dropdown-actions .btn:hover {
-    background-color: #4d0000;; /* No change in background on hover */
-    color: white; /* Keep text white */
+    background-color: #727514; /* No change in background on hover */
+    color: #242424; /* Keep text white */
     text-decoration: none; /* No underline */
     transition: none;
   }
