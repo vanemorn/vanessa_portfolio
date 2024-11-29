@@ -81,6 +81,23 @@
   color: #4d0000;
 }
 
+/* Button Styling: Download CV */
+.btn {
+  background-color: #9C0000; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 30px; /* Rounded corners */
+  font-weight: bold; /* Bold text */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn:hover {
+  background-color: #4d0000; /* Darker red on hover */
+}
+
 /* Large Screen Styles */
 @media screen and (min-width: 768px) {
   .menu {
