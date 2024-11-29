@@ -38,8 +38,6 @@ const App: React.FC = () => {
             <li><Link to="/contact" onClick={() => setIsDropdownOpen(false)}>Contact</Link></li>
             <li><Link to="/gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link></li>
             <li><Link to="/blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link></li>
-            <Route path="/post/:id" element={<Post />} /> {/* Individual Post page */}
-
             <li><Link to="/videogallery" onClick={() => setIsDropdownOpen(false)}>Video Gallery</Link></li>
           </ul>
         </nav>
@@ -51,7 +49,7 @@ const App: React.FC = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/" element={<Blog />} /> {/* Main Blog page */}
+          <Route path="/blog" element={<Blog />} /> {/* Main Blog page */}
           <Route path="/post/:id" element={<Post />} /> {/* Individual Post page */}
           <Route path="/videogallery" element={<Videogallery />} />
         </Routes>
