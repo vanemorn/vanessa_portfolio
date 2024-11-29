@@ -3,6 +3,8 @@
   grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 projects */
   gap: 20px; /* Space between cards */
   padding: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .project-card {
@@ -13,8 +15,8 @@
   overflow: hidden; /* Clip overflow */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
   padding: 20px;
 }
 
@@ -35,7 +37,7 @@
 .project-tags {
   display: flex;
   flex-wrap: wrap; /* Wrap tags to the next line if needed */
-  justify-content: center;
+  justify-content: left;
   gap: 8px; /* Space between tags */
   margin: 10px 0;
 }
