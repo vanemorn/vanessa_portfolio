@@ -78,7 +78,6 @@
   bottom: -5px; /* Space below text */
   width: 0;
   height: 3px;
-  background-color: #314697; /* Underline color */
   transition: width 0.4s ease; /* Smooth animation */
 }
 
