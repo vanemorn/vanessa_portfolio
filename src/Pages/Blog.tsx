@@ -1,4 +1,3 @@
-// pages/BlogPage.tsx
 import React from 'react';
 import Post from '../components/Post';
 
