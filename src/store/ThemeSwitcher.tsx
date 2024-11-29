@@ -25,7 +25,7 @@ const ThemeSwitcher: React.FC = () => {
           onChange={handleToggle} 
         />
         <span className="slider"></span>
-        
+
         {/* The icons inside the circle */}
         <span className="theme-icon">
           {/* Dark mode: Show moon icon, Light mode: Show sun icon */}
