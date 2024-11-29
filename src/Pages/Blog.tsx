@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 
@@ -16,7 +16,7 @@ interface Post {
   comments: Comment[];
 }
 
-const posts: Post[] = [
+const initialPosts: Post[] = [
   {
     id: 1,
     title: 'Post 1',
@@ -39,15 +39,55 @@ const posts: Post[] = [
 ];
 
 const Blog: React.FC = () => {
-  // handleAddReaction function to update emoji counts
+  // State for posts to allow updating reactions dynamically
+  const [posts, setPosts] = useState(initialPosts);
+
+  // Function to handle adding reactions
   const handleAddReaction = (postId: number, commentId: number, emoji: string) => {
-    const post = posts.find((p) => p.id === postId);
-    if (post) {
-      const comment = post.comments.find((c) => c.id === commentId);
-      if (comment) {
-        // Update the reaction count for the selected emoji
-        comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
-      }
+    setPosts((prevPosts) => {
+      return prevPosts.map((post) => {
+        if (post.id === postId) {
+          return {
+            ...post,
+            comments: post.comments.map((comment) => {
+              if (comment.id === commentId) {
+                // Update the reaction count for the emoji
+                return {
+                  ...comment,
+                  reactions: {
+                    ...comment.reactions,
+                    [emoji]: (comment.reactions[emoji] || 0) + 1,
+                  },
+                };
+              }
+              return comment;
+            }),
+          };
+        }
+        return post;
+      });
+    });
+  };
+
+  // Function to handle adding new comments
+  const handleAddComment = (postId: number, newCommentText: string) => {
+    if (newCommentText.trim()) {
+      setPosts((prevPosts) => {
+        return prevPosts.map((post) => {
+          if (post.id === postId) {
+            const newComment: Comment = {
+              id: Date.now(),
+              text: newCommentText,
+              reactions: {},
+            };
+            return {
+              ...post,
+              comments: [...post.comments, newComment],
+            };
+          }
+          return post;
+        });
+      });
     }
   };
 
@@ -60,32 +100,42 @@ const Blog: React.FC = () => {
             <h2>{post.title}</h2>
             <p>{post.content.slice(0, 100)}...</p> {/* Show a preview of the content */}
             <p>{post.comments.length} Comments</p> {/* Show the number of comments */}
+
+            {/* Reactions Section */}
             <p>
               Reactions:
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
                 <span key={emoji}>
-                  {emoji} {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}{' '}
+                  {emoji} 
+                  {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}{' '}
                 </span>
               ))}
             </p>
             <Link to={`/post/${post.id}`}>Read more</Link> {/* Link to individual post */}
 
-            {/* Iterate over the comments and display the emoji reaction buttons */}
-            {post.comments.map((comment) => (
-              <div key={comment.id} className="comment">
-                <p>{comment.text}</p>
-                <div className="reactions">
-                  {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
-                    <button
-                      key={emoji}
-                      onClick={() => handleAddReaction(post.id, comment.id, emoji)} // Invoke handleAddReaction
-                    >
-                      {emoji} {comment.reactions[emoji] || 0}
-                    </button>
-                  ))}
+            {/* Display the comments for the post */}
+            <div className="comments-section">
+              {post.comments.map((comment) => (
+                <div key={comment.id} className="comment">
+                  <p>{comment.text}</p>
+                  <div className="reactions">
+                    {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
+                      <button
+                        key={emoji}
+                        onClick={() => handleAddReaction(post.id, comment.id, emoji)} // Increase reaction count
+                      >
+                        {emoji} {comment.reactions[emoji] || 0} {/* Show count */}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+              {/* New comment input */}
+              <textarea
+                placeholder="Write a comment..."
+                onBlur={(e) => handleAddComment(post.id, e.target.value)}
+              />
+            </div>
           </div>
         ))}
       </div>
