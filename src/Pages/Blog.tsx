@@ -39,6 +39,18 @@ const posts: Post[] = [
 ];
 
 const Blog: React.FC = () => {
+  // handleAddReaction function to update emoji counts
+  const handleAddReaction = (postId: number, commentId: number, emoji: string) => {
+    const post = posts.find((p) => p.id === postId);
+    if (post) {
+      const comment = post.comments.find((c) => c.id === commentId);
+      if (comment) {
+        // Update the reaction count for the selected emoji
+        comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
+      }
+    }
+  };
+
   return (
     <div className="blog">
       <h1>My Blog</h1>
@@ -52,11 +64,28 @@ const Blog: React.FC = () => {
               Reactions:
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
                 <span key={emoji}>
-                  {emoji} {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}
+                  {emoji} {post.comments.reduce((acc, comment) => acc + (comment.reactions[emoji] || 0), 0)}{' '}
                 </span>
               ))}
             </p>
             <Link to={`/post/${post.id}`}>Read more</Link> {/* Link to individual post */}
+
+            {/* Iterate over the comments and display the emoji reaction buttons */}
+            {post.comments.map((comment) => (
+              <div key={comment.id} className="comment">
+                <p>{comment.text}</p>
+                <div className="reactions">
+                  {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
+                    <button
+                      key={emoji}
+                      onClick={() => handleAddReaction(post.id, comment.id, emoji)} // Invoke handleAddReaction
+                    >
+                      {emoji} {comment.reactions[emoji] || 0}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>
