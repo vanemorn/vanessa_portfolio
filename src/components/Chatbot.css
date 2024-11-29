@@ -87,19 +87,17 @@
   padding: 10px;
   overflow-y: auto;
   font-size: 14px;
-  text-align: left;
-}
-
-.message {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column-reverse; /* Ensure messages are shown from the bottom */
+  height: 100%; /* Ensure it fills the container */
 }
 
 .message p {
-  margin: 5px;
+  margin: 0;
 }
 
-strong {
-  color: #9c0000; /* Red color for user and bot labels */
+.message strong {
+  font-weight: bold;
 }
 
 /* Typing animation */
@@ -154,4 +152,13 @@ strong {
 /* Minimized state */
 .minimized .chatbot-window {
   display: none;
+}
+
+.message.bot-message p {
+  color: #333;
+}
+
+/* Optional: Style for user's messages */
+.message.user-message p {
+  color: #007bff;
 }

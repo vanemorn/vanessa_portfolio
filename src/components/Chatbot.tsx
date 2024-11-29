@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
@@ -6,6 +6,8 @@ const Chatbot: React.FC = () => {
   const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Conversation state to store messages
   const [botMessage, setBotMessage] = useState(''); // State to store the current bot message
   const [showButtons, setShowButtons] = useState(false); // State to control button visibility
+
+  const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content to control scrolling
 
   // Default predefined questions and answers
   const defaultQuestions = [
@@ -83,10 +85,13 @@ const Chatbot: React.FC = () => {
 
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    setConversation((prev) => [
-      ...prev,
-      { user: question, bot: '' }, // Add the question and an empty bot response initially
-    ]);
+    // Prevent adding the same question twice to the conversation
+    if (conversation[conversation.length - 1]?.user !== question) {
+      setConversation((prev) => [
+        ...prev,
+        { user: question, bot: '' }, // Add the question and an empty bot response initially
+      ]);
+    }
 
     // Simulate bot's typing effect for the answer
     if (typeof answer === 'string') {
@@ -125,11 +130,18 @@ const Chatbot: React.FC = () => {
     );
   };
 
+  // Scroll to the bottom every time the conversation is updated
+  useEffect(() => {
+    if (chatContentRef.current) {
+      chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
+    }
+  }, [conversation]);
+
   // Show the initial greeting with typing effect when the window is opened
   useEffect(() => {
     if (isOpen) {
+      setConversation([]); // Reset conversation when opening
       setBotMessage(''); // Clear any previous bot message
-      setConversation([]); // Reset the conversation state
       simulateTyping('Hi there! How can I help you today?', () => {
         setConversation((prev) => [
           ...prev,
@@ -157,7 +169,7 @@ const Chatbot: React.FC = () => {
               –
             </button>
           </div>
-          <div className="chatbot-content">
+          <div className="chatbot-content" ref={chatContentRef}>
             {conversation.map((msg, index) => (
               <div key={index} className="message">
                 {msg.user && <p><strong>You:</strong> {msg.user}</p>}
