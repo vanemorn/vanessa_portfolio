@@ -3,7 +3,7 @@ import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
-  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Updated to allow JSX.Element
+  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Conversation state to store messages
   const [botMessage, setBotMessage] = useState(''); // State to store the current bot message
   const [showButtons, setShowButtons] = useState(false); // State to control button visibility
 
@@ -134,8 +134,8 @@ const Chatbot: React.FC = () => {
         setConversation((prev) => [
           ...prev,
           { user: '', bot: botMessage }, // Add the initial greeting
-          { user: '', bot: showQuestionButtons() }, // Show the question buttons
         ]);
+        setShowButtons(true); // Now show the buttons after greeting
       });
     }
   }, [isOpen]);
@@ -164,11 +164,6 @@ const Chatbot: React.FC = () => {
                 {msg.bot && <p><strong>Bot:</strong> {msg.bot}</p>}
               </div>
             ))}
-            {botMessage && (
-              <div>
-                <p><strong>Bot:</strong> {botMessage}</p>
-              </div>
-            )}
           </div>
           <div className="chatbot-footer">
             {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
