@@ -64,7 +64,7 @@
 .chatbot-header {
   background-color: #9c0000; /* Red header */
   color: white;
-  padding: 10px;
+  padding: 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
