@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color: #F1F0EC; /* Light header background */
   position: relative;
 }
@@ -36,7 +36,7 @@
   font-weight: 600;
   margin: 10px 0;
   text-decoration: none;
-  text-align: left;
+  text-align: center;
 }
 
 .menu a:hover {
@@ -49,8 +49,9 @@
 .dropdown-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align text to the left */
-  margin-top: 20px;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .dropdown-actions .btn {
@@ -81,6 +82,25 @@
   color: #4d0000;
 }
 
+/* Button Styling: Download CV */
+.btn {
+  background-color: #9C0000; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 30px; /* Rounded corners */
+  font-weight: bold; /* Bold text */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn:hover {
+  background-color: #4d0000; /* Darker red on hover */
+  text-decoration: none;
+  color: white;
+}
+
 /* Large Screen Styles */
 @media screen and (min-width: 768px) {
   .menu {
@@ -90,13 +110,16 @@
     background: none;
     padding: 0;
     box-shadow: none;
-    width: auto;
+    width: 50%;
     top: auto;
+    align-items: center;
+    justify-content: center; /* Align menu items to center */
   }
 
   .menu a {
     margin: 0 20px;
     padding: 0;
+    text-align: center;
   }
 
   .dropdown-actions {
@@ -109,5 +132,50 @@
 
   .dropdown-toggle {
     display: none; /* Hide hamburger on large screens */
+  }
+
+  .btn {
+    background-color: #9C0000; /* Red background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 30px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .btn:hover {
+    background-color: #4d0000; /* Darker red on hover */
+  }
+}
+
+/* Mobile Specific Styles */
+@media screen and (max-width: 767px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align menu items to the right */
+    padding: 20 20px;
+  }
+
+  .menu a {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .dropdown-actions .btn {
+    background-color: #9C0000; /* No change in background on hover */
+    transition: none; /* No transition for the button in the dropdown */
+    text-decoration: none; /* Ensure no underline on hover */
+    color: white; /* Ensure text stays white */
+  }
+
+  .dropdown-actions .btn:hover {
+    background-color: #4d0000;; /* No change in background on hover */
+    color: white; /* Keep text white */
+    text-decoration: none; /* No underline */
+    transition: none;
   }
 }
