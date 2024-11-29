@@ -73,13 +73,15 @@
 .dropdown-toggle {
   background: none;
   border: none;
-  color: #9C0000; /* Match header styling */
+  color: #9C0000; /* Default color (red) for the hamburger icon */
   font-size: 30px;
   cursor: pointer;
 }
 
+/* Change background to red and icon color to white on hover */
 .dropdown-toggle:hover {
-  color: #4d0000;
+  background-color: #9C0000; /* Red background */
+  color: #ffffff; /* White color for the hamburger icon */
 }
 
 /* Button Styling: Download CV */
