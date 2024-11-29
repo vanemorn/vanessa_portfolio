@@ -140,7 +140,7 @@ const Chatbot: React.FC = () => {
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h4>Chatbot</h4>
+            <h4>Virtual Assistant</h4>
             <button onClick={toggleChatbot} className="minimize-btn">
               –
             </button>
@@ -149,7 +149,7 @@ const Chatbot: React.FC = () => {
             {conversation.map((msg, index) => (
               <div key={index} className="message">
                 {msg.sender === 'user' && <p><strong>You:</strong> {msg.message}</p>}
-                {msg.sender === 'bot' && <p><strong>Bot:</strong> {msg.message}</p>}
+                {msg.sender === 'bot' && <p><strong>Assistant:</strong> {msg.message}</p>}
               </div>
             ))}
           </div>
