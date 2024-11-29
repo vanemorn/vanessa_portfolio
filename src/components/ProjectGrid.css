@@ -57,21 +57,30 @@
   margin: 10px 15px 15px;
 }
 
+/* View More Button Styling */
 .view-more-button {
   color: #242424;
   font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   text-decoration: none;
   position: relative;
   display: inline-block;
+  padding: 10px 20px;
+  background-color: #d5da26;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
+  overflow: hidden;
 }
 
+/* Hover Effects */
 .view-more-button:hover {
   transform: scale(1.1); /* Slightly enlarge on hover */
+  color: #ffffff; /* Change text color */
 }
 
+/* Underline Animation */
 .view-more-button::after {
   content: '';
   position: absolute;
@@ -87,6 +96,19 @@
   width: 100%; /* Fully expand underline on hover */
 }
 
+/* Bounce Effect */
 .view-more-button:hover {
   animation: bounce 0.3s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
