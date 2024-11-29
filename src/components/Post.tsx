@@ -24,8 +24,8 @@ const posts: Post[] = [
     content: 'This is the full content for post 1.',
     tags: ['tag1', 'tag2'],
     comments: [
-      { id: 1, text: 'Great post!', reactions: { '👍': 2, '❤️': 1 }, timestamp: Date.now() - 100000 },
-      { id: 2, text: 'I disagree with your point on XYZ.', reactions: { '😢': 1 }, timestamp: Date.now() - 500000 },
+      { id: 1, text: 'Great post!', reactions: { '👍': 0, '❤️': 0 }, timestamp: Date.now() - 100000 },
+      { id: 2, text: 'I disagree with your point on XYZ.', reactions: { '😢': 0 }, timestamp: Date.now() - 500000 },
     ],
   },
   {
@@ -34,7 +34,7 @@ const posts: Post[] = [
     content: 'This is the full content for post 2.',
     tags: ['tag3', 'tag4'],
     comments: [
-      { id: 1, text: 'Very insightful, thanks!', reactions: { '👍': 3 }, timestamp: Date.now() - 300000 },
+      { id: 1, text: 'Very insightful, thanks!', reactions: { '👍': 0 }, timestamp: Date.now() - 300000 },
     ],
   },
 ];
@@ -66,7 +66,7 @@ const Post: React.FC = () => {
       post.comments.push({
         id: Date.now(),
         text: newComment,
-        reactions: {},
+        reactions: { '👍': 0, '❤️': 0, '😂': 0, '😮': 0, '😢': 0 },
         timestamp: Date.now(),
       });
       setNewComment('');
@@ -78,11 +78,6 @@ const Post: React.FC = () => {
     if (comment) {
       comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
     }
-  };
-
-  // Function to calculate total reactions for a comment
-  const getTotalReactions = (comment: Comment) => {
-    return Object.values(comment.reactions).reduce((acc, count) => acc + count, 0);
   };
 
   return (
@@ -109,7 +104,6 @@ const Post: React.FC = () => {
                   {emoji} {comment.reactions[emoji] || 0}
                 </button>
               ))}
-              <p>Total Reactions: {getTotalReactions(comment)}</p> {/* Display total reactions for the comment */}
             </div>
           </div>
         ))}
