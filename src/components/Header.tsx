@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         ☰ {/* Hamburger Menu Icon */}
       </button>
 
-      {/* Links to the other pages through the menu */}
+      {/* Dropdown Menu */}
       <nav className={`menu ${isDropdownOpen ? 'show' : ''}`}>
         <Link to="/About" onClick={() => setIsDropdownOpen(false)}>About</Link>
         <Link to="/Projects" onClick={() => setIsDropdownOpen(false)}>Projects</Link>
@@ -33,17 +33,13 @@ const Header: React.FC = () => {
         <Link to="/Blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link>
         <Link to="/Gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link>
         <Link to="/Videogallery" onClick={() => setIsDropdownOpen(false)}>VideoGallery</Link>
+
+        {/* Move these elements into the dropdown */}
+        <div className="dropdown-actions">
+          <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
+          <ThemeSwitcher />
+        </div>
       </nav>
-
-      {/* The button to download my CV */}
-      <div className="download-button">
-        <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
-      </div>
-
-      {/* Theme Switcher Button */}
-      <div className="theme-switcher-container">
-        <ThemeSwitcher />
-      </div>
     </header>
   );
 };
