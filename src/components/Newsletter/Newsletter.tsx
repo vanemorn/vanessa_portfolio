@@ -4,7 +4,7 @@ import { subscribeToNewsletter } from './newsletterActions';  // Redux action fo
 import './Newsletter.css';  // Importing the CSS styles
 
 // Import image properly
-import imagesub from '../assets/subscribe-news.png';  // Assuming image is inside the src/assets folder
+import imagesub from 'C:/Users/linda/vanessa_portfolio/src/assets/subscribe-news.png';  // Assuming image is inside the src/assets folder
 
 interface NewsletterProps {}
 
