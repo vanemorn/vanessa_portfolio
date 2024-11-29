@@ -20,8 +20,8 @@ const Newsletter: React.FC<NewsletterProps> = () => {
   return (
     <div className="newsletter-container">
       <div className="newsletter-form">
-        <h2>Subscribe to Our Newsletter</h2>
-        <p>Lorem Ipsum</p>
+        <h2>Get inspired by design stories</h2>
+        <p>Weekly insights on the latest UX/UI trends, design tips, exclusive case studies and upcoming workshops</p>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -34,7 +34,7 @@ const Newsletter: React.FC<NewsletterProps> = () => {
         </form>
       </div>
       <div className="newsletter-image">
-        <img src="https://via.placeholder.com/400x300" alt="Newsletter" />
+        <img src="C:/Users/linda/vanessa_portfolio\src/assets/subscribe-news.png" alt="Newsletter" />
       </div>
     </div>
   );

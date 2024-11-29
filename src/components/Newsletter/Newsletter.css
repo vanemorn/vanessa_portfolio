@@ -2,9 +2,11 @@
 .newsletter-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
+    justify-content: left;
     padding: 20px;
     gap: 20px;
+    margin: 100px;
   }
   
   .newsletter-form {
@@ -13,12 +15,15 @@
   }
   
   .newsletter-form h2 {
-    font-size: 2rem;
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     margin-bottom: 10px;
   }
   
   .newsletter-form p {
-    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
     margin-bottom: 20px;
   }
   
@@ -32,18 +37,20 @@
   }
   
   .newsletter-form button {
-    width: 100%;
+    display: inline-block;
+    align-self: flex-start;
+    width: auto;
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #D5DA26;
+    color: #242424;
     font-size: 1rem;
-    border: none;
+    border: 2px solid #242424;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .newsletter-form button:hover {
-    background-color: #45a049;
+    background-color: #727514;
   }
   
   .newsletter-image {
