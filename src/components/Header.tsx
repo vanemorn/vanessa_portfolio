@@ -34,7 +34,7 @@ const Header: React.FC = () => {
         <Link to="/Gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link>
         <Link to="/Videogallery" onClick={() => setIsDropdownOpen(false)}>VideoGallery</Link>
 
-        {/* Move these elements into the dropdown */}
+        {/* Dropdown-specific actions */}
         <div className="dropdown-actions">
           <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
           <ThemeSwitcher />

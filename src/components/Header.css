@@ -1,14 +1,28 @@
-/* Menu */
+/* Header Styling */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #F1F0EC; /* Light header background */
+  position: relative;
+}
+
+.logo-img {
+  max-height: 40px;
+}
+
+/* Dropdown Menu */
 .menu {
-  display: none; /* Hide menu by default */
-  flex-grow: 1;
+  display: none; /* Hidden by default */
   flex-direction: column; /* Stack items vertically */
   background-color: #F1F0EC; /* Match header background */
-  position: absolute; /* Position dropdown */
-  top: 60px; /* Adjust based on header height */
+  position: absolute; /* Position below header */
+  top: 60px;
   left: 0;
   width: 100%;
   padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu.show {
@@ -22,8 +36,7 @@
   font-weight: 600;
   margin: 10px 0;
   text-decoration: none;
-  text-align: left; /* Align text to the left */
-  padding: 10px 15px; /* Add padding for better click targets */
+  text-align: left;
 }
 
 .menu a:hover {
@@ -32,11 +45,11 @@
   text-decoration: underline;
 }
 
-/* Dropdown-specific actions (CV + Theme Switcher) */
+/* Dropdown-specific actions */
 .dropdown-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start; /* Align to the left */
   margin-top: 20px;
 }
 
@@ -44,18 +57,28 @@
   margin-bottom: 10px;
 }
 
-.dropdown-actions .theme-switcher-container {
-  margin-top: 10px;
+/* Hamburger Button */
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #9C0000; /* Match header styling */
+  font-size: 30px;
+  cursor: pointer;
 }
 
-/* Hide dropdown toggle on large screens */
+.dropdown-toggle:hover {
+  color: #4d0000;
+}
+
+/* Large Screen Styles */
 @media screen and (min-width: 768px) {
   .menu {
     display: flex;
     flex-direction: row;
-    position: static;
+    position: static; /* Position inline with header */
     background: none;
     padding: 0;
+    box-shadow: none;
     width: auto;
     top: auto;
   }
@@ -63,14 +86,13 @@
   .menu a {
     margin: 0 20px;
     padding: 0;
-    text-align: right;
   }
 
   .dropdown-actions {
-    display: none; /* Keep actions in the header for larger screens */
+    display: none; /* Hide dropdown-specific actions */
   }
 
   .dropdown-toggle {
-    display: none; /* Hide the hamburger menu */
+    display: none; /* Hide hamburger on large screens */
   }
 }
