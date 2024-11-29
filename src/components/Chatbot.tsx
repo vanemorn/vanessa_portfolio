@@ -73,23 +73,20 @@ const Chatbot: React.FC = () => {
 
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    // Check if the user message is already in the conversation
-    if (conversation[conversation.length - 1]?.message !== question) {
+    // First, we add the user's question to the conversation
+    setConversation((prev) => [
+      ...prev,
+      { sender: 'user', message: question },
+    ]);
+
+    // Then, we add the bot's answer after a slight delay to simulate a response
+    setTimeout(() => {
       setConversation((prev) => [
         ...prev,
-        { sender: 'user', message: question }, // Add the user question to the conversation
+        { sender: 'bot', message: answer },
       ]);
-    }
-
-    // Check if the bot's answer is already in the conversation
-    if (conversation[conversation.length - 1]?.message !== answer) {
-      setConversation((prev) => [
-        ...prev,
-        { sender: 'bot', message: answer }, // Add the bot's answer
-      ]);
-    }
-
-    setShowButtons(false); // Hide buttons after a question is asked and answered
+      setShowButtons(true); // Show the question options again after the bot's answer
+    }, 500); // Delay to simulate typing
   };
 
   // Function to show the question buttons
