@@ -1,5 +1,7 @@
 // components/Post.tsx
 import React, { useState } from 'react';
+import './Post.css';
+
 
 interface Comment {
   id: number;
