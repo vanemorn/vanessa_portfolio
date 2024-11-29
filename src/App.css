@@ -7,13 +7,13 @@ html, body {
 
 /* Default light theme styles */
 body.light {
-  background-color: #fff;
-  color: #333;
+  background-color: #E8E7E7;
+  color: #242424;
 }
 
 body.dark {
-  background-color: #333;
-  color: #fff;
+  background-color:#242424;
+  color: #E8E7E7;
 }
 
 /* The app class can be used for global app styling but make sure no top padding */

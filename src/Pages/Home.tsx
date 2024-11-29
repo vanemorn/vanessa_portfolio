@@ -2,7 +2,6 @@ import React from 'react';
 import Footer from '../components/Footer'; // Imports footer
 import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
-import biopic from '../assets/foto-yo.png'; // Picture of me
 
 //Importing images for the "What I do" section
 import expertise1 from '../assets/expertise1.svg'; 
@@ -30,35 +29,21 @@ const Home: React.FC = () => {
         <div className="descripcion">{/*Brief description*/}
           <span style={{ color: 'black', 
             fontSize: '60px', 
-            fontFamily: 'Arial, sans-serif', 
+            fontFamily: 'Helvetica', 
             fontWeight: 700, 
             lineHeight: '70px', 
             textAlign: "left" }}>
-            HI, I AM&nbsp;
-          </span>
-
-          <span style={{ color: '#9C0000', // Change of color for my name
-            fontSize: '60px', 
-            fontFamily: 'Arial, sans-serif', 
-            fontWeight: 700, 
-            lineHeight: '70px', 
-            textAlign: "left" }}>
-            VANESSA, <br />
+            Hey there! I'm Vanessa&nbsp;
           </span>
           
           <span style={{ color: 'black', 
             fontSize: '60px', 
-            fontFamily: 'Arial, sans-serif', 
+            fontFamily: 'Helvetica', 
             fontWeight: 700, 
             lineHeight: '70px', 
             textAlign: "left" }}>
-            AN UI DESIGNER <br /> BASED IN LIMERICK
+            an enthusiastic UX Designer <br /> based in Limerick
           </span>
-        </div>
-
-        {/*Picture of me*/}
-        <div className="foto-yo">
-          <img src={biopic} width="350" alt="Foto de Vanessa" />
         </div>
       </div>
 

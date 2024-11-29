@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px;
-  background-color: #F1F0EC; /* Light header background */
   position: relative;
 }
 
@@ -16,7 +15,6 @@
 .menu {
   display: none; /* Hidden by default */
   flex-direction: column; /* Stack items vertically */
-  background-color: #F1F0EC; /* Match header background */
   position: absolute; /* Position dropdown below header */
   top: 60px;
   left: 0;
@@ -30,7 +28,7 @@
 }
 
 .menu a {
-  color: #7B7B7B;
+  color: #242424;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
