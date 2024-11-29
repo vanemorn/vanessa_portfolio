@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Post.css'; // Ensure your CSS file is linked properly
+import './Post.css';
 
 // Define Comment and Post interfaces
 interface Comment {
@@ -13,17 +13,24 @@ interface Comment {
 interface Post {
   id: number;
   title: string;
-  content: string;
+  content: string; // Keep content as a string for simplicity (could be an array of sections)
   tags: string[];
   comments: Comment[];
 }
 
-// Sample initial posts
+// Sample initial posts with multiple paragraphs and images
 const initialPosts: Post[] = [
   {
     id: 1,
-    title: 'Post 1',
-    content: 'This is the full content for post 1.',
+    title: 'Post 1: Multiple Paragraphs and Images',
+    content: `
+      <p>This is the first paragraph of the post. It contains some introductory text.</p>
+      <p>Here comes another paragraph with more details. The content of this post is quite engaging.</p>
+      <img src="https://via.placeholder.com/800x400" alt="Sample image" />
+      <p>Here is a third paragraph with additional information and a conclusion to the post.</p>
+      <p>To wrap it up, we have another image below:</p>
+      <img src="https://via.placeholder.com/800x400" alt="Another sample image" />
+    `,
     tags: ['tag1', 'tag2'],
     comments: [
       { id: 1, text: 'Great post!', reactions: { '👍': 0, '❤️': 0 }, timestamp: Date.now() - 100000 },
@@ -32,8 +39,11 @@ const initialPosts: Post[] = [
   },
   {
     id: 2,
-    title: 'Post 2',
-    content: 'This is the full content for post 2.',
+    title: 'Post 2: A Simple Post',
+    content: `
+      <p>This is a simpler post with only one paragraph and one image.</p>
+      <img src="https://via.placeholder.com/800x400" alt="Sample image" />
+    `,
     tags: ['tag3', 'tag4'],
     comments: [
       { id: 1, text: 'Very insightful, thanks!', reactions: { '👍': 0 }, timestamp: Date.now() - 300000 },
@@ -113,7 +123,7 @@ const Post: React.FC = () => {
   return (
     <div className="post">
       <h2>{currentPost.title}</h2>
-      <p>{currentPost.content}</p>
+      <div className="post-content" dangerouslySetInnerHTML={{ __html: currentPost.content }} /> {/* Render HTML content */}
       <div className="post-tags">
         {currentPost.tags.map((tag, index) => (
           <span key={index} className="tag">
