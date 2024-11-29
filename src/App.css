@@ -1,7 +1,8 @@
-* {
+/* Reset margin and padding for body and html */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  height: 100%; /* Ensures body fills full height */
 }
 
 /* Default light theme styles */
@@ -15,8 +16,9 @@ body.dark {
   color: #fff;
 }
 
+/* The app class can be used for global app styling but make sure no top padding */
 .app {
-  padding: 20px;
+  padding: 0; /* Remove any padding that may be affecting header alignment */
   text-align: center;
 }
 
