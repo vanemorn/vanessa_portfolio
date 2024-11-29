@@ -49,17 +49,22 @@
   transform: translateX(26px); /* Slide the circle when toggled */
 }
 
-/* Centering the icon inside the moving circle */
-.theme-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  width: 100%;
-  height: 100%;
+/* Fix to put the icon inside the white circle */
+.theme-switcher .slider:before {
+  position: relative; /* So that we can position the icon inside it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.theme-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 1; /* Make sure it appears above everything else inside the circle */
+}
+
+/* Adjust the opacity for the icons based on theme */
 .theme-switcher input:checked ~ .theme-icon img {
   opacity: 0;
 }
