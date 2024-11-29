@@ -45,34 +45,35 @@
   transition: 0.4s;
 }
 
-.theme-switcher input:checked + .slider:before {
-  transform: translateX(26px); /* Slide the circle when toggled */
-}
-
-/* Fix to put the icon inside the white circle */
+/* Adjust the icon inside the circle */
 .theme-switcher .slider:before {
-  position: relative; /* So that we can position the icon inside it */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* The icon should move along with the white circle */
 .theme-icon {
   position: absolute;
   width: 18px;
   height: 18px;
-  z-index: 1; /* Make sure it appears above everything else inside the circle */
+  transition: transform 0.4s ease; /* Move with the circle */
+  z-index: 1; /* Make sure it's always above the circle */
 }
 
-/* Adjust the opacity for the icons based on theme */
+.theme-switcher input:checked ~ .theme-icon {
+  transform: translateX(26px); /* Move the icon to the right when dark mode is on */
+}
+
+.theme-switcher input:not(:checked) ~ .theme-icon {
+  transform: translateX(0); /* Move the icon back to the left when light mode is on */
+}
+
+/* Hide icon in dark mode for correct visibility */
 .theme-switcher input:checked ~ .theme-icon img {
-  opacity: 0;
+  opacity: 1; /* Show the moon icon */
 }
 
 .theme-switcher input:not(:checked) ~ .theme-icon img {
-  opacity: 1;
-}
-
-.theme-switcher input:checked ~ .theme-icon img {
-  opacity: 1;
+  opacity: 1; /* Show the sun icon */
 }
