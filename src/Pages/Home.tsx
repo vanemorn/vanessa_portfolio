@@ -4,6 +4,7 @@ import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import ScrollingBand from '../components/Scrollingband.tsx';
 import ProjectGrid from '../components/ProjectGrid';
+import Newsletter from '../components/Newsletter/Newsletter.tsx';
 
 // Imports send icon for contact form
 import sendIcon from '../assets/sendicon.png'; 
@@ -37,6 +38,7 @@ const Home: React.FC = () => {
 
       <ScrollingBand />
       <ProjectGrid />
+      <Newsletter />
 
       {/* Contact form*/}
       <div className="contact-form-section">
