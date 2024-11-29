@@ -133,38 +133,35 @@
 }
 
 .message .user {
-  font-weight: bold;
-  color: #9c0000; /* Red color for user messages */
+  background-color: #eaeaea;
 }
 
 .message .bot {
-  font-weight: bold;
-  color: #333; /* Dark grey for bot responses */
-  background-color: #eaeaea; /* Light background for bot messages */
-  padding: 8px 10px;
-  border-radius: 4px;
+  background-color: #f1f1f1;
 }
 
-/* Message container for user and bot messages */
-.chatbot-content .message {
+/* New styles for the buttons */
+.question-buttons {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  gap: 10px;
 }
 
-.chatbot-content .message.bot {
-  align-items: flex-start;
-  background-color: #f1f1f1; /* Lighter background for bot's messages */
-  padding: 8px;
+.question-btn {
+  background-color: #9c0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.chatbot-content .message.user {
-  align-items: flex-end;
-  background-color: #f1f1f1; /* Light background for user messages */
+.question-btn:hover {
+  background-color: #7a0000;
 }
 
-/* Styling for the email button */
+/* Contact button styling */
 .contact-btn {
   background-color: #9c0000;
   color: white;

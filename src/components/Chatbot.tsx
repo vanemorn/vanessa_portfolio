@@ -9,8 +9,8 @@ const Chatbot: React.FC = () => {
   // Default predefined questions and answers
   const defaultQuestions = [
     {
-      user: 'What graphic design services do you offer?',
-      bot: (
+      question: 'What graphic design services do you offer?',
+      answer: (
         <span>
           I specialize in a wide range of graphic design services, including:
           <ul>
@@ -25,8 +25,8 @@ const Chatbot: React.FC = () => {
       ),
     },
     {
-      user: 'How do I get started with a design project?',
-      bot: (
+      question: 'How do I get started with a design project?',
+      answer: (
         <span>
           Getting started is simple! Just follow these steps:
           <ol>
@@ -41,8 +41,8 @@ const Chatbot: React.FC = () => {
       ),
     },
     {
-      user: 'Can I see some of your previous work?',
-      bot: (
+      question: 'Can I see some of your previous work?',
+      answer: (
         <span>
           Of course! You can view my portfolio and some of my recent projects on my website.
           <br />
@@ -55,37 +55,16 @@ const Chatbot: React.FC = () => {
   // Function to toggle chatbot state
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
+    setConversation([]); // Clear conversation when toggling open
   };
 
-  // Function to handle the message send
-  const handleSendMessage = () => {
-    if (message.trim()) {
-      setConversation([
-        ...conversation,
-        { user: message, bot: 'This is a bot response' }, // Static bot response for now
-      ]);
-      setMessage(''); // Clear the input after sending the message
-    }
+  // Function to handle the button click for default questions
+  const handleQuestionClick = (question: string, answer: JSX.Element | string) => {
+    setConversation([
+      ...conversation,
+      { user: question, bot: answer }, // Add the question and answer to the conversation
+    ]);
   };
-
-  // Function to handle typing in the input field
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
-  };
-
-  // Initialize the default questions and answers on the first load
-  const initializeDefaultConversation = () => {
-    if (conversation.length === 0) {
-      setConversation([
-        ...defaultQuestions, // Pre-load default questions and bot responses
-      ]);
-    }
-  };
-
-  // Call to initialize default conversation when the component is rendered
-  React.useEffect(() => {
-    initializeDefaultConversation();
-  }, []);
 
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
@@ -115,15 +94,32 @@ const Chatbot: React.FC = () => {
                 </div>
               ))
             )}
+
+            {/* Show the 3 default questions */}
+            {conversation.length === 0 && (
+              <div className="question-buttons">
+                {defaultQuestions.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleQuestionClick(item.question, item.answer)}
+                    className="question-btn"
+                  >
+                    {item.question}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="chatbot-footer">
             <input 
               type="text" 
               placeholder="Type a message..." 
               value={message} 
-              onChange={handleInputChange} 
+              onChange={(e) => setMessage(e.target.value)} 
             />
-            <button onClick={handleSendMessage}>Send</button>
+            <button onClick={() => handleQuestionClick(message, 'This is a custom message!')}>
+              Send
+            </button>
           </div>
         </div>
       )}
