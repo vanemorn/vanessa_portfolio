@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Post.css';
 
+// Define Comment and Post interfaces
 interface Comment {
   id: number;
   text: string;
@@ -17,6 +18,7 @@ interface Post {
   comments: Comment[];
 }
 
+// Sample initial posts
 const initialPosts: Post[] = [
   {
     id: 1,
@@ -56,7 +58,6 @@ const Post: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const post = initialPosts.find((p) => p.id.toString() === id);
 
-  // Use state to keep track of the current post and comment input
   const [currentPost, setCurrentPost] = useState<Post | undefined>(post);
   const [newComment, setNewComment] = useState(''); // New comment input state
 
@@ -89,6 +90,7 @@ const Post: React.FC = () => {
     if (currentPost) {
       const updatedComments = currentPost.comments.map((comment) => {
         if (comment.id === commentId) {
+          // Update the count of the selected emoji reaction
           const updatedReactions = {
             ...comment.reactions,
             [emoji]: (comment.reactions[emoji] || 0) + 1,
@@ -98,8 +100,9 @@ const Post: React.FC = () => {
         return comment;
       });
 
+      // Update the post with updated comments and reactions
       const updatedPost = { ...currentPost, comments: updatedComments };
-      setCurrentPost(updatedPost);
+      setCurrentPost(updatedPost); // Re-render with updated state
     }
   };
 
