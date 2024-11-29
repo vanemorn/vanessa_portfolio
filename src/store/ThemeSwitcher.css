@@ -63,6 +63,7 @@
   transform: translate(-50%, -50%); /* Centers the icon inside the knob */
   font-size: 16px;
   transition: opacity 0.3s ease;
+  color: white; /* Make the icons white */
 }
 
 /* Show the moon icon in dark mode, sun icon in light mode */
