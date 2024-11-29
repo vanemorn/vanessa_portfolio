@@ -17,7 +17,7 @@ interface Post {
   comments: Comment[];
 }
 
-const posts: Post[] = [
+const initialPosts: Post[] = [
   {
     id: 1,
     title: 'Post 1',
@@ -54,42 +54,65 @@ const timeAgo = (timestamp: number): string => {
 
 const Post: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const post = posts.find((p) => p.id.toString() === id);
+  const post = initialPosts.find((p) => p.id.toString() === id);
 
-  if (!post) {
-    return <p>Post not found</p>;
-  }
-
-  const [newComment, setNewComment] = useState('');
+  // Use state to keep track of the current post and comment input
+  const [currentPost, setCurrentPost] = useState<Post | undefined>(post);
+  const [newComment, setNewComment] = useState(''); // New comment input state
 
   // Function to add a new comment
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
-      post.comments.push({
+      const newCommentData: Comment = {
         id: Date.now(),
         text: newComment,
-        reactions: {}, // Start with no reactions
+        reactions: { '👍': 0, '❤️': 0, '😂': 0, '😮': 0, '😢': 0 }, // Start with no reactions
         timestamp: Date.now(),
-      });
-      setNewComment('');
+      };
+
+      if (currentPost) {
+        // Update state with new comment
+        const updatedPost = {
+          ...currentPost,
+          comments: [...currentPost.comments, newCommentData],
+        };
+
+        setCurrentPost(updatedPost);
+      }
+
+      setNewComment(''); // Clear the input after posting
     }
   };
 
   // Function to handle adding reactions
   const handleAddReaction = (commentId: number, emoji: string) => {
-    const comment = post.comments.find((c) => c.id === commentId);
-    if (comment) {
-      // Update the reactions count for the specific emoji
-      comment.reactions[emoji] = (comment.reactions[emoji] || 0) + 1;
+    if (currentPost) {
+      const updatedComments = currentPost.comments.map((comment) => {
+        if (comment.id === commentId) {
+          const updatedReactions = {
+            ...comment.reactions,
+            [emoji]: (comment.reactions[emoji] || 0) + 1,
+          };
+          return { ...comment, reactions: updatedReactions };
+        }
+        return comment;
+      });
+
+      const updatedPost = { ...currentPost, comments: updatedComments };
+      setCurrentPost(updatedPost);
     }
   };
 
+  if (!currentPost) {
+    return <p>Post not found</p>;
+  }
+
   return (
     <div className="post">
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
+      <h2>{currentPost.title}</h2>
+      <p>{currentPost.content}</p>
       <div className="post-tags">
-        {post.tags.map((tag, index) => (
+        {currentPost.tags.map((tag, index) => (
           <span key={index} className="tag">
             #{tag}
           </span>
@@ -98,12 +121,11 @@ const Post: React.FC = () => {
 
       <div className="comments-section">
         <h3>Comments</h3>
-        {post.comments.map((comment) => (
+        {currentPost.comments.map((comment) => (
           <div key={comment.id} className="comment">
             <p>{comment.text}</p>
             <p>{timeAgo(comment.timestamp)}</p> {/* Time ago for each comment */}
             <div className="reactions">
-              {/* List of emoji reactions */}
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
                 <button
                   key={emoji}
@@ -115,9 +137,11 @@ const Post: React.FC = () => {
             </div>
           </div>
         ))}
+
+        {/* Input to add new comment */}
         <textarea
           value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
+          onChange={(e) => setNewComment(e.target.value)} // Update input value
           placeholder="Write a comment..."
         />
         <button onClick={handleAddComment}>Post Comment</button>
