@@ -3,12 +3,12 @@ import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
-  const [conversation, setConversation] = useState<{ user: string; bot: string | JSX.Element }[]>([]); // Conversation state
+  const [conversation, setConversation] = useState<{ sender: string; message: string | JSX.Element }[]>([]); // Conversation state
   const [showButtons, setShowButtons] = useState(false); // State to control button visibility
-  
-  const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content
 
-  // Predefined questions and answers
+  const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content to control scrolling
+
+  // Default predefined questions and answers
   const defaultQuestions = [
     {
       question: 'What graphic design services do you offer?',
@@ -64,7 +64,7 @@ const Chatbot: React.FC = () => {
 
   // Function to toggle chatbot state
   const toggleChatbot = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen); // Toggle chatbot visibility
     if (!isOpen) {
       setConversation([]); // Clear conversation when opening the chatbot
       setShowButtons(false); // Hide buttons when the window is opened
@@ -73,20 +73,21 @@ const Chatbot: React.FC = () => {
 
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    // Prevent adding the same question twice to the conversation
-    if (conversation[conversation.length - 1]?.user !== question) {
+    // Check if the user message is already in the conversation
+    if (conversation[conversation.length - 1]?.message !== question) {
       setConversation((prev) => [
         ...prev,
-        { user: question, bot: '' }, // Add the question and an empty bot response initially
+        { sender: 'user', message: question }, // Add the user question to the conversation
       ]);
     }
 
-    // Add the answer directly to the conversation (no typing effect)
-    setConversation((prev) => [
-      ...prev,
-      { user: question, bot: answer },
-      { user: '', bot: showQuestionButtons() }, // Re-show buttons after answer
-    ]);
+    // Check if the bot's answer is already in the conversation
+    if (conversation[conversation.length - 1]?.message !== answer) {
+      setConversation((prev) => [
+        ...prev,
+        { sender: 'bot', message: answer }, // Add the bot's answer
+      ]);
+    }
 
     setShowButtons(false); // Hide buttons after a question is asked and answered
   };
@@ -115,11 +116,18 @@ const Chatbot: React.FC = () => {
     }
   }, [conversation]);
 
-  // Show the initial greeting immediately when the chatbot is opened
+  // Show the initial greeting when the window is opened
   useEffect(() => {
     if (isOpen) {
-      setConversation([{ user: '', bot: 'Hi there! How can I help you today?' }]);
-      setShowButtons(true); // Show the question buttons after greeting
+      setConversation([]); // Reset conversation when opening
+      setShowButtons(false); // Hide buttons initially
+
+      // Set the initial greeting message
+      setConversation((prev) => [
+        ...prev,
+        { sender: 'bot', message: 'Hi there! How can I help you today?' },
+      ]);
+      setShowButtons(true); // Show buttons after greeting
     }
   }, [isOpen]);
 
@@ -128,7 +136,7 @@ const Chatbot: React.FC = () => {
       {!isOpen && (
         <div className="chatbot-icon" onClick={toggleChatbot}>
           💬
-          <div className="notification-badge"></div> 
+          <div className="notification-badge"></div> {/* Notification indicator */}
         </div>
       )}
 
@@ -136,18 +144,20 @@ const Chatbot: React.FC = () => {
         <div className="chatbot-window">
           <div className="chatbot-header">
             <h4>Chatbot</h4>
-            <button onClick={toggleChatbot} className="minimize-btn">–</button>
+            <button onClick={toggleChatbot} className="minimize-btn">
+              –
+            </button>
           </div>
           <div className="chatbot-content" ref={chatContentRef}>
             {conversation.map((msg, index) => (
               <div key={index} className="message">
-                {msg.user && <p><strong>You:</strong> {msg.user}</p>}
-                {msg.bot && <p><strong>Bot:</strong> {msg.bot}</p>}
+                {msg.sender === 'user' && <p><strong>You:</strong> {msg.message}</p>}
+                {msg.sender === 'bot' && <p><strong>Bot:</strong> {msg.message}</p>}
               </div>
             ))}
           </div>
           <div className="chatbot-footer">
-            {showButtons && showQuestionButtons()}
+            {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
           </div>
         </div>
       )}
