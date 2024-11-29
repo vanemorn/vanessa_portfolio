@@ -45,7 +45,7 @@ const App: React.FC = () => {
           <div className="nav-logo">
             <Link to="/">Vanessa's Portfolio</Link>
           </div>
-          <ThemeSwitcher />
+          
           <button className="dropdown-toggle" onClick={toggleDropdown}>
             ☰ {/* Hamburger Menu Icon */}
           </button>
@@ -58,6 +58,7 @@ const App: React.FC = () => {
             <li><Link to="/blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link></li>
             <li><Link to="/videogallery" onClick={() => setIsDropdownOpen(false)}>Video Gallery</Link></li>
           </ul>
+          <ThemeSwitcher />
         </nav>
 
         {/* Routes */}
