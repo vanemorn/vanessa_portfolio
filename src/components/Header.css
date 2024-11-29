@@ -49,7 +49,7 @@
 .dropdown-actions {
   display: flex;
   flex-direction: column;
-  align-items: right; /* Align text to the left */
+  align-items: flex-end; /* Align text to the right */
   text-align: right;
   margin-top: 20px;
 }
@@ -113,14 +113,13 @@
     width: 50%;
     top: auto;
     align-items: center;
-    align-content: center;
+    justify-content: center; /* Align menu items to center */
   }
 
   .menu a {
     margin: 0 20px;
     padding: 0;
     text-align: center;
-    align-content: center;
   }
 
   .dropdown-actions {
@@ -149,5 +148,32 @@
   
   .btn:hover {
     background-color: #4d0000; /* Darker red on hover */
+  }
+}
+
+/* Mobile Specific Styles */
+@media screen and (max-width: 767px) {
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align menu items to the right */
+    padding: 0 20px;
+  }
+
+  .menu a {
+    margin: 10px 0;
+    text-align: right;
+  }
+
+  .dropdown-actions .btn {
+    transition: none; /* No transition for the button in the dropdown */
+    text-decoration: none; /* Ensure no underline on hover */
+    color: white; /* Ensure text stays white */
+  }
+
+  .dropdown-actions .btn:hover {
+    background-color: #9C0000; /* No change in background on hover */
+    color: white; /* Keep text white */
+    text-decoration: none; /* No underline */
   }
 }
