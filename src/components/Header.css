@@ -9,7 +9,7 @@
 }
 
 .logo-img {
-  max-height: 40px;
+  max-height: 80px;  /* Increase size temporarily */
 }
 
 /* Main Menu */
@@ -85,9 +85,9 @@
 .btn {
   background-color: #D5DA26; /* Red background */
   color: #242424; /* White text */
-  border: #242424;
-  border-width: 2px;
-  padding: 25px 25px; /* Add padding */
+  border: 2px #242424;
+  border-radius: 5px;
+  padding: 15px 25px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -168,6 +168,8 @@
 
   .dropdown-actions .btn {
     background-color: #D5DA26; /* No change in background on hover */
+    border-radius: 5px;
+    border: 2px #242424;
     transition: none; /* No transition for the button in the dropdown */
     text-decoration: none; /* Ensure no underline on hover */
     color: #242424; /* Ensure text stays white */
