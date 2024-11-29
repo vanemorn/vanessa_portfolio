@@ -84,23 +84,26 @@
 /* Button Styling: Download CV */
 .btn {
   background-color: #D5DA26; /* Red background */
-  color: #242424; /* White text */
-  border: 2px solid #242424;
+  border: 3px solid #242424;
   border-radius: 8px;
-  padding: 15px 25px; /* Add padding */
+  padding: 10px 10px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
-  font-size: 14px;
+  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn:hover {
   background-color: #727514; /* Darker red on hover */
-  text-decoration: none;
-  color: #242424;
-  border: 2px solid #242424;
+  border: 3px solid #242424;
   border-radius: 8px;
+  padding: 10px 10px; /* Add padding */
+  font-weight: bold; /* Bold text */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Large Screen Styles */
@@ -138,21 +141,27 @@
 
   .btn {
     background-color: #D5DA26; /* Red background */
-    border: 2px solid #242424;
+    border: 3px solid #242424;
     border-radius: 8px;
-    padding: 15px 25px; /* Add padding */
+    padding: 10px 10px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
-    font-size: 14px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     
   }
   
   .btn:hover {
     background-color: #727514; /* Darker red on hover */
-    border: 2px solid #242424;
+    border: 3px solid #242424;
     border-radius: 8px;
+    padding: 10px 10px; /* Add padding */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
@@ -171,20 +180,26 @@
   }
 
   .dropdown-actions .btn {
-    background-color: #D5DA26; /* No change in background on hover */
-    border: 2px solid #242424;
+    background-color: #D5DA26; /* Red background */
+    border: 3px solid #242424;
     border-radius: 8px;
-    transition: none; /* No transition for the button in the dropdown */
-    text-decoration: none; /* Ensure no underline on hover */
-    color: #242424; /* Ensure text stays white */
+    padding: 10px 10px; /* Add padding */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .dropdown-actions .btn:hover {
     background-color: #727514; /* No change in background on hover */
-    color: #242424; /* Keep text white */
-    text-decoration: none; /* No underline */
-    transition: none;
-    border: 2px solid #242424;
+    border: 3px solid #242424;
     border-radius: 8px;
+    padding: 10px 10px; /* Add padding */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
