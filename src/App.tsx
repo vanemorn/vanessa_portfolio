@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+// src/App.tsx
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from './store';
+import ThemeSwitcher from './store/ThemeSwitcher';
+
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 // Importing pages
@@ -14,6 +19,14 @@ import Post from './components/Post';
 import './App.css'; // CSS File
 
 const App: React.FC = () => {
+
+  const theme = useSelector((state: RootState) => state.theme.theme);
+
+  // On theme change, update the HTML body class to reflect the theme
+  useEffect(() => {
+    document.body.className = theme; // Set body class to 'light' or 'dark'
+  }, [theme]);
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -22,6 +35,12 @@ const App: React.FC = () => {
 
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
+      <div className={`app ${theme}`}>
+        <h1>Welcome to the Chatbot</h1>
+        <ThemeSwitcher />
+        {/* Add your chatbot or other content here */}
+      </div>
+
       <div className="app-container">
         {/* Navigation Bar */}
         <nav className="navbar">

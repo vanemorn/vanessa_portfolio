@@ -55,51 +55,35 @@
   color: #FFD700; /* Gold color on hover */
 }
 
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-  .dropdown-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #9C0000;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    padding: 10px;
-    z-index: 1000;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-  }
+/* Default light theme styles */
+body.light {
+  background-color: #fff;
+  color: #333;
 }
 
-body {
-  background-color: #F1F0EC;
-  width: 100%;
-  min-height: 100vh;
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.app {
+  padding: 20px;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
-.app-container {
-  width: 100%;
-  margin: 0 auto;
+/* Button styling */
+.theme-toggle-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-  .app-container {
-    padding: 0 1rem;
-  }
+.theme-toggle-btn:hover {
+  background-color: #0056b3;
 }
 
 

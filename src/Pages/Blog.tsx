@@ -1,79 +1,73 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from "../store/subscriptionSlice";
-import { RootState } from "../store";
-import { Link } from 'react-router-dom';
-import './Blog.css';
+import './Chatbot.css';
 
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-  tags: string[];
-}
+const Chatbot: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
+  const [userInput, setUserInput] = useState(''); // State for user's input
+  const [messages, setMessages] = useState<string[]>([]); // State to store conversation messages
 
-const posts: Post[] = [
-  {
-    id: 1,
-    title: 'Post 1',
-    content: 'This is the content for post 1.',
-    tags: ['tag1', 'tag2'],
-  },
-  {
-    id: 2,
-    title: 'Post 2',
-    content: 'This is the content for post 2.',
-    tags: ['tag3', 'tag4'],
-  },
-];
+  // Function to toggle chatbot state
+  const toggleChatbot = () => {
+    setIsOpen(!isOpen);
+  };
 
-const Blog: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const dispatch = useDispatch();
-  const subscribed = useSelector((state: RootState) => state.subscription.subscribed);
+  // Function to send user message
+  const sendMessage = () => {
+    if (userInput.trim() !== '') {
+      setMessages([...messages, `You: ${userInput}`]);
+      setUserInput('');
+    }
+  };
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    dispatch(subscribe(email));
-    setEmail(''); // Clear the input field
+  // Function to handle pre-made questions
+  const handlePreMadeQuestion = (question: string) => {
+    setMessages([...messages, `You: ${question}`]);
   };
 
   return (
-    <div className="blog">
-      <h1>My Blog</h1>
-      <div className="posts-grid">
-        {posts.map((post) => (
-          <div key={post.id} className="post-card">
-            <h2>{post.title}</h2>
-            <p>{post.content.slice(0, 100)}...</p> {/* Show a preview of the content */}
+    <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
+      {!isOpen && (
+        <div className="chatbot-icon" onClick={toggleChatbot}>
+          💬
+          <div className="notification-badge"></div> {/* Notification indicator */}
+        </div>
+      )}
 
-            {/* Link to individual post (no comment or reaction here) */}
-            <Link to={`/post/${post.id}`}>View Post</Link>
+      {isOpen && (
+        <div className="chatbot-window">
+          <div className="chatbot-header">
+            <h4>Chatbot</h4>
+            <button onClick={toggleChatbot} className="minimize-btn">
+              –
+            </button>
           </div>
-        ))}
-      </div>
-      {/* Subscription Form */}
-      <div className="subscription-section">
-        {subscribed ? (
-          <p className="thank-you-message">Thank you for subscribing!</p>
-        ) : (
-          <form className="subscription-form" onSubmit={handleSubscribe}>
-            <label htmlFor="email">Subscribe to our Newsletter</label>
+          <div className="chatbot-content">
+            {messages.map((msg, index) => (
+              <p key={index}>{msg}</p>
+            ))}
+          </div>
+          <div className="chatbot-footer">
             <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              type="text"
+              placeholder="Type a message..."
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
             />
-            <button type="submit">Subscribe</button>
-          </form>
-        )}
-      </div>
+            <button onClick={sendMessage}>Send</button>
+          </div>
+
+          <div className="pre-made-questions">
+            <p>Select a question:</p>
+            <button onClick={() => handlePreMadeQuestion('What design services do you offer?')}>What design services do you offer?</button>
+            <button onClick={() => handlePreMadeQuestion('Can you help with branding and logo design?')}>Can you help with branding and logo design?</button>
+            <button onClick={() => handlePreMadeQuestion('What are your rates for graphic design?')}>What are your rates for graphic design?</button>
+            <button onClick={() => handlePreMadeQuestion('Do you offer website design services?')}>Do you offer website design services?</button>
+            <button onClick={() => handlePreMadeQuestion('How long does a design project take?')}>How long does a design project take?</button>
+          </div>
+        </div>
+      )}
     </div>
-    
   );
 };
 
-export default Blog;
+export default Chatbot;
