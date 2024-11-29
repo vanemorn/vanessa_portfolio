@@ -129,13 +129,12 @@ const Chatbot: React.FC = () => {
   useEffect(() => {
     if (isOpen) {
       setBotMessage(''); // Clear any previous bot message
+      setConversation([]); // Reset the conversation state
       simulateTyping('Hi there! How can I help you today?', () => {
         setConversation((prev) => [
           ...prev,
-          {
-            user: '',
-            bot: showQuestionButtons(), // Show the question buttons after greeting
-          },
+          { user: '', bot: botMessage }, // Add the initial greeting
+          { user: '', bot: showQuestionButtons() }, // Show the question buttons
         ]);
       });
     }
