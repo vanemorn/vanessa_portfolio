@@ -4,25 +4,23 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px;
-  background-color: #F1F0EC; /* Light header background */
   position: relative;
+  background-color: #E8E7E7;
 }
 
 .logo-img {
-  max-height: 40px;
+  max-height: 80px;  /* Increase size temporarily */
 }
 
 /* Main Menu */
 .menu {
   display: none; /* Hidden by default */
   flex-direction: column; /* Stack items vertically */
-  background-color: #F1F0EC; /* Match header background */
   position: absolute; /* Position dropdown below header */
   top: 60px;
   left: 0;
   width: 100%;
   padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu.show {
@@ -30,7 +28,7 @@
 }
 
 .menu a {
-  color: #7B7B7B;
+  color: #242424;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
@@ -40,7 +38,6 @@
 }
 
 .menu a:hover {
-  color: #9C0000;
   font-weight: 800;
   text-decoration: underline;
 }
@@ -73,21 +70,24 @@
 .dropdown-toggle {
   background: none;
   border: none;
-  color: #9C0000; /* Match header styling */
+  color: #9C0000; /* Default color (red) for the hamburger icon */
   font-size: 30px;
   cursor: pointer;
 }
 
+/* Change background to red and icon color to white on hover */
 .dropdown-toggle:hover {
-  color: #4d0000;
+  background-color: #9C0000; /* Red background */
+  color: #ffffff; /* White color for the hamburger icon */
 }
 
 /* Button Styling: Download CV */
 .btn {
-  background-color: #9C0000; /* Red background */
-  color: white; /* White text */
-  padding: 10px 20px; /* Add padding */
-  border-radius: 30px; /* Rounded corners */
+  background-color: #D5DA26; /* Red background */
+  color: #242424; /* White text */
+  border: 2px #242424;
+  border-radius: 5px;
+  padding: 15px 25px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -96,9 +96,9 @@
 }
 
 .btn:hover {
-  background-color: #4d0000; /* Darker red on hover */
+  background-color: #727514; /* Darker red on hover */
   text-decoration: none;
-  color: white;
+  color: #242424;
 }
 
 /* Large Screen Styles */
@@ -135,19 +135,20 @@
   }
 
   .btn {
-    background-color: #9C0000; /* Red background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Add padding */
-    border-radius: 30px; /* Rounded corners */
+    background-color: #D5DA26; /* Red background */
+    border: 2px #242424;
+    border-radius: 5px;
+    padding: 15px 25px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
+    
   }
   
   .btn:hover {
-    background-color: #4d0000; /* Darker red on hover */
+    background-color: #727514; /* Darker red on hover */
   }
 }
 
@@ -166,15 +167,17 @@
   }
 
   .dropdown-actions .btn {
-    background-color: #9C0000; /* No change in background on hover */
+    background-color: #D5DA26; /* No change in background on hover */
+    border-radius: 5px;
+    border: 2px #242424;
     transition: none; /* No transition for the button in the dropdown */
     text-decoration: none; /* Ensure no underline on hover */
-    color: white; /* Ensure text stays white */
+    color: #242424; /* Ensure text stays white */
   }
 
   .dropdown-actions .btn:hover {
-    background-color: #4d0000;; /* No change in background on hover */
-    color: white; /* Keep text white */
+    background-color: #727514; /* No change in background on hover */
+    color: #242424; /* Keep text white */
     text-decoration: none; /* No underline */
     transition: none;
   }
