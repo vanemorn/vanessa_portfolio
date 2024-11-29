@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header'; // Imports Header
 import Footer from '../components/Footer'; // Imports Footer
 import './Gallery.css'; // CSS File
 
@@ -59,7 +58,6 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      <Header />
 
       <div className="row"> {/* Main container for the gallery */}
 

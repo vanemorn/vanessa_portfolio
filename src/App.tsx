@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
-import ThemeSwitcher from './store/ThemeSwitcher';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -43,10 +42,7 @@ const App: React.FC = () => {
       <div className="app-container">
         {/* Include Header Component */}
         <Header toggleDropdown={toggleDropdown} isDropdownOpen={isDropdownOpen} />
-        
-        {/* Include ThemeSwitcher */}
-        <ThemeSwitcher /> {/* Ensure the ThemeSwitcher is rendered here */}
-        
+                
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />

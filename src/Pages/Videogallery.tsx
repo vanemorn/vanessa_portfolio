@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header'; //Import header
 import Footer from '../components/Footer'; //Import footer
 import './Videogallery.css'; //CSS file
 
@@ -25,7 +24,6 @@ function VideoGallery() { // VideoGallery component definition
 
   return ( 
     <>
-      <Header />
 
       <div className="row">
 

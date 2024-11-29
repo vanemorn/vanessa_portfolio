@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header'; // Imports header
 import Footer from '../components/Footer'; // Imports footer
 import './Home.css'; // CSS File
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
@@ -25,7 +24,6 @@ import sendIcon from '../assets/sendicon.png';
 const Home: React.FC = () => {
   return (
     <>
-      <Header />
 
       <div className="flex-container"> {/* Container for personal introduction */}
         {}

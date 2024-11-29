@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header'; //Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Projects.css'; //CSS file
 
@@ -17,7 +16,6 @@ import project4 from '../assets/project4.png';
 const Projects: React.FC = () => {
   return (
     <>
-      <Header />
       
       <div className="row"> 
         <div className="column-project"> 

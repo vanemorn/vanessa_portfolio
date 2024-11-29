@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import aboutImage from '../assets/foto-yo-about.png'; // Importing my business headshot
 import './About.css';  // CSS File
@@ -7,9 +6,7 @@ import './About.css';  // CSS File
 
 const About: React.FC = () => {
   return (
-    <>
-      <Header />
-  
+    <>  
       {/*The left column */}
       <div className="about-container"> 
       

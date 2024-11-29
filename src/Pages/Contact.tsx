@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header'; // Importing Header
 import Footer from '../components/Footer'; // Importing Footer
 import './Contact.css'; // CSS File
 
@@ -10,7 +9,6 @@ import sendIcon from '../assets/sendicon.png'; // Send icon for the button
 const Contact: React.FC = () => {
   return (
     <>
-      <Header />
 
       {/*Column1*/}
       <div className="row">
