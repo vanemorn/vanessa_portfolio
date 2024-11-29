@@ -39,6 +39,7 @@ const posts: Post[] = [
   },
 ];
 
+// Helper function to format time (e.g., "5 minutes ago")
 const timeAgo = (timestamp: number): string => {
   const now = Date.now();
   const diff = now - timestamp;
@@ -61,18 +62,20 @@ const Post: React.FC = () => {
 
   const [newComment, setNewComment] = useState('');
 
+  // Function to add a new comment
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
       post.comments.push({
         id: Date.now(),
         text: newComment,
-        reactions: { '👍': 0, '❤️': 0, '😂': 0, '😮': 0, '😢': 0 },
+        reactions: {},
         timestamp: Date.now(),
       });
       setNewComment('');
     }
   };
 
+  // Function to handle adding reactions
   const handleAddReaction = (commentId: number, emoji: string) => {
     const comment = post.comments.find((c) => c.id === commentId);
     if (comment) {
@@ -97,11 +100,14 @@ const Post: React.FC = () => {
         {post.comments.map((comment) => (
           <div key={comment.id} className="comment">
             <p>{comment.text}</p>
-            <p>{timeAgo(comment.timestamp)}</p>
+            <p>{timeAgo(comment.timestamp)}</p> {/* Time ago for each comment */}
             <div className="reactions">
               {['👍', '❤️', '😂', '😮', '😢'].map((emoji) => (
-                <button key={emoji} onClick={() => handleAddReaction(comment.id, emoji)}>
-                  {emoji} {comment.reactions[emoji] || 0}
+                <button
+                  key={emoji}
+                  onClick={() => handleAddReaction(comment.id, emoji)}
+                >
+                  {emoji} {comment.reactions[emoji] || 0} {/* Reactions count per comment */}
                 </button>
               ))}
             </div>
