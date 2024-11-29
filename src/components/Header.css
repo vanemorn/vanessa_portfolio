@@ -85,8 +85,9 @@
 .btn {
   background-color: #D5DA26; /* Red background */
   border: 3px solid #242424;
+  color:#242424;
   border-radius: 8px;
-  padding: 10px 10px; /* Add padding */
+  padding: 15px 15px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -97,8 +98,9 @@
 .btn:hover {
   background-color: #727514; /* Darker red on hover */
   border: 3px solid #242424;
+  color:#242424;
   border-radius: 8px;
-  padding: 10px 10px; /* Add padding */
+  padding: 15px 15px; /* Add padding */
   font-weight: bold; /* Bold text */
   text-decoration: none; /* No underline */
   transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -142,8 +144,9 @@
   .btn {
     background-color: #D5DA26; /* Red background */
     border: 3px solid #242424;
+    color:#242424;
     border-radius: 8px;
-    padding: 10px 10px; /* Add padding */
+    padding: 15px 15px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -155,8 +158,9 @@
   .btn:hover {
     background-color: #727514; /* Darker red on hover */
     border: 3px solid #242424;
+    color:#242424;
     border-radius: 8px;
-    padding: 10px 10px; /* Add padding */
+    padding: 15px 15px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -182,8 +186,9 @@
   .dropdown-actions .btn {
     background-color: #D5DA26; /* Red background */
     border: 3px solid #242424;
+    color:#242424;
     border-radius: 8px;
-    padding: 10px 10px; /* Add padding */
+    padding: 15px 15px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -194,8 +199,9 @@
   .dropdown-actions .btn:hover {
     background-color: #727514; /* No change in background on hover */
     border: 3px solid #242424;
+    color:#242424;
     border-radius: 8px;
-    padding: 10px 10px; /* Add padding */
+    padding: 15px 15px; /* Add padding */
     font-weight: bold; /* Bold text */
     text-decoration: none; /* No underline */
     transition: background-color 0.3s ease; /* Smooth hover effect */
