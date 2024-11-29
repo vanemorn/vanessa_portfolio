@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './Chatbot.css';
-import './Chatbot.js';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
@@ -54,10 +54,7 @@ const Chatbot: React.FC = () => {
           Of course! You can view my portfolio and some of my recent projects on this website.
           <br />
           Visit{' '}
-          <a href="https://vanemorn.github.io/vanessa_portfolio/projects" target="_blank" rel="noopener noreferrer">
-            Projects Page
-          </a>{' '}
-          to see examples of my work.
+          <Link to="/projects">Projects Page</Link> to see examples of my work.
         </span>
       ),
     },

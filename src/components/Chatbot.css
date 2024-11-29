@@ -70,6 +70,7 @@
   align-items: center;
   border-bottom: 1px solid #ddd;
   border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 /* Minimize button */
@@ -160,7 +161,7 @@
   color: white;
   padding: 10px;
   border-radius: 20px;
-  margin: 5px;
+  margin-top: 8px;
   border: none;
   cursor: pointer;
 }
