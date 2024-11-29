@@ -36,8 +36,6 @@ const App: React.FC = () => {
   return (
     <Router basename="/vanessa_portfolio"> {/* Project root */}
       <div className={`app ${theme}`}>
-        <h1>Welcome to the Chatbot</h1>
-        <ThemeSwitcher />
         {/* Add your chatbot or other content here */}
       </div>
 
@@ -47,6 +45,7 @@ const App: React.FC = () => {
           <div className="nav-logo">
             <Link to="/">Vanessa's Portfolio</Link>
           </div>
+          <ThemeSwitcher />
           <button className="dropdown-toggle" onClick={toggleDropdown}>
             ☰ {/* Hamburger Menu Icon */}
           </button>

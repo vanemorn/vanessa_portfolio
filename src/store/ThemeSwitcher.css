@@ -1,0 +1,40 @@
+/* src/components/ThemeSwitcher.css */
+
+/* Default styling for the button */
+.theme-toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    outline: none;
+  }
+  
+  /* Light Mode button */
+  .theme-toggle-btn.light {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+  }
+  
+  .theme-toggle-btn.light:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+  }
+  
+  /* Dark Mode button */
+  .theme-toggle-btn.dark {
+    background-color: #333;
+    color: #f0f0f0;
+    border: 2px solid #444;
+  }
+  
+  .theme-toggle-btn.dark:hover {
+    background-color: #555;
+    border-color: #888;
+  }
+  

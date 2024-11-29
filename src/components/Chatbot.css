@@ -114,26 +114,6 @@
   background-color: #7a0000; /* Darker red on hover */
 }
 
-/* Pre-made questions styles */
-.pre-made-questions {
-  padding: 10px;
-}
-
-.pre-made-questions button {
-  background-color: #9c0000; /* Red button */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  margin: 5px;
-  padding: 8px 10px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.pre-made-questions button:hover {
-  background-color: #7a0000; /* Darker red on hover */
-}
-
 /* Minimized state */
 .minimized .chatbot-window {
   display: none;
