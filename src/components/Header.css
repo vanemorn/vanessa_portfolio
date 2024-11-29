@@ -1,4 +1,4 @@
-/* Header Styling */
+/* General Header Styling */
 .header-container {
   display: flex;
   align-items: center;
@@ -12,12 +12,12 @@
   max-height: 40px;
 }
 
-/* Dropdown Menu */
+/* Main Menu */
 .menu {
   display: none; /* Hidden by default */
   flex-direction: column; /* Stack items vertically */
   background-color: #F1F0EC; /* Match header background */
-  position: absolute; /* Position below header */
+  position: absolute; /* Position dropdown below header */
   top: 60px;
   left: 0;
   width: 100%;
@@ -45,16 +45,27 @@
   text-decoration: underline;
 }
 
-/* Dropdown-specific actions */
+/* Dropdown Actions (Mobile View Only) */
 .dropdown-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align to the left */
+  align-items: flex-start; /* Align text to the left */
   margin-top: 20px;
 }
 
 .dropdown-actions .btn {
   margin-bottom: 10px;
+}
+
+/* Header Actions (Desktop View Only) */
+.header-actions {
+  display: none; /* Hidden by default */
+  align-items: center;
+  gap: 10px;
+}
+
+.header-actions .btn {
+  margin-left: 10px;
 }
 
 /* Hamburger Button */
@@ -89,7 +100,11 @@
   }
 
   .dropdown-actions {
-    display: none; /* Hide dropdown-specific actions */
+    display: none; /* Hide dropdown-specific actions on large screens */
+  }
+
+  .header-actions {
+    display: flex; /* Show header actions on large screens */
   }
 
   .dropdown-toggle {

@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         ☰ {/* Hamburger Menu Icon */}
       </button>
 
-      {/* Dropdown Menu */}
+      {/* Main Menu */}
       <nav className={`menu ${isDropdownOpen ? 'show' : ''}`}>
         <Link to="/About" onClick={() => setIsDropdownOpen(false)}>About</Link>
         <Link to="/Projects" onClick={() => setIsDropdownOpen(false)}>Projects</Link>
@@ -34,12 +34,18 @@ const Header: React.FC = () => {
         <Link to="/Gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link>
         <Link to="/Videogallery" onClick={() => setIsDropdownOpen(false)}>VideoGallery</Link>
 
-        {/* Dropdown-specific actions */}
+        {/* Dropdown Actions (Visible only in mobile view) */}
         <div className="dropdown-actions">
           <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
           <ThemeSwitcher />
         </div>
       </nav>
+
+      {/* Header Actions (Visible only on desktop view) */}
+      <div className="header-actions">
+        <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
+        <ThemeSwitcher />
+      </div>
     </header>
   );
 };
