@@ -1,31 +1,37 @@
-/* Styling the left column*/
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif; /* Unified font-family */
+}
 
+/* Left Column Styling */
 .column-videogallery {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    height: auto; 
-    margin-bottom: 150px;
-    margin-top: 190px;
-    text-align: left;
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: auto;
+  margin: 190px 0 150px 0;
+  text-align: left;
 }
 
-.column-title-videogallery { /* Styling the page title*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: bold;
-    padding-left: 150px;
-    text-align: left;
+.column-title-videogallery {
+  font-size: 50px;
+  font-weight: bold;
+  padding-left: 150px;
+  text-align: left;
 }
 
-.row:after { /*Cleares floated elements*/
-    content: "";
-    display: table;
-    clear: both;
+/* Clearfix for Rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.go-back-btn { /*Styling go back button*/
-  font-family: Arial, Helvetica, sans-serif;
+/* Back Button Styling */
+.go-back-btn {
   font-size: 16px;
   color: #9C0000;
   text-decoration: none;
@@ -33,20 +39,19 @@
   border: none;
   background: none;
   cursor: pointer;
-  transition: transform 0.2s, color 0.2s; 
+  transition: transform 0.2s, color 0.2s;
   text-align: left;
-  margin-top: 100px; 
+  margin-top: 100px;
   padding-left: 150px;
 }
 
-.go-back-btn:hover { /*Styling go back button on hover*/
-  transform: translateX(-8px); 
+.go-back-btn:hover {
+  transform: translateX(-8px);
   color: #7a0000;
 }
 
-/*Styling the right column*/
-
-.video-gallery-container { /*Container for the video player section */
+/* Right Column Styling */
+.video-gallery-container {
   float: right;
   width: 50%;
   margin: 0 auto;
@@ -55,43 +60,71 @@
   margin-bottom: 120px;
 }
 
-.video-player { /*Styling for the video player element */
+.video-player {
   width: 100%;
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   max-height: 500px;
+  object-fit: cover; /* Ensures proper video scaling */
 }
 
-.video-gallery-buttons { /*Layout for video navigation buttons (Previous/Next) */
+/* Video Navigation Buttons */
+.video-gallery-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
 
-.video-gallery-button { /*Styling for each video navigation button */
+.video-gallery-button {
   color: rgb(0, 0, 0);
-  padding: 10px 20px; 
-  border-radius: 25px; 
+  padding: 10px 20px;
+  border-radius: 25px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   border: 2px solid;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   margin-bottom: 20px;
 }
 
-.video-gallery-button:hover { /*Hover effect for video navigation buttons */
-  background-color: #c7c7c7; 
+.video-gallery-button:hover {
+  background-color: #c7c7c7;
   color: black;
+  transform: scale(1.05); /* Slight scaling effect for hover */
 }
 
-/*Responsive*/
+/* Responsive Design */
 @media screen and (max-width: 600px) {
-    .column {
-        width: 100%;
-    }
+  .column-videogallery, 
+  .video-gallery-container {
+      width: 100%;
+      float: none; /* Stack columns vertically */
+      text-align: center; /* Center-align content for mobile */
+  }
+
+  .column-title-videogallery {
+      font-size: 40px; /* Reduce title size for smaller screens */
+      padding-left: 20px;
+  }
+
+  .go-back-btn {
+      margin-top: 20px;
+      padding-left: 0; /* Center align back button */
+  }
+
+  .video-player {
+      max-height: 300px; /* Adjust video height for small screens */
+  }
+
+  .video-gallery-buttons {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 5px;
+  }
+
+  .video-gallery-button {
+      width: 80%; /* Make buttons full width on smaller screens */
+      margin: 0 auto;
+  }
 }
-  

@@ -1,144 +1,191 @@
 /* General reset and layout configuration */
 * {
-    box-sizing: border-box; /* Layout configuration */
+  box-sizing: border-box; /* Consistent box-sizing */
 }
 
 body {
-    background-color: #F1F0EC; /* Background color */
+  background-color: #F1F0EC; /* Background color */
+  font-family: Arial, Helvetica, sans-serif; /* Consistent font for entire page */
+  margin: 0;
+  padding: 0;
 }
 
-.container { /* Layout of the section */
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff; /* White background for contrast */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.post { /* Space after each entry */
-    margin-bottom: 20px;
+.post {
+  margin-bottom: 20px;
 }
 
-.blog-title { /* Name of the page */
-    margin: 0;
-    font-size: 40px;
-    padding-bottom: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    text-align: left;
+.blog-title {
+  margin: 0;
+  font-size: 36px; /* Smaller font size for better responsiveness */
+  padding-bottom: 15px;
+  font-weight: 700;
+  text-align: center; /* Center alignment for better hierarchy */
 }
 
-.post-title { /* Entry title */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #1c1c1c;
-    text-align: left;
-    margin-top: 40px;
-    margin-bottom: 20px;
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1c1c1c;
+  text-align: left;
+  margin: 20px 0; /* Reduced margins for better spacing */
 }
 
-.post-subtitle { /* Entry subtitle */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #1c1c1c;
-    text-align: left;
-    margin-top: 40px;
-    margin-bottom: 20px;
+.post-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1c1c1c;
+  margin: 20px 0;
 }
 
-.post-meta { /* Meta content: date of publication and reading time */
-    font-size: 14px;
-    color: #7b7b7b;
-    margin-bottom: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    text-align: left;
+.post-meta {
+  font-size: 14px;
+  color: #7b7b7b;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-.post-content { /* The text of the entry */
-    font-size: 16px;
-    color: #555;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 20px;
+.post-content {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6; /* Improved readability */
+  margin-bottom: 20px;
 }
 
-.post-image { /* Style of the image for Post 1 */
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    float: right;
-    cursor: pointer;
-
+.post-image {
+  width: 100%; /* Full width for smaller screens */
+  max-width: 300px; /* Limit size for larger screens */
+  height: auto;
+  object-fit: cover;
+  margin: 0 0 20px 20px;
+  float: right;
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners for a softer look */
 }
 
 .post-images-container {
-    display: flex;             
-    flex-wrap: wrap;          
-    gap: 20px;                 
-    justify-content: flex-start; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center alignment for consistent layout */
+  margin-top: 20px;
 }
 
-/* Adjust individual image style */
-.post-image2 { 
-    width: 300px;              
-    height: auto;              
-    object-fit: cover;         
-    display: block;
-    cursor: pointer;
-           
+.post-image2 {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  border-radius: 8px; /* Consistent rounded corners */
 }
 
 /* Lightbox styles */
 .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.lightbox-content {
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-image {
+  max-width: 90%;
+  max-height: 80vh;
+  margin-bottom: 20px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%; /* Rounded buttons for navigation */
+}
+
+.lightbox-prev {
+  left: 10px;
+}
+
+.lightbox-next {
+  right: 10px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 900px) {
+  .container {
+      max-width: 95%; /* Full width for smaller screens */
+      padding: 15px; /* Reduce padding for tighter layouts */
   }
-  
-  .lightbox-content {
-    position: relative;
-    text-align: center;
+
+  .blog-title {
+      font-size: 28px; /* Smaller font size for readability */
   }
-  
-  .lightbox-image {
-    max-width: 90%;
-    max-height: 80vh;
-    margin-bottom: 20px;
+
+  .post-title {
+      font-size: 20px; /* Adjusted size for smaller screens */
   }
-  
+
+  .post-image {
+      float: none; /* Remove float for easier stacking */
+      margin: 0 auto 20px auto; /* Center the image */
+  }
+
+  .post-images-container {
+      gap: 15px; /* Smaller gap for tighter layouts */
+  }
+
   .lightbox-prev,
   .lightbox-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
+      font-size: 1.5rem; /* Smaller buttons for smaller screens */
   }
-  
-  .lightbox-prev {
-    left: 10px;
+}
+
+@media only screen and (min-width: 1300px) {
+  .container {
+      max-width: 1000px; /* Increase container width for larger screens */
+      padding: 30px; /* Add padding for spacious layout */
   }
-  
-  .lightbox-next {
-    right: 10px;
+
+  .blog-title {
+      font-size: 50px;
   }
-  
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+
+  .post-title {
+      font-size: 28px;
   }
+
+  .post-image {
+      max-width: 400px; /* Larger images for wider screens */
+  }
+}
