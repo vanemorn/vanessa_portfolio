@@ -1,93 +1,72 @@
-/* Project Grid Styling */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Adjust number of columns as needed */
-  gap: 20px;
-  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 projects */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
 }
 
 .project-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: #ffffff; /* White card background */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Clip overflow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  overflow: hidden;
+  padding: 20px;
 }
 
 .project-image {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .project-title {
-  font-size: 18px;
+  font-size: 20px;
+  margin: 15px 0 10px;
   font-weight: bold;
-  margin-top: 15px;
+  color: #333333;
 }
 
 .project-tags {
   display: flex;
+  flex-wrap: wrap; /* Wrap tags to the next line if needed */
   justify-content: center;
-  gap: 10px;
+  gap: 8px; /* Space between tags */
   margin: 10px 0;
 }
 
 .project-tag {
-  font-size: 12px;
-  color: #777;
-  background-color: #f1f1f1;
+  background-color: #d5da26; /* Highlight color */
+  color: #242424; /* Dark text */
+  font-size: 14px;
   padding: 5px 10px;
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .project-description {
-  font-size: 14px;
-  color: #555;
-  margin: 10px 0;
-}
-
-/* View More Button Styling */
-.view-more-button {
-  background: none; /* No background */
-  border: none;
-  color: #242424; /* Dark text color */
   font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
+  color: #555555;
+  margin: 10px 0 15px;
+}
+
+.view-more-button {
+  background-color: #242424; /* Dark background */
+  color: #ffffff; /* White text */
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
   cursor: pointer;
-  display: inline-block;
-  padding: 5px 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
-  text-transform: uppercase; /* Optional: Adds more style to the button */
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover Animations */
 .view-more-button:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
-  color: #314697; /* Change text color */
-}
-
-/* Dynamic Underline Animation */
-.view-more-button::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px; /* Space below text */
-  width: 0;
-  height: 3px;
-  transition: width 0.4s ease; /* Smooth animation */
-}
-
-.view-more-button:hover::after {
-  width: 100%; /* Fully expand underline on hover */
-}
-
-/* Adjust grid layout for smaller screens */
-@media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: 1fr; /* Single column layout for small screens */
-  }
+  background-color: #d5da26; /* Highlight on hover */
+  transform: translateY(-3px); /* Lift the button slightly */
 }
