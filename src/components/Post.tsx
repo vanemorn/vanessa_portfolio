@@ -26,15 +26,17 @@ const initialPosts: Post[] = [
     content: `
       <p>This is the first paragraph of the post. It contains some introductory text.</p>
       <p>Here comes another paragraph with more details. The content of this post is quite engaging.</p>
+
       <img src="https://via.placeholder.com/800x400" alt="Sample image" />
+      
       <p>Here is a third paragraph with additional information and a conclusion to the post.</p>
       <p>To wrap it up, we have another image below:</p>
       <img src="https://via.placeholder.com/800x400" alt="Another sample image" />
     `,
     tags: ['tag1', 'tag2'],
     comments: [
-      { id: 1, text: 'Great post!', reactions: { '👍': 0, '❤️': 0 }, timestamp: Date.now() - 100000 },
-      { id: 2, text: 'I disagree with your point on XYZ.', reactions: { '😢': 0 }, timestamp: Date.now() - 500000 },
+      { id: 1, text: 'Great post!', reactions: { '👍': 3, '❤️': 2 }, timestamp: Date.now() - 100000 },
+      { id: 2, text: 'I disagree with your point on XYZ.', reactions: { '😢': 1 }, timestamp: Date.now() - 500000 },
     ],
   },
   {

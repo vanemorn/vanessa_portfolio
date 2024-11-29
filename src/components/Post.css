@@ -1,3 +1,4 @@
+/* Styling for the post container */
 .post {
   margin: 20px;
   padding: 20px;
@@ -6,28 +7,46 @@
   background-color: #f9f9f9;
 }
 
+/* Styling for the post title */
 .post-title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Styling for the post content */
 .post-content {
   font-size: 16px;
   margin-bottom: 15px;
 }
 
+/* Add large spacing between paragraphs in the post content */
+.post-content p {
+  margin-bottom: 20px; /* Space between paragraphs */
+  line-height: 1.6; /* Improved readability */
+}
+
+/* Styling for images inside the post */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px; /* Space above and below images */
+}
+
+/* Styling for the post tags section */
 .post-tags {
   margin-bottom: 15px;
 }
 
+/* Styling for the time ago text */
 .time-ago {
   font-size: 0.9rem;
   color: gray;
   margin-top: 0.5rem;
 }
 
-
+/* Styling for the tags */
 .tag {
   display: inline-block;
   background-color: #e0e0e0;
@@ -38,10 +57,12 @@
   margin-right: 8px;
 }
 
+/* Styling for the comments section */
 .comments-section {
   margin-top: 20px;
 }
 
+/* Styling for the comment input area */
 .add-comment {
   display: flex;
   flex-direction: column;
@@ -57,6 +78,7 @@
   margin-bottom: 10px;
 }
 
+/* Styling for the comment submit button */
 .add-comment button {
   align-self: flex-start;
   padding: 8px 12px;
@@ -72,11 +94,13 @@
   background-color: #7a0000;
 }
 
+/* Styling for the list of comments */
 .comments-list {
   list-style: none;
   padding: 0;
 }
 
+/* Styling for each comment */
 .comment {
   margin-bottom: 15px;
   padding: 10px;
@@ -85,6 +109,7 @@
   background-color: white;
 }
 
+/* Styling for the reactions buttons */
 .reactions button {
   border: none;
   background: none;
@@ -93,10 +118,12 @@
   font-size: 16px;
 }
 
+/* Hover effect for reactions buttons */
 .reactions button:hover {
   transform: scale(1.2);
 }
 
+/* Styling for the reaction count */
 .reaction-count {
   font-weight: bold;
   color: #000; /* Choose a contrasting color */

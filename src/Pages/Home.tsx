@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header'; // Imports header
 import Footer from '../components/Footer'; // Imports footer
 import './Home.css'; // CSS File
+import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import biopic from '../assets/foto-yo.png'; // Picture of me
 
 //Importing images for the "What I do" section
@@ -152,6 +153,7 @@ const Home: React.FC = () => {
           </button>
         </form>
       </div>
+      <Chatbot />
 
       {}
       <footer>
