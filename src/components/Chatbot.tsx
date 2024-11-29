@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
-import './Chatbot.js';
 
 const Chatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to track if the chatbot is open or minimized
-  const [conversation, setConversation] = useState<{ sender: string; message: string | JSX.Element }[]>([]); // Conversation state
-  const [showButtons, setShowButtons] = useState(false); // State to control button visibility
-
-  const chatContentRef = useRef<HTMLDivElement>(null); // Reference for chat content to control scrolling
+  const [isOpen, setIsOpen] = useState(false);
+  const [conversation, setConversation] = useState<{ sender: string; message: string | JSX.Element }[]>([]);
+  const [showButtons, setShowButtons] = useState(false);
+  const chatContentRef = useRef<HTMLDivElement>(null);
 
   // Default predefined questions and answers
   const defaultQuestions = [
@@ -65,29 +63,52 @@ const Chatbot: React.FC = () => {
 
   // Function to toggle chatbot state
   const toggleChatbot = () => {
-    setIsOpen(!isOpen); // Toggle chatbot visibility
+    setIsOpen(!isOpen);
     if (!isOpen) {
       setConversation([]); // Clear conversation when opening the chatbot
       setShowButtons(false); // Hide buttons when the window is opened
     }
   };
 
-  // Function to handle the button click for default questions
-  const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    // First, we add the user's question to the conversation
-    setConversation((prev) => [
-      ...prev,
-      { sender: 'user', message: question },
-    ]);
-
-    // Then, we add the bot's answer after a slight delay to simulate a response
-    setTimeout(() => {
+  // Function to simulate typing effect
+  const typeMessage = (message: string | JSX.Element, sender: string, delay: number) => {
+    if (typeof message === 'string') {
+      let currentIndex = 0;
+      const typedMessage = (prev: string[]) => {
+        if (currentIndex < message.length) {
+          prev.push(message[currentIndex]);
+          currentIndex++;
+          setConversation((prevConv) => [
+            ...prevConv,
+            { sender, message: prev.join('') },
+          ]);
+        } else {
+          // Once the message is fully typed, show the next step (e.g., show buttons)
+          if (sender === 'bot') {
+            setShowButtons(true); // Show buttons after typing is complete
+          }
+        }
+      };
+      // Type the message one character at a time
+      const typingInterval = setInterval(() => typedMessage([]), 100);
+      setTimeout(() => clearInterval(typingInterval), delay + message.length * 100); // Stop after full typing
+    } else {
       setConversation((prev) => [
         ...prev,
-        { sender: 'bot', message: answer },
+        { sender, message },
       ]);
-      setShowButtons(true); // Show the question options again after the bot's answer
-    }, 500); // Delay to simulate typing
+    }
+  };
+
+  // Function to handle question click
+  const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
+    setConversation((prev) => [...prev, { sender: 'user', message: question }]);
+    setShowButtons(false); // Hide buttons while answering
+
+    // Simulate bot's response after a delay
+    setTimeout(() => {
+      typeMessage(answer, 'bot', 1000); // Delay typing the answer
+    }, 500);
   };
 
   // Function to show the question buttons
@@ -107,7 +128,7 @@ const Chatbot: React.FC = () => {
     );
   };
 
-  // Scroll to the bottom every time the conversation is updated
+  // Scroll to the bottom of the conversation
   useEffect(() => {
     if (chatContentRef.current) {
       chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
@@ -120,12 +141,10 @@ const Chatbot: React.FC = () => {
       setConversation([]); // Reset conversation when opening
       setShowButtons(false); // Hide buttons initially
 
-      // Set the initial greeting message
-      setConversation((prev) => [
-        ...prev,
-        { sender: 'bot', message: 'Hi there! How can I help you today?' },
-      ]);
-      setShowButtons(true); // Show buttons after greeting
+      // Initial greeting message
+      setTimeout(() => {
+        typeMessage('Hi there! How can I help you today?', 'bot', 2000);
+      }, 1000);
     }
   }, [isOpen]);
 
@@ -134,28 +153,27 @@ const Chatbot: React.FC = () => {
       {!isOpen && (
         <div className="chatbot-icon" onClick={toggleChatbot}>
           💬
-          <div className="notification-badge"></div> {/* Notification indicator */}
+          <div className="notification-badge"></div>
         </div>
       )}
 
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h4>Chat with me!</h4>
-            <button onClick={toggleChatbot} className="minimize-btn">
-              –
+            <span>Chatbot</span>
+            <button className="minimize-btn" onClick={toggleChatbot}>
+              -
             </button>
           </div>
           <div className="chatbot-content" ref={chatContentRef}>
             {conversation.map((msg, index) => (
-              <div key={index} className="message">
-                {msg.sender === 'user' && <p><strong>You:</strong> {msg.message}</p>}
-                {msg.sender === 'bot' && <p><strong>Vanessa:</strong> {msg.message}</p>}
+              <div key={index} className={`message ${msg.sender}-message`}>
+                <p>{msg.message}</p>
               </div>
             ))}
           </div>
           <div className="chatbot-footer">
-            {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
+            {showButtons && showQuestionButtons()}
           </div>
         </div>
       )}

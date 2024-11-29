@@ -89,7 +89,7 @@
   overflow: hidden;
   display: inline-block;
   width: 0;
-  animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Typing and blinking cursor */
+  animation: typing 2s steps(30) forwards, blink 0.75s step-end infinite; /* Typing and blinking cursor */
 }
 
 .message strong {
@@ -162,7 +162,14 @@
 
 /* Optional: Style for user's messages */
 .message.user-message p {
-  color: #1d1d1d; /* Blue for user's messages */
+  color: #1d1d1d; /* Dark color for user's messages */
+  animation: none; /* No typing animation for user's messages */
+}
+
+/* Optional: Style for bot's messages */
+.message.bot-message p {
+  color: #2c3e50; /* Darker color for bot's messages */
+  animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite; /* Animation for bot messages */
 }
 
 /* Styling for multi-line messages */
@@ -170,6 +177,26 @@
   display: block; /* Ensure the message is block-level so that multi-line messages work */
   overflow: hidden;
   white-space: normal; /* Allow text to wrap onto new lines */
+}
+
+/* Add a delay for the bot's answer (starting after 3 seconds) */
+.message.answer p {
+  animation: typing 2s steps(30) 3s forwards, blink 0.75s step-end infinite; /* Answer starts after 3s */
+}
+
+/* Add horizontal gray line between each question and answer */
+.message + .message {
+  border-top: 1px solid #ccc; /* Light gray line */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* New additions */
+
+/* For multi-line messages */
+.message p {
+  display: block;
+  white-space: normal; /* Allow multi-line messages to work */
 }
 
 /* Add a delay for the answer to appear after the question */
