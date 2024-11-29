@@ -96,6 +96,11 @@
   margin: 0;
 }
 
+/* Ensure the bot's messages are displayed in dark text */
+.message.bot-message p {
+  color: #333; /* Dark gray for bot's messages */
+}
+
 .message strong {
   font-weight: bold;
 }
@@ -103,7 +108,7 @@
 /* Typing animation */
 .bot-typing {
   font-style: italic;
-  color: #555;
+  color: #555; /* Ensure typing text is visible */
 }
 
 /* Chatbot footer with input and send button */
@@ -154,11 +159,7 @@
   display: none;
 }
 
-.message.bot-message p {
-  color: #333;
-}
-
 /* Optional: Style for user's messages */
 .message.user-message p {
-  color: #007bff;
+  color: #007bff; /* Blue for user's messages */
 }

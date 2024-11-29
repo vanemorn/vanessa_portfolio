@@ -152,7 +152,7 @@ const Chatbot: React.FC = () => {
         setShowButtons(true); // Now show the buttons after greeting
       });
     }
-  }, [isOpen]);
+  }, [isOpen, botMessage]); // Re-run when botMessage changes
 
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
