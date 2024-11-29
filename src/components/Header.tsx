@@ -14,38 +14,36 @@ const Header: React.FC = () => {
 
   return (
     <header className="header-container">
-      {/* Logo Section */}
       <div className="logo">
-        <Link to="/"> {/* If user clicks the logo, they go to the homepage */}
+        <Link to="/">
           <img src={logo} alt="logo" className="logo-img" />
         </Link>
       </div>
 
-      {/* Navigation Links */}
+      {/* Hamburger Menu Button */}
+      <button className="dropdown-toggle" onClick={toggleDropdown}>
+        ☰ {/* Hamburger Menu Icon */}
+      </button>
+
+      {/* Links to the other pages through the menu */}
       <nav className={`menu ${isDropdownOpen ? 'show' : ''}`}>
-        <Link to="/About" onClick={toggleDropdown}>About</Link>
-        <Link to="/Projects" onClick={toggleDropdown}>Projects</Link>
-        <Link to="/Contact" onClick={toggleDropdown}>Contact</Link>
-        <Link to="/Blog" onClick={toggleDropdown}>Blog</Link>
-        <Link to="/Gallery" onClick={toggleDropdown}>Gallery</Link>
-        <Link to="/Videogallery" onClick={toggleDropdown}>VideoGallery</Link>
+        <Link to="/About" onClick={() => setIsDropdownOpen(false)}>About</Link>
+        <Link to="/Projects" onClick={() => setIsDropdownOpen(false)}>Projects</Link>
+        <Link to="/Contact" onClick={() => setIsDropdownOpen(false)}>Contact</Link>
+        <Link to="/Blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link>
+        <Link to="/Gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link>
+        <Link to="/Videogallery" onClick={() => setIsDropdownOpen(false)}>VideoGallery</Link>
       </nav>
 
-      {/* Download CV Button */}
+      {/* The button to download my CV */}
       <div className="download-button">
         <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
       </div>
 
-      {/* Theme Switcher */}
+      {/* Theme Switcher Button */}
       <div className="theme-switcher-container">
         <ThemeSwitcher />
       </div>
-
-       {/* Hamburger Menu Button */}
-       <button className="dropdown-toggle" onClick={toggleDropdown}>
-        ☰ {/* Hamburger Menu Icon */}
-      </button>
-      
     </header>
   );
 };

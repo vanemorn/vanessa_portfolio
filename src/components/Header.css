@@ -1,29 +1,28 @@
-/* Layout of the header */
+/* Header layout */
 .header-container {
   display: flex;
   align-items: center; 
   justify-content: space-between; 
-  padding: 20 20px; /* Removed top padding, keep left and right padding */
+  padding: 10px 20px;
   background-color: #F1F0EC;
-  margin: 0; /* Ensure no margin at the top */
+  margin: 0;
 }
 
 /* Logo styling */
 .logo-img {
   max-height: 40px;
-  margin-top: 7px;
 }
 
-/* Layout of the menu */
+/* Menu styling */
 .menu {
-  display: none; /* Hide by default */
-  flex-grow: 1; 
-  text-align: center;
+  display: none;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .menu.show {
-  display: flex; /* Show the menu when the 'show' class is added */
-  flex-direction: column; /* Stack the menu items vertically for mobile view */
+  display: flex;
+  flex-direction: column;
 }
 
 .menu a {
@@ -31,8 +30,7 @@
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  margin: 10px 0; /* Adjust spacing between menu items */
-  transition: color 0.3s;
+  margin: 10px 0;
   text-decoration: none;
   text-align: center;
 }
@@ -43,7 +41,12 @@
   text-decoration: underline;
 }
 
-/* Download CV button */
+/* Actions (CV + Theme Switcher) */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
 .btn {
   background-color: #9C0000; 
   color: white; 
@@ -51,18 +54,11 @@
   border-radius: 30px; 
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s; 
   font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn:hover {
-  background-color: #4d0000; 
-}
-
-/* Add styles for the Theme Switcher container */
 .theme-switcher-container {
-  margin-left: 10px; /* Space between the CV button and theme switcher */
+  margin-left: 10px;
 }
 
 /* Hamburger button */
@@ -75,18 +71,18 @@
   display: block;
 }
 
+/* Responsive styles */
 @media screen and (min-width: 768px) {
   .menu {
     display: flex;
     flex-direction: row;
-    margin: 0;
   }
 
   .menu a {
-    margin: 0 20px; /* Adjust spacing for desktop */
+    margin: 0 20px;
   }
 
   .dropdown-toggle {
-    display: none; /* Hide the hamburger menu button on large screens */
+    display: none;
   }
 }
