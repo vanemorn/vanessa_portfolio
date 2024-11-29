@@ -24,13 +24,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ccc; /* Default background for light mode */
   transition: 0.4s;
   border-radius: 50px;
 }
 
 .theme-switcher input:checked + .slider {
-  background-color: #4CAF50; /* Green color when checked (for dark mode) */
+  background-color: #2e2e2e; /* Dark grey when dark mode is on */
 }
 
 .theme-switcher .slider:before {
@@ -52,12 +52,10 @@
 .theme-icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
   color: #f9f9f9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
 }
 
@@ -67,5 +65,8 @@
 
 .theme-switcher input:not(:checked) ~ .theme-icon img {
   opacity: 1;
-  left: 10px;
+}
+
+.theme-switcher input:checked ~ .theme-icon img {
+  opacity: 1;
 }
