@@ -3,7 +3,7 @@
   display: flex;
   align-items: center; 
   justify-content: space-between; 
-  padding: 0 20px; /* Removed top padding, keep left and right padding */
+  padding: 20 20px; /* Removed top padding, keep left and right padding */
   background-color: #F1F0EC;
   margin: 0; /* Ensure no margin at the top */
 }
