@@ -24,12 +24,11 @@
 .post-content {
   font-size: 16px;
   margin-bottom: 15px;
-  
 }
 
 .post-content p {
-  margin-bottom: 20px; 
-  line-height: 1.6; 
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 .post-content img {
@@ -52,24 +51,23 @@
 }
 
 .post-tags {
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 8px; 
-  margin-bottom: 25px; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
 }
 
 .tag {
-  background-color: #D5DA26; 
+  background-color: #D5DA26;
   color: #242424;
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
-
-.comments-section {
+.comments-container {
   margin-top: 30px;
   padding: 20px;
   border-top: 1px solid #ccc;
@@ -78,7 +76,7 @@
 }
 
 /* Comments section heading */
-.comments-section h3 {
+.comments-container h3 {
   font-size: 24px;
   margin-bottom: 15px;
   color: #333;
@@ -111,9 +109,9 @@
 }
 
 .add-comment button {
-  background-color: transparent; /* Transparent background */
-  color: #242424; /* Dark text color */
-  border: 2px solid #242424; /* Border color */
+  background-color: transparent;
+  color: #242424;
+  border: 2px solid #242424;
   border-radius: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -122,13 +120,13 @@
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: auto;
-  align-self: flex-start; /* Align to the start of the card */
+  align-self: flex-start;
 }
 
 .add-comment button:hover {
-  background-color: #314697; /* Highlight on hover */
+  background-color: #314697;
   color: #f7f7f7;
-  transform: translateX(3px); /* Slight lift effect */
+  transform: translateX(3px);
 }
 
 /* Styling for the list of comments */
@@ -138,7 +136,7 @@
 }
 
 /* Styling for each comment */
-.comment {
+.comment-item {
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ddd;
@@ -147,7 +145,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comment p {
+.comment-item p {
   margin: 0;
   margin-bottom: 10px;
   font-size: 16px;
@@ -156,7 +154,7 @@
 }
 
 /* Styling for the comment timestamp */
-.comment .timestamp {
+.comment-item .timestamp {
   font-size: 12px;
   color: gray;
   margin-top: 5px;
@@ -164,13 +162,13 @@
 }
 
 /* Styling for the reactions section */
-.reactions {
+.reactions-container {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
 
-.reactions button {
+.reactions-container button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,12 +181,12 @@
   transition: transform 0.2s, background-color 0.3s;
 }
 
-.reactions button:hover {
+.reactions-container button:hover {
   background-color: #eaeaea;
   transform: scale(1.1);
 }
 
-.reactions .reaction-count {
+.reactions-container .reaction-count {
   margin-left: 6px;
   font-weight: bold;
   color: #555;
@@ -212,7 +210,7 @@
     font-size: 14px;
   }
 
-  .reactions button {
+  .reactions-container button {
     font-size: 14px;
   }
 }
