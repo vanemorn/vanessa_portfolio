@@ -116,9 +116,8 @@
 
 /* Button Styling: Download CV */
 .btn {
-  background-color: #d5da26;
-  border: 3px solid #242424;
-  color: #242424;
+  background-color: #314697;
+  color: #F7F7F7;
   border-radius: 8px;
   padding: 10px 10px;
   font-weight: bold;
@@ -129,8 +128,7 @@
 }
 
 .btn:hover {
-  background-color: #727514;
-  border: 3px solid #242424;
+  background-color: #111c45;
 }
 
 /* Large Screen Styles */
