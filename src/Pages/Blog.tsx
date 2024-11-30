@@ -47,7 +47,7 @@ const Blog: React.FC = () => {
                 <span key={index} className="tag">{tag}</span>
               ))}
             </div>
-            <p>{post.content.slice(0, 100)}...</p> {/* Show a preview of the content */}
+            <p className="post-preview">{post.content.slice(0, 100)}...</p>
             {/* Link to individual post */}
             <Link to={`/post/${post.id}`}>View Post</Link>
           </div>
