@@ -16,6 +16,10 @@ html, body {
   box-sizing: border-box; /* Include padding in width calculation */
 }
 
+.footer-logo {
+  margin-bottom: 26px;
+}
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -41,6 +45,7 @@ html, body {
 .footer-text {
   font-size: 14px;
   margin-bottom: 10px;
+  padding-right: 30px;
   display: block;
   text-align: left;
 }
