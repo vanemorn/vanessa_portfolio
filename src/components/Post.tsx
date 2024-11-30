@@ -135,7 +135,7 @@ const initialPosts: Post[] = [
   },
   {
     id: 2,
-    title: 'Contribution to video assignment: Drink for Thought',
+    title: 'Contribution to Drink for Thought',
     publishedAt: '2024-11-30T10:00:00Z', // Add publication date
     content: `
       <p>During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in 
