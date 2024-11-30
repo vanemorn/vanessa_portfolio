@@ -2,16 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer'; // Importing Footer
 import './Projects.css'; //CSS file
+import ProjectGrid from '../components/ProjectGrid';
 
 //Importing icons for Gallery and VideoGallery buttons
 import galleryIcon from '../assets/gallery-icon.svg'; 
 import videogalleryIcon from '../assets/videogallery-icon.svg';
-
-//Importing images for projects grid
-import project1 from '../assets/project1.png';
-import project2 from '../assets/project2.png';
-import project3 from '../assets/project3.png';
-import project4 from '../assets/project4.png';
 
 const Projects: React.FC = () => {
   return (
@@ -54,36 +49,7 @@ const Projects: React.FC = () => {
         {/* Right column with projects grid*/}
 
         <div className="column">
-          <div className="work-boxes">
-            
-            {/*Project 1*/}
-            <ProjectItem
-              imgSrc={project1}
-              title="Ños! Gofio"
-              skills="Logo Design · Packaging · Web Design · Merchandising"
-            />
-
-            {/*Project 2*/}
-            <ProjectItem
-              imgSrc={project2}
-              title="Cinedfest"
-              skills="Logo Design · Social Media · Poster · Merchandising"
-            />
-
-            {/*Project 3*/}
-            <ProjectItem
-              imgSrc={project3}
-              title="Cipselas"
-              skills="Layout Design · Visual System · Microtypography"
-            />
-
-            {/*Project 4*/}
-            <ProjectItem
-              imgSrc={project4}
-              title="Greenport Dashboard"
-              skills="Logo Design · UI Design · Visual System · Diagrams"
-            />
-          </div>
+        <ProjectGrid />
         </div>
       </div>
 
@@ -91,26 +57,6 @@ const Projects: React.FC = () => {
         <Footer />
       </footer>
     </>
-  );
-};
-
-// Define the properties for ProjectItem component
-interface ProjectItemProps {
-  imgSrc: string;
-  title: string;
-  skills: string;
-}
-
-// ProjectItem component to display each project's image, title, and skills
-const ProjectItem: React.FC<ProjectItemProps> = ({ imgSrc, title, skills }) => {
-  return (
-    <div className="work-item">
-      <img src={imgSrc} alt={title} className="project-image" />
-      <div className="project-label">Project</div>
-      <h3 className="project-title">{title}</h3>
-      <p className="project-skills">{skills}</p>
-      <a href="#" className="view-more-btn">View More ➔</a>
-    </div>
   );
 };
 
