@@ -31,11 +31,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.post-tags {
+.blog-tags {
   margin-top: 10px;
 }
 
-.tag {
+.entry-tag {
   background-color: #f1f1f1;
   border-radius: 4px;
   padding: 5px 10px;
@@ -44,7 +44,7 @@
   color: #333;
 }
 
-.tag:hover {
+.entry-tag:hover {
   background-color: #ddd;
 }
 

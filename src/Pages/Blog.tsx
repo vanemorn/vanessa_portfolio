@@ -42,9 +42,9 @@ const Blog: React.FC = () => {
             <h2>{post.title}</h2>
             
             {/* Render tags after the title */}
-            <div className="post-tags">
+            <div className="blog-tags">
               {post.tags.map((tag, index) => (
-                <span key={index} className="tag">{tag}</span>
+                <span key={index} className="entry-tag">{tag}</span>
               ))}
             </div>
             
