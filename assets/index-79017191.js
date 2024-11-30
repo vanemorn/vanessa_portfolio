@@ -139,7 +139,7 @@ Error generating stack: `+i.message+`
             several tries to position the objects and adjust the camera angle for the best shot. The goal was to 
             keep things organized while creating a casual, inviting atmosphere that reflects the excitement of 
             planning a trip.     
-            </p
+            </p>
 
             <p>
             The background for this shot was my desk, which is originally brown and did not fit the colour 
@@ -147,7 +147,7 @@ Error generating stack: `+i.message+`
             the table and adjusting its colour, brightness and contrast, turning it into a white surface. This 
             change made the composition pop, allowing the travel-related items to stand out and creating a 
             cohesive visual experience that matched the theme of exploration and creativity.    
-            </p
+            </p>
 
 
 
