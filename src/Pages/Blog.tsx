@@ -19,14 +19,14 @@ const posts: Post[] = [
     id: 1,
     title: 'Photography Series Analysis',
     content: 'Each image is designed to share a specific message or mood, highlighting different aspects of portrait photography and thematic expression.',
-    tags: ['Photography', 'Art'],
+    tags: ['#Photography', '#Art'],
     image: aestheticShot,
   },
   {
     id: 2,
     title: 'Post 2',
-    content: 'Contribution to Drink for Thought',
-    tags: ['Video production', 'Animation'],
+    content: 'During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in production I took on the role of editor. My responsibilities included reviewing and enhancing the quality of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating special effects and music.',
+    tags: ['#Video production', '#Animation'],
     image: image0,
   },
 ];

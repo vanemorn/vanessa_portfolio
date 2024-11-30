@@ -11,6 +11,7 @@
   gap: 20px; /* Space between the cards */
   margin-left: 25%;
   margin-right: 25%;
+  margin-top: 80px;
 }
 
 /* Individual post card */
@@ -45,20 +46,21 @@
   color: #333;
 }
 
-/* Tags inside the post */
 .post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px; /* Space between tags */
-  margin: 12px 0;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+  margin-bottom: 35px; 
 }
 
-.post-tag {
-  background-color: #D5DA26; /* Highlight color */
+.tag {
+  background-color: #D5DA26; 
   color: #242424;
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap; 
 }
 
 /* Post content preview */
@@ -68,24 +70,36 @@
   margin: 10px 0;
 }
 
-/* Link to individual post */
+/* Style for the "View Post" link styled as a button */
 .post-card a {
-  text-decoration: none;
-  color: #314697;
-  font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  display: inline-block; /* Make the link behave like a block element */
+  background-color: #314697; /* Button background color */
+  color: #f7f7f7; /* White text color */
+  border-radius: 16px; /* Rounded corners */
+  font-family: Arial, Helvetica, sans-serif; /* Font family */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Bold text */
+  padding: 10px 20px; /* Button padding */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  text-decoration: none; /* Remove underline from link */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  width: auto; /* Auto width based on content */
+  align-self: flex-start; /* Align the button to the start of the card */
 }
 
 .post-card a:hover {
-  color: #242424;
+  background-color: #111c45; /* Darker background on hover */
+  color: #f7f7f7; /* Maintain white text on hover */
+  transform: translateX(3px); /* Slight lift effect */
 }
 
-/* Hover effect for the card */
-.post-card:hover {
-  transform: translateY(-5px); /* Lift effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slight shadow effect */
+.post-card a:focus,
+.post-card a:active {
+  outline: none; /* Remove outline on focus */
+  background-color: transparent; /* Keep transparent background when active */
+  border: 2px solid #314697; /* Keep the border color */
 }
+
 
 /* Responsive Media Queries */
 @media (max-width: 1200px) {
