@@ -31,10 +31,11 @@
 
 /* Styling for images inside the post */
 .post-content img {
+  float: left;
   width: 300px;
   height: auto;
   margin-top: 20px;
-  margin-bottom: 20px; /* Space above and below images */
+  margin: 20px;
 }
 
 /* Styling for the post tags section */
@@ -56,6 +57,13 @@
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap; /* Wrap tags to the next line if needed */
+  justify-content: left;
+  gap: 8px; /* Space between tags */
+  margin: 12px 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
