@@ -4,15 +4,18 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
-  margin: 300px;
+  margin-left: 33%;
+  margin-right: 33%;
+  margin-top: 30px;
   text-align: left;
   justify-content: left;
 }
 
 /* Styling for the post title */
 .post h1 {
+  margin-top: 40px;
   font-size: 40px;
-  margin-bottom: 30px;
+  padding: 20px;
 }
 
 /* Styling for the post content */
