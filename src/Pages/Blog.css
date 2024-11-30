@@ -72,32 +72,32 @@
 
 /* Style for the "View Post" link styled as a button */
 .post-card a {
-  display: inline-block; /* Make the link behave like a block element */
-  background-color: #314697; /* Button background color */
-  color: #f7f7f7; /* White text color */
-  border-radius: 16px; /* Rounded corners */
-  font-family: Arial, Helvetica, sans-serif; /* Font family */
-  font-size: 14px; /* Font size */
-  font-weight: bold; /* Bold text */
-  padding: 10px 20px; /* Button padding */
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-  text-decoration: none; /* Remove underline from link */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
-  width: auto; /* Auto width based on content */
-  align-self: flex-start; /* Align the button to the start of the card */
+  display: inline-block; 
+  background-color: #314697;
+  color: #f7f7f7;
+  border-radius: 16px; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px; 
+  cursor: pointer;
+  text-decoration: none; 
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+  width: auto; 
+  align-self: flex-start; 
 }
 
 .post-card a:hover {
-  background-color: #111c45; /* Darker background on hover */
-  color: #f7f7f7; /* Maintain white text on hover */
-  transform: translateX(3px); /* Slight lift effect */
+  background-color: #111c45; 
+  color: #f7f7f7; 
+  transform: translateX(3px); 
 }
 
 .post-card a:focus,
 .post-card a:active {
-  outline: none; /* Remove outline on focus */
-  background-color: transparent; /* Keep transparent background when active */
-  border: 2px solid #314697; /* Keep the border color */
+  outline: none; 
+  background-color: transparent; 
+  border: 2px solid #314697;
 }
 
 
