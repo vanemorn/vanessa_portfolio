@@ -37,8 +37,9 @@ const Home: React.FC = () => {
         <p className="Introduction-title">
             INTRODUCTION
         </p>
-        <p className="Introduction-text"> I'm a huge proponent of practical and appealing digital interfaces. Thanks to my background in graphic design, 
-          my ideas are built on solid visual systems.
+        <p className="Introduction-text"> I'm a huge proponent of practical and appealing digital interfaces. <br />
+        Thanks to my background in graphic design, <br />
+        my ideas are built on solid visual systems.
         </p>
       </div>
 
