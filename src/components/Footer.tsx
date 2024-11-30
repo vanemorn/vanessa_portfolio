@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         {/* First Column - Small Text */}
         <div className="footer-column">
           <img src={logo} alt="Logo" className="footer-logo" />
-          <p className="footer-text">an enthusiastic UX Designer with background in Graphic Design currently based in Limerick, Ireland</p>
+          <p className="footer-text">Enthusiastic UX/UI Designer with background in Graphic Design currently based in Limerick, Ireland</p>
         </div>
 
         {/* Second Column - Contact and Location */}
@@ -51,10 +51,10 @@ const Footer: React.FC = () => {
             <button type="submit" className="footer-btn">Subscribe</button>
           </form>
           <div className="footer-social">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/vanessa-moreno-4a470b174/" target="_blank" rel="noopener noreferrer">
               <img src={linkedinIcon} alt="LinkedIn" className="footer-social-icon" />
             </a>
-            <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.behance.net/lindavmoreno" target="_blank" rel="noopener noreferrer">
               <img src={behanceIcon} alt="Behance" className="footer-social-icon" />
             </a>
           </div>
