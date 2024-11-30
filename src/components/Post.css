@@ -40,6 +40,7 @@
   margin-left: 20px;
   margin-bottom: 20px;
   margin-right: 0px;
+  cursor:zoom-in;
 }
 
 /* Styling for the time ago text */
@@ -212,8 +213,8 @@
 }
 
 .image-modal-content img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
@@ -221,12 +222,17 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #fff;
+  background: #3d3d3d;
+  color: white;
   border: none;
-  border-radius: 50%;
-  padding: 10px;
+  border-radius: 8px;
+  padding: 12px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 14px;
+}
+
+.close-modal-btn:hover {
+  background: #242424;
 }
 
 
