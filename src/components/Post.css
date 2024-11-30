@@ -1,3 +1,19 @@
+.go-back-btn-blog {
+  font-size: 16px;
+  color: #314697; 
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.go-back-btn-blog:hover {
+  transform: translateX(-20px);
+}
+
+
 .post {
   padding: 50px;
   border: 1px solid #ddd;

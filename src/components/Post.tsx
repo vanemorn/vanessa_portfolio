@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Post.css';
 
 import image0 from '../assets/blog-entry-2/0.png';
@@ -218,6 +219,7 @@ const Post: React.FC = () => {
 
   return (
     <div className="post">
+      <Link to="/blog" className="go-back-btn-blog">← Go back</Link> {/* Link to navigate back to projects */}
       <h1>{currentPost.title}</h1>
       <p className="time-ago">Published on {formatDate(currentPost.publishedAt)}</p> {/* Display the publication date */}
       <div className="post-tags">
