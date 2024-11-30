@@ -7,6 +7,7 @@
   background: none;
   cursor: pointer;
   transition: transform 0.2s, color 0.2s;
+  margin-bottom: 20px;
 }
 
 .go-back-btn-blog:hover {
@@ -28,7 +29,7 @@
 
 /* Styling for the post title */
 .post h1 {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   font-size: 40px;
 }
 
