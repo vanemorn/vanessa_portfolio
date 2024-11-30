@@ -229,8 +229,12 @@ const Post: React.FC = () => {
       </div>
       <div
         className="post-content"
-        dangerouslySetInnerHTML={{
-          __html: currentPost.content.replace(/<img/g, '<img onclick="onClickImageHandler(event)"'),
+        dangerouslySetInnerHTML={{ __html: currentPost.content }}
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.tagName === 'IMG') {
+            handleImageClick((target as HTMLImageElement).src);
+          }
         }}
       />
       <div className="comments-section">
