@@ -61,9 +61,12 @@
 }
 
 .post-image2 {
+  justify-content: left;
   width: 300px;
   height: auto;
   margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor:zoom-in;
 }
 
