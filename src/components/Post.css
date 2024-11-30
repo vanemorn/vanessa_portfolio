@@ -208,8 +208,8 @@
 
 .image-modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: auto;
+  height: 100%;
 }
 
 .image-modal-content img {
