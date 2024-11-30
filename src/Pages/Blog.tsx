@@ -24,7 +24,7 @@ const posts: Post[] = [
   },
   {
     id: 2,
-    title: 'Post 2',
+    title: 'Contribution to Drink for Thought',
     content: 'During the production of the video Drink for Thought, I played as the Manager for the meeting scenes and in production I took on the role of editor. My responsibilities included reviewing and enhancing the quality of the footage by balancing brightness, colours, contrast, etc. Combining all the shots and incorporating special effects and music.',
     tags: ['#Video production', '#Animation'],
     image: image0,
