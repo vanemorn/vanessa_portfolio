@@ -239,7 +239,7 @@ const Post: React.FC = () => {
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Write a comment..."
         />
-        <button onClick={handleAddComment}>Post Comment</button>
+        <button onClick={handleAddComment}>Post</button>
       </div>
     </div>
   );
