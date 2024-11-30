@@ -147,8 +147,8 @@ const initialPosts: Post[] = [
           the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
           cohesive timeline in After Effects, ensuring the final video would not exceed two minutes.</p>
 
-          <img class="post-image1" src="${image0}"/>
-          <img class="post-image1" src="${image1}"/>
+          <img class="post-image2" src="${image0}"/>
+          <img class="post-image2" src="${image1}"/>
 
           <h3>Visual Adjustments and Editing</h3>
 
