@@ -234,12 +234,12 @@ const Post: React.FC = () => {
             </div>
           </div>
         ))}
-        <textarea
+        <textarea className = "add-comment-input"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Write a comment..."
         />
-        <button className="add-comment-btn" onClick={handleAddComment}>Post</button>
+        <button className="add-comment-btn" onClick={handleAddComment}>Post comment</button>
       </div>
     </div>
   );
