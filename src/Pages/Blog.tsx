@@ -44,7 +44,7 @@ const Blog: React.FC = () => {
             {/* Tags */}
             <div className="post-tags">
               {post.tags.map((tag, index) => (
-                <span key={index} className="tag">{tag}</span>
+                <span className= "tag" key={index}>{tag}</span>
               ))}
             </div>
             <p className="post-preview">{post.content.slice(0, 100)}...</p>
