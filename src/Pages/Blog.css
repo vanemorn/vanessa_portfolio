@@ -56,8 +56,10 @@ button:hover {
 
 .post-card {
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 70px;
   border-radius: 8px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .post-card h2 {
