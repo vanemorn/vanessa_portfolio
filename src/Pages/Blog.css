@@ -9,8 +9,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
   gap: 20px; /* Space between the cards */
-  margin: 20px auto; /* Center the grid */
-  max-width: 1200px; /* Optional: limit the width of the grid */
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 /* Individual post card */
