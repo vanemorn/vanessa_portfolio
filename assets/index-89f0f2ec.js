@@ -161,8 +161,8 @@ Error generating stack: `+o.message+`
           the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
           cohesive timeline in After Effects, ensuring the final video would not exceed two minutes.</p>
 
-          <img class="post-image1" src="${Yv}"/>
-          <img class="post-image1" src="${Jv}"/>
+          <img class="post-image2" src="${Yv}"/>
+          <img class="post-image2" src="${Jv}"/>
 
           <h3>Visual Adjustments and Editing</h3>
 
