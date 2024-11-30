@@ -6,7 +6,11 @@
     justify-content: center;
     padding: 20px;
     gap: 100px;
-    margin: 150px;
+    margin-right: 150px;
+    margin-left: 150px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
   }
   
   .newsletter-form {
@@ -21,12 +25,15 @@
     font-weight: bold;
     margin-bottom: 30px;
     text-align: left;
+    color: #242424;
 
   }
   
   .newsletter-form p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
+    line-height: 27px;
+    color: #383838;
     margin-bottom: 30px;
     text-align: left;
 
