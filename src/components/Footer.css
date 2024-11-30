@@ -10,7 +10,7 @@ html, body {
 .footer {
   background-color: #242424;
   color: #f7f7f7;
-  padding: 40px 0;
+  padding: 80px;
   width: 100%; /* Full width */
   margin: 0; /* No margin */
   box-sizing: border-box; /* Include padding in width calculation */
@@ -21,17 +21,19 @@ html, body {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%; /* Ensure full width */
-  padding: 0 20px; /* Optional padding */
+  padding: 20 20px; /* Optional padding */
 }
 
 .footer-column {
   width: 22%;
   margin-bottom: 20px;
+  text-align: left;
+  align-items: left;
 }
 
 .footer-title {
   font-size: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
   font-weight: bold;
   text-align: left;
 }
