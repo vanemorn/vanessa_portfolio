@@ -60,6 +60,13 @@
   cursor:zoom-in;
 }
 
+.post-image2 {
+  width: 300px;
+  height: auto;
+  margin: 20px;
+  cursor:zoom-in;
+}
+
 /* Styling for the time ago text */
 .time-ago {
   font-size: 14px;

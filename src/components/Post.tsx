@@ -147,11 +147,19 @@ const initialPosts: Post[] = [
           the clips to a shared folder, where I retrieved them. I began by cutting and arranging the footage into a 
           cohesive timeline in After Effects, ensuring the final video would not exceed two minutes.</p>
 
+          <img class="post-image1" src="${image0}"/>
+          <img class="post-image1" src="${image1}"/>
+
           <h3>Visual Adjustments and Editing</h3>
 
           <p>After organizing the footage, I focused on unifying brightness, colours and contrast, since some of the 
           scenes were filmed from different angles and different illumination. I mainly used the Lumetri Color 
           tool in After Effects to achieve a consistent look throughout the video</p>
+
+          <img class="post-image2" src="${image2}"/>
+          <img class="post-image2" src="${image3}"/>
+          <img class="post-image2" src="${image4}"/>
+          <img class="post-image2" src="${image5}"/>
 
           <h3>Special Effects and Compositions</h3>
 
@@ -159,6 +167,10 @@ const initialPosts: Post[] = [
           I replaced the background with a graphic composition created in Adobe Photoshop.  Secondly, I animated a 
           light bulb that appears when the designer conceives a new packaging idea. I also created fade-in and 
           fade-out compositions in Adobe Illustrator and incorporated a translucent screen transition with the "two weeks later”. </p>
+
+          <img class="post-image2" src="${image6}"/>
+          <img class="post-image2" src="${image7}"/>
+          <img class="post-image2" src="${image8}"/>
 
           <h3>Audio Design</h3>
 
@@ -172,6 +184,8 @@ const initialPosts: Post[] = [
           <p>Finally, I exported the final video using Adobe Media Encoder. To meet the 25 MB size limit without sacrificing quality, 
           I adjusted the bitrate encoding to VBR 2-pass with bitrates set between 1.57 and 5.37. This optimization ensured the 
           video maintained high quality while adhering to file size constraints. </p>
+
+          <img class="post-image1" src="${image9}"/>
 
           <h3>Outcome Reflection</h3>
 
