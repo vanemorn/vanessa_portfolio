@@ -50,8 +50,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0; /* Remove any margin around tags */
-  padding: 0; /* Ensure no padding around tags */
+  margin: 0; /* Ensures no extra margin */
+  padding: 0; /* Removes padding */
 }
 
 .tag {
@@ -68,7 +68,8 @@
 .post-card p {
   font-size: 14px;
   color: #555;
-  margin: 5px 0; /* Adjust margin to reduce space */
+  margin-top: 5px; /* Reduce top margin for proximity to tags */
+  margin-bottom: 0; /* No bottom margin */
 }
 
 /* Style for the "View Post" link styled as a button */
