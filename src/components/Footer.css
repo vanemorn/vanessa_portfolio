@@ -1,21 +1,27 @@
-/* Ensure the footer spans the full width of the page */
+/* Ensure there's no margin or padding around the entire page */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Footer should span the entire width */
 .footer {
   background-color: #242424;
   color: #f7f7f7;
   padding: 40px 0;
-  width: 100%; /* Ensure footer spans the full width */
-  margin: 0; /* Remove any margin */
-  box-sizing: border-box; /* Make sure padding is included in width calculation */
+  width: 100%; /* Full width */
+  margin: 0; /* No margin */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px; /* Optional: you can set a max-width for content */
-  margin: 0 auto; /* Center content in larger screens */
-  padding: 0 20px; /* Optional: padding for some spacing */
+  width: 100%; /* Ensure full width */
+  padding: 0 20px; /* Optional padding */
 }
 
 .footer-column {
@@ -24,20 +30,23 @@
 }
 
 .footer-title {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 20px;
   font-weight: bold;
+  text-align: left;
 }
 
 .footer-text {
   font-size: 14px;
   margin-bottom: 10px;
   display: block;
+  text-align: left;
 }
 
 .footer-item {
   display: flex;
-  align-items: center;
+  align-items: left;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -50,6 +59,7 @@
 .footer-nav-list {
   list-style: none;
   padding: 0;
+  text-align: left;
 }
 
 .footer-nav-link {
@@ -58,6 +68,7 @@
   font-size: 14px;
   margin-bottom: 8px;
   display: block;
+  text-align: left; /* Align links to the left */
 }
 
 .footer-nav-link:hover {
@@ -79,22 +90,26 @@
 }
 
 .footer-btn {
+  align-self: left;
+  display: inline-block;
+  width: auto;
   padding: 10px;
   background-color: #f7f7f7;
   color: #242424;
+  font-weight: bold;
   border: none;
   font-size: 14px;
   cursor: pointer;
 }
 
 .footer-btn:hover {
-  background-color: #ddd;
+  background-color: #D5DA26;
 }
 
 .footer-social {
   display: flex;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .footer-social-icon {
@@ -102,7 +117,7 @@
   height: 25px;
 }
 
-/* Responsive styles for smaller screens */
+/* Responsive styles */
 @media (max-width: 768px) {
   .footer-column {
     width: 48%;
