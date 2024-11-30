@@ -1,24 +1,17 @@
-/* Separator with skills */
-.banda {
-  position: relative;
-  width: 100%;
-  height: auto;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #9C0000;
-  flex-wrap: wrap;
-  font-family: Arial, sans-serif;
+.Introduction-title {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 400px;
+  text-align: left;
+  color:#717171;
 }
 
-.banda-item, .banda-separator {
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.4em;
-  margin: 5px 10px;
-  text-align: center;
+.Introduction-text {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 400px;
+  text-align: left;
+  color: #242424;
 }
 
 .flex-container {

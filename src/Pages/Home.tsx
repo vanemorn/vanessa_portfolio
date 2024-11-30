@@ -34,8 +34,13 @@ const Home: React.FC = () => {
             an enthusiastic UX Designer <br /> based in Limerick, Ireland
           </span>
         </div>
+        <p className="Introduction-title">
+            INTRODUCTION
+        </p>
+        <p className="Introduction-text"> I'm a huge proponent of practical and appealing digital interfaces. Thanks to my background in graphic design, 
+          my ideas are built on solid visual systems.
+        </p>
       </div>
-      
 
       <ScrollingBand />
       <ProjectGrid />

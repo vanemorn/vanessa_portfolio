@@ -5,6 +5,17 @@ html, body {
   height: 100%; /* Ensures body fills full height */
 }
 
+/* Default light theme styles */
+body.light {
+  background-color: #E8E7E7;
+  color: #333;
+}
+
+body.dark {
+  background-color: #333;
+  color: #fff;
+}
+
 /* The app class can be used for global app styling but make sure no top padding */
 .app {
   padding: 0; /* Remove any padding that may be affecting header alignment */
