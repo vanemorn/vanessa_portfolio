@@ -10,7 +10,7 @@ interface Post {
   id: number;
   title: string;
   content: string;
-  tags: string[];
+  tags: string[];  // Tags will be an array of strings
   image: string;  // Ensure the image is a string type
 }
 
@@ -38,11 +38,17 @@ const Blog: React.FC = () => {
       <div className="posts-grid">
         {posts.map((post) => (
           <div key={post.id} className="post-card">
-            {/* Correctly using post.image here */}
             <img className="post-image" src={post.image} alt={post.title} />
             <h2>{post.title}</h2>
-                <p className="post-preview">{post.content.slice(0, 100)}...</p>
-            {/* Link to individual post */}
+            
+            {/* Render tags after the title */}
+            <div className="post-tags">
+              {post.tags.map((tag, index) => (
+                <span key={index} className="tag">{tag}</span>
+              ))}
+            </div>
+            
+            <p className="post-preview">{post.content.slice(0, 100)}...</p>
             <Link to={`/post/${post.id}`}>View Post</Link>
           </div>
         ))}

@@ -31,6 +31,23 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.post-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.tag:hover {
+  background-color: #ddd;
+}
+
 /* Image inside post card */
 .post-image {
   width: 100%;
