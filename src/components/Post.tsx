@@ -197,7 +197,6 @@ const Post: React.FC = () => {
   return (
     <div className="post">
       <h1>{currentPost.title}</h1>
-      <div className="post-content" dangerouslySetInnerHTML={{ __html: currentPost.content }} />
       <div className="post-tags">
         {currentPost.tags.map((tag, index) => (
           <span key={index} className="tag">
@@ -205,6 +204,7 @@ const Post: React.FC = () => {
           </span>
         ))}
       </div>
+      <div className="post-content" dangerouslySetInnerHTML={{ __html: currentPost.content }} />
       <div className="comments-section">
         <h3>Comments</h3>
         {currentPost.comments.map((comment) => (
