@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { subscribe } from "../store/subscriptionSlice";
-import { RootState } from "../store";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
+import Newsletter from '../components/Newsletter/Newsletter.tsx';
 
 interface Post {
   id: number;
@@ -28,15 +26,6 @@ const posts: Post[] = [
 ];
 
 const Blog: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const dispatch = useDispatch();
-  const subscribed = useSelector((state: RootState) => state.subscription.subscribed);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    dispatch(subscribe(email));
-    setEmail(''); // Clear the input field
-  };
 
   return (
     <div className="blog">
@@ -52,25 +41,9 @@ const Blog: React.FC = () => {
           </div>
         ))}
       </div>
-      {/* Subscription Form */}
-      <div className="subscription-section">
-        {subscribed ? (
-          <p className="thank-you-message">Thank you for subscribing!</p>
-        ) : (
-          <form className="subscription-form" onSubmit={handleSubscribe}>
-            <label htmlFor="email">Subscribe to our Newsletter</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button type="submit">Subscribe</button>
-          </form>
-        )}
-      </div>
+      
+      <Newsletter />
+
     </div>
     
   );
