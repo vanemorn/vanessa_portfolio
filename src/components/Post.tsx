@@ -29,12 +29,23 @@ interface Post {
   content: string;
   tags: string[];
   comments: Comment[];
+  publishedAt: string;
 }
+
+const formatDate = (isoDate: string): string => {
+  const date = new Date(isoDate);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
 
 const initialPosts: Post[] = [
   {
     id: 1,
     title: 'Photography Series Analysis',
+    publishedAt: '2024-11-30T10:00:00Z',
     content: `
       <p> This photography series includes three different images: a professional headshot, an aesthetic portrait, 
           and a photo that shows my personal passion. Each image is designed to share a specific message or mood, 
@@ -124,6 +135,7 @@ const initialPosts: Post[] = [
   {
     id: 2,
     title: 'A Simple Post',
+    publishedAt: '2024-11-30T10:00:00Z', // Add publication date
     content: `
       <p>This is a simpler post with only one paragraph and one image.</p>
       <img src="https://via.placeholder.com/800x400" alt="Sample image" />
@@ -197,6 +209,7 @@ const Post: React.FC = () => {
   return (
     <div className="post">
       <h1>{currentPost.title}</h1>
+      <p className="time-ago">Published on {formatDate(currentPost.publishedAt)}</p> {/* Display the publication date */}
       <div className="post-tags">
         {currentPost.tags.map((tag, index) => (
           <span key={index} className="tag">
