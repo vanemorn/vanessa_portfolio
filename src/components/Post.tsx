@@ -166,6 +166,16 @@ const Post: React.FC = () => {
   const [currentPost, setCurrentPost] = useState<Post | undefined>(post);
   const [newComment, setNewComment] = useState('');
 
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  const handleImageClick = (src: string) => {
+    setModalImage(src);
+  };
+
+  const handleCloseModal = () => {
+    setModalImage(null);
+  };
+
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
       const newCommentData: Comment = {
@@ -217,7 +227,12 @@ const Post: React.FC = () => {
           </span>
         ))}
       </div>
-      <div className="post-content" dangerouslySetInnerHTML={{ __html: currentPost.content }} />
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{
+          __html: currentPost.content.replace(/<img/g, '<img onclick="onClickImageHandler(event)"'),
+        }}
+      />
       <div className="comments-section">
         <h3>Comments</h3>
         {currentPost.comments.map((comment) => (
@@ -241,6 +256,16 @@ const Post: React.FC = () => {
         />
         <button className="add-comment-btn" onClick={handleAddComment}>Post comment</button>
       </div>
+      {modalImage && (
+        <div className="image-modal" onClick={handleCloseModal}>
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
+            <img src={modalImage} alt="Expanded view" />
+            <button className="close-modal-btn" onClick={handleCloseModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
