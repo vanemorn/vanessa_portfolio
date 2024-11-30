@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         {/* First Column - Small Text */}
         <div className="footer-column">
           <img src={logo} alt="Logo" className="footer-logo" />
-          <p className="footer-text">Passionate about design, technology, and creating impactful user experiences.</p>
+          <p className="footer-text">an enthusiastic UX Designer with background in Graphic Design currently based in Limerick, Ireland</p>
         </div>
 
         {/* Second Column - Contact and Location */}
