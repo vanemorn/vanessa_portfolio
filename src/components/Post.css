@@ -31,16 +31,19 @@
 
 /* Styling for images inside the post */
 .post-content img {
-  float: left;
+  float: right;
   width: 300px;
   height: auto;
   margin-top: 20px;
-  margin: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 0px;
 }
 
 /* Styling for the post tags section */
 .post-tags {
   margin-bottom: 15px;
+  gap: 8px;
 }
 
 /* Styling for the time ago text */
@@ -57,13 +60,6 @@
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap; /* Wrap tags to the next line if needed */
-  justify-content: left;
-  gap: 8px; /* Space between tags */
-  margin: 12px 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
