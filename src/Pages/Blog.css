@@ -32,20 +32,20 @@
 }
 
 .blog-tags {
-  margin-top: 10px;
+  margin-top: 5px;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
 }
 
 .entry-tag {
-  background-color: #f1f1f1;
-  border-radius: 4px;
-  padding: 5px 10px;
-  margin-right: 8px;
+  background-color: #D5DA26; 
+  color: #242424;
   font-size: 14px;
-  color: #333;
-}
-
-.entry-tag:hover {
-  background-color: #ddd;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap; 
 }
 
 /* Image inside post card */
