@@ -1,109 +1,60 @@
-/* Styling for the post container */
-.post {
-  padding: 50px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 30px;
-  text-align: left;
-  justify-content: left;
-}
-
-/* Styling for the post title */
-.post h1 {
-  margin-bottom: 5px;
-  font-size: 40px;
-}
-
-.post h3 {
-  margin-bottom: 10px;
-}
-
-/* Styling for the post content */
-.post-content {
-  font-size: 16px;
-  margin-bottom: 15px;
-  
-}
-
-.post-content p {
-  margin-bottom: 20px; 
-  line-height: 1.6; 
-}
-
-.post-content img {
-  float: right;
-  width: 300px;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 0px;
-}
-
-/* Styling for the time ago text */
-.time-ago {
-  font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: gray;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.post-tags {
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 8px; 
-  margin-bottom: 25px; 
-}
-
-.tag {
-  background-color: #D5DA26; 
-  color: #242424;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  white-space: nowrap; 
-}
-
 /* Styling for the comments section */
 .comments-section {
-  margin-top: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
+
+/* Comments section heading */
+.comments-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #9c0000;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 /* Styling for the comment input area */
 .add-comment {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .add-comment textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   resize: none;
+  font-size: 16px;
+  line-height: 1.5;
   margin-bottom: 10px;
+  transition: border-color 0.3s;
 }
 
-/* Styling for the comment submit button */
+.add-comment textarea:focus {
+  border-color: #9c0000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(156, 0, 0, 0.5);
+}
+
 .add-comment button {
   align-self: flex-start;
-  padding: 8px 12px;
+  padding: 10px 15px;
   background-color: #9c0000;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .add-comment button:hover {
   background-color: #7a0000;
+  transform: translateY(-2px);
 }
 
 /* Styling for the list of comments */
@@ -114,30 +65,80 @@
 
 /* Styling for each comment */
 .comment {
-  margin-bottom: 15px;
-  padding: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the reactions buttons */
-.reactions button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin-right: 5px;
+.comment p {
+  margin: 0;
+  margin-bottom: 10px;
   font-size: 16px;
+  line-height: 1.4;
+  color: #333;
 }
 
-/* Hover effect for reactions buttons */
+/* Styling for the comment timestamp */
+.comment .timestamp {
+  font-size: 12px;
+  color: gray;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Styling for the reactions section */
+.reactions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.reactions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
 .reactions button:hover {
-  transform: scale(1.2);
+  background-color: #eaeaea;
+  transform: scale(1.1);
 }
 
-/* Styling for the reaction count */
-.reaction-count {
+.reactions .reaction-count {
+  margin-left: 6px;
   font-weight: bold;
-  color: #000; /* Choose a contrasting color */
-  margin-left: 5px; /* Adds space between emoji and the number */
+  color: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .post {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 30px;
+  }
+
+  .post-content img {
+    float: none;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .add-comment textarea {
+    font-size: 14px;
+  }
+
+  .reactions button {
+    font-size: 14px;
+  }
 }
