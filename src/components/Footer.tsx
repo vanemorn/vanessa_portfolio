@@ -28,9 +28,6 @@ const Footer: React.FC = () => {
             <img src={phoneIcon} alt="Phone Icon" className="footer-icon" />
             <span className="footer-text">+353 89 945 1920</span>
           </div>
-          <div className="footer-item">
-            <span className="footer-text">Limerick, Ireland</span>
-          </div>
         </div>
 
         {/* Third Column - Navigation */}
