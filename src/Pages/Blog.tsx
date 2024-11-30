@@ -41,13 +41,7 @@ const Blog: React.FC = () => {
             {/* Correctly using post.image here */}
             <img className="post-image" src={post.image} alt={post.title} />
             <h2>{post.title}</h2>
-            {/* Tags */}
-            <div className="post-tags">
-              {post.tags.map((tag, index) => (
-                <span className= "tag" key={index}>{tag}</span>
-              ))}
-            </div>
-            <p className="post-preview">{post.content.slice(0, 100)}...</p>
+                <p className="post-preview">{post.content.slice(0, 100)}...</p>
             {/* Link to individual post */}
             <Link to={`/post/${post.id}`}>View Post</Link>
           </div>
