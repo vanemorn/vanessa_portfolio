@@ -35,6 +35,26 @@
   margin-left: 20px;
 }
 
+/* Descripcion Title (Moving inline styles to CSS) */
+.descripcion-title {
+  color: black;
+  font-size: 60px;
+  font-family: 'Aptos', sans-serif;
+  font-weight: 700;
+  line-height: 70px;
+  text-align: left;
+}
+
+/* Descripcion Text (Moving inline styles to CSS) */
+.descripcion-text {
+  color: black;
+  font-size: 60px;
+  font-family: 'Aptos', sans-serif;
+  font-weight: 300;
+  line-height: 70px;
+  text-align: left;
+}
+
 /* Contact Form Styles */
 .contact-form-section {
   display: flex;
@@ -111,12 +131,12 @@
   }
 
   /* Adjust font sizes for the description text */
-  .descripcion span:first-child {
+  .descripcion-title {
     font-size: 40px !important; /* Ensure the font-size is overridden */
     line-height: 50px !important;
   }
 
-  .descripcion span:last-child {
+  .descripcion-text {
     font-size: 40px !important; /* Ensure the font-size is overridden */
     line-height: 50px !important;
   }
