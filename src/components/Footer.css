@@ -4,6 +4,8 @@ html, body {
   padding: 0;
   width: 100%; /* Ensure full width */
   box-sizing: border-box; /* Include padding and border in width calculation */
+  font-family: 'Aptos', sans-serif;
+
 }
 
 /* Footer should span the entire width */

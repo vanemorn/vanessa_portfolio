@@ -18,14 +18,14 @@
 .column-title {
   color: #242424;
   font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-weight: bold;
   margin: 100px 0 40px 150px; /* Adjusted margins for spacing */
   text-align: left;
 }
 
 .column-text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -61,7 +61,7 @@
 }
 
 .contact-form-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 22px;
@@ -85,7 +85,7 @@
   border: 2px solid #242424;
   border-radius: 25px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-size: 18px;
   color: #333;
 }
@@ -100,7 +100,7 @@
   height: 100px;
   border-radius: 25px;
   padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-size: 18px;
   border: 2px solid #242424;
   color: #333;
@@ -115,7 +115,7 @@
   padding: 10px 20px;
   border-radius: 25px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Aptos', sans-serif;
   font-size: 18px;
   border: none;
   cursor: pointer;

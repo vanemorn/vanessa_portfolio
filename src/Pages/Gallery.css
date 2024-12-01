@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif; /* Unified font-family */
+    font-family: 'Aptos', sans-serif;
 }
 
 /* Column Layout for Gallery Title and Back Button */
