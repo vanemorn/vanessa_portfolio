@@ -176,14 +176,12 @@
 /* Mobile Specific Styles */
 @media screen and (max-width: 767px) {
 
-  .header-container {
-    border-radius: 15px;
-  }
-  
   .menu {
     flex-direction: column;
     align-items: flex-end; 
     text-align: right; 
+    border-radius: 15px;
+
   }
 
   .menu a {
