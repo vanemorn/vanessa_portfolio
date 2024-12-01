@@ -1,9 +1,15 @@
 /* General Reset */
-* {
-  box-sizing: border-box; /* Consistent box model */
-  margin: 0;
-  padding: 0;
-  font-family: 'Aptos', sans-serif;
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adds spacing between columns for smaller screens */
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* Link Styles */
@@ -25,19 +31,20 @@
 }
 
 .column-title-project {
-  margin: 100px 0 40px 150px;
   font-size: 50px;
   font-weight: bold;
+  margin-bottom: 20px;
   text-align: left;
+  width: 100%; /* Ensure full width on smaller screens */
 }
 
 .column-text-project {
+  font-family: 'Aptos', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   color: #555555;
   text-align: left;
-  padding-left: 150px;
 }
 
 /* Clearfix for Rows */
@@ -72,81 +79,6 @@
   margin-left: 10px;
   width: 20px;
   height: 20px;
-}
-
-/* Right Column Styling */
-.work-boxes {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 80%;
-  padding: 20px;
-  border-radius: 30px;
-  height: auto;
-  overflow: hidden;
-  text-align: left;
-  margin: 0 auto; /* Center the grid container */
-}
-
-.work-item {
-  background-color: #fff;
-  border-radius: 24px;
-  padding: 15px;
-  transition: transform 0.2s ease;
-}
-
-.work-item:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-}
-
-.project-image {
-  width: 200px;
-  height: 150px;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.project-label {
-  font-size: 11px;
-  font-weight: 600;
-  border: 1px solid #646161;
-  color: #646161;
-  border-radius: 15px;
-  padding: 5px 10px;
-  display: inline-block;
-}
-
-.project-title {
-  font-size: 18px;
-  font-weight: 800;
-  margin: 10px 0 5px;
-  text-align: left;
-}
-
-.project-skills {
-  font-weight: 600;
-  font-size: 13px;
-  color: #7B7B7B;
-  margin: 1px 0 8px;
-  text-align: left;
-}
-
-.view-more-btn {
-  font-size: 14px;
-  color: #9C0000;
-  text-decoration: none;
-  font-weight: bold;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s;
-  text-align: left;
-  margin-top: 10px;
-}
-
-.view-more-btn:hover {
-  transform: translateX(8px); /* Slight move to the right on hover */
 }
 
 /* Responsive Design */

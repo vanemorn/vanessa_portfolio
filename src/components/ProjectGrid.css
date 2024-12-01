@@ -1,6 +1,6 @@
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+  grid-template-columns: repeat(2, 1fr); /* 4 columns for large screens */
   gap: 30px; /* Space between cards */
   padding: 20px;
   margin: 100px;
