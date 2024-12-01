@@ -1,39 +1,35 @@
 .Introduction-title {
-  font-size: 12px;
+  font-size: 1em; /* Scales with the root font size */
   font-family: 'Aptos', sans-serif;
-  margin-left: 800px;
-  text-align: left;
-  color:#717171;
+  margin: 10px auto;
+  text-align: center;
+  color: #717171;
 }
 
 .Introduction-text {
-  font-size: 14px;
+  font-size: 1.2em;
   font-family: 'Aptos', sans-serif;
-  margin-left: 800px;
-  text-align: left;
+  margin: 10px auto;
+  text-align: center;
   color: #242424;
 }
 
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  align-items: left;
-  justify-content: left;
+  gap: 20px;
+  justify-content: center;
   text-align: left;
-  margin-top: 35%;
-  margin-bottom: 35%;
+  margin: 10% auto;
 }
 
 .descripcion {
-  margin-top: 70px;
-  margin-bottom: 70px;
-  margin-left: 20px;
+  margin: 20px 10px;
 }
 
 .What-can-do {
   color: black;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 700;
   line-height: 1.5em;
   text-align: center;
@@ -64,15 +60,15 @@
 }
 
 .featured-works-section {
-  margin: 20px auto;
-  padding: 50px;
+  margin: 10px auto;
+  padding: 20px;
   background-color: #E7E6E2;
   text-align: center;
 }
 
 .featured-works-title {
   color: black;
-  font-size: 24px;
+  font-size: 1.5em;
   font-family: 'Aptos', sans-serif;
   font-weight: 700;
   line-height: 1.5em;
@@ -110,7 +106,7 @@
 }
 
 .project-label {
-  font-size: 12px;
+  font-size: 0.8em;
   font-weight: 600;
   color: #646161;
   border: 1px solid #646161;
@@ -121,21 +117,21 @@
 }
 
 .project-title {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 800;
   margin: 10px 0;
   text-align: left;
 }
 
 .project-skills {
-  font-size: 12px;
+  font-size: 0.9em;
   color: #7B7B7B;
   margin-top: 5px;
   text-align: left;
 }
 
 .view-more-btn {
-  font-size: 14px;
+  font-size: 0.9em;
   color: #9C0000;
   font-weight: bold;
   margin-top: 10px;
@@ -151,11 +147,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .contact-form-title {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -178,7 +174,7 @@
   padding: 10px;
   border: 2px solid black;
   border-radius: 25px;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .form-textarea {
@@ -187,7 +183,7 @@
   border-radius: 25px;
   padding: 10px;
   border: 2px solid black;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .submit-btn {
@@ -203,32 +199,46 @@
   background-color: #4d0000;
 }
 
+/* Responsive Styling for Smaller Screens */
 @media only screen and (max-width: 900px) {
-  .banda {
-    padding: 10px;
-  }
-
   .flex-container {
     flex-direction: column;
     gap: 20px;
-    margin: 10px;
+    margin: 20px 5%;
   }
 
-  .foto-yo {
-    margin-top: 0;
+  .Introduction-title, .Introduction-text, .What-can-do {
+    text-align: center;
   }
 
   .What-can-do {
-    font-size: 20px;
+    font-size: 1.2em;
+  }
+
+  .expertise {
+    gap: 10px;
   }
 }
 
-@media only screen and (min-width: 1300px) {
-  .flex-container {
-    margin: 5vw 10vw;
+@media only screen and (max-width: 600px) {
+  .Introduction-title, .Introduction-text {
+    font-size: 1em;
+    padding: 5px;
   }
 
   .What-can-do {
-    margin: 40px auto;
+    font-size: 1em;
+  }
+
+  .featured-works-section {
+    padding: 15px;
+  }
+
+  .featured-works-title {
+    font-size: 1.2em;
+  }
+
+  .project-label {
+    font-size: 0.7em;
   }
 }
