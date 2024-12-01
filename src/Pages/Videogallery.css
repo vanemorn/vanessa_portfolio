@@ -13,6 +13,7 @@
   justify-content: space-between; /* Space between the left panel and the video gallery */
   padding-left: 15%;
   padding-right: 15%;
+  gap: 40px;
   margin-top: 60px;
   margin-bottom: 60px;
   height: auto;
