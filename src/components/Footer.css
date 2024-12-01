@@ -11,7 +11,7 @@ html, body {
 .footer {
   background-color: #242424;
   color: #f7f7f7;
-  padding: 40px 20px; /* Reduced padding for responsiveness */
+  padding: 50px; /* Reduced padding for responsiveness */
   width: 100%; /* Full width */
   margin: 0; /* No margin */
   box-sizing: border-box; /* Include padding in width calculation */
