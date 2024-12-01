@@ -31,6 +31,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.postcard:hover {
+  transform: scale(1.05); /* Slight scale-up on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  cursor: pointer;
+}
+
 .blog-tags {
   margin-bottom: 5px;
   display: flex; 
@@ -91,8 +97,9 @@
 }
 
 .post-card a:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+  background-color: #111c45;
+  color: #f7f7f7;
+  transform: translateX(3px);
 }
 
 .post-card a:focus,
