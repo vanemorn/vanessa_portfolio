@@ -33,19 +33,26 @@
     text-align: left;
 }
 
-.contact-info {
-    margin-top: 20px; /* Reduced spacing for smaller screens */
+.send-email-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #314697;
+    color: #f7f7f7;
+    border-radius: 16px;
     font-family: 'Aptos', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: #314697;
-    line-height: 1.5;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: auto;
+    align-self: flex-start;
 }
 
 /* Right Column */
 .about-image-container {
     flex: 1;
-    background-color: #F1F0EC;
     display: flex;
     justify-content: center;
     align-items: center; /* Center align for better layout on smaller screens */
@@ -57,7 +64,6 @@
 .about-image-placeholder {
     width: 100%;
     height: auto; /* Adjusts to image content */
-    background-color: #D5DA26;
     border-radius: 30px;
     display: flex;
     justify-content: center;

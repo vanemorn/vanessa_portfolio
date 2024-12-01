@@ -29,10 +29,9 @@ const About: React.FC = () => {
             Suite. I bring a research-driven approach to creating <br />
             functional and impactful designs.
           </p>
-          <div className="contact-info">
-            <p>vanessamorenoperez55@gmail.com</p>
-            <p>+353 89 945 1920</p>
-          </div>
+          <a href="mailto:vanessamorenoperez55@gmail.com">
+          <button className="send-email-btn">Send email</button>
+          </a>
         </div>
 
         {/* The right column */}
