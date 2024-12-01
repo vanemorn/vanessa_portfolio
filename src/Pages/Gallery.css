@@ -123,20 +123,19 @@
     .column-title-gallery {
         font-size: 40px;
         text-align: left;
-        padding-left: 0;
-        margin-left: 0;
-        margin-bottom: 30px;
+        margin: 0;
+        padding: 0;
     }
 
     .gallery-container {
         flex-direction: column; /* Stack the title and gallery vertically */
         padding: 20px;
+        margin-top: 30px;
     }
 
     .left-panel {
         width: 100%;
-        text-align: center; /* Center-align content for mobile */
-        padding: 20px;
+        text-align: left; /* Center-align content for mobile */
     }
 
     .image-gallery {
