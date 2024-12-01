@@ -1,30 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
-h2, p, button {
-  margin: 0;
-  padding: 0;
-}
-
-body, .projects-container {
-  margin: 0;
-  padding: 0;
-}
-
 .projects-container {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center;
-  align-items: center;
-  gap: 40px; /* Add spacing between text and grid */
-}
-
-.projects-text {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  max-width: 800px; /* Limit text width for better readability */
+  justify-content: left;
+  align-items:left;
+  width: 100%;
 }
 
 .projects-title {
