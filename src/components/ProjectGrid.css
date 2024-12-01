@@ -99,7 +99,7 @@
 @media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr; /* 1 column for small screens */
-    margin: 30px; /* Smaller margin for small screens */
+    margin-top: 30px; /* Smaller margin for small screens */
   }
 
   .project-title {
