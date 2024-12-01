@@ -6,40 +6,27 @@
     font-family: 'Aptos', sans-serif;
 }
 
-/* Column Layout for Gallery Title and Back Button */
-.column-gallery {
-    float: left;
-    width: 50%;
-    padding: 10px;
+/* Container for the entire page */
+.gallery-container {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: space-between; /* Space between the left panel and the image gallery */
+    padding: 20px;
     height: auto;
-    margin-bottom: 150px;
-    text-align: left;
-    padding-top: 150px;
 }
 
+/* Left panel for the title and go back button */
+.left-panel {
+    width: 30%; /* Set width to 30% for the left section */
+    padding-top: 150px; /* Adjust padding to align vertically */
+    text-align: left;
+}
+
+/* Title of the page */
 .column-title-gallery {
     font-size: 50px;
     font-weight: bold;
-}
-
-/* Clearfix for Rows */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 600px) {
-    .column-gallery {
-        width: 100%;
-        text-align: center; /* Center-align content on smaller screens */
-        padding: 20px;
-    }
-    .column-title-gallery {
-        padding-left: 0;
-        font-size: 40px; /* Adjust title size for small screens */
-    }
+    margin-top: 20px;
 }
 
 /* Back Button Styling */
@@ -48,8 +35,6 @@
     color: #314697;
     text-decoration: none;
     font-weight: 600;
-    border: none;
-    background: none;
     cursor: pointer;
     transition: transform 0.2s, color 0.2s;
     padding-left: 150px;
@@ -61,15 +46,12 @@
     color: #314697;
 }
 
-/* Gallery Grid Layout */
+/* Gallery Grid Layout (right section) */
 .image-gallery {
-    float: right;
-    width: 50%;
+    width: 70%; /* Set width to 70% for the image gallery */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 80px auto 150px;
-    width: 90%; /* Center the grid container */
 }
 
 /* Individual Gallery Image Styling */
@@ -137,9 +119,21 @@
 
 /* Responsive Design for Gallery */
 @media screen and (max-width: 600px) {
+    .gallery-container {
+        flex-direction: column; /* Stack the title and gallery vertically */
+        padding: 10px;
+    }
+
+    .left-panel {
+        width: 100%;
+        text-align: center; /* Center-align content for mobile */
+        padding: 20px;
+    }
+
     .image-gallery {
+        width: 100%; /* Make the image gallery take full width on smaller screens */
         grid-template-columns: repeat(2, 1fr); /* Reduce to two columns */
-        gap: 5px; /* Tighten spacing */
+        gap: 5px;
     }
 
     .gallery-image {

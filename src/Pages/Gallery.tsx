@@ -29,20 +29,17 @@ const images = [
 ];
 
 // Gallery functional component
-
 const Gallery: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-// Function to open a specific image
-
+  // Function to open a specific image
   const openImage = (index: number) => {
     setCurrentImageIndex(index);
     setIsOpen(true);
   };
 
-// Function to go to the next image
-
+  // Function to go to the next image
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -50,7 +47,6 @@ const Gallery: React.FC = () => {
   };
 
   // Function to go to the previous image
-
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -59,37 +55,33 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-
-      <div className="row"> {/* Main container for the gallery */}
-
-        <div className="column-gallery">
-        <Link to="/projects" className="go-back-btn-gallery">← Go back</Link> {/* Link to navigate back to projects */}
-         <h2 className="column-title-gallery">Gallery</h2> {/* Title of the page*/}
+      <div className="gallery-container"> {/* Main container for the gallery */}
+        <div className="left-panel">
+          <Link to="/projects" className="go-back-btn-gallery">← Go back</Link> {/* Link to navigate back to projects */}
+          <h2 className="column-title-gallery">Gallery</h2> {/* Title of the page */}
         </div>
 
-          <div className="image-gallery"> {/* Container for the images */}
-            {images.map((image, index) => (
-              <img 
+        <div className="image-gallery"> {/* Container for the images */}
+          {images.map((image, index) => (
+            <img 
               key={index} // Unique key for each image
               src={image} // Source of the image
               alt={`Gallery Image ${index + 1}`} // Alt text
               className="gallery-image" // Class for styling
               onClick={() => openImage(index)} // Open image on click
-              />
-            ))}
-          
+            />
+          ))}
         </div>
       </div>
 
       {/* Overlay to display the expanded image when opened */}
-
       {isOpen && (
         <div className="overlay" onClick={() => setIsOpen(false)}> {/* Close overlay on click */}
           <button className="arrow left-arrow" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
             ← {/* Button to go to the previous image */}
           </button>
           <img src={images[currentImageIndex]} alt="Expanded view" className="expanded-image" /> {/* Display the current image */}
-          <button className="arrow right-arrow" onClick={(e) => { e.stopPropagation(); nextImage(); }}> 
+          <button className="arrow right-arrow" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
             → {/* Button to go to the next image */}
           </button>
         </div>
