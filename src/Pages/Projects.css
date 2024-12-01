@@ -4,8 +4,6 @@
   justify-content: center;
   align-items: center;
   gap: 40px; /* Add spacing between text and grid */
-  padding-left: 15%;
-  padding-right: 15%;
   padding-top: 80px;
   padding-bottom: 80px;
 }
