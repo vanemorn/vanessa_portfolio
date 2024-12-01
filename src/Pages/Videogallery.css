@@ -123,6 +123,10 @@
     max-height: 300px; /* Adjust video height for small screens */
   }
 
+  .video-gallery-buttons {
+    padding: 10px;
+  }
+
   .video-gallery-button {
     width: 80%; /* Make buttons full width on smaller screens */
     margin: 0;
