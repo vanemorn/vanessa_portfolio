@@ -9,7 +9,7 @@
   }
   
   .loading-logo {
-    width: 150px;
+    width: 80px;
     height: auto;
     opacity: 0;
     animation: rotateFade 3s infinite;
