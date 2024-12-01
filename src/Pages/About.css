@@ -5,7 +5,7 @@
     text-align: left;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Adds spacing between columns for smaller screens */
+    gap: 0px; /* Adds spacing between columns for smaller screens */
     padding-left: 20%;
     padding-right: 20%;
     padding-top: 70px;
@@ -80,37 +80,6 @@
     height: auto;
     max-width: 400px; /* Limits image size for better scaling */
     border-radius: 20px; /* Adds a softer aesthetic */
-}
-
-/* Responsive Adjustments for tablets and mobile devices */
-@media only screen and (max-width: 900px) {
-    .about-container {
-        padding: 50px;
-    }
-
-    .about-title {
-        font-size: 28px; /* Adjusts font size for smaller devices */
-    }
-
-    .about-text {
-        margin: 0 10px;
-    }
-
-    .about-image-container {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .about-image {
-        width: 100%;
-        max-width: 300px; /* Further reduce image size for smaller screens */
-    }
-
-    .send-email-btn {
-        padding: 12px 24px; /* Slightly larger button for easier interaction */
-        font-size: 16px; /* Larger font for easier reading */
-        margin-top: 20px;
-    }
 }
 
 /* Adjustments for very small devices (mobile) - Stack everything into 1 column */
