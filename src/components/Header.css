@@ -175,6 +175,11 @@
 
 /* Mobile Specific Styles */
 @media screen and (max-width: 767px) {
+
+  .header-container {
+    border-radius: 15px;
+  }
+  
   .menu {
     flex-direction: column;
     align-items: flex-end; 
@@ -183,7 +188,7 @@
 
   .menu a {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 23px;
   }
 
   .dropdown-actions .btn {
