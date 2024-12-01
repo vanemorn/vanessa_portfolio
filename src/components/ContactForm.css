@@ -1,0 +1,143 @@
+
+  /* Two-Column Layout */
+  .column {
+    float: left;
+    width: 50%; /* Equal width for both columns */
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: left;
+  }
+  
+  .column-title {
+    color: #242424;
+    font-size: 50px;
+    font-family: 'Aptos', sans-serif;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .column-text {
+    font-family: 'Aptos', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #242424;
+    margin-left: 150px; /* Adjusted for consistency */
+    text-align: left;
+  }
+  
+  
+  /* Responsive Layout */
+  @media screen and (max-width: 600px) {
+    .column {
+        width: 100%; /* Full width for small screens */
+    }
+  
+    .column-title, .column-text {
+        margin-left: 20px; /* Adjust margins for smaller screens */
+        margin-right: 20px;
+    }
+  }
+  
+  /* Contact Form Section */
+  .contact-form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 20px 100px 20px; /* Added side margins for smaller screens */
+  }
+  
+  .contact-form-title {
+    font-family: 'Aptos', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 22px;
+    text-align: center; /* Center title for better layout on all devices */
+  }
+  
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 30px; /* Unified spacing between fields */
+  }
+  
+  .form-input {
+    flex: 1; /* Flex layout for balanced inputs */
+    border: 2px solid #242424;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: 'Aptos', sans-serif;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: #242424;; /* Dark placeholder for visibility */
+  }
+  
+  .form-textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: 'Aptos', sans-serif;
+    font-size: 18px;
+    border: 2px solid #242424;
+    color: #333;
+  }
+  
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #314697;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: 'Aptos', sans-serif;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #111c45; /* Darker shade for hover state */
+  }
+  
+  .send-icon {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Responsive Form Adjustments */
+  @media screen and (max-width: 600px) {
+    .form-row {
+        flex-direction: column; /* Stack fields vertically */
+        gap: 10px; /* Add vertical spacing between fields */
+    }
+  
+    .form-input {
+        width: 100%; /* Full width for smaller screens */
+        margin-right: 0; /* No margin adjustment needed */
+    }
+  
+    .contact-form {
+        max-width: 100%; /* Maximize form width for small screens */
+    }
+  
+    .submit-btn {
+        width: 100%; /* Full width button */
+    }
+  }
+  

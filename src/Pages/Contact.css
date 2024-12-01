@@ -1,154 +1,91 @@
-/* General Reset */
-.row {
+/* Left Column */
+.about-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adds spacing between columns for smaller screens */
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 80px;
   padding-bottom: 80px;
+
 }
 
-/* Two-Column Layout */
-.column {
-  float: left;
-  width: 50%; /* Equal width for both columns */
-  margin-top: 40px;
-  margin-bottom: 80px;
-  text-align: left;
-}
-
-.column-title {
-  color: #242424;
+.about-title {
   font-size: 50px;
-  font-family: 'Aptos', sans-serif;
   font-weight: bold;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%; /* Ensure full width on smaller screens */
+}
+
+.about-text {
+  flex: 1;
   text-align: left;
 }
 
-.column-text {
+.about-description {
   font-family: 'Aptos', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: #242424;
-  margin-left: 150px; /* Adjusted for consistency */
+  color: #555555;
   text-align: left;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both; /* Clearfix for floated elements */
-}
-
-/* Responsive Layout */
-@media screen and (max-width: 600px) {
-  .column {
-      width: 100%; /* Full width for small screens */
-  }
-
-  .column-title, .column-text {
-      margin-left: 20px; /* Adjust margins for smaller screens */
-      margin-right: 20px;
-  }
-}
-
-/* Contact Form Section */
-.contact-form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 50px 20px 100px 20px; /* Added side margins for smaller screens */
-}
-
-.contact-form-title {
-  font-family: 'Aptos', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 22px;
-  text-align: center; /* Center title for better layout on all devices */
-}
-
-.contact-form {
-  width: 100%;
-  max-width: 600px;
-}
-
-.form-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  gap: 30px; /* Unified spacing between fields */
-}
-
-.form-input {
-  flex: 1; /* Flex layout for balanced inputs */
-  border: 2px solid #242424;
-  border-radius: 25px;
-  padding: 10px;
-  font-family: 'Aptos', sans-serif;
-  font-size: 18px;
-  color: #333;
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: #242424;; /* Dark placeholder for visibility */
-}
-
-.form-textarea {
-  width: 100%;
-  height: 100px;
-  border-radius: 25px;
-  padding: 10px;
-  font-family: 'Aptos', sans-serif;
-  font-size: 18px;
-  border: 2px solid #242424;
-  color: #333;
-}
-
-.submit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #314697;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  font-family: 'Aptos', sans-serif;
-  font-size: 18px;
+.send-email-btn {
+  display: inline-block;
+  margin-top: 30px;
   border: none;
+  background-color: #314697;
+  color: #f7f7f7;
+  border-radius: 16px;
+  font-family: 'Aptos', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  width: auto;
+  align-self: flex-start;
 }
 
-.submit-btn:hover {
-  background-color: #111c45; /* Darker shade for hover state */
+/* Right Column */
+.about-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center align for better layout on smaller screens */
+  padding: 20px; /* Added padding for better spacing */
+  border-radius: 20px; /* Consistent rounded edges */
 }
 
-.send-icon {
-  margin-left: 10px;
-  width: 20px;
-  height: 20px;
-}
-
-/* Responsive Form Adjustments */
-@media screen and (max-width: 600px) {
-  .form-row {
-      flex-direction: column; /* Stack fields vertically */
-      gap: 10px; /* Add vertical spacing between fields */
+/* Adjustments for very small devices (mobile) - Stack everything into 1 column */
+@media only screen and (max-width: 600px) {
+  .about-container {
+      flex-direction: column; /* Stack the columns vertically on mobile */
+      padding: 20px;
   }
 
-  .form-input {
-      width: 100%; /* Full width for smaller screens */
-      margin-right: 0; /* No margin adjustment needed */
+  .about-title {
+      font-size: 40px; /* Further reduce font size for very small devices */
   }
 
-  .contact-form {
-      max-width: 100%; /* Maximize form width for small screens */
+  .about-text {
+      margin: 0 5px; /* Reduce margin further for small screens */
+      font-size: 14px; /* Adjust text size for better readability */
   }
 
-  .submit-btn {
-      width: 100%; /* Full width button */
+  .about-image-container {
+      margin: 10px 0;
+      padding: 5px;
+  }
+
+  .send-email-btn {
+      padding: 10px 20px; /* Reduce padding for very small devices */
+      font-size: 14px; /* Adjust font size for small screens */
   }
 }
