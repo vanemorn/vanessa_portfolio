@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       <div className="ProjectGrid"><ProjectGrid /></div>
 
       <Newsletter />
-      <div className= "ContactForm"><ContactForm /></div>
+      <ContactForm />      
       <Chatbot />
 
       {}

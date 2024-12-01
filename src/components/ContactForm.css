@@ -1,25 +1,50 @@
-/* General Contact Form Section */
+/* General Styles */
+.column {
+  text-align: left;
+  justify-content: left;
+  align-items: left;
+}
+
+.column-title,
+.contact-form-title {
+  font-family: 'Aptos', sans-serif;
+  font-weight: bold;
+  color: #242424;
+  font-size: 30px;
+  text-align: left;
+}
+
+.column-title {
+  font-size: 50px;
+  text-align: left;
+}
+
+.column-text {
+  font-family: 'Aptos', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #242424;
+  text-align: left;
+}
+
+/* Contact Form Section */
 .contact-form-section {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align items */
-  justify-content: center; /* Center vertically */
-  height: 100%; /* Full height of parent */
-  width: 100%; /* Full width of parent */
-  text-align: center;
+  align-items: left;
 }
 
 .contact-form {
-  width: 90%; /* Flexible width */
-  max-width: 600px; /* Limit maximum width */
-  margin: 0 auto; /* Center horizontally */
+  width: 100%;
+  max-width: 600px;
 }
 
 .form-row {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
   margin-bottom: 15px;
+  gap: 30px;
 }
 
 .form-input,
@@ -64,8 +89,27 @@
   background-color: #111c45;
 }
 
-/* Responsive Adjustments */
+.send-icon {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Layout */
 @media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .column-title {
+    font-size: 36px;
+  }
+
+  .column-text {
+    font-size: 14px;
+  }
+
   .form-row {
     flex-direction: column;
     gap: 10px;
@@ -83,5 +127,9 @@
 
   .submit-btn {
     width: 100%;
+  }
+
+  .contact-form-title {
+    font-size: 30px;
   }
 }
