@@ -135,6 +135,7 @@
   .descripcion-title {
     font-size: 45px !important; /* Ensure the font-size is overridden */
     line-height: 55px !important;
+    margin-top: 0;
   }
 
   .descripcion-text {
