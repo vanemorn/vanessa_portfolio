@@ -8,21 +8,24 @@
     margin: 0;
   }
   
-/* Pulsing effect for the logo */
-.loading-logo {
-    width: 80px;
+  .loading-logo {
+    width: 150px;
     height: auto;
-    animation: pulse 1.5s infinite ease-in-out;
+    opacity: 0;
+    animation: rotateFade 3s infinite;
   }
   
-  @keyframes pulse {
+  @keyframes rotateFade {
     0% {
-      transform: scale(1);
+      transform: rotate(0deg);
+      opacity: 0;
     }
     50% {
-      transform: scale(1.1); /* Slightly larger */
+      transform: rotate(180deg);
+      opacity: 0.5;
     }
     100% {
-      transform: scale(1);
+      transform: rotate(360deg);
+      opacity: 1;
     }
   }
