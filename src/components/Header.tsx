@@ -1,26 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import 'C:/Users/linda/vanessa_portfolio/src/components/Header.css'; // CSS File
-import logo from 'C:/Users/linda/vanessa_portfolio/src/assets/logo-header.png'; // Logo
-import { Link } from 'react-router-dom'; // Routing the pages
-import cvFile from 'C:/Users/linda/vanessa_portfolio/public/CV_VANESSA-MORENO.pdf'; // Downloadable PDF of my CV
-import ThemeSwitcher from '../store/ThemeSwitcher'; // Import the ThemeSwitcher
+import { Link } from 'react-router-dom';
+import './Header.css';
+import logo from '../assets/logo-header.png';
+import cvFile from '../../public/CV_VANESSA-MORENO.pdf';
+import ThemeSwitcher from '../store/ThemeSwitcher';
 
 const Header: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null); // To detect clicks outside the menu
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  // Toggle the dropdown menu visibility
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const toggleDropdown = () => setIsDropdownOpen((prevState) => !prevState);
 
-  // Close the dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Type assertion to ensure event.target is an HTMLElement
       const target = event.target as HTMLElement;
-
-      // Check if the target is not within the menu or the hamburger button
       if (menuRef.current && !menuRef.current.contains(target) && !target.classList.contains('dropdown-toggle')) {
         setIsDropdownOpen(false);
       }
@@ -40,12 +33,10 @@ const Header: React.FC = () => {
         </Link>
       </div>
 
-      {/* Hamburger Menu Button */}
       <button className="dropdown-toggle" onClick={toggleDropdown}>
-        ☰ {/* Hamburger Menu Icon */}
+        ☰
       </button>
 
-      {/* Main Menu */}
       <nav className={`menu ${isDropdownOpen ? 'show' : ''}`} ref={menuRef}>
         <Link to="/About" onClick={() => setIsDropdownOpen(false)}>About</Link>
         <Link to="/Projects" onClick={() => setIsDropdownOpen(false)}>Projects</Link>
@@ -53,15 +44,12 @@ const Header: React.FC = () => {
         <Link to="/Blog" onClick={() => setIsDropdownOpen(false)}>Blog</Link>
         <Link to="/Gallery" onClick={() => setIsDropdownOpen(false)}>Gallery</Link>
         <Link to="/Videogallery" onClick={() => setIsDropdownOpen(false)}>VideoGallery</Link>
-
-        {/* Dropdown Actions (Visible only in mobile view) */}
         <div className="dropdown-actions">
           <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
           <ThemeSwitcher />
         </div>
       </nav>
 
-      {/* Header Actions (Visible only on desktop view) */}
       <div className="header-actions">
         <a href={cvFile} download="CV_VANESSA-MORENO.pdf" className="btn">Download CV</a>
         <ThemeSwitcher />

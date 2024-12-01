@@ -14,17 +14,22 @@
 
 /* Main Menu */
 .menu {
-  display: flex;
-  flex-direction: row;
-  position: static;
-  background: none;
-  padding: 0;
-  box-shadow: none;
-  width: 50%;
-  top: auto;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Stacked layout for mobile */
+  position: absolute;
+  background-color: #fff;
+  top: 100%; /* Below the header */
+  left: 0;
+  right: 0;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
+  gap: 20px;
+}
+
+.menu.show {
+  display: flex; /* Show when the dropdown is toggled */
 }
 
 .menu a {
@@ -40,48 +45,29 @@
 
 /* Hover Animations */
 .menu a:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  transform: scale(1.1);
 }
 
-/* Dynamic Underline Animation */
 .menu a::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -5px; /* Space below text */
+  bottom: -5px;
   width: 0;
   height: 3px;
-  background-color: #314697; /* Underline color */
-  transition: width 0.4s ease; /* Smooth animation */
+  background-color: #314697;
+  transition: width 0.4s ease;
 }
 
 .menu a:hover::after {
-  width: 100%; /* Fully expand underline on hover */
+  width: 100%;
 }
 
-/* Bounce Animation */
-.menu a:hover {
-  animation: bounce 0.3s ease-out;
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-/* Dropdown Actions (Mobile View Only) */
+/* Dropdown Actions */
 .dropdown-actions {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   margin-top: 25px;
 }
 
@@ -91,7 +77,7 @@
 
 /* Header Actions (Desktop View Only) */
 .header-actions {
-  display: none;
+  display: none; /* Hidden by default on mobile */
   align-items: center;
   gap: 10px;
 }
@@ -117,7 +103,7 @@
 /* Button Styling: Download CV */
 .btn {
   background-color: #314697;
-  color: #F7F7F7;
+  color: #f7f7f7;
   border-radius: 8px;
   padding: 10px 10px;
   font-weight: bold;
@@ -136,29 +122,34 @@
   .menu {
     display: flex;
     flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    width: 50%;
+    align-items: center;
     justify-content: center;
+    gap: 40px;
   }
 
   .dropdown-actions {
-    display: none;
+    display: none; /* Hidden on larger screens */
   }
 
   .header-actions {
-    display: flex;
+    display: flex; /* Visible on larger screens */
   }
 
   .dropdown-toggle {
-    display: none;
+    display: none; /* Hide hamburger button */
   }
 }
 
 /* Mobile Specific Styles */
 @media screen and (max-width: 767px) {
   .menu {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
 
   .menu a {
