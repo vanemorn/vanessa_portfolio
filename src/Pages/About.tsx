@@ -30,10 +30,10 @@ const About: React.FC = () => {
             Suite. I bring a research-driven approach to creating <br />
             functional and impactful designs.
           </p>
-        </div>
-        <a href="mailto:vanessamorenoperez55@gmail.com">
+          <a href="mailto:vanessamorenoperez55@gmail.com">
           <button className="send-email-btn">Send email</button>
           </a>
+        </div>
 
         {/* The right column */}
         <div className="about-image-container">
