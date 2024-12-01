@@ -119,9 +119,15 @@
 
 /* Responsive Design for Gallery */
 @media screen and (max-width: 600px) {
+
+    .column-title-gallery {
+        font-size: 40px;
+        text-align: left;
+    }
+
     .gallery-container {
         flex-direction: column; /* Stack the title and gallery vertically */
-        padding: 10px;
+        padding: 20px;
     }
 
     .left-panel {
@@ -142,5 +148,10 @@
 
     .arrow {
         font-size: 24px; /* Adjust arrow size for smaller screens */
+    }
+
+    .go-back-btn-gallery {
+        text-align: left;
+        margin-top: 20px;
     }
 }

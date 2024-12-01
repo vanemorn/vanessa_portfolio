@@ -123,8 +123,10 @@
 
 @media (max-width: 768px) {
 
-  .h1 {
-    margin-bottom: 20px;
+  .Title {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: left;
   }
 
   .posts-grid {
