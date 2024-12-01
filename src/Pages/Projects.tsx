@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
           <p className="projects-description">
             Feel free to explore individual projects or browse through the
             galleries for a closer look at my work.
-          </p>
+          </p> <br/>
           <a href="mailto:vanessamorenoperez55@gmail.com">
             <button className="gallery-btn">Gallery</button>
             <button className="gallery-btn">VideoGallery</button>
