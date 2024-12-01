@@ -30,8 +30,8 @@
 
 /* Descripcion Section */
 .descripcion {
-  margin-top: 30; /* Reduced top margin */
-  margin-bottom: 30px;
+  margin-top: 70px; /* Reduced top margin */
+  margin-bottom: 70px;
   margin-left: 20px;
 }
 
@@ -128,7 +128,7 @@
   .Introduction-text {
     font-size: 14px !important; /* Use !important to override any other styles */
     margin-left: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   /* Adjust font sizes for the description text */
