@@ -24,33 +24,28 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Simulate an async operation (e.g., fetching data)
     const timer = setTimeout(() => {
-      setLoading(false); // Set loading to false after 3 seconds (simulated async task)
-    }, 3000); // 3 seconds
+      setLoading(false); 
+    }, 3000); 
 
-    return () => clearTimeout(timer); // Cleanup timeout when the component unmounts
+    return () => clearTimeout(timer); 
   }, []);
 
   const theme = useSelector((state: RootState) => state.theme.theme);
 
-  // On theme change, update the HTML body class to reflect the theme
   useEffect(() => {
-    document.body.className = theme; // Set body class to 'light' or 'dark'
+    document.body.className = theme; 
   }, [theme]);
 
   return (
-    <Router basename="/vanessa_portfolio"> {/* Project root */}
+    <Router basename="/vanessa_portfolio">
       <div className={`app ${theme}`}>
-        {/* Add your chatbot or other content here */}
       </div>
 
-      {/* Conditionally render the Loading component or app content */}
       {loading ? (
-        <Loading /> // Display loading screen while app is loading
+        <Loading /> 
       ) : (
         <div className="app-container">
-          {/* Include Header Component */}
           <Header />
           
           {/* Routes */}
