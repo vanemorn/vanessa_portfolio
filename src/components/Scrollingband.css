@@ -1,29 +1,28 @@
 .scrolling-band-wrapper {
     width: 100%;
-    overflow: hidden; /* Hide the overflow to keep it clean */
-    background-color: #D5DA26; /* Background color for contrast */
+    overflow: hidden; 
+    background-color: #D5DA26;
     padding: 20px 0;
   }
   
   .scrolling-band {
     display: flex;
     white-space: nowrap;
-    justify-content: flex-start; /* Align the content to the left */
+    justify-content: flex-start; 
     align-items: center;
-    animation: scrolling 7s linear infinite; /* Smooth and continuous scrolling */
+    animation: scrolling 7s linear infinite;
   }
   
   .expertise-item {
     display: inline-block;
-    font-size: 24px; /* Font size for the expertise area */
+    font-size: 24px; 
     text-align: center;
     margin: 0 15px;
   }
   
   .separator {
-    font-size: 30px; /* Make the separator larger */
+    font-size: 30px; 
     margin: 0 10px;
-    color: #242424; /* Darker color for the separator */
   }
   
   /* Keyframes for smooth infinite scrolling */
@@ -32,28 +31,26 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%); /* Scroll all content to the left */
+      transform: translateX(-50%); 
     }
   }
   
-  /* Pause animation when hovering over the scrolling band */
   .scrolling-band-wrapper:hover .scrolling-band {
     animation-play-state: paused;
   }
 
   @media only screen and (max-width: 600px) {
     .scrolling-band {
-      animation: scrolling 3s linear infinite; /* Smooth and continuous scrolling */
+      animation: scrolling 3s linear infinite; 
     }
     .expertise-item {
-      font-size: 18px; /* Font size for the expertise area */
+      font-size: 18px; 
       margin: 0 10px;
     }
     
     .separator {
-      font-size: 18px; /* Make the separator larger */
+      font-size: 18px; 
       margin: 0 5px;
-      color: #242424; /* Darker color for the separator */
     }
     
   }

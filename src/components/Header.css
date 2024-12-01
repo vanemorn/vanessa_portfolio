@@ -5,7 +5,6 @@
   justify-content: space-between;
   padding: 20px 20px;
   position: relative;
-  background-color: #e8e7e7;
   border-radius: 15px;
 }
 
@@ -18,7 +17,6 @@
   display: none; /* Hidden by default */
   flex-direction: column; /* Stacked layout for mobile */
   position: absolute;
-  background-color: #fff;
   top: 100%; /* Below the header */
   left: 0;
   right: 0;
@@ -34,7 +32,6 @@
 }
 
 .menu a {
-  color: #242424;
   font-size: 16px; /* Font size for menu items */
   line-height: 23px; /* Line height for menu items */
   font-family: 'Aptos', sans-serif;

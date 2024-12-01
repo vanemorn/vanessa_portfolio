@@ -97,16 +97,11 @@
     transform: translateY(-50%);
     background: transparent;
     border: none;
-    color: white;
     font-size: 30px;
     cursor: pointer;
     z-index: 10;
     padding: 10px;
     transition: color 0.2s;
-}
-
-.arrow:hover {
-    color: #ff4747; /* Add a hover effect for the arrows */
 }
 
 .left-arrow {

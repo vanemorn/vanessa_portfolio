@@ -9,7 +9,6 @@
 .contact-form-title {
   font-family: 'Aptos', sans-serif;
   font-weight: bold;
-  color: #242424;
   font-size: 30px;
   text-align: left;
 }
@@ -24,7 +23,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: #242424;
   text-align: left;
 }
 
@@ -55,13 +53,7 @@
   padding: 10px;
   font-family: 'Aptos', sans-serif;
   font-size: 18px;
-  color: #333;
   box-sizing: border-box;
-}
-
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: #242424;
 }
 
 .form-textarea {
