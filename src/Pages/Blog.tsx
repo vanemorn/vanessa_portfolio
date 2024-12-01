@@ -5,6 +5,7 @@ import Newsletter from '../components/Newsletter/Newsletter.tsx';
 import Footer from '../components/Footer'; // Importing Footer
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
+
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import image0 from '../assets/blog-entry-2/0.png';
 
@@ -35,6 +36,7 @@ const posts: Post[] = [
 
 const Blog: React.FC = () => {
   return (
+    <>
     <div className="blog">
       <h1>Blog</h1>
       <div className="posts-grid">
@@ -55,15 +57,15 @@ const Blog: React.FC = () => {
           </div>
         ))}
       </div>
-      
       <Newsletter />
-      
-      <Chatbot /> {/* Correctly place Chatbot inside the Blog component */}
-      
+    </div>
+    <Chatbot />
       <footer>
-        <Footer /> {/* Correct Footer inclusion */}
+        <Footer />
       </footer>
-    </div>  
+</>
+    
+    
   );
 };
 
