@@ -1,7 +1,6 @@
 /* Introduction Title */
 .ProjectGrid {
-  margin: 100px;
-  grid-template-columns: repeat(4, 1fr);
+  margin: 300px;
 }
 
 .Introduction-title {

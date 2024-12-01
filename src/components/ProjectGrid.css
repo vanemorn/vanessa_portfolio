@@ -2,6 +2,8 @@
   display: grid;
   gap: 30px; /* Space between cards */
   padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+
 }
 
 .project-card {
