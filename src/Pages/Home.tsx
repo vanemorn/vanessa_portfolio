@@ -5,7 +5,7 @@ import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import ScrollingBand from '../components/Scrollingband.tsx';
 import ProjectGrid from '../components/ProjectGrid';
 import Newsletter from '../components/Newsletter/Newsletter.tsx';
-import ContactForm from '../components/ContactForm.tsx';
+import sendIcon from '../assets/sendicon.png'; 
 
 const Home: React.FC = () => {
   return (
@@ -31,7 +31,24 @@ const Home: React.FC = () => {
       <div className="ProjectGrid"><ProjectGrid /></div>
 
       <Newsletter />
-      <ContactForm />      
+
+            {/* Contact form*/}
+            <div className="contact-form-section">
+        <h2 className="contact-form-title" style={{ fontFamily: 'Aptos, sans-serif' }}>Let's chat!</h2>
+        <form className="contact-form">
+          <div className="form-row">
+            <input type="text" placeholder="Name" className="form-input" /> {/*Name placeholder*/}
+            <input type="email" placeholder="Email" className="form-input" /> {/*Email placeholder*/}
+          </div>
+          
+          <textarea placeholder="Message" className="form-textarea"></textarea> {/*Message placeholder*/}
+          <button type="submit" className="submit-btn"> {/*Send button*/}
+            <span>Get in touch</span>
+            <img src={sendIcon} alt="Send" className="send-icon" />
+          </button>
+        </form>
+      </div>
+
       <Chatbot />
 
       {}
