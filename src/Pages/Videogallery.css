@@ -123,11 +123,6 @@
     max-height: 300px; /* Adjust video height for small screens */
   }
 
-  .video-gallery-buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 5px;
-  }
-
   .video-gallery-button {
     width: 80%; /* Make buttons full width on smaller screens */
     margin: 0;
