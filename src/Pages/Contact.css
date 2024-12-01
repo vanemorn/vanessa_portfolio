@@ -3,8 +3,8 @@
   display: flex;
   flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
   text-align: left;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   gap: 10px; /* Adds spacing between columns for smaller screens */
   padding-left: 15%;
   padding-right: 15%;
