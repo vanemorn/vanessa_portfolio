@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer'; //Import footer
-import './Videogallery.css'; //CSS file
-
-
+import Footer from '../components/Footer'; // Import footer
+import './Videogallery.css'; // CSS file
+import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 function VideoGallery() { // VideoGallery component definition
   const [index, setIndex] = useState(0); // State to track the current video index
@@ -24,28 +23,22 @@ function VideoGallery() { // VideoGallery component definition
 
   return ( 
     <>
-
-      <div className="row">
-
-        <div className="column-videogallery"> {/* Column for VideoGallery title and navigation buttons */}
-        <Link to="/projects" className="go-back-btn">← Go back</Link>
-         <h2 className="column-title-videogallery">VideoGallery</h2>
+      <div className="gallery-container"> {/* Main container for the video gallery */}
+        <div className="left-panel">
+          <Link to="/projects" className="go-back-btn-gallery">← Go back</Link> {/* Link to navigate back to projects */}
+          <h2 className="column-title-gallery">VideoGallery</h2> {/* Title of the page */}
         </div>
 
         <div className="video-gallery-container"> {/* Container for the video player and control buttons */}
-
-          {/* Video player with source set to the current index in the video array */}
           <video 
             src={videos[index]}
             controls
             className="video-player"
             key={videos[index]}
           />
-          
-          {/* Container for navigation buttons */}
           <div className="video-gallery-buttons">
             <button onClick={goToPreviousVideo} className="video-gallery-button">
-             Previous
+              Previous
             </button>
             <button onClick={goToNextVideo} className="video-gallery-button">
               Next 
@@ -54,7 +47,10 @@ function VideoGallery() { // VideoGallery component definition
         </div>
       </div>
 
-      <Footer />
+      <Chatbot />
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
