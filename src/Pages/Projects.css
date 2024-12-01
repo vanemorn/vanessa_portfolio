@@ -1,4 +1,4 @@
-.projects-container {
+.projects-text {
   display: flex;
   flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
   text-align: left;
