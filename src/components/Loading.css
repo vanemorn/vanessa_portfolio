@@ -8,41 +8,21 @@
     margin: 0;
   }
   
-  /* Glitch effect for the logo */
+/* Pulsing effect for the logo */
 .loading-logo {
     width: 80px;
     height: auto;
-    position: relative;
-    animation: glitch 1.5s infinite;
+    animation: pulse 1.5s infinite ease-in-out;
   }
   
-  @keyframes glitch {
+  @keyframes pulse {
     0% {
-      transform: translateX(0);
-      clip-path: inset(0 0 0 0);
-    }
-    10% {
-      transform: translateX(-10px);
-      clip-path: inset(10px 0 0 0);
-    }
-    20% {
-      transform: translateX(10px);
-      clip-path: inset(0 0 0 10px);
-    }
-    30% {
-      transform: translateX(-10px);
-      clip-path: inset(10px 0 0 10px);
-    }
-    40% {
-      transform: translateX(10px);
-      clip-path: inset(0 0 0 10px);
+      transform: scale(1);
     }
     50% {
-      transform: translateX(0);
-      clip-path: inset(0 0 0 0);
+      transform: scale(1.1); /* Slightly larger */
     }
     100% {
-      transform: translateX(0);
-      clip-path: inset(0 0 0 0);
+      transform: scale(1);
     }
   }
