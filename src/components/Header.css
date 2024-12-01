@@ -136,7 +136,7 @@
   padding: 10px 20px;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   font-size: 16px;
   font-family: 'Aptos', sans-serif;
 }
