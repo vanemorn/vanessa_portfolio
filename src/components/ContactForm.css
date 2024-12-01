@@ -1,8 +1,8 @@
 /* General Styles */
 .column {
-  text-align: left;
-  justify-content: left;
-  align-items: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .column-title,
@@ -10,12 +10,13 @@
   font-family: 'Aptos', sans-serif;
   font-weight: bold;
   color: #242424;
-  font-size: 30px;
+  font-size: 40px;
   text-align: left;
 }
 
 .column-title {
   font-size: 50px;
+  margin-bottom: 50px;
   text-align: left;
 }
 
