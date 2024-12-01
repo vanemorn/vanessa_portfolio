@@ -130,12 +130,13 @@
     .gallery-container {
         flex-direction: column; /* Stack the title and gallery vertically */
         padding: 20px;
-        margin-top: 30px;
     }
 
     .left-panel {
         width: 100%;
         text-align: left; /* Center-align content for mobile */
+        margin: 0;
+        padding: 0
     }
 
     .image-gallery {
