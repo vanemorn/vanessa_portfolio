@@ -1,8 +1,9 @@
 /* General Reset */
-* {
-  box-sizing: border-box; /* Consistent box model */
-  margin: 0;
-  padding: 0;
+.row {
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 /* Two-Column Layout */
@@ -12,7 +13,6 @@
   margin-top: 40px;
   margin-bottom: 80px;
   text-align: left;
-  background-color: #D5DA26;
 }
 
 .column-title {
@@ -20,7 +20,6 @@
   font-size: 50px;
   font-family: 'Aptos', sans-serif;
   font-weight: bold;
-  margin: 100px 0 40px 150px; /* Adjusted margins for spacing */
   text-align: left;
 }
 
