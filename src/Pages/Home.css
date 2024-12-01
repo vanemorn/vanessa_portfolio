@@ -141,6 +141,10 @@
     font-size: 45px !important; /* Ensure the font-size is overridden */
     line-height: 55px !important;
   }
+
+  .flex-container {
+    margin-top: 20%;
+  }
 }
 
 /* General Adjustments for Medium to Large Screens */
