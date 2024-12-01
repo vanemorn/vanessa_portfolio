@@ -5,8 +5,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px; /* Adds spacing between columns for smaller screens */
-  padding-left: 15%;
-  padding-right: 15%;
   padding-top: 80px;
   padding-bottom: 80px;
 }
@@ -38,6 +36,7 @@
 .gallery-btn {
   display: inline-block;
   margin-right: 10px;
+  margin-top: 5px;
   border: none;
   background-color: #314697;
   color: #f7f7f7;
@@ -50,10 +49,6 @@
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: auto;
-}
-
-.projects-grid {
-  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
