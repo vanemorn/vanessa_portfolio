@@ -1,8 +1,8 @@
 /* Left Column */
 .about-container {
     display: flex;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
     flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
     text-align: left;
     align-items: center;
@@ -23,7 +23,6 @@
     margin: 0 20px; /* Reduces margin for better spacing on smaller screens */
     text-align: left;
     max-width: 600px; /* Limits the text width for readability */
-    margin-bottom: 40px;
 }
 
 .about-description {
@@ -33,8 +32,7 @@
     line-height: 1.5;
     color: #555555;
     text-align: left;
-    
-
+    margin-bottom: 40px;
 }
 
 .send-email-btn {
