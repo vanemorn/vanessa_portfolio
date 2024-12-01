@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../components/Footer'; // Importing Footer
 import './ContactForm.css'; // CSS File
 
 import sendIcon from '../assets/sendicon.png'; // Send icon for the button
@@ -24,11 +23,6 @@ const ContactForm: React.FC = () => {
             </form>
           </div>
         </div>
-
-
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };
