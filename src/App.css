@@ -1,3 +1,48 @@
+/* Define Light Font */
+@font-face {
+  font-family: 'Aptos';
+  src: url('/public/fonts/Aptos-Light.ttf') format('truetype');
+  font-weight: 300; /* Light weight */
+  font-style: normal;
+}
+
+/* Define Regular Font */
+@font-face {
+  font-family: 'Aptos';
+  src: url('/public/fonts/Aptos.ttf') format('truetype');
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+/* Define Italic Font */
+@font-face {
+  font-family: 'Aptos';
+  src: url('/public/fonts/Aptos-Italic.ttf') format('truetype');
+  font-weight: 400; /* Regular weight */
+  font-style: italic;
+}
+
+/* Define Bold Font */
+@font-face {
+  font-family: 'Aptos';
+  src: url('/public/fonts/Aptos-Bold.ttf') format('truetype');
+  font-weight: 700; /* Bold weight */
+  font-style: normal;
+}
+
+/* Define ExtraBold Font */
+@font-face {
+  font-family: 'Aptos';
+  src: url('/public/fonts/Aptos-ExtraBold.ttf') format('truetype');
+  font-weight: 800; /* ExtraBold weight */
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'Aptos', sans-serif;
+}
+
 /* Reset margin and padding for body and html */
 html, body {
   margin: 0;
