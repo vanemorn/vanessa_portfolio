@@ -1,8 +1,8 @@
 /* Left Column */
 .about-container {
     display: flex;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 30%;
+    padding-right: 30%;
     flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
     text-align: left;
     align-items: center;
