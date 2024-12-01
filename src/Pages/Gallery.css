@@ -123,6 +123,9 @@
     .column-title-gallery {
         font-size: 40px;
         text-align: left;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 30px;
     }
 
     .gallery-container {
@@ -152,6 +155,7 @@
 
     .go-back-btn-gallery {
         text-align: left;
-        margin-top: 20px;
+        padding-left: 0;
+        margin-left: 0;
     }
 }
