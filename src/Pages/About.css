@@ -5,11 +5,11 @@
     text-align: left;
     align-items: center;
     justify-content: center;
-    gap: 0px; /* Adds spacing between columns for smaller screens */
+    gap: 10px; /* Adds spacing between columns for smaller screens */
     padding-left: 15%;
     padding-right: 15%;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
 }
 
@@ -23,9 +23,7 @@
 
 .about-text {
     flex: 1;
-    margin: 0 20px; /* Reduces margin for better spacing on smaller screens */
     text-align: left;
-    max-width: 600px; /* Limits the text width for readability */
 }
 
 .about-description {
@@ -90,7 +88,7 @@
     }
 
     .about-title {
-        font-size: 30px; /* Further reduce font size for very small devices */
+        font-size: 40px; /* Further reduce font size for very small devices */
     }
 
     .about-text {
@@ -111,6 +109,5 @@
     .send-email-btn {
         padding: 10px 20px; /* Reduce padding for very small devices */
         font-size: 14px; /* Adjust font size for small screens */
-        width: 100%; /* Make button take full width for easier interaction */
     }
 }
