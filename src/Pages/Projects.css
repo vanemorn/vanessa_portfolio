@@ -44,13 +44,19 @@
   color: #f7f7f7;
   border-radius: 20px;
   font-family: 'Aptos', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 10px 10px;
+  padding: 10px 20px;
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: auto;
+}
+
+.gallery-btn:hover {
+  background-color: #111c45;
+  color: #f7f7f7;
+  transform: translateX(3px);
 }
 
 @media only screen and (max-width: 600px) {

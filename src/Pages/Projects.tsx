@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import './Projects.css';
 import ProjectGrid from '../components/ProjectGrid';
@@ -23,8 +24,8 @@ const Projects: React.FC = () => {
             galleries for a closer look at my work.
           </p> <br/>
           <a href="mailto:vanessamorenoperez55@gmail.com">
-            <button className="gallery-btn">Gallery</button>
-            <button className="gallery-btn">VideoGallery</button>
+          <Link to="/gallery" className="gallery-btn">Gallery</Link> {/* Link to navigate back to projects */}
+          <Link to="/videogallery" className="gallery-btn">VideoGallery</Link> {/* Link to navigate back to projects */}
           </a>
         </div>
 

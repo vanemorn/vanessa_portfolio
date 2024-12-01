@@ -51,10 +51,10 @@
   align-self: flex-start;
   width: auto;
   margin-left: 15px;
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: #314697;
   color: #f7f7f7;
-  font-size: 15px;
+  font-size: 16px;
   border: 0;
   border-radius: 20px;
   cursor: pointer;
@@ -64,6 +64,8 @@
 
 .newsletter-form button:hover {
   background-color: #111c45;
+  color: #f7f7f7;
+  transform: translateX(3px);
 }
 
 /* Newsletter Image */
