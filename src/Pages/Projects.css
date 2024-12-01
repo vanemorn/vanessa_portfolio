@@ -10,7 +10,16 @@
   padding-right: 15%;
   padding-top: 80px;
   padding-bottom: 80px;
+}
 
+.left-column {
+  float: left;
+  width: 50%
+}
+
+.right-column {
+  float: right;
+  width: 50%
 }
 
 .projects-title {

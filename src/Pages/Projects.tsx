@@ -11,6 +11,8 @@ const Projects: React.FC = () => {
       {/*The left column */}
       <div className="projects-container"> 
       
+        <div className= "left-column">
+
         <div className="projects-text">
           <h2 className="projects-title">Projects</h2>
           <p className="projects-description">
@@ -26,15 +28,23 @@ const Projects: React.FC = () => {
           through the galleries for a closer look at my work.
           </p>
           <a href="mailto:vanessamorenoperez55@gmail.com">
-          <button className="gallery-btn">Send email</button>
+          <button className="gallery-btn">Gallery</button>
+          <button className="gallery-btn">VideoGallery</button>
           </a>
         </div>
 
-        {/* The right column */}
-        <div className="projects-container">
-          <ProjectGrid/>
         </div>
+
+        <div className= "right-column">
+
+          <div className="projects-container">
+            <ProjectGrid/>
+          </div>
+
+        </div> 
       </div>
+
+      
       <Chatbot />
       <footer>
         <Footer />
