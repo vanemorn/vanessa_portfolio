@@ -1,27 +1,18 @@
 .projects-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stack items vertically */
   justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 40px; /* Add spacing between text and grid */
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
-.left-column {
-  flex: 1;
-  min-width: 300px;
-  max-width: 50%;
+.projects-text {
   text-align: left;
-}
-
-.right-column {
-  flex: 1;
-  min-width: 300px;
-  max-width: 50%;
-  text-align: left;
+  max-width: 800px; /* Limit text width for better readability */
 }
 
 .projects-title {
@@ -30,11 +21,6 @@
   margin-bottom: 20px;
   text-align: left;
   width: 100%;
-}
-
-.projects-text {
-  flex: 1;
-  text-align: left;
 }
 
 .projects-description {
@@ -61,12 +47,18 @@
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: auto;
-  align-self: flex-start;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Spacing between grid items */
+  width: 100%;
+  max-width: 1200px; /* Limit grid width */
 }
 
 @media only screen and (max-width: 600px) {
   .projects-container {
-    flex-direction: column;
     padding: 20px;
   }
 
@@ -74,32 +66,17 @@
     font-size: 40px;
   }
 
-  .projects-text {
-    margin: 0 5px;
+  .projects-description {
     font-size: 14px;
   }
 
   .gallery-btn {
     padding: 10px 20px;
     font-size: 14px;
-    width: 100%;
+    width: 100%; /* Button spans full width on small screens */
   }
 
-  .left-column,
-  .right-column {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .projects-container {
-    flex-direction: row;
-    gap: 30px;
-  }
-
-  .left-column,
-  .right-column {
-    max-width: 50%;
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
   }
 }
