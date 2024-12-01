@@ -71,8 +71,8 @@
   }
 
   .about-image-container {
-      margin: 10px 0;
-      padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .send-email-btn {
