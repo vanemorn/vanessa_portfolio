@@ -43,6 +43,7 @@
 
 .project-tag {
   background-color: #D5DA26; /* Highlight color */
+  color: #242424;
   font-size: 14px;
   padding: 5px 10px;
   border-radius: 20px;
@@ -58,7 +59,7 @@
 
 .view-more-button-project {
   display: inline-block; /* Prevent it from taking full width */
-  background-color: transparent; /* Transparent background */
+  color: inherit;
   border: 2px solid; /* Border color */
   border-radius: 20px;
   font-family: 'Aptos', sans-serif;
