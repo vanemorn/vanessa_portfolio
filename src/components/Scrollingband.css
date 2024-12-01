@@ -44,7 +44,6 @@
   @media only screen and (max-width: 600px) {
     .scrolling-band {
       animation: scrolling 3s linear infinite; /* Smooth and continuous scrolling */
-      margin-top: 40px;
     }
     .expertise-item {
       font-size: 24px; /* Font size for the expertise area */

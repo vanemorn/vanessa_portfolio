@@ -133,13 +133,13 @@
 
   /* Adjust font sizes for the description text */
   .descripcion-title {
-    font-size: 50px !important; /* Ensure the font-size is overridden */
-    line-height: 60px !important;
+    font-size: 45px !important; /* Ensure the font-size is overridden */
+    line-height: 55px !important;
   }
 
   .descripcion-text {
-    font-size: 50px !important; /* Ensure the font-size is overridden */
-    line-height: 60px !important;
+    font-size: 45px !important; /* Ensure the font-size is overridden */
+    line-height: 55px !important;
   }
 }
 
