@@ -14,20 +14,20 @@ const About: React.FC = () => {
         <div className="about-text">
           <h2 className="about-title">About Me</h2>
           <p className="about-description">
-            I’m an Interaction and Experience Designer with a background <br />
-            in Graphic Design, holding a Bachelor’s in Design and <br />
-            currently pursuing a Master’s in Interaction Design at the <br />
+            I’m an Interaction and Experience Designer with a background
+            in Graphic Design, holding a Bachelor’s in Design and 
+            currently pursuing a Master’s in Interaction Design at the
             University of Limerick.
           </p>
           <p className="about-description">
-            Since 2021, I’ve worked as a UX/UI Designer and Graphic <br />
-            Designer with clients and studios in Gran Canaria. I have led <br />
-            projects ranging from resource management dashboards to <br />
+            Since 2021, I’ve worked as a UX/UI Designer and Graphic 
+            Designer with clients and studios in Gran Canaria. I have led
+            projects ranging from resource management dashboards to
             branding, merchandising, and logo design.
           </p>
           <p className="about-description">
-            I’m proficient in tools like Figma, React, WordPress, and Adobe <br />
-            Suite. I bring a research-driven approach to creating <br />
+            I’m proficient in tools like Figma, React, WordPress, and Adobe
+            Suite. I bring a research-driven approach to creating 
             functional and impactful designs.
           </p>
           <a href="mailto:vanessamorenoperez55@gmail.com">
