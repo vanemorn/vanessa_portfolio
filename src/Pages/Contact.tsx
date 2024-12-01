@@ -1,6 +1,8 @@
 import React from 'react';
 import Footer from '../components/Footer'; // Importing Footer
 import ContactForm from '../components/ContactForm';
+import Chatbot from '../components/Chatbot'; // Import the Chatbot component
+
 
 import emailIcon from '../assets/email-icon-purple.svg'; // Email icon
 import phoneIcon from '../assets/phone-icon-purple.svg'; // Phone icon
@@ -30,7 +32,7 @@ const Contact: React.FC = () => {
           <ContactForm/>
         </div>
       </div>
-
+      <Chatbot />
       <footer>
         <Footer />
       </footer>
