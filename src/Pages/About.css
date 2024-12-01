@@ -1,6 +1,8 @@
 /* Left Column */
 .about-container {
     display: flex;
+    margin-left: 30%;
+    margin-right: 30%;
     flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
     text-align: left;
     align-items: center;
