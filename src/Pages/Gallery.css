@@ -20,8 +20,6 @@
 .column-title-gallery {
     font-size: 50px;
     font-weight: bold;
-    padding-left: 150px;
-    text-align: left;
 }
 
 /* Clearfix for Rows */
@@ -47,7 +45,7 @@
 /* Back Button Styling */
 .go-back-btn-gallery {
     font-size: 16px;
-    color: #9C0000;
+    color: #314697;
     text-decoration: none;
     font-weight: 600;
     border: none;
@@ -60,11 +58,13 @@
 
 .go-back-btn-gallery:hover {
     transform: translateX(-8px);
-    color: #7a0000;
+    color: #314697;
 }
 
 /* Gallery Grid Layout */
 .image-gallery {
+    float: right;
+    width: 50%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;

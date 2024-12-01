@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer'; // Imports Footer
 import './Gallery.css'; // CSS File
+import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 // Declaration of the variable of each image and their path
 import image1 from '../assets/gallery-image_A.jpg';
@@ -93,7 +94,7 @@ const Gallery: React.FC = () => {
           </button>
         </div>
       )}
-
+      <Chatbot />
       <footer>
         <Footer />
       </footer>
