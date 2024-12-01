@@ -131,7 +131,8 @@
         flex-direction: column; /* Stack the title and gallery vertically */
         padding-left: 20px;
         padding-right: 20px;
-        padding-top: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
         margin-top: 0;
     }
 
