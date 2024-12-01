@@ -2,7 +2,7 @@
   font-size: 1em; /* Scales with the root font size */
   font-family: 'Aptos', sans-serif;
   margin: 10px auto;
-  text-align: center;
+  text-align: left;
   color: #717171;
 }
 
@@ -10,7 +10,7 @@
   font-size: 1.2em;
   font-family: 'Aptos', sans-serif;
   margin: 10px auto;
-  text-align: center;
+  text-align: left;
   color: #242424;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .descripcion {
-  margin: 20px 10px;
+  margin-left: 250px;
 }
 
 .What-can-do {
