@@ -8,6 +8,8 @@
   font-family: 'Aptos', sans-serif;
   font-weight: bold;
   color: #242424;
+  font-size: 30px;
+  text-align: left;
 }
 
 .column-title {
@@ -28,7 +30,7 @@
 .contact-form-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 .contact-form {

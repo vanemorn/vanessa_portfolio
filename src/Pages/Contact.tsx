@@ -2,8 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer'; // Importing Footer
 import ContactForm from '../components/ContactForm';
 
-import emailIcon from '../assets/email-icon-red.svg'; // Email icon
-import phoneIcon from '../assets/phone-icon-red.svg'; // Phone icon
+import emailIcon from '../assets/email-icon-yellow.svg'; // Email icon
+import phoneIcon from '../assets/phone-icon-yellow.svg'; // Phone icon
 
 const Contact: React.FC = () => {
   return (
