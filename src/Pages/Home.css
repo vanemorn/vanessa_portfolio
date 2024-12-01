@@ -1,4 +1,8 @@
 /* Introduction Title */
+.ProjectGrid {
+  padding-left: 20%;
+  padding-right: 20%;
+}
 .Introduction-title {
   font-size: 12px;
   font-family: 'Aptos', sans-serif;

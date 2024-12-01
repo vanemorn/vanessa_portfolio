@@ -2,6 +2,7 @@
   display: grid;
   gap: 30px; /* Space between cards */
   padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
   margin: 100px;
 
 }
@@ -89,20 +90,6 @@
 }
 
 /* Responsive Media Queries */
-
-@media (max-width: 1300px) {
-  .project-grid {
-    grid-template-columns: repeat(4, 1fr); /* 2 columns for medium screens */
-    margin: 20px; /* Less margin for medium screens */
-  }
-}
-
-@media (max-width: 800px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
-    margin: 20px; /* Less margin for medium screens */
-  }
-}
 
 @media (max-width: 400px) {
   .project-grid {
