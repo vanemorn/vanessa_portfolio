@@ -27,11 +27,6 @@
     .column {
         width: 100%; /* Full width for small screens */
     }
-  
-    .column-title, .column-text {
-        margin-left: 20px; /* Adjust margins for smaller screens */
-        margin-right: 20px;
-    }
   }
   
   /* Contact Form Section */
@@ -39,14 +34,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 20px 100px 20px; /* Added side margins for smaller screens */
   }
   
   .contact-form-title {
     font-family: 'Aptos', sans-serif;
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 22px;
     text-align: center; /* Center title for better layout on all devices */
   }
   
