@@ -19,27 +19,27 @@ interface Project {
 const projects: Project[] = [
   {
     image: project1,
-    title: 'Project One',
-    tags: ['UI Design', 'React', 'Web App'],
-    description: 'A modern web application built with React and a clean UI design.',
+    title: 'Ños! Gofio',
+    tags: ['Branding', 'Logo', 'Packaging'],
+    description: 'Fictional brand created to promote Gofio',
   },
   {
     image: project2,
-    title: 'Project Two',
-    tags: ['Mobile App', 'Figma', 'Prototype'],
-    description: 'A mobile app prototype designed to enhance user productivity.',
+    title: 'Cinedfest',
+    tags: ['Social Media', 'Logo', 'Corporative'],
+    description: 'Educational initiative about film production',
   },
   {
     image: project3,
-    title: 'Project Three',
-    tags: ['E-commerce', 'UX Research', 'Wireframes'],
-    description: 'An e-commerce platform optimized for user engagement and sales.',
+    title: 'Cipselas',
+    tags: ['Layout', 'Editing', 'Visual'],
+    description: 'Magazine that creates a cultural space to young writters',
   },
   {
     image: project4,
-    title: 'Project Four',
-    tags: ['Accessibility', 'Design Systems', 'React'],
-    description: 'A design system focused on accessibility and cross-platform usability.',
+    title: 'Greenport',
+    tags: ['UI Design', 'UX Research', 'Figma'],
+    description: 'Desktop and mobile app that increases productivity and management',
   },
 ];
 
