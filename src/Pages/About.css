@@ -41,11 +41,11 @@
     border: none;
     background-color: #314697;
     color: #f7f7f7;
-    border-radius: 16px;
+    border-radius: 20px;
     font-family: 'Aptos', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 10px 10px;
     cursor: pointer;
     text-decoration: none;
     transition: transform 0.3s ease, background-color 0.3s ease;

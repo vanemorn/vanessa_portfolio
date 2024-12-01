@@ -1,5 +1,7 @@
 .go-back-btn-blog {
-  font-size: 16px;
+  font-size: 15px;
+  padding: 10px 10px;
+  border-radius: 20px;
   color: #314697; 
   text-decoration: none;
   font-weight: 600;

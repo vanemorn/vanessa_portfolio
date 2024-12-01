@@ -101,12 +101,13 @@ html, body {
   align-self: left;
   display: inline-block;
   width: auto;
-  padding: 10px;
+  padding: 10px 10px;
   background-color: #f7f7f7;
   color: #242424;
   font-weight: bold;
   border: none;
-  font-size: 14px;
+  border-radius: 20px;
+  font-size: 15px;
   cursor: pointer;
 }
 
