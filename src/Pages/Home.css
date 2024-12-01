@@ -11,7 +11,6 @@
   font-family: 'Aptos', sans-serif;
   margin-left: 800px;
   text-align: left;
-  color: #717171;
 }
 
 /* Introduction Text */
@@ -20,7 +19,6 @@
   font-family: 'Aptos', sans-serif;
   margin-left: 800px;
   text-align: left;
-  color: #242424;
 }
 
 /* Flex Container */
@@ -44,7 +42,6 @@
 
 /* Descripcion Title (Moving inline styles to CSS) */
 .descripcion-title {
-  color: black;
   font-size: 60px;
   font-family: 'Aptos', sans-serif;
   font-weight: 700;
@@ -54,7 +51,6 @@
 
 /* Descripcion Text (Moving inline styles to CSS) */
 .descripcion-text {
-  color: black;
   font-size: 60px;
   font-family: 'Aptos', sans-serif;
   font-weight: 300;
