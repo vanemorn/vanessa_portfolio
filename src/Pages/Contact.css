@@ -53,15 +53,6 @@
   align-self: flex-start;
 }
 
-/* Right Column */
-.about-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Center align for better layout on smaller screens */
-  padding: 20px; /* Added padding for better spacing */
-  border-radius: 20px; /* Consistent rounded edges */
-}
 
 /* Adjustments for very small devices (mobile) - Stack everything into 1 column */
 @media only screen and (max-width: 600px) {
