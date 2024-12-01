@@ -31,7 +31,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.postcard:hover {
+.post-card:hover {
   transform: scale(1.05); /* Slight scale-up on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   cursor: pointer;
