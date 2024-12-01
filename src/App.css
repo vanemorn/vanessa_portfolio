@@ -64,7 +64,6 @@ body.dark {
 /* The app class can be used for global app styling but make sure no top padding */
 .app {
   padding: 0; /* Remove any padding that may be affecting header alignment */
-  text-align: center;
 }
 
 /* Button styling */

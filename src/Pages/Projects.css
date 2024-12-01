@@ -7,7 +7,7 @@
   padding-left: 15%;
   padding-right: 15%;
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 }
 
 .projects-title {
@@ -30,6 +30,9 @@
 
 .projects-grid {
   margin-top: 20px;
+  align-content: left;
+  align-items: left;
+  justify-content: left;
   width: 100%;
 }
 
@@ -52,7 +55,8 @@
 
 @media only screen and (max-width: 600px) {
   .projects-container {
-    padding: 20px;
+    padding: 0px;
+    margin-bottom: 50px;
   }
 
   .projects-title {
@@ -65,8 +69,8 @@
 
   .gallery-btn {
     padding: 10px 20px;
+    margin-bottom: 10px;
     font-size: 14px;
-    width: 100%; /* Button spans full width on small screens */
   }
 
   .projects-grid {
