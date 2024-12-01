@@ -1,12 +1,13 @@
-/* Existing Styles */
+/* Introduction Title */
 .Introduction-title {
   font-size: 12px;
   font-family: 'Aptos', sans-serif;
   margin-left: 800px;
   text-align: left;
-  color:#717171;
+  color: #717171;
 }
 
+/* Introduction Text */
 .Introduction-text {
   font-size: 14px;
   font-family: 'Aptos', sans-serif;
@@ -15,6 +16,7 @@
   color: #242424;
 }
 
+/* Flex Container */
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -26,12 +28,14 @@
   margin-bottom: 35%;
 }
 
+/* Descripcion Section */
 .descripcion {
   margin-top: 70px;
   margin-bottom: 70px;
   margin-left: 20px;
 }
 
+/* Contact Form Styles */
 .contact-form-section {
   display: flex;
   flex-direction: column;
@@ -95,23 +99,26 @@
     margin-bottom: 30px;
   }
 
+  /* Adjust the title and description font size */
   .Introduction-title {
     margin-left: 20px;
-    font-size: 18px; /* Adjust font size for the title on small screens */
+    font-size: 18px !important; /* Use !important to override any other styles */
   }
 
   .Introduction-text {
-    font-size: 14px; /* Adjust font size for the introduction text */
+    font-size: 14px !important; /* Use !important to override any other styles */
     margin-left: 20px;
   }
 
-  /* Adjust the description text font size for small screens */
+  /* Adjust font sizes for the description text */
   .descripcion span:first-child {
-    font-size: 10px; /* Adjust the first part of the description */
+    font-size: 40px !important; /* Ensure the font-size is overridden */
+    line-height: 50px !important;
   }
 
   .descripcion span:last-child {
-    font-size: 10px; /* Adjust the second part of the description */
+    font-size: 40px !important; /* Ensure the font-size is overridden */
+    line-height: 50px !important;
   }
 }
 

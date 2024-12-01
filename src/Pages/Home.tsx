@@ -15,25 +15,10 @@ const Home: React.FC = () => {
 
       <div className="flex-container"> {/* Container for personal introduction */}
         {}
-        <div className="descripcion">{/*Brief description*/}
-          <span style={{ color: 'black', 
-            fontSize: '60px', 
-            fontFamily: 'Aptos, sans-serif',   
-            fontWeight: 700, 
-            lineHeight: '70px', 
-            textAlign: "left" }}>
-            I'm Vanessa ⎯ &nbsp;<br/>
-          </span>
-          
-          <span style={{ color: 'black', 
-            fontSize: '60px', 
-            fontFamily: 'Aptos, sans-serif', 
-            fontWeight: 300, 
-            lineHeight: '70px', 
-            textAlign: "left" }}>
-            an enthusiastic UX Designer <br /> based in Limerick, Ireland
-          </span>
-        </div>
+        <div className="descripcion">
+        <span className="descripcion-title">I'm Vanessa ⎯ &nbsp;<br /></span>
+        <span className="descripcion-text">an enthusiastic UX Designer <br /> based in Limerick, Ireland</span>
+      </div>
         <p className="Introduction-title">
             INTRODUCTION
         </p>
