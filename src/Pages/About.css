@@ -6,8 +6,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px; /* Adds spacing between columns for smaller screens */
-    padding-left: 200px; /* Reduced padding for smaller devices */
-    padding-right: 200px; /* Reduced padding for smaller devices */
+    padding: 200px; /* Reduced padding for smaller devices */
 }
 
 .about-title {
@@ -82,8 +81,7 @@
 /* Responsive Adjustments for tablets and mobile devices */
 @media only screen and (max-width: 900px) {
     .about-container {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding: 50px;
     }
 
     .about-title {
@@ -115,8 +113,7 @@
 @media only screen and (max-width: 600px) {
     .about-container {
         flex-direction: column; /* Stack the columns vertically on mobile */
-        padding-left: 30px;
-        padding-right: 30px; /* Reduce padding even more on very small devices */
+        padding: 20px;
     }
 
     .about-title {
