@@ -46,7 +46,15 @@
       animation: scrolling 3s linear infinite; /* Smooth and continuous scrolling */
     }
     .expertise-item {
-      font-size: 24px; /* Font size for the expertise area */
+      font-size: 18px; /* Font size for the expertise area */
+      margin: 0 10px;
     }
+    
+    .separator {
+      font-size: 18px; /* Make the separator larger */
+      margin: 0 5px;
+      color: #242424; /* Darker color for the separator */
+    }
+    
   }
   
