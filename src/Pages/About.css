@@ -6,8 +6,8 @@
     align-items: center;
     justify-content: center;
     gap: 10px; /* Adds spacing between columns for smaller screens */
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 20%;
+    padding-right: 20%;
     padding-top: 70px;
     padding-bottom: 70px;
 
@@ -83,7 +83,7 @@
 }
 
 /* Responsive Adjustments for tablets and mobile devices */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 900px) {
     .about-container {
         padding: 50px;
     }
