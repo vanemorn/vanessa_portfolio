@@ -1,3 +1,4 @@
+/* Existing Styles */
 .Introduction-title {
   font-size: 12px;
   font-family: 'Aptos', sans-serif;
@@ -87,6 +88,36 @@
   background-color: #4d0000;
 }
 
+/* Adjustments for Small Screens */
+@media only screen and (max-width: 600px) {
+  .descripcion {
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  .Introduction-title {
+    margin-left: 20px;
+    font-size: 18px; /* Adjust font size for the title on small screens */
+  }
+
+  .Introduction-text {
+    font-size: 14px; /* Adjust font size for the introduction text */
+    margin-left: 20px;
+  }
+
+  /* Adjust the description text font size for small screens */
+  .descripcion span:first-child {
+    font-size: 40px; /* Adjust the first part of the description */
+    line-height: 50px;
+  }
+
+  .descripcion span:last-child {
+    font-size: 40px; /* Adjust the second part of the description */
+    line-height: 50px;
+  }
+}
+
+/* General Adjustments for Medium to Large Screens */
 @media only screen and (max-width: 900px) {
   .banda {
     padding: 10px;
@@ -114,23 +145,5 @@
 
   .What-can-do {
     margin: 40px auto;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .descripcion {
-    margin-left: 20px;
-    margin-bottom: 30px;
-    font-size: 30px;
-  }
-
-  .Introduction-title {
-    margin-left: 20px;
-    font-size: 14px;
-  }
-  
-  .Introduction-text {
-    font-size: 12px;
-    margin-left: 20px;
   }
 }
