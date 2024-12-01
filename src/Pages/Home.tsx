@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         <div className="descripcion">{/*Brief description*/}
           <span style={{ color: 'black', 
             fontSize: '60px', 
-            fontFamily: 'Helvetica', 
+            fontFamily: 'Aptos, sans-serif',   
             fontWeight: 700, 
             lineHeight: '70px', 
             textAlign: "left" }}>
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
           
           <span style={{ color: 'black', 
             fontSize: '60px', 
-            fontFamily: 'Helvetica', 
+            fontFamily: 'Aptos, sans-serif', 
             fontWeight: 300, 
             lineHeight: '70px', 
             textAlign: "left" }}>
@@ -45,11 +45,12 @@ const Home: React.FC = () => {
 
       <ScrollingBand />
       <ProjectGrid />
+
       <Newsletter />
 
       {/* Contact form*/}
       <div className="contact-form-section">
-        <h2 className="contact-form-title" style={{ fontFamily: 'Arial, sans-serif' }}>Let's chat!</h2>
+        <h2 className="contact-form-title" style={{ fontFamily: 'Aptos, sans-serif' }}>Let's chat!</h2>
         <form className="contact-form">
           <div className="form-row">
 
