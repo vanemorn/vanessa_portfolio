@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 import Newsletter from '../components/Newsletter/Newsletter.tsx';
+import Footer from '../components/Footer'; // Importing Footer
+import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import image0 from '../assets/blog-entry-2/0.png';
@@ -34,7 +36,7 @@ const posts: Post[] = [
 const Blog: React.FC = () => {
   return (
     <div className="blog">
-      <h1>My Blog</h1>
+      <h1>Blog</h1>
       <div className="posts-grid">
         {posts.map((post) => (
           <div key={post.id} className="post-card">
@@ -55,7 +57,13 @@ const Blog: React.FC = () => {
       </div>
       
       <Newsletter />
-    </div>
+      
+      <Chatbot /> {/* Correctly place Chatbot inside the Blog component */}
+      
+      <footer>
+        <Footer /> {/* Correct Footer inclusion */}
+      </footer>
+    </div>  
   );
 };
 
