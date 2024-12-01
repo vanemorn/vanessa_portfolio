@@ -30,8 +30,8 @@
 
 /* Descripcion Section */
 .descripcion {
-  margin-top: 0; /* Reduced top margin */
-  margin-bottom: 70px;
+  margin-top: 30; /* Reduced top margin */
+  margin-bottom: 30px;
   margin-left: 20px;
 }
 
@@ -115,7 +115,7 @@
 /* Adjustments for Small Screens */
 @media only screen and (max-width: 600px) {
   .descripcion {
-    margin-top: 0; /* Reset top margin for mobile */
+    margin-top: 30px; /* Reset top margin for mobile */
     margin-bottom: 20px; /* Adjust bottom margin for mobile */
   }
 
