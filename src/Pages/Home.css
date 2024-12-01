@@ -120,14 +120,17 @@
 @media only screen and (max-width: 600px) {
   .descripcion {
     margin-left: 20px;
-    font-size: 60%;
+    margin-bottom: 30px;
+    font-size: 30px;
   }
 
   .Introduction-title {
     margin-left: 20px;
+    font-size: 14px;
   }
   
   .Introduction-text {
+    font-size: 12px;
     margin-left: 20px;
   }
 }
