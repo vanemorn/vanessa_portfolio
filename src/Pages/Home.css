@@ -63,6 +63,9 @@
 }
 
 .ContactForm {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   margin-bottom: 70px;
 }
 
