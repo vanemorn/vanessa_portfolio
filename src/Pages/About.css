@@ -1,17 +1,17 @@
 /* Left Column */
 .about-container {
     display: flex;
-    padding-left: 200px;
-    padding-right: 200px;
     flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
     text-align: left;
     align-items: center;
     justify-content: center;
     gap: 10px; /* Adds spacing between columns for smaller screens */
+    padding-left: 20px; /* Reduced padding for smaller devices */
+    padding-right: 20px; /* Reduced padding for smaller devices */
 }
 
 .about-title {
-    font-size: 36px; /* Smaller font size for better responsiveness */
+    font-size: 36px; /* Default font size for larger screens */
     font-weight: bold;
     margin-bottom: 20px;
     text-align: left;
@@ -36,7 +36,7 @@
 
 .send-email-btn {
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 30px;
     border: none;
     background-color: #314697;
     color: #f7f7f7;
@@ -79,13 +79,11 @@
     border-radius: 20px; /* Adds a softer aesthetic */
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for tablets and mobile devices */
 @media only screen and (max-width: 900px) {
     .about-container {
-        flex-direction: column;
-        text-align: center;
-        margin: 20px auto;
-        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .about-title {
@@ -105,8 +103,48 @@
         width: 100%;
         max-width: 300px; /* Further reduce image size for smaller screens */
     }
+
+    .send-email-btn {
+        padding: 12px 24px; /* Slightly larger button for easier interaction */
+        font-size: 16px; /* Larger font for easier reading */
+        margin-top: 20px;
+    }
 }
 
+/* Responsive Adjustments for very small devices (mobile) */
+@media only screen and (max-width: 600px) {
+    .about-title {
+        font-size: 24px; /* Further reduce font size for very small devices */
+    }
+
+    .about-container {
+        padding-left: 10px;
+        padding-right: 10px; /* Reduce padding even more on very small devices */
+    }
+
+    .about-text {
+        margin: 0 5px; /* Reduce margin further for small screens */
+        font-size: 14px; /* Adjust text size for better readability */
+    }
+
+    .about-image-container {
+        margin: 10px 0;
+        padding: 5px;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 250px; /* Adjust the image size even more for very small devices */
+    }
+
+    .send-email-btn {
+        padding: 10px 20px; /* Reduce padding for very small devices */
+        font-size: 14px; /* Adjust font size for small screens */
+        width: 100%; /* Make button take full width for easier interaction */
+    }
+}
+
+/* Adjustments for larger devices */
 @media only screen and (min-width: 1300px) {
     .about-container {
         margin: 60px auto 100px auto;
