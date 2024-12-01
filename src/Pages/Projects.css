@@ -37,7 +37,6 @@
 
 .gallery-btn {
   display: inline-block;
-  margin-top: 30px;
   margin-right: 10px;
   border: none;
   background-color: #314697;
@@ -54,11 +53,7 @@
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 20px; /* Spacing between grid items */
   width: 100%;
-  max-width: 1200px; /* Limit grid width */
 }
 
 @media only screen and (max-width: 600px) {
