@@ -29,7 +29,8 @@ const Home: React.FC = () => {
       </div>
 
       <ScrollingBand />
-      <ProjectGrid />
+
+      <div className="ProjectGrid"><ProjectGrid /></div>
 
       <Newsletter />
 
