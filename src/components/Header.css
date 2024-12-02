@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: inherit;
   padding: 20px 20px;
   position: relative;
   border-radius: 15px;
@@ -186,6 +185,7 @@
     align-items: flex-end; 
     text-align: right; 
     border-radius: 15px;
+    background-color: inherit;
   }
 
   .menu a {
