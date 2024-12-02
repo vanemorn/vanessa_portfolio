@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/logo-header-purple.svg';
+import logo from '../assets/logo-header-purple.png';
 import cvFile from '../../public/CV_VANESSA-MORENO.pdf';
 import ThemeSwitcher from '../store/ThemeSwitcher';
 
