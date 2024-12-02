@@ -60,6 +60,7 @@
 .view-more-button-project {
   display: inline-block; /* Prevent it from taking full width */
   color: inherit;
+  background-color: transparent;
   border: 2px solid; /* Border color */
   border-radius: 20px;
   font-family: 'Aptos', sans-serif;
