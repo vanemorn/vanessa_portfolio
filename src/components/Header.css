@@ -185,7 +185,7 @@
     align-items: flex-end; 
     text-align: right; 
     border-radius: 15px;
-    background-color: inherit;
+    filter: blur(5px); 
   }
 
   .menu a {
