@@ -185,7 +185,7 @@
     align-items: flex-end; 
     text-align: right; 
     border-radius: 15px;
-    filter: blur(5px); 
+    backdrop-filter: blur(8px); 
   }
 
   .menu a {
