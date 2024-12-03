@@ -1,20 +1,18 @@
-/* Ensure there's no margin or padding around the entire page */
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Include padding and border in width calculation */
+  width: 100%;
+  box-sizing: border-box;
   font-family: 'Aptos', sans-serif;
 }
 
-/* Footer should span the entire width */
 .footer {
   background-color: #242424;
   color: #f7f7f7;
-  padding: 50px; /* Reduced padding for responsiveness */
-  width: 100%; /* Full width */
-  margin: 0; /* No margin */
-  box-sizing: border-box; /* Include padding in width calculation */
+  padding: 50px; 
+  width: 100%; 
+  margin: 0; 
+  box-sizing: border-box; 
 }
 
 .footer-logo {
@@ -25,8 +23,8 @@ html, body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%; /* Ensure full width */
-  padding: 40px 0; /* Adjusted padding */
+  width: 100%;
+  padding: 40px 0; 
 }
 
 .footer-column {
@@ -76,7 +74,7 @@ html, body {
   font-size: 14px;
   margin-bottom: 8px;
   display: block;
-  text-align: left; /* Align links to the left */
+  text-align: left; 
 }
 
 .footer-nav-link:hover {
@@ -135,15 +133,15 @@ html, body {
   }
 
   .footer-content {
-    padding: 20px; /* Added padding to keep layout neat */
+    padding: 20px; 
   }
 
   .footer-btn {
-    width: 100%; /* Make the button full width */
+    width: 100%; 
   }
 
   .footer-form {
-    align-items: center; /* Center align the form on medium screens */
+    align-items: center; 
   }
 }
 
@@ -156,40 +154,40 @@ html, body {
 
   .footer-content {
     flex-direction: column;
-    align-items: center; /* Center align content */
-    padding: 10px; /* Reduced padding for mobile view */
+    align-items: center; 
+    padding: 10px; 
   }
 
   .footer-logo {
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 10px; 
   }
 
   .footer-title {
-    font-size: 18px; /* Smaller font size for mobile */
+    font-size: 18px; 
     margin-bottom: 10px;
   }
 
   .footer-text {
-    font-size: 12px; /* Reduced font size for mobile */
-    padding-right: 0; /* No padding-right */
+    font-size: 12px; 
+    padding-right: 0;
   }
 
   .footer-nav-link {
-    font-size: 12px; /* Smaller links for mobile */
-    margin-bottom: 5px; /* Reduced margin */
+    font-size: 12px; 
+    margin-bottom: 5px;
   }
 
   .footer-social {
-    gap: 10px; /* Reduced space between social icons */
+    gap: 10px; 
   }
 
   .footer-input {
-    width: 100%; /* Full width input fields */
-    font-size: 12px; /* Smaller font size */
+    width: 100%;
+    font-size: 12px;
   }
 
   .footer-btn {
-    width: 100%; /* Make button full width on mobile */
-    font-size: 14px; /* Adjust button font size */
+    width: 100%; 
+    font-size: 14px; 
   }
 }

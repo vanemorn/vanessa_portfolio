@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Post.css';
 
+// Importing images for post content
 import image0 from '../assets/blog-entry-2/0.png';
 import image1 from '../assets/blog-entry-2/1.png';
 import image2 from '../assets/blog-entry-2/2.png';
@@ -17,13 +18,15 @@ import businessHeadshot from '../assets/business-headshot.jpg';
 import aestheticShot from '../assets/aesthetic-shot.jpg';
 import passionShot from '../assets/passion-shot.jpg';
 
+// Interface for a single comment
 interface Comment {
-  id: number;
+  id: number; 
   text: string;
   reactions: { [emoji: string]: number };
   timestamp: number;
 }
 
+// Interface for a blog post
 interface Post {
   id: number;
   title: string;
@@ -33,6 +36,7 @@ interface Post {
   publishedAt: string;
 }
 
+// Helper function to format ISO date into a readable format
 const formatDate = (isoDate: string): string => {
   const date = new Date(isoDate);
   return date.toLocaleDateString('en-US', {
@@ -197,16 +201,18 @@ const initialPosts: Post[] = [
           the team’s collective vision. </p>
 
     `,
-    tags: ['example', 'simple'],
+    tags: ['Video Production', 'Animation'],
     comments: [
       { id: 1, text: 'Very insightful, thanks!', reactions: { '👍': 1 }, timestamp: Date.now() - 300000 },
     ],
   },
 ];
 
+// Helper function to calculate relative time from a timestamp
+
 const timeAgo = (timestamp: number): string => {
   const now = Date.now();
-  const diff = now - timestamp;
+  const diff = now - timestamp; // Time difference in milliseconds
   const minutes = Math.floor(diff / (1000 * 60));
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -217,26 +223,30 @@ const timeAgo = (timestamp: number): string => {
 };
 
 const Post: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const post = initialPosts.find((p) => p.id.toString() === id);
+  const { id } = useParams<{ id: string }>(); // Retrieve the post ID from the URL
+  const post = initialPosts.find((p) => p.id.toString() === id); // Find the post based on the ID
 
+    // Local state for the current post and new comment
   const [currentPost, setCurrentPost] = useState<Post | undefined>(post);
   const [newComment, setNewComment] = useState('');
-
+  
+  // State for modal image (expanded view)
   const [modalImage, setModalImage] = useState<string | null>(null);
 
+    // Handle image click to show modal
   const handleImageClick = (src: string) => {
     setModalImage(src);
   };
-
+  // Close the modal
   const handleCloseModal = () => {
     setModalImage(null);
   };
-
+  
+  // Add a new comment
   const handleAddComment = () => {
     if (newComment.trim() !== '') {
       const newCommentData: Comment = {
-        id: Date.now(),
+        id: Date.now(), // Generate unique ID based on timestamp
         text: newComment,
         reactions: { '👍': 0, '❤️': 0, '😂': 0, '😮': 0, '😢': 0 },
         timestamp: Date.now(),
@@ -253,6 +263,7 @@ const Post: React.FC = () => {
     }
   };
 
+  // Add a reaction to a comment
   const handleAddReaction = (commentId: number, emoji: string) => {
     if (currentPost) {
       const updatedComments = currentPost.comments.map((comment) => {

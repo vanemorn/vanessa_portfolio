@@ -1,3 +1,5 @@
+/* importing Aptos font */
+
 @font-face {
   font-family: 'Aptos';
   src: url('/public/fonts/Aptos-Light.ttf') format('truetype');
@@ -42,6 +44,8 @@ html, body {
   padding: 0;
   height: 100%; 
 }
+
+/* theme switch */
 
 body.light {
   background-color: #F7F7F7;

@@ -1,11 +1,11 @@
 /* Left Column */
 .about-container {
     display: flex;
-    flex-wrap: wrap; /* Ensures proper stacking on smaller screens */
+    flex-wrap: wrap; 
     text-align: left;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Adds spacing between columns for smaller screens */
+    gap: 10px; 
     padding-left: 15%;
     padding-right: 15%;
     padding-top: 80px;
@@ -18,7 +18,7 @@
     font-weight: bold;
     margin-bottom: 20px;
     text-align: left;
-    width: 100%; /* Ensure full width on smaller screens */
+    width: 100%; 
 }
 
 .about-text {
@@ -63,42 +63,42 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center align for better layout on smaller screens */
-    padding: 20px; /* Added padding for better spacing */
-    border-radius: 20px; /* Consistent rounded edges */
+    align-items: center; 
+    padding: 20px; 
+    border-radius: 20px; 
 }
 
 .about-image-placeholder {
     width: 100%;
-    height: auto; /* Adjusts to image content */
+    height: auto; 
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Ensures spacing around the image */
+    padding: 10px;
 }
 
 .about-image {
     width: 90%;
     height: auto;
-    max-width: 400px; /* Limits image size for better scaling */
-    border-radius: 20px; /* Adds a softer aesthetic */
+    max-width: 400px; 
+    border-radius: 20px; 
 }
 
-/* Adjustments for very small devices (mobile) - Stack everything into 1 column */
+/* Adjustments for mobile view, stack everything into 1 column */
 @media only screen and (max-width: 600px) {
     .about-container {
-        flex-direction: column; /* Stack the columns vertically on mobile */
+        flex-direction: column; 
         padding: 20px;
     }
 
     .about-title {
-        font-size: 40px; /* Further reduce font size for very small devices */
+        font-size: 40px;
     }
 
     .about-text {
-        margin: 0 5px; /* Reduce margin further for small screens */
-        font-size: 14px; /* Adjust text size for better readability */
+        margin: 0 5px; 
+        font-size: 14px; 
     }
 
     .about-image-container {
@@ -108,11 +108,11 @@
 
     .about-image {
         width: 100%;
-        max-width: 300px; /* Adjust the image size even more for very small devices */
+        max-width: 300px; 
     }
 
     .send-email-btn {
-        padding: 10px 20px; /* Reduce padding for very small devices */
-        font-size: 14px; /* Adjust font size for small screens */
+        padding: 10px 20px; 
+        font-size: 14px; 
     }
 }

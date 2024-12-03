@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer'; // Import footer
-import './Videogallery.css'; // CSS file
+import './Videogallery.css'; 
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 function VideoGallery() { // VideoGallery component definition

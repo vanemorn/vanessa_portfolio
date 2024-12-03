@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import './Chatbot.css';
 
 const Chatbot: React.FC = () => {
@@ -60,7 +60,7 @@ const Chatbot: React.FC = () => {
     },
   ];
 
-  // Function to toggle chatbot state
+  // Function to toggle chatbot state between open and minimized
   const toggleChatbot = () => {
     setIsOpen(!isOpen); // Toggle chatbot visibility
     if (!isOpen) {
@@ -71,13 +71,13 @@ const Chatbot: React.FC = () => {
 
   // Function to handle the button click for default questions
   const handleQuestionClick = (question: string, answer: string | JSX.Element) => {
-    // First, we add the user's question to the conversation
+    // Add user's question to the conversation
     setConversation((prev) => [
       ...prev,
       { sender: 'user', message: question },
     ]);
 
-    // Then, we add the bot's answer after a slight delay to simulate a response
+    // Add bot's answer after a slight delay
     setTimeout(() => {
       setConversation((prev) => [
         ...prev,
@@ -87,7 +87,7 @@ const Chatbot: React.FC = () => {
     }, 500); // Delay to simulate typing
   };
 
-  // Function to show the question buttons
+  // Function to display the predefined question buttons
   const showQuestionButtons = () => {
     return (
       <div className="question-buttons">
@@ -104,7 +104,7 @@ const Chatbot: React.FC = () => {
     );
   };
 
-  // Scroll to the bottom every time the conversation is updated
+  // Scroll to the bottom of the chat when a new message is added
   useEffect(() => {
     if (chatContentRef.current) {
       chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
@@ -128,6 +128,7 @@ const Chatbot: React.FC = () => {
 
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'minimized'}`}>
+      {/* Display the chatbot icon when minimized */}
       {!isOpen && (
         <div className="chatbot-icon" onClick={toggleChatbot}>
           💬
@@ -135,15 +136,17 @@ const Chatbot: React.FC = () => {
         </div>
       )}
 
+      {/* Chatbot window content when open */}
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
             <h4>Chat with me!</h4>
             <button onClick={toggleChatbot} className="minimize-btn">
-              –
+              – {/* Minimize button */}
             </button>
           </div>
           <div className="chatbot-content" ref={chatContentRef}>
+            {/* Display conversation messages */}
             {conversation.map((msg, index) => (
               <div key={index} className="message">
                 {msg.sender === 'user' && <p><strong>You:</strong> {msg.message}</p>}
@@ -152,7 +155,8 @@ const Chatbot: React.FC = () => {
             ))}
           </div>
           <div className="chatbot-footer">
-            {showButtons && showQuestionButtons()} {/* Re-show question buttons */}
+            {/* Show question buttons after initial greeting */}
+            {showButtons && showQuestionButtons()}
           </div>
         </div>
       )}

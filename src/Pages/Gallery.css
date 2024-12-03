@@ -9,8 +9,8 @@
 /* Container for the entire page */
 .gallery-container {
     display: flex;
-    flex-direction: row; /* Align items horizontally */
-    justify-content: space-between; /* Space between the left panel and the image gallery */
+    flex-direction: row; 
+    justify-content: space-between; 
     padding-left: 15%;
     padding-right: 15%;
     margin-top: 60px;
@@ -20,8 +20,8 @@
 
 /* Left panel for the title and go back button */
 .left-panel {
-    width: 30%; /* Set width to 30% for the left section */
-    padding-top: 150px; /* Adjust padding to align vertically */
+    width: 30%; 
+    padding-top: 150px; 
     text-align: left;
 }
 
@@ -48,7 +48,7 @@
 
 /* Gallery Grid Layout (right section) */
 .image-gallery {
-    width: 70%; /* Set width to 70% for the image gallery */
+    width: 70%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Ensure it is above all other elements */
+    z-index: 1000; 
 }
 
 .expanded-image {
@@ -123,7 +123,7 @@
     }
 
     .gallery-container {
-        flex-direction: column; /* Stack the title and gallery vertically */
+        flex-direction: column; 
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 30px;
@@ -133,14 +133,14 @@
 
     .left-panel {
         width: 100%;
-        text-align: left; /* Center-align content for mobile */
+        text-align: left; 
         margin: 0;
         padding: 0
     }
 
     .image-gallery {
-        width: 100%; /* Make the image gallery take full width on smaller screens */
-        grid-template-columns: repeat(2, 1fr); /* Reduce to two columns */
+        width: 100%; 
+        grid-template-columns: repeat(2, 1fr); 
         gap: 5px;
     }
 
@@ -149,7 +149,7 @@
     }
 
     .arrow {
-        font-size: 24px; /* Adjust arrow size for smaller screens */
+        font-size: 24px; 
     }
 
     .go-back-btn-gallery {

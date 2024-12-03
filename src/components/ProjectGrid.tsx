@@ -1,13 +1,12 @@
 import React from 'react';
 import './ProjectGrid.css';
 
-// Import your images
+// Import images
 import project1 from 'C:/Users/linda/vanessa_portfolio/src/assets/project1.jpg';
 import project2 from 'C:/Users/linda/vanessa_portfolio/src/assets/project2.jpg';
 import project3 from 'C:/Users/linda/vanessa_portfolio/src/assets/project3.jpg';
 import project4 from 'C:/Users/linda/vanessa_portfolio/src/assets/project4.jpg';
 
-// Define the Project type
 interface Project {
   image: string;
   title: string;
@@ -15,7 +14,8 @@ interface Project {
   description: string;
 }
 
-// Your projects data
+// Projects content
+
 const projects: Project[] = [
   {
     image: project1,
@@ -46,7 +46,6 @@ const projects: Project[] = [
 const ProjectGrid: React.FC = () => {
   const handleViewMore = (projectTitle: string) => {
     console.log(`Viewing more details about: ${projectTitle}`);
-    // Add custom navigation or modal functionality here
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../components/Footer'; // Imports footer
-import './Home.css'; // CSS File
+import './Home.css'; 
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 import ScrollingBand from '../components/Scrollingband.tsx';
 import ProjectGrid from '../components/ProjectGrid';

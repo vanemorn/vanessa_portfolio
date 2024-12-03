@@ -35,12 +35,11 @@
 
 /* Descripcion Section */
 .descripcion {
-  margin-top: 70px; /* Reduced top margin */
+  margin-top: 70px; 
   margin-bottom: 70px;
   margin-left: 20px;
 }
 
-/* Descripcion Title (Moving inline styles to CSS) */
 .descripcion-title {
   font-size: 60px;
   font-family: 'Aptos', sans-serif;
@@ -49,7 +48,6 @@
   text-align: left;
 }
 
-/* Descripcion Text (Moving inline styles to CSS) */
 .descripcion-text {
   font-size: 60px;
   font-family: 'Aptos', sans-serif;
@@ -58,7 +56,6 @@
   text-align: left;
 }
 
-/* Contact Form Styles */
 .contact-form-section {
   display: flex;
   flex-direction: column;
@@ -102,7 +99,7 @@
   font-size: 16px;
 }
 
-/* Adjustments for Small Screens */
+/* Adjustments for small screens */
 @media only screen and (max-width: 600px) {
 
   .ProjectGrid {
@@ -110,11 +107,10 @@
   }
 
   .descripcion {
-    margin-top: 30px; /* Reset top margin for mobile */
-    margin-bottom: 20px; /* Adjust bottom margin for mobile */
+    margin-top: 30px; 
+    margin-bottom: 20px; 
   }
 
-  /* Adjust the title and description font size */
   .Introduction-title {
     margin-left: 20px;
     font-size: 18px !important; /* Use !important to override any other styles */
@@ -126,24 +122,23 @@
     margin-bottom: 50px;
   }
 
-  /* Adjust font sizes for the description text */
   .descripcion-title {
-    font-size: 45px !important; /* Ensure the font-size is overridden */
+    font-size: 45px !important; 
     line-height: 55px !important;
     margin-top: 0;
   }
 
   .descripcion-text {
-    font-size: 45px !important; /* Ensure the font-size is overridden */
+    font-size: 45px !important; 
     line-height: 55px !important;
   }
 
   .flex-container {
-    margin-top: 0; /* Reset margin-top for mobile view */
+    margin-top: 0;
   }
 }
 
-/* General Adjustments for Medium to Large Screens */
+/* responsive */
 @media only screen and (max-width: 900px) {
 
   .ProjectGrid {

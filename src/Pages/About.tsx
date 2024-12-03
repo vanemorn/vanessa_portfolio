@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../components/Footer'; // Importing Footer
 import aboutImage from '../assets/foto-yo-about.png'; // Importing my business headshot
-import './About.css';  // CSS File
+import './About.css';  
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 

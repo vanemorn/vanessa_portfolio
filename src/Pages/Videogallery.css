@@ -9,8 +9,8 @@
 /* Container for the entire page */
 .gallery-container {
   display: flex;
-  flex-direction: row; /* Align items horizontally */
-  justify-content: space-between; /* Space between the left panel and the video gallery */
+  flex-direction: row; 
+  justify-content: space-between; 
   padding-left: 15%;
   padding-right: 15%;
   margin-top: 60px;
@@ -20,8 +20,8 @@
 
 /* Left panel for the title and go back button */
 .left-panel {
-  width: 50%; /* Set width to 30% for the left section */
-  padding-top: 150px; /* Adjust padding to align vertically */
+  width: 50%; 
+  padding-top: 150px; 
   text-align: left;
 }
 
@@ -48,7 +48,7 @@
 
 /* Video Gallery Container */
 .video-gallery-container {
-  width: 50%; /* Set width to 70% for the video gallery */
+  width: 50%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,7 +61,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
   max-height: 500px;
-  object-fit: cover; /* Ensures proper video scaling */
+  object-fit: cover; 
 }
 
 /* Video Navigation Buttons */
@@ -115,12 +115,12 @@
   }
 
   .video-gallery-container {
-    width: 100%; /* Make the video gallery take full width on smaller screens */
+    width: 100%; 
     margin-bottom: 40px;
   }
 
   .video-player {
-    max-height: 300px; /* Adjust video height for small screens */
+    max-height: 300px; 
   }
 
   .video-gallery-buttons {
@@ -128,7 +128,7 @@
   }
 
   .video-gallery-button {
-    width: 80%; /* Make buttons full width on smaller screens */
+    width: 80%;
     margin: 0;
     padding: 0;
   }

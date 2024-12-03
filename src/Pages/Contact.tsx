@@ -4,8 +4,8 @@ import ContactForm from '../components/ContactForm';
 import Chatbot from '../components/Chatbot'; // Import the Chatbot component
 
 
-import emailIcon from '../assets/email-icon-purple.svg'; // Email icon
-import phoneIcon from '../assets/phone-icon-purple.svg'; // Phone icon
+import emailIcon from '../assets/email-icon-purple.svg'; 
+import phoneIcon from '../assets/phone-icon-purple.svg'; 
 
 const Contact: React.FC = () => {
   return (

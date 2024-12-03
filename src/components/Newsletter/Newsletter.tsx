@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { subscribeToNewsletter } from './newsletterActions';  // Redux action for subscription
-import './Newsletter.css';  // Importing the CSS styles
+import './Newsletter.css';  
 
-// Import image properly
-import imagesub from 'C:/Users/linda/vanessa_portfolio/src/assets/subscribe-news.png';  // Assuming image is inside the src/assets folder
+import imagesub from 'C:/Users/linda/vanessa_portfolio/src/assets/subscribe-news.png'; // Import image for the newsletter section
 
 interface NewsletterProps {}
 
-const Newsletter: React.FC<NewsletterProps> = () => {
+const Newsletter: React.FC<NewsletterProps> = () => {  // State hook to manage the email input value
   const [email, setEmail] = useState('');
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   // Redux dispatch hook to send actions to the store
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      dispatch(subscribeToNewsletter(email)); // Dispatch subscription action
-      setEmail(''); // Clear email input after submission
+      dispatch(subscribeToNewsletter(email)); // Dispatch the subscription action
+      setEmail('');  // Clear the input field after submission
     }
   };
 
@@ -37,7 +36,6 @@ const Newsletter: React.FC<NewsletterProps> = () => {
         </form>
       </div>
       <div className="newsletter-image">
-        {/* Use the imported image here */}
         <img src={imagesub} alt="Newsletter" />
       </div>
     </div>

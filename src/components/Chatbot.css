@@ -11,7 +11,7 @@
 .chatbot-icon {
   width: 50px;
   height: 50px;
-  background-color: #314697; /* Red background */
+  background-color: #314697; 
   color: white;
   font-size: 24px;
   border-radius: 50%;
@@ -62,7 +62,7 @@
 
 /* Chatbot header with minimize button */
 .chatbot-header {
-  background-color: #314697; /* Red header */
+  background-color: #314697; 
   color: white;
   padding: 10px;
   display: flex;
@@ -89,18 +89,18 @@
   overflow-y: auto;
   font-size: 14px;
   display: flex;
-  flex-direction: column; /* Changed to column */
-  height: 100%; /* Ensure it fills the container */
+  flex-direction: column; 
+  height: 100%; 
   text-align: left;
 }
 
 /* Message style */
 .message p {
   margin: 0;
-  color: #333; /* Dark gray text */
+  color: #333;
   margin-bottom: 8px;
-  opacity: 0; /* Initial state for animation */
-  animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
+  opacity: 0; 
+  animation: fadeIn 0.5s forwards; 
 }
 
 .message strong {
@@ -110,7 +110,7 @@
 /* Typing animation */
 .bot-typing {
   font-style: italic;
-  color: #555; /* Ensure typing text is visible */
+  color: #555;
 }
 
 /* Chatbot footer with input and send button */
@@ -129,7 +129,7 @@
 }
 
 .chatbot-footer button {
-  background-color: #314697; /* Red button */
+  background-color: #314697; 
   color: white;
   border: none;
   border-radius: 10px;
@@ -138,7 +138,7 @@
 }
 
 .chatbot-footer button:hover {
-  background-color: #111e4f; /* Darker red on hover */
+  background-color: #111e4f; 
 }
 
 /* Styling for the question buttons */
@@ -171,45 +171,43 @@
   display: none;
 }
 
-/* Optional: Style for user's messages */
 .message.user-message p {
-  color: #1d1d1d; /* Blue for user's messages */
+  color: #1d1d1d; 
 }
 
 .chatbot-content ul {
-  list-style-type: disc; /* Default bullet points */
-  padding-left: 15px; /* Add some left padding to indent the list */
-  margin-bottom: 10px; /* Space between list and other content */
+  list-style-type: disc; 
+  padding-left: 15px; 
+  margin-bottom: 10px; 
   margin-top: 10px;
 }
 
 /* Style for ordered lists (ol) */
 .chatbot-content ol {
-  list-style-type: decimal; /* Numbered list style */
-  padding-left: 15px; /* Add some left padding */
-  margin-bottom: 10px; /* Space between list and other content */
+  list-style-type: decimal; 
+  padding-left: 15px; 
+  margin-bottom: 10px; 
   margin-top: 10px;
 }
 
 /* Style for list items (li) */
 .chatbot-content li {
-  margin-bottom: 5px; /* Space between list items */
-  font-size: 14px; /* Adjust font size for list items */
+  margin-bottom: 5px; 
+  font-size: 14px;
 }
 
-/* Optional: Style for anchor tags inside lists */
 .chatbot-content a {
-  color: #007bff; /* Blue color for links */
-  text-decoration: none; /* Remove underline */
+  color: #007bff; 
+  text-decoration: none; 
 }
 
 .chatbot-content a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline; 
 }
 
 /* Add horizontal gray line between each question and answer */
 .message + .message {
-  border-top: 1px solid #ccc; /* Light gray line */
+  border-top: 1px solid #ccc;
   padding-top: 10px;
   margin-top: 10px;
 }

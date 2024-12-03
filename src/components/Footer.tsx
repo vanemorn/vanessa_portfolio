@@ -1,10 +1,10 @@
 import React from 'react';
-import 'C:/Users/linda/vanessa_portfolio/src/components/Footer.css'; // CSS File
-import logo from '../assets/logo-blanco.svg'; // Logo
-import emailIcon from '../assets/email-icon.svg'; // Email icon
-import phoneIcon from '../assets/phone-icon.svg'; // Phone Icon
-import linkedinIcon from '../assets/linkedin-logo.png'; // LinkedIn icon
-import behanceIcon from '../assets/behance-logo.png'; // Behance icon
+import 'C:/Users/linda/vanessa_portfolio/src/components/Footer.css'; 
+import logo from '../assets/logo-blanco.svg'; 
+import emailIcon from '../assets/email-icon.svg'; 
+import phoneIcon from '../assets/phone-icon.svg'; 
+import linkedinIcon from '../assets/linkedin-logo.png'; 
+import behanceIcon from '../assets/behance-logo.png'; 
 import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const Footer: React.FC = () => {

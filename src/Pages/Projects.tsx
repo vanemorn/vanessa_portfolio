@@ -24,8 +24,8 @@ const Projects: React.FC = () => {
             galleries for a closer look at my work.
           </p> <br/>
           <a href="mailto:vanessamorenoperez55@gmail.com">
-          <Link to="/gallery" className="gallery-btn">Gallery</Link> {/* Link to navigate back to projects */}
-          <Link to="/videogallery" className="gallery-btn">VideoGallery</Link> {/* Link to navigate back to projects */}
+          <Link to="/gallery" className="gallery-btn">Gallery</Link> 
+          <Link to="/videogallery" className="gallery-btn">VideoGallery</Link> 
           </a>
         </div>
 

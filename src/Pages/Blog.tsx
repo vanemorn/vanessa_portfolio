@@ -13,8 +13,8 @@ interface Post {
   id: number;
   title: string;
   content: string;
-  tags: string[];  // Tags will be an array of strings
-  image: string;  // Ensure the image is a string type
+  tags: string[];  
+  image: string;  
 }
 
 const posts: Post[] = [
@@ -45,7 +45,6 @@ const Blog: React.FC = () => {
             <img className="post-image" src={post.image} alt={post.title} />
             <h2>{post.title}</h2>
             
-            {/* Render tags after the title */}
             <div className="blog-tags">
               {post.tags.map((tag, index) => (
                 <span key={index} className="entry-tag">{tag}</span>

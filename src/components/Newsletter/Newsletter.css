@@ -1,4 +1,4 @@
-/* Newsletter Container */
+/* newsletter container */
 .newsletter-container {
   display: flex;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   margin-bottom: 70px;
 }
 
-/* Newsletter Form */
+/* newsletter form */
 .newsletter-form {
   flex: 1;
   max-width: 500px;
@@ -66,7 +66,7 @@
   transform: translateX(3px);
 }
 
-/* Newsletter Image */
+/* newsletter image */
 .newsletter-image {
   flex: 1;
   max-width: 500px;
@@ -81,9 +81,8 @@
   border-radius: 5px;
 }
 
-/* Mobile View (Phone) */
+/* responsive for mobile */
 @media only screen and (max-width: 600px) {
-  /* Newsletter Container */
   .newsletter-container {
     flex-direction: column;
     gap: 20px;
@@ -93,7 +92,6 @@
     margin-bottom: 40px;
   }
 
-  /* Newsletter Form */
   .newsletter-form {
     max-width: 100%;
     text-align: center;
@@ -120,10 +118,9 @@
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    margin-left: 0; /* Remove left margin on small screens */
+    margin-left: 0; 
   }
 
-  /* Newsletter Image */
   .newsletter-image {
     max-width: 100%;
     align-self: center;

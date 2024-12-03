@@ -35,7 +35,7 @@
 
 .post-card:hover {
   transform: scale(1.05); /* Slight scale-up on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
   cursor: pointer;
 }
 
@@ -75,10 +75,10 @@
 /* Post content preview */
 .post-card p {
   font-size: 14px;
-  margin: 5px 0 0 0; /* Ensure no margin around the content, no bottom margin */
+  margin: 5px 0 0 0; 
 }
 
-/* Style for the "View Post" link styled as a button */
+/* Style for the "view post" link (button) */
 .post-card a {
   display: inline-block;
   margin-top: 10px;
@@ -109,7 +109,7 @@
 }
 
 
-/* Responsive Media Queries */
+/* Responsive */
 @media (max-width: 1200px) {
   .posts-grid {
     grid-template-columns: repeat(2, 1fr);

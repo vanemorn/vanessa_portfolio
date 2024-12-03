@@ -1,18 +1,18 @@
 .project-grid {
   display: grid;
-  gap: 30px; /* Space between cards */
+  gap: 30px;
   padding: 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .project-card {
-  border: 1px solid #ccc; /* Light gray border */
+  border: 1px solid #ccc; 
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden; /* Clip overflow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start; 
   justify-content: flex-start;
   text-align: left;
   padding: 20px;
@@ -34,15 +34,15 @@
 
 .project-tags {
   display: flex;
-  flex-wrap: wrap; /* Wrap tags to the next line if needed */
+  flex-wrap: wrap; 
   justify-content: left;
-  gap: 8px; /* Space between tags */
+  gap: 8px; 
   margin: 12px 0;
   font-family: 'Aptos', sans-serif;
 }
 
 .project-tag {
-  background-color: #D5DA26; /* Highlight color */
+  background-color: #D5DA26; 
   color: #242424;
   font-size: 14px;
   padding: 5px 10px;
@@ -58,10 +58,10 @@
 }
 
 .view-more-button-project {
-  display: inline-block; /* Prevent it from taking full width */
+  display: inline-block; 
   color: inherit;
   background-color: transparent;
-  border: 2px solid; /* Border color */
+  border: 2px solid; 
   border-radius: 20px;
   font-family: 'Aptos', sans-serif;
   font-size: 15px;
@@ -70,37 +70,37 @@
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   width: auto;
-  align-self: flex-start; /* Align to the start of the card */
+  align-self: flex-start;
 }
 
 .view-more-button-project:hover {
-  background-color: #314697; /* Highlight on hover */
+  background-color: #314697; 
   color: #f7f7f7;
-  transform: translateX(3px); /* Slight lift effect */
+  transform: translateX(3px); 
 }
 
 .view-more-button-project:focus,
 .view-more-button-project:active {
   outline: none;
-  background-color: transparent; /* Reset any background color on focus */
-  border: 2px solid; /* Keep the border on focus */
+  background-color: transparent; 
+  border: 2px solid; 
 }
 
 @media (max-width: 768px) {
   .project-grid {
-    grid-template-columns: 1fr; /* 1 column for small screens */
+    grid-template-columns: 1fr; 
   }
 
   .project-title {
-    font-size: 20px; /* Adjust font size for smaller screens */
+    font-size: 20px; 
   }
 
   .project-description {
-    font-size: 14px; /* Smaller text for descriptions */
+    font-size: 14px; 
   }
 
   .view-more-button-project {
-    font-size: 14px; /* Smaller button text */
-    padding: 8px 10px; /* Adjust padding */
+    font-size: 14px; 
+    padding: 8px 10px; 
   }
 }
